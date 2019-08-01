@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>输入url到页面的加载完成发生了什么？</title>
+      <link href="/2019/08/01/url/"/>
+      <url>/2019/08/01/url/</url>
+      
+        <content type="html"><![CDATA[<p>从浏览器中输入URL到页面的加载发生了什么？</p><a id="more"></a><p>一、过程<br>    1、DNS解析：<br>    2、TCP的三次握手<br>    3、发送HTTP请求<br>    4、服务器处理请求并返回报文<br>    5、浏览器解析渲染页面<br>    6、连接结束</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> url、tcp、http </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2019年8月1日以后的计划</title>
       <link href="/2019/08/01/plan/"/>
       <url>/2019/08/01/plan/</url>

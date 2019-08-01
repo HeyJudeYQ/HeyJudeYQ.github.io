@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2019-08-01T14:15:27.660Z</updated>
+  <updated>2019-08-01T14:25:47.897Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>输入url到页面的加载完成发生了什么？</title>
+    <link href="xiaoyucode.top/2019/08/01/url/"/>
+    <id>xiaoyucode.top/2019/08/01/url/</id>
+    <published>2019-08-01T14:18:39.000Z</published>
+    <updated>2019-08-01T14:25:47.897Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从浏览器中输入URL到页面的加载发生了什么？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="url、tcp、http" scheme="xiaoyucode.top/tags/url%E3%80%81tcp%E3%80%81http/"/>
+    
+  </entry>
   
   <entry>
     <title>2019年8月1日以后的计划</title>

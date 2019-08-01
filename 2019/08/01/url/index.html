@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Promise是异步编程的一种解决方案，简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。">
-<meta name="keywords" content="Javascript、Promise">
+<meta name="description" content="从浏览器中输入URL到页面的加载发生了什么？">
+<meta name="keywords" content="url、tcp、http">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Promise">
-<meta property="og:url" content="xiaoyucode.top/2019/06/19/promise/index.html">
+<meta property="og:title" content="输入url到页面的加载完成发生了什么？">
+<meta property="og:url" content="xiaoyucode.top/2019/08/01/url/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="Promise是异步编程的一种解决方案，简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。">
+<meta property="og:description" content="从浏览器中输入URL到页面的加载发生了什么？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-10T22:26:16.928Z">
+<meta property="og:updated_time" content="2019-08-01T14:25:47.897Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Promise">
-<meta name="twitter:description" content="Promise是异步编程的一种解决方案，简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。">
+<meta name="twitter:title" content="输入url到页面的加载完成发生了什么？">
+<meta name="twitter:description" content="从浏览器中输入URL到页面的加载发生了什么？">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Promise | 小鱼儿</title>
+<title>输入url到页面的加载完成发生了什么？ | 小鱼儿</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -272,11 +272,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-promise" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-url" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/06/19/promise/" class="article-date">
-      <time datetime="2019-06-19T10:07:42.000Z" itemprop="datePublished">2019-06-19</time>
+      <a href="/2019/08/01/url/" class="article-date">
+      <time datetime="2019-08-01T14:18:39.000Z" itemprop="datePublished">2019-08-01</time>
 </a>
 
 
@@ -291,7 +291,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Promise
+      输入url到页面的加载完成发生了什么？
     </h1>
   
 
@@ -302,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript、Promise/">Javascript、Promise</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,18 +312,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Promise是异步编程的一种解决方案，简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。</p>
+        <p>从浏览器中输入URL到页面的加载发生了什么？</p>
 <a id="more"></a>
-<!-- <Excerpt in index | 首页摘要>  -->
-<p>语法上讲，Promise是一个对象，从它可以获取异步操作的消息。<br>Promise的两个特点：<br>    （1）对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。<br>    （2）一旦状态改变，就不会改变，任何时候都可以得到这个结果。Promise对象的状态改变，只有两种可能：从pending变为fulfilled和从pending变为rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这时就称为 resolved（已定型）。<br>一、Promise基本用法：<br>    1、Promise实例：<br>        Promise构造函数接受一个函数作为参数，该函数的两个函数分别是resolve和reject</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ const promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">      // ... some code </span><br><span class="line">      <span class="keyword">if</span>(/*异步操作成功*/)&#123;</span><br><span class="line">        resolve(value);</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        reject(error);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Promise实例生成后，可以用 then方法分别指定resolved状态和rejected状态的回调函数。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ promise.then(<span class="keyword">function</span>(value)&#123;</span><br><span class="line">    //success</span><br><span class="line">    &#125;,<span class="keyword">function</span>(error)&#123;</span><br><span class="line">    //failure</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>二、使用Promise分别获取图片的宽高<br>  new Promise实例，而且要return，new Promise时要传入函数，函数有resolve reject两个参数，成功时执行resolve（）、失败时执行reject（）、<br>then监听结果  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">function</span> <span class="function"><span class="title">loadImg</span></span>()&#123;</span><br><span class="line">    const promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">      var img = document.createElement(<span class="string">'img'</span>)</span><br><span class="line">      img.onload = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        resolve(img)</span><br><span class="line">      &#125;</span><br><span class="line">      img.<span class="function"><span class="title">onerror</span></span>()&#123;</span><br><span class="line">        reject()</span><br><span class="line">      &#125;</span><br><span class="line">      img.src = src</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="built_in">return</span> promise</span><br><span class="line">&#125;</span><br><span class="line">var src = <span class="string">'https://www.imooc.com/static/img/index/logo.png'</span></span><br><span class="line">var result = loadImg(src)</span><br><span class="line">//获取图片的宽度</span><br><span class="line">result.then(<span class="keyword">function</span>(img)&#123;</span><br><span class="line">  console.log(img.width)</span><br><span class="line">&#125;,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  console.log(<span class="string">'failed'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">//获取图片的高度</span><br><span class="line">result.then(<span class="keyword">function</span>(img)&#123;</span><br><span class="line">  console.log(img.height)</span><br><span class="line">&#125;,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  console.log(<span class="string">'failed'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
+<p>一、过程<br>    1、DNS解析：<br>    2、TCP的三次握手<br>    3、发送HTTP请求<br>    4、服务器处理请求并返回报文<br>    5、浏览器解析渲染页面<br>    6、连接结束</p>
 
       
     </div>
@@ -332,13 +323,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/06/19/promise/">Promise</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
-        <p><span>发布时间:</span>2019-06-19, 18:07:42</p>
-        <p><span>最后更新:</span>2019-07-11, 06:26:16</p>
+        <p><span>发布时间:</span>2019-08-01, 22:18:39</p>
+        <p><span>最后更新:</span>2019-08-01, 22:25:47</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/06/19/promise/" title="Promise">xiaoyucode.top/2019/06/19/promise/</a>
-            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/06/19/promise/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/01/url/" title="输入url到页面的加载完成发生了什么？">xiaoyucode.top/2019/08/01/url/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/08/01/url/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -350,16 +341,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/07/01/book/">
-                    我的书单--持续更新。。。
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/06/19/hello-world/">
-                    Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客
+                <a href="/2019/08/01/plan/">
+                    2019年8月1日以后的计划
                 </a>
             </div>
         
@@ -407,7 +392,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Promise　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"输入url到页面的加载完成发生了什么？　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -426,8 +411,8 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'xiaoyucode.top/2019/06/19/promise/';
-            this.page.identifier = '2019/06/19/promise/';
+            this.page.url = 'xiaoyucode.top/2019/08/01/url/';
+            this.page.identifier = '2019/08/01/url/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -449,15 +434,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/07/01/book/" title="上一篇: 我的书单--持续更新。。。">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/06/19/hello-world/" title="下一篇: Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客">
+            <a href="/2019/08/01/plan/" title="下一篇: 2019年8月1日以后的计划">
                 <i class="fa fa-angle-right"></i>
             </a>
         
