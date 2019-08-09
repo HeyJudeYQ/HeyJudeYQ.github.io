@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。">
-<meta name="keywords" content="原型链、prototype、__proto__">
+<meta name="description" content="面试题目：用纯 JS 实现点击一个列表时，输出对应的索引号?(不能使用 jQuery)">
+<meta name="keywords" content="纯JS、事件监听、事件委托、ES6、立即执行函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何理解原型链中的prototype和__proto__？">
-<meta property="og:url" content="xiaoyucode.top/2019/07/07/prototype/index.html">
+<meta property="og:title" content="fe">
+<meta property="og:url" content="xiaoyucode.top/2019/08/09/fe/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。">
+<meta property="og:description" content="面试题目：用纯 JS 实现点击一个列表时，输出对应的索引号?(不能使用 jQuery)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-10T22:26:29.235Z">
+<meta property="og:updated_time" content="2019-08-09T12:29:18.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何理解原型链中的prototype和__proto__？">
-<meta name="twitter:description" content="JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。">
+<meta name="twitter:title" content="fe">
+<meta name="twitter:description" content="面试题目：用纯 JS 实现点击一个列表时，输出对应的索引号?(不能使用 jQuery)">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>如何理解原型链中的prototype和__proto__？ | 小鱼儿</title>
+<title>fe | 小鱼儿</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -272,11 +272,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-prototype" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-fe" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/07/07/prototype/" class="article-date">
-      <time datetime="2019-07-07T08:53:05.000Z" itemprop="datePublished">2019-07-07</time>
+      <a href="/2019/08/09/fe/" class="article-date">
+      <time datetime="2019-08-09T11:56:10.000Z" itemprop="datePublished">2019-08-09</time>
 </a>
 
 
@@ -291,7 +291,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      如何理解原型链中的prototype和__proto__？
+      fe
     </h1>
   
 
@@ -302,7 +302,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纯JS、事件监听、事件委托、ES6、立即执行函数/">纯JS、事件监听、事件委托、ES6、立即执行函数</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,24 +312,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。</p>
+        <p>面试题目：用纯 JS 实现点击一个列表时，输出对应的索引号?(不能使用 jQuery)</p>
 <a id="more"></a>
-<h3 id="一、什么是原型链？"><a href="#一、什么是原型链？" class="headerlink" title="一、什么是原型链？"></a>一、什么是原型链？</h3><p>&emsp;&emsp;谈到继承时，JavaScript只有一种结构：<strong>对象</strong>。 
-MDN文档上是这样说的：每个实例对象（object）都有一个私有属性（称之为<code>__proto__</code>）指向它的构造函数的原型对象（prototype）。该原型对象也有一个自己的原型对象（<code>__proto__</code>）,层层向上直到一个对象的原型对象为null。根据定义，null没有原型，并作为这个原型链中的最后一个环节。</p>
-<h3 id="二、换种方式理解原型链？"><a href="#二、换种方式理解原型链？" class="headerlink" title="二、换种方式理解原型链？"></a>二、换种方式理解原型链？</h3><p>&emsp;&emsp;之前在慕课网上，听过一个讲师举了一个很有趣的例子来介绍什么是prototype（当时偷偷的用手机截了图^o^）:<br>&emsp;&emsp;简单粗暴一点，我们把prototype理解成一个“备胎”,手艺还是祖传的。有一个姑娘不会修电脑，自己也不想学，就去找prototype说你学学吧，学好了帮我把修电脑这活儿做好,<br>prototype学会了修电脑之后,这个姑娘电脑有问题就会去找prototype,其他的姑娘再想修电脑时候，prototype这修电脑的技术也能直接拿出来用。<br>后来，又有姑娘请prototype帮忙诊个脉,prototype没有地方学,就往祖上一辈辈的问去，后来了解到他爷爷会诊脉，后来再有人找他诊脉，prototype就把病人带着找它爷爷。<br>再后来，又有一个姑娘让prototype给她造个机器人，prototype问遍了祖上，没人会这门技术，只能告诉这姑娘null了。</p>
-<h3 id="三、为什么需要原型和原型链？"><a href="#三、为什么需要原型和原型链？" class="headerlink" title="三、为什么需要原型和原型链？"></a>三、为什么需要原型和原型链？</h3><p>&emsp;&emsp;看一个小例子：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name,age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age  = age;</span><br><span class="line">    this.eat  = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(age + <span class="string">"岁的"</span> + name + <span class="string">"在吃饭"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> p1 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line"><span class="built_in">let</span> p2 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line">console.log(p1.eat === p2.eat);  //<span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;我们发现上面的例子,对于同一个函数,我们可以通过new生成出来的实例,p1和p2的eat是不同的。我们想个办法，建立一个类似于共享库的对象，这样就可以在需要的时候，调用一个类似共享库的对象，让实例能够沿着某个“线索”去找到自己的归处。<br>这个“线索”就是我们的原型链 prototype。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">//通过构造函数的Person的prototype属性找到Person的原型对象</span><br><span class="line">Person.prototype.eat = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">"吃饭"</span>)；</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> p1 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line"><span class="built_in">let</span> p2 = new Person(<span class="string">"于齐"</span>,27)</span><br><span class="line"></span><br><span class="line">console.log(p1.eat === p2.eat);//<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="如何使用原生-Javascript-实现点击一个列表时，输出对应的索引号？"><a href="#如何使用原生-Javascript-实现点击一个列表时，输出对应的索引号？" class="headerlink" title="如何使用原生 Javascript 实现点击一个列表时，输出对应的索引号？"></a>如何使用原生 Javascript 实现点击一个列表时，输出对应的索引号？</h3><p>看到这个题目，我就知道了，面试官可能会考察一下对闭包的掌握。经验不足的小伙伴们可能会这样去实现：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;4&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;5&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;6&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var dom = document.querySelectorAll(<span class="string">'ul li'</span>);</span><br><span class="line">    <span class="keyword">for</span>(var i=0,len=dom.length;i&lt;len;i++)&#123;</span><br><span class="line">        dom[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            console.log(i);</span><br><span class="line">        &#125;,<span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;通过分享的形式，这两个实例对象指向相同的位置了，也就是我们想要创建的共享库的对象。</p>
-<h3 id="四、prototype是什么玩意儿呢？"><a href="#四、prototype是什么玩意儿呢？" class="headerlink" title="四、prototype是什么玩意儿呢？"></a>四、prototype是什么玩意儿呢？</h3><p>知乎上有一篇文章（<a href="https://zhuanlan.zhihu.com/p/22989691）" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22989691）</a> 写的很好，总结一下就是：<br>1、JavaScript本源是空的，即：null,这个就是JavaScript的“始祖”；</p>
-<p>2、null通过<code>__proto__</code>产生了NO1,即：<code>NO1.__proto__ == null</code>;  </p>
-<p>3、NO1根据自己的原型prototype创建了对象Object，即：<code>Object.prototype == NO1</code>;</p>
-<p>4、<code>NO1.__proto__ == null</code>,我们把prototype叫做原型，好比Object的原型是神，同时<strong>proto</strong>叫做原型链，有了这个<strong>proto</strong>，Object、NO1、JS之间才有联系，此时，<code>Object.prototype.__proto__ == null</code>，</p>
-<p>5、有几条公式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object.__proto__ === Function.prototype;</span><br><span class="line">Function.prototype.__proto__ === Object.prototype;</span><br><span class="line">Object.prototype.__proto__ === null;</span><br></pre></td></tr></table></figure>
+<p>当我们点击列表的时候，弹出的都是 6，这是怎么回事呢？<br>这是因为我们在使用了 var 声明的变量，是全局作用域，不是块级作用域。也就是说，for 循环 6 次，每次改变的都是同一个 i，所以它的值会从 0 一直加到 6。<br>还有一个问题就是闭包导致的，闭包保存的是外部变量的引用，而不是值。因此可以循环 6 次监听器创建 6 个闭包，它里面的 i 引用的是同一个，全部指向了 6。</p>
+<h3 id="方法一：使用ES6中的-let替代var"><a href="#方法一：使用ES6中的-let替代var" class="headerlink" title="方法一：使用ES6中的 let替代var"></a>方法一：使用ES6中的 let替代var</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var dom = document.querySelectorAll(<span class="string">'ul li'</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">let</span> i=0,len=dom.length;i&lt;len;i++)&#123;</span><br><span class="line">        dom[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            console.log(i);</span><br><span class="line">        &#125;,<span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>let声明的变量支持的是块级作用域。</p>
+<h3 id="方法二：使用立即执行函数来判断闭包对外部变量i的引用"><a href="#方法二：使用立即执行函数来判断闭包对外部变量i的引用" class="headerlink" title="方法二：使用立即执行函数来判断闭包对外部变量i的引用"></a>方法二：使用立即执行函数来判断闭包对外部变量i的引用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var dom = document.querySelectorAll(<span class="string">'ul li'</span>);</span><br><span class="line">    <span class="keyword">for</span>(var i=1,len = dom.length;i&lt;len;i++)&#123;</span><br><span class="line">        (<span class="keyword">function</span>(i)&#123;</span><br><span class="line">            dom[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                console.log(i);</span><br><span class="line">            &#125;,<span class="literal">false</span>)</span><br><span class="line">        &#125;)(i)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法三：事件委托的方法"><a href="#方法三：事件委托的方法" class="headerlink" title="方法三：事件委托的方法"></a>方法三：事件委托的方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var ul = document.querySelector(<span class="string">'ul'</span>);</span><br><span class="line">var dom = document.querySelectorAll(<span class="string">"ul li"</span>);</span><br><span class="line">ul.addEventListener(<span class="string">'click'</span>,<span class="keyword">function</span>(e)&#123;</span><br><span class="line">    var target = e.target;</span><br><span class="line">    <span class="keyword">if</span>(target.nodeName.toLowerCase() === <span class="string">'li'</span>)&#123;</span><br><span class="line">        console.log([].indexOf.call(dom,target));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这个方法使用了事件监听，减少了监听器的绑定。</p>
+
       
     </div>
     
@@ -337,13 +335,13 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></p>
+        <p><span>本文标题:</span><a href="/2019/08/09/fe/">fe</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
-        <p><span>发布时间:</span>2019-07-07, 16:53:05</p>
-        <p><span>最后更新:</span>2019-07-11, 06:26:29</p>
+        <p><span>发布时间:</span>2019-08-09, 19:56:10</p>
+        <p><span>最后更新:</span>2019-08-09, 20:29:18</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/07/07/prototype/" title="如何理解原型链中的prototype和__proto__？">xiaoyucode.top/2019/07/07/prototype/</a>
-            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/07/07/prototype/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/08/09/fe/" title="fe">xiaoyucode.top/2019/08/09/fe/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/08/09/fe/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -355,16 +353,10 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/07/09/command/">
-                    几个常用的Linux命令
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/07/03/ES6/">
-                    Class语法
+                <a href="/2019/08/01/url/">
+                    输入url到页面的加载完成发生了什么？
                 </a>
             </div>
         
@@ -376,7 +368,7 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是原型链？"><span class="toc-number">1.</span> <span class="toc-text">一、什么是原型链？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、换种方式理解原型链？"><span class="toc-number">2.</span> <span class="toc-text">二、换种方式理解原型链？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、为什么需要原型和原型链？"><span class="toc-number">3.</span> <span class="toc-text">三、为什么需要原型和原型链？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、prototype是什么玩意儿呢？"><span class="toc-number">4.</span> <span class="toc-text">四、prototype是什么玩意儿呢？</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何使用原生-Javascript-实现点击一个列表时，输出对应的索引号？"><span class="toc-number">1.</span> <span class="toc-text">如何使用原生 Javascript 实现点击一个列表时，输出对应的索引号？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：使用ES6中的-let替代var"><span class="toc-number">2.</span> <span class="toc-text">方法一：使用ES6中的 let替代var</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：使用立即执行函数来判断闭包对外部变量i的引用"><span class="toc-number">3.</span> <span class="toc-text">方法二：使用立即执行函数来判断闭包对外部变量i的引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法三：事件委托的方法"><span class="toc-number">4.</span> <span class="toc-text">方法三：事件委托的方法</span></a></li></ol>
         
     </div>
     <style>
@@ -412,7 +404,7 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"如何理解原型链中的prototype和__proto__？　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"fe　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -431,8 +423,8 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function(){
-            this.page.url = 'xiaoyucode.top/2019/07/07/prototype/';
-            this.page.identifier = '2019/07/07/prototype/';
+            this.page.url = 'xiaoyucode.top/2019/08/09/fe/';
+            this.page.identifier = '2019/08/09/fe/';
         };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
@@ -454,15 +446,13 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/07/09/command/" title="上一篇: 几个常用的Linux命令">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/07/03/ES6/" title="下一篇: Class语法">
+            <a href="/2019/08/01/url/" title="下一篇: 输入url到页面的加载完成发生了什么？">
                 <i class="fa fa-angle-right"></i>
             </a>
         
