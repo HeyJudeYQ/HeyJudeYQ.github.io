@@ -31,8 +31,6 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 
-    <link rel="alternate" href="/atom.xml" title="小鱼儿" type="application/atom+xml">
-
 
 
     <link rel="shortcut icon" href="/favicon.png">
@@ -176,10 +174,6 @@
                             
                                 <a class="fa 新浪微博" href="/sina weibo" title="新浪微博"></a>
                             
-                                <a class="fa GitHub" href="https://github.com/troublemaker121" title="GitHub"></a>
-                            
-                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
-                            
                                 <a class="fa SegmentFault" href="/" title="SegmentFault"></a>
                             
                                 <a class="fa 网易云音乐" href="/netease" title="网易云音乐"></a>
@@ -191,7 +185,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript、Promise/">Javascript、Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan、2019/">plan、2019</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/transparent、border/">transparent、border</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/纯JS、事件监听、事件委托、ES6、立即执行函数/">纯JS、事件监听、事件委托、ES6、立即执行函数</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript、Promise/">Javascript、Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/plan、2019/">plan、2019</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/纯JS、事件监听、事件委托、ES6、立即执行函数/">纯JS、事件监听、事件委托、ES6、立即执行函数</a></li></ul>
                     </div>
                 </section>
                 
@@ -203,8 +197,6 @@
                       <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
                     
                       <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
                     
                     </div>
                 </section>
@@ -257,10 +249,6 @@
                                 <a class="fa Email" target="_blank" href="/1334352808@qq.com" title="Email"></a>
                             
                                 <a class="fa 新浪微博" target="_blank" href="/sina weibo" title="新浪微博"></a>
-                            
-                                <a class="fa GitHub" target="_blank" href="https://github.com/troublemaker121" title="GitHub"></a>
-                            
-                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
                             
                                 <a class="fa SegmentFault" target="_blank" href="/" title="SegmentFault"></a>
                             
@@ -426,27 +414,24 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
 
 
     
-        <section id="comments">
-    <style> aside.comment-bar { margin: auto 30px; }</style>
-    <div id="disqus_thread"></div>
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2019/07/07/prototype/" data-title="如何理解原型链中的prototype和__proto__？" data-url="xiaoyucode.top/2019/07/07/prototype/"></div>
     <script>
-        var disqus_config = function(){
-            this.page.url = 'xiaoyucode.top/2019/07/07/prototype/';
-            this.page.identifier = '2019/07/07/prototype/';
-        };
+        var duoshuoQuery = {short_name:""};
         var loadComment = function(){
             var d = document, s = d.createElement('script');
-            s.src = '//.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', +new Date());
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
             (d.head || d.body).appendChild(s);
         }
+
+        
     </script>
     
     <script> loadComment(); </script>
 
-</section>
-
-
+</div>
     
 
 
@@ -468,7 +453,7 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">使用CSS画三角形</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/plan/">2019年8月1日以后的计划</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">几个常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/01/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">trangel</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/plan/">2019年8月1日以后的计划</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">几个常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/01/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
 
 
 
