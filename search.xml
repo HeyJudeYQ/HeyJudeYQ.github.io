@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>我的书单--持续更新。。。</title>
+      <link href="/2019/09/30/book/"/>
+      <url>/2019/09/30/book/</url>
+      
+        <content type="html"><![CDATA[<p>如果累了，就停下来看看书，冷静一下。</p><a id="more"></a><p>2019年下半年准备看的书单</p><h3 id="一、书单"><a href="#一、书单" class="headerlink" title="一、书单"></a>一、书单</h3><p>1、《不要让未来的你讨厌现在的自己》——–  作者：特立独行的猫<br>2、《ES6标准入门（第二版）》———  作者：阮一峰</p><h3 id="二、随笔"><a href="#二、随笔" class="headerlink" title="二、随笔"></a>二、随笔</h3><h6 id="（一）、最难迈出的是第一步"><a href="#（一）、最难迈出的是第一步" class="headerlink" title="（一）、最难迈出的是第一步"></a>（一）、最难迈出的是第一步</h6><p>人生有很多第一次，<br>比如，<br>第一次背着书包去学校，<br>第一次踏入这个复杂的社会，<br>第一次谈恋爱等等。。。</p><p>我们面对第一次时的心情往往是复杂的，<br>我们会有一种喜悦感，<br>同时还伴有一丝紧张焦虑和害怕。<br>之所以会有一种喜悦感，<br>是因为我们知道，<br>每往前踏出一步，<br>便意味着我们又成长了，<br>对这个社会了解更深入了一层。</p><p>是啊，<br>人生最难的事情便是迈出第一步了，<br>如果你连第一步都不愿意往外迈，<br>或者都不敢迈的话，<br>那么成功只会深深地藏在你的心里，<br>它永远不会实现。</p><p>“嗯嗯，希望你以后能闯出一片属于你自己的天地！我们一起加油！”</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> book </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用Vue-cli3.0搭建项目</title>
+      <link href="/2019/09/30/vue-project/"/>
+      <url>/2019/09/30/vue-project/</url>
+      
+        <content type="html"><![CDATA[<p>使用Vue-cli3.0搭建项目的流程：</p><a id="more"></a><h3 id="一、安装依赖工具：Node"><a href="#一、安装依赖工具：Node" class="headerlink" title="一、安装依赖工具：Node"></a>一、安装依赖工具：Node</h3><p>查看node版本：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure><p>Node自带npm模块，可以直接使用命令行安装npx,当我们使用不同版本的node时，我们可以直接通过npx命令切换node版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 安装npx</span><br><span class="line">npm install -g npx</span><br><span class="line">// 切换node版本</span><br><span class="line">npx node@8.12.0 -v  //使用node 8.12.0版本</span><br><span class="line">npx node@8.16.0 -v  //使用node 8.16.0版本</span><br></pre></td></tr></table></figure><h3 id="二、全局安装vue-cli"><a href="#二、全局安装vue-cli" class="headerlink" title="二、全局安装vue-cli"></a>二、全局安装vue-cli</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 全局安装vue-cli3.0</span><br><span class="line">npm install -g @vue/cli</span><br><span class="line">// 或者使用yarn</span><br><span class="line">yarn global add @vue/cli</span><br></pre></td></tr></table></figure><h3 id="三、创建一个项目"><a href="#三、创建一个项目" class="headerlink" title="三、创建一个项目"></a>三、创建一个项目</h3><p>使用vue create</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个项目</span><br><span class="line">vue create project-name</span><br></pre></td></tr></table></figure><p>如果是vue-cli2.x 旧版本，创建一个项目</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br><span class="line">npm init webpack my-project</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Vue、Vue-cli </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>如何使用CSS画三角形</title>
       <link href="/2019/08/10/trangel/"/>
       <url>/2019/08/10/trangel/</url>
@@ -148,25 +186,6 @@
         <tags>
             
             <tag> ES6、JavaScript、Class </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>我的书单--持续更新。。。</title>
-      <link href="/2019/07/01/book/"/>
-      <url>/2019/07/01/book/</url>
-      
-        <content type="html"><![CDATA[<p>如果累了，就停下来看看书，冷静一下。</p><a id="more"></a><p>2019年下半年准备看的书单</p><h3 id="一、书单详情"><a href="#一、书单详情" class="headerlink" title="一、书单详情"></a>一、书单详情</h3><p>1、《不要让未来的你讨厌现在的自己》  作者：特立独行的猫<br>2、《ES6标准入门（第二版）》        作者：阮一峰<br>3、<br>。。<br>。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> book </tag>
             
         </tags>
       

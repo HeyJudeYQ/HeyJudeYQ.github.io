@@ -15,17 +15,18 @@
 
 
 
-<meta name="description" content="致力于web前端开发的菜鸟！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="xiaoyucode.top/about/index.html">
+<meta name="description" content="使用Vue-cli3.0搭建项目的流程：">
+<meta name="keywords" content="Vue、Vue-cli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Vue-cli3.0搭建项目">
+<meta property="og:url" content="xiaoyucode.top/2019/09/30/vue-project/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="致力于web前端开发的菜鸟！">
+<meta property="og:description" content="使用Vue-cli3.0搭建项目的流程：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-29T16:29:04.908Z">
+<meta property="og:updated_time" content="2019-09-30T11:46:22.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="致力于web前端开发的菜鸟！">
+<meta name="twitter:title" content="使用Vue-cli3.0搭建项目">
+<meta name="twitter:description" content="使用Vue-cli3.0搭建项目的流程：">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -55,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>关于我 | 小鱼儿</title>
+<title>使用Vue-cli3.0搭建项目 | 小鱼儿</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,7 +66,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -263,11 +264,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-vue-project" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/about/index.html" class="article-date">
-      <time datetime="2019-06-29T15:05:08.000Z" itemprop="datePublished">2019-06-29</time>
+      <a href="/2019/09/30/vue-project/" class="article-date">
+      <time datetime="2019-09-30T06:52:47.000Z" itemprop="datePublished">2019-09-30</time>
 </a>
 
 
@@ -282,7 +283,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      关于我
+      使用Vue-cli3.0搭建项目
     </h1>
   
 
@@ -292,6 +293,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue、Vue-cli/">Vue、Vue-cli</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -299,37 +304,87 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p>使用Vue-cli3.0搭建项目的流程：</p>
+<a id="more"></a>
 
+<h3 id="一、安装依赖工具：Node"><a href="#一、安装依赖工具：Node" class="headerlink" title="一、安装依赖工具：Node"></a>一、安装依赖工具：Node</h3><p>查看node版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 
-          
-        <p>致力于web前端开发的菜鸟！</p>
+<p>Node自带npm模块，可以直接使用命令行安装npx,当我们使用不同版本的node时，我们可以直接通过npx命令切换node版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 安装npx</span><br><span class="line">npm install -g npx</span><br><span class="line">// 切换node版本</span><br><span class="line">npx node@8.12.0 -v  //使用node 8.12.0版本</span><br><span class="line">npx node@8.16.0 -v  //使用node 8.16.0版本</span><br></pre></td></tr></table></figure>
 
+<h3 id="二、全局安装vue-cli"><a href="#二、全局安装vue-cli" class="headerlink" title="二、全局安装vue-cli"></a>二、全局安装vue-cli</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 全局安装vue-cli3.0</span><br><span class="line">npm install -g @vue/cli</span><br><span class="line">// 或者使用yarn</span><br><span class="line">yarn global add @vue/cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、创建一个项目"><a href="#三、创建一个项目" class="headerlink" title="三、创建一个项目"></a>三、创建一个项目</h3><p>使用vue create</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 创建一个项目</span><br><span class="line">vue create project-name</span><br></pre></td></tr></table></figure>
+
+<p>如果是vue-cli2.x 旧版本，创建一个项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br><span class="line">npm init webpack my-project</span><br></pre></td></tr></table></figure>
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
+        <p><span>发布时间:</span>2019-09-30, 14:52:47</p>
+        <p><span>最后更新:</span>2019-09-30, 19:46:22</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/09/30/vue-project/" title="使用Vue-cli3.0搭建项目">xiaoyucode.top/2019/09/30/vue-project/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/09/30/vue-project/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/09/30/book/">
+                    我的书单--持续更新。。。
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/08/10/trangel/">
+                    如何使用CSS画三角形
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、安装依赖工具：Node"><span class="toc-number">1.</span> <span class="toc-text">一、安装依赖工具：Node</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、全局安装vue-cli"><span class="toc-number">2.</span> <span class="toc-text">二、全局安装vue-cli</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、创建一个项目"><span class="toc-number">3.</span> <span class="toc-text">三、创建一个项目</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
 
 
 
@@ -347,7 +402,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"关于我　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"使用Vue-cli3.0搭建项目　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -363,7 +418,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="about/index.html" data-title="关于我" data-url="xiaoyucode.top/about/index.html"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2019/09/30/vue-project/" data-title="使用Vue-cli3.0搭建项目" data-url="xiaoyucode.top/2019/09/30/vue-project/"></div>
     <script>
         var duoshuoQuery = {short_name:""};
         var loadComment = function(){
@@ -381,6 +436,26 @@
 </div>
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/09/30/book/" title="上一篇: 我的书单--持续更新。。。">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/08/10/trangel/" title="下一篇: 如何使用CSS画三角形">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">如何使用CSS画三角形</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/plan/">2019年8月1日以后的计划</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">几个常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
 
 
 
