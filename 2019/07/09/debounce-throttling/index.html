@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="小鱼儿">
 <meta property="og:description" content="防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-10T22:30:32.960Z">
+<meta property="og:updated_time" content="2019-10-05T05:21:33.654Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="防抖（debounce）和节流（throttle）">
 <meta name="twitter:description" content="防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。">
@@ -311,9 +311,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>防抖（<code>debounce</code>）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。</p>
+        <p>防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。</p>
 <a id="more"></a>
-<p>节流（<code>throttle</code>）：指定时间间隔内只会执行一次任务。<br>&emsp;防抖与节流的原理：使用setTimeout来存放将要执行的函数。其中函数节流就是利用标记符来控制本次执行完毕。函数防抖就是利用clearTimeout来清楚执行的函数。目的为了节约计算机资源，从而达到一个更好的运行效果。</p>
+<p>节流（throttle）：指定时间间隔内只会执行一次任务。<br>&emsp;防抖与节流的原理：使用setTimeout来存放将要执行的函数。其中函数节流就是利用标记符来控制本次执行完毕。函数防抖就是利用clearTimeout来清楚执行的函数。目的为了节约计算机资源，从而达到一个更好的运行效果。</p>
 <h3 id="一、防抖"><a href="#一、防抖" class="headerlink" title="一、防抖"></a>一、防抖</h3><p>&emsp;用户在输入框内容校验等操作时，如果事件处理函数的调用频率无限制，会加重浏览器的负担，导致用户体验会很不好，防抖和节流的方式减少调用频率，同时又不影响实际效果。</p>
 <p>下面是一个防抖的小案例：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=<span class="string">"debounce"</span>&gt;点我防抖&lt;/button&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            //获取按钮并绑定事件</span><br><span class="line">            var myDebounce = document.getElementById(<span class="string">"debounce"</span>);</span><br><span class="line">            myDebounce.addEventListener(<span class="string">"click"</span>,debounce(sayDebounce));</span><br><span class="line">        &#125;;</span><br><span class="line">        //防抖功能函数，接受传参</span><br><span class="line">        <span class="keyword">function</span> debounce(fn)&#123;</span><br><span class="line">            //创建一个标记用来存放定时器的返回值</span><br><span class="line">            <span class="built_in">let</span> timeout = null;</span><br><span class="line">            <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                //每次当用户点击、输入的时候，把前一个定时器消除</span><br><span class="line">                clearTimeout(timeout);</span><br><span class="line">                //创建一个新的setTimeout，这样能保证点击按钮后的间隔内，</span><br><span class="line">                //如果用户还点击的话，就不会执行fn函数</span><br><span class="line">                timeout = setTimeout(() =&gt; &#123;</span><br><span class="line">                    fn.call(this,arguments);</span><br><span class="line">                &#125;,1000);</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">        //防抖事件的处理</span><br><span class="line">        <span class="keyword">function</span> <span class="function"><span class="title">sayDebounce</span></span>()&#123;</span><br><span class="line">            // ...有些需要防抖的工作，在这里进行</span><br><span class="line">            console.log(<span class="string">"防抖成功~"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -331,7 +331,7 @@
         <p><span>本文标题:</span><a href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
         <p><span>发布时间:</span>2019-07-09, 21:51:54</p>
-        <p><span>最后更新:</span>2019-07-11, 06:30:32</p>
+        <p><span>最后更新:</span>2019-10-05, 13:21:33</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/07/09/debounce-throttling/" title="防抖（debounce）和节流（throttle）">xiaoyucode.top/2019/07/09/debounce-throttling/</a>
             <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/07/09/debounce-throttling/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

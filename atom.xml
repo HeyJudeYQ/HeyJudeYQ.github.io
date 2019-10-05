@@ -129,11 +129,11 @@
     <link href="xiaoyucode.top/2019/07/09/debounce-throttling/"/>
     <id>xiaoyucode.top/2019/07/09/debounce-throttling/</id>
     <published>2019-07-09T13:51:54.000Z</published>
-    <updated>2019-07-10T22:30:32.960Z</updated>
+    <updated>2019-10-05T05:21:33.654Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;防抖（&lt;code&gt;debounce&lt;/code&gt;）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。&lt;/p&gt;
+      &lt;p&gt;防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。&lt;/p&gt;
     
     </summary>
     

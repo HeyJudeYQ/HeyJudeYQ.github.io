@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>xiaoyucode.top/2019/07/09/debounce-throttling/</loc>
+    
+    <lastmod>2019-10-05T05:21:33.654Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>xiaoyucode.top/2019/09/30/book/</loc>
     
     <lastmod>2019-10-02T13:13:05.470Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>xiaoyucode.top/2019/08/01/plan/</loc>
     
     <lastmod>2019-08-01T14:15:27.660Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>xiaoyucode.top/2019/07/09/debounce-throttling/</loc>
-    
-    <lastmod>2019-07-10T22:30:32.960Z</lastmod>
     
   </url>
   
