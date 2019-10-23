@@ -4,11 +4,43 @@
   
     
     <entry>
+      <title>常用的git提交代码命令</title>
+      <link href="/2019/10/23/git/"/>
+      <url>/2019/10/23/git/</url>
+      
+        <content type="html"><![CDATA[<p>日常开发使用的git提交代码的方法</p><a id="more"></a><h6 id="一、初始化本地仓库，提交代码，提交到远程git仓库"><a href="#一、初始化本地仓库，提交代码，提交到远程git仓库" class="headerlink" title="一、初始化本地仓库，提交代码，提交到远程git仓库"></a>一、初始化本地仓库，提交代码，提交到远程git仓库</h6><p>1、初始化代码仓库<br>    git init<br>2、将当前目录下的所有文件放到暂存区<br>    git add .<br>3、查看文件状态<br>    git status<br>4、添加提交的描述信息<br>    git commit -m “提交的描述信息”<br>5、远程仓库地址<br>    git remote add origin “远程仓库地址”<br>6、推送到远程仓库<br>    git push -u origin master</p><h6 id="二、创建分支，提交代码到分支"><a href="#二、创建分支，提交代码到分支" class="headerlink" title="二、创建分支，提交代码到分支"></a>二、创建分支，提交代码到分支</h6><p>1、创建切换分支<br>    git checkout -b dev  dev为分支名称<br>    git add .<br>    git commit -m ‘描述’<br>    git push –set-upstream origin dev1   将分支推送到远程仓库<br>    切换到主分支<br>    git checkout master<br>    git merge dev  将dev合并到主分支<br>    git push origin master  推送到远程仓库</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>v-for</title>
+      <link href="/2019/10/06/v-for/"/>
+      <url>/2019/10/06/v-for/</url>
+      
+        <content type="html"><![CDATA[<p>v-for是比较常用的Vue指令,常用来渲染数据列表。</p><a id="more"></a><p>1、v-for指令需要使用item in List形式的语法，其中List是源数据数组，item是被迭代的数组元素的别名。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;li v-for=<span class="string">"item in List"</span>&gt;&#123;&#123;item.message&#125;&#125;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var example = new Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        List:[</span><br><span class="line">            &#123;message:<span class="string">'Jack'</span>&#125;,</span><br><span class="line">            &#123;message:<span class="string">'Rose'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>结果为：<br>    Jack<br>    Rose</p><p>2、在v-for块中，我们可以访问所有的父作用域的属性，v-for还支持可选的第二个参数，即当前项的索引</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;li v-for=<span class="string">"（item,index) in List"</span>&gt;</span><br><span class="line">        &#123;&#123;parenMessage&#125;&#125; -  &#123;&#123; index &#125;&#125; - &#123;&#123;item.message&#125;&#125;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var example = new Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        parentMessage:<span class="string">'parent'</span>, </span><br><span class="line">        List:[</span><br><span class="line">            &#123;message:<span class="string">'Jack'</span>&#125;,</span><br><span class="line">            &#123;message:<span class="string">'Rose'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>结果为：<br>    parent-0-Jack<br>    parent-1-Rose</p><p>我们可以使用of 替代 in 作为分隔符，因为它更接近JavaScript迭代器的语法</p><div v-for="item of List"></div><p>待续。。。。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue、v-for </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我的书单--持续更新。。。</title>
       <link href="/2019/09/30/book/"/>
       <url>/2019/09/30/book/</url>
       
-        <content type="html"><![CDATA[<p>如果累了，就停下来看看书，冷静一下。</p><a id="more"></a><p>2019年下半年准备看的书单</p><h3 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h3><p>1、《不要让未来的你讨厌现在的自己》——–  作者：特立独行的猫<br>2、《ES6标准入门（第二版）》———  作者：阮一峰</p><h3 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h3><h6 id="（一）、最难迈出的是第一步"><a href="#（一）、最难迈出的是第一步" class="headerlink" title="（一）、最难迈出的是第一步"></a>（一）、最难迈出的是第一步</h6><p>人生有很多第一次，<br>比如，<br>第一次背着书包去学校，<br>第一次踏入这个复杂的社会，<br>第一次谈恋爱等等。。。</p><p>我们面对第一次时的心情往往是复杂的，<br>我们会有一种喜悦感，<br>同时还伴有一丝紧张焦虑和害怕。<br>之所以会有一种喜悦感，<br>是因为我们知道，<br>每往前踏出一步，<br>便意味着我们又成长了，<br>对这个社会了解更深入了一层。</p><p>是啊，<br>人生最难的事情便是迈出第一步了，<br>如果你连第一步都不愿意往外迈，<br>或者都不敢迈的话，<br>那么成功只会深深地藏在你的心里，<br>它永远不会实现。</p><p>“嗯嗯，希望你以后能闯出一片属于你自己的天地！我们一起加油！”</p><h6 id="二-、2019年10月1日-国庆节"><a href="#二-、2019年10月1日-国庆节" class="headerlink" title="(二)、2019年10月1日  国庆节"></a>(二)、2019年10月1日  国庆节</h6><p>时间：1949.10.1 –  2019.10.1<br>今天是祖国70周年生日，<br>祝伟大的祖国繁荣昌盛，<br>国富民强，<br>前人栽树后人乘凉，<br>永远缅怀革命先烈的流血牺牲。</p><p>70年弹指一挥间，<br>现在的祖国山河无恙国富民强，<br>我们足以告慰先烈，<br>这盛世如先辈所愿。</p><h6 id="三-、2019年10月2日"><a href="#三-、2019年10月2日" class="headerlink" title="(三)、2019年10月2日"></a>(三)、2019年10月2日</h6><p>《鸡毛飞上天》让人感动的画面</p><p>8年后，陈江河与骆玉珠火车相遇</p><p>陈江河在火车上的偶然一瞥，<br>看见了坐在对面火车上的骆玉珠，<br>激动的说不出话来，<br>看见陈江河手里砖头的骆玉珠，<br>也抑制不住自己内心的情绪。</p><p>下一站月台的相遇，<br>相遇之后，<br>卧室里顺手给钥匙的细节，<br>陈江河的表现真的非常的好。</p><h6 id="四-、2019年10月6日"><a href="#四-、2019年10月6日" class="headerlink" title="(四)、2019年10月6日"></a>(四)、2019年10月6日</h6><p>曾经，<br>你认为离你很远的30岁，<br>其实，<br>已经就在你的面前。</p>]]></content>
+        <content type="html"><![CDATA[<p>如果累了，就停下来看看书，冷静一下。</p><a id="more"></a><p>2019年下半年准备看的书单</p><h3 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h3><p>1、《不要让未来的你讨厌现在的自己》——–  作者：特立独行的猫<br>2、《ES6标准入门（第二版）》———  作者：阮一峰</p><h3 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h3><h6 id="（一）、最难迈出的是第一步"><a href="#（一）、最难迈出的是第一步" class="headerlink" title="（一）、最难迈出的是第一步"></a>（一）、最难迈出的是第一步</h6><p>人生有很多第一次，<br>比如，<br>第一次背着书包去学校，<br>第一次踏入这个复杂的社会，<br>第一次谈恋爱等等。。。</p><p>我们面对第一次时的心情往往是复杂的，<br>我们会有一种喜悦感，<br>同时还伴有一丝紧张焦虑和害怕。<br>之所以会有一种喜悦感，<br>是因为我们知道，<br>每往前踏出一步，<br>便意味着我们又成长了，<br>对这个社会了解更深入了一层。</p><p>是啊，<br>人生最难的事情便是迈出第一步了，<br>如果你连第一步都不愿意往外迈，<br>或者都不敢迈的话，<br>那么成功只会深深地藏在你的心里，<br>它永远不会实现。</p><p>“嗯嗯，希望你以后能闯出一片属于你自己的天地！我们一起加油！”</p><h6 id="二-、2019年10月1日-国庆节"><a href="#二-、2019年10月1日-国庆节" class="headerlink" title="(二)、2019年10月1日  国庆节"></a>(二)、2019年10月1日  国庆节</h6><p>时间：1949.10.1 –  2019.10.1<br>今天是祖国70周年生日，<br>祝伟大的祖国繁荣昌盛，<br>国富民强，<br>前人栽树后人乘凉，<br>永远缅怀革命先烈的流血牺牲。</p><p>70年弹指一挥间，<br>现在的祖国山河无恙国富民强，<br>我们足以告慰先烈，<br>这盛世如先辈所愿。</p><h6 id="三-、2019年10月2日"><a href="#三-、2019年10月2日" class="headerlink" title="(三)、2019年10月2日"></a>(三)、2019年10月2日</h6><p>《鸡毛飞上天》让人感动的画面</p><p>8年后，陈江河与骆玉珠火车相遇</p><p>陈江河在火车上的偶然一瞥，<br>看见了坐在对面火车上的骆玉珠，<br>激动的说不出话来，<br>看见陈江河手里砖头的骆玉珠，<br>也抑制不住自己内心的情绪。</p><p>下一站月台的相遇，<br>相遇之后，<br>卧室里顺手给钥匙的细节，<br>陈江河的表现真的非常的好。</p><h6 id="四-、2019年10月6日"><a href="#四-、2019年10月6日" class="headerlink" title="(四)、2019年10月6日"></a>(四)、2019年10月6日</h6><p>曾经，<br>你认为离你很远的30岁，<br>其实，<br>已经就在你的面前。</p><h6 id="（五）、2019年10月16日"><a href="#（五）、2019年10月16日" class="headerlink" title="（五）、2019年10月16日"></a>（五）、2019年10月16日</h6>]]></content>
       
       
       

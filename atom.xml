@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2019-10-06T07:02:10.783Z</updated>
+  <updated>2019-10-23T06:36:07.979Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -17,11 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>常用的git提交代码命令</title>
+    <link href="xiaoyucode.top/2019/10/23/git/"/>
+    <id>xiaoyucode.top/2019/10/23/git/</id>
+    <published>2019-10-23T06:22:29.000Z</published>
+    <updated>2019-10-23T06:36:07.979Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;日常开发使用的git提交代码的方法&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>v-for</title>
+    <link href="xiaoyucode.top/2019/10/06/v-for/"/>
+    <id>xiaoyucode.top/2019/10/06/v-for/</id>
+    <published>2019-10-06T08:08:00.000Z</published>
+    <updated>2019-10-23T06:55:06.889Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;v-for是比较常用的Vue指令,常用来渲染数据列表。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue、v-for" scheme="xiaoyucode.top/tags/vue%E3%80%81v-for/"/>
+    
+  </entry>
+  
+  <entry>
     <title>我的书单--持续更新。。。</title>
     <link href="xiaoyucode.top/2019/09/30/book/"/>
     <id>xiaoyucode.top/2019/09/30/book/</id>
     <published>2019-09-30T11:30:00.000Z</published>
-    <updated>2019-10-06T07:02:10.783Z</updated>
+    <updated>2019-10-16T12:58:35.288Z</updated>
     
     <summary type="html">
     

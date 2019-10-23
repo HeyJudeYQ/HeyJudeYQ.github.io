@@ -15,18 +15,17 @@
 
 
 
-<meta name="description" content="一、Class语法：    Class在语法上更加贴合面向对象的写法；Class实现继承更易读、易理解；本质是语法糖，使用了prototype。">
-<meta name="keywords" content="ES6、JavaScript、Class">
+<meta name="description" content="日常开发使用的git提交代码的方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Class语法">
-<meta property="og:url" content="xiaoyucode.top/2019/07/03/ES6/index.html">
+<meta property="og:title" content="常用的git提交代码命令">
+<meta property="og:url" content="xiaoyucode.top/2019/10/23/git/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="一、Class语法：    Class在语法上更加贴合面向对象的写法；Class实现继承更易读、易理解；本质是语法糖，使用了prototype。">
+<meta property="og:description" content="日常开发使用的git提交代码的方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-10T22:26:06.094Z">
+<meta property="og:updated_time" content="2019-10-23T06:36:07.979Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Class语法">
-<meta name="twitter:description" content="一、Class语法：    Class在语法上更加贴合面向对象的写法；Class实现继承更易读、易理解；本质是语法糖，使用了prototype。">
+<meta name="twitter:title" content="常用的git提交代码命令">
+<meta name="twitter:description" content="日常开发使用的git提交代码的方法">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -56,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Class语法 | 小鱼儿</title>
+<title>常用的git提交代码命令 | 小鱼儿</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +270,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-ES6" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/07/03/ES6/" class="article-date">
-      <time datetime="2019-07-03T08:57:14.000Z" itemprop="datePublished">2019-07-03</time>
+      <a href="/2019/10/23/git/" class="article-date">
+      <time datetime="2019-10-23T06:22:29.000Z" itemprop="datePublished">2019-10-23</time>
 </a>
 
 
@@ -290,7 +289,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Class语法
+      常用的git提交代码命令
     </h1>
   
 
@@ -300,10 +299,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -311,12 +306,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>一、Class语法：<br>    Class在语法上更加贴合面向对象的写法；Class实现继承更易读、易理解；本质是语法糖，使用了prototype。</p>
+        <p>日常开发使用的git提交代码的方法</p>
 <a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ class Mathhandle&#123;</span><br><span class="line">    constructor(x,y)&#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">        this.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">add</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> this.x + this.y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  const mm = new Mathhandle(1,2);</span><br><span class="line">  console.log(mm.add());</span><br><span class="line"></span><br><span class="line">  typeof Mathhandle    //<span class="keyword">function</span></span><br><span class="line">  console.log(Mathhandle === Mathhandle.prototype.constructor); // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h6 id="一、初始化本地仓库，提交代码，提交到远程git仓库"><a href="#一、初始化本地仓库，提交代码，提交到远程git仓库" class="headerlink" title="一、初始化本地仓库，提交代码，提交到远程git仓库"></a>一、初始化本地仓库，提交代码，提交到远程git仓库</h6><p>1、初始化代码仓库<br>    git init<br>2、将当前目录下的所有文件放到暂存区<br>    git add .<br>3、查看文件状态<br>    git status<br>4、添加提交的描述信息<br>    git commit -m “提交的描述信息”<br>5、远程仓库地址<br>    git remote add origin “远程仓库地址”<br>6、推送到远程仓库<br>    git push -u origin master</p>
+<h6 id="二、创建分支，提交代码到分支"><a href="#二、创建分支，提交代码到分支" class="headerlink" title="二、创建分支，提交代码到分支"></a>二、创建分支，提交代码到分支</h6><p>1、创建切换分支<br>    git checkout -b dev  dev为分支名称<br>    git add .<br>    git commit -m ‘描述’<br>    git push –set-upstream origin dev1   将分支推送到远程仓库<br>    切换到主分支<br>    git checkout master<br>    git merge dev  将dev合并到主分支<br>    git push origin master  推送到远程仓库</p>
 
-<p>二、Class继承</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">class Animal&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">eat</span></span>()&#123;</span><br><span class="line">        console.log(this.name + <span class="string">'eat'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dog extend Animal&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        super(name)</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">say</span></span>()&#123;</span><br><span class="line">        console.log(`<span class="variable">$&#123;this.name&#125;</span> eat`)</span><br><span class="line">    &#125;</span><br><span class="line">    const dog = new Dog(<span class="string">'hashiqi'</span>);</span><br><span class="line">    dog.say();</span><br><span class="line">    dog.eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -324,13 +318,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/07/03/ES6/">Class语法</a></p>
+        <p><span>本文标题:</span><a href="/2019/10/23/git/">常用的git提交代码命令</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
-        <p><span>发布时间:</span>2019-07-03, 16:57:14</p>
-        <p><span>最后更新:</span>2019-07-11, 06:26:06</p>
+        <p><span>发布时间:</span>2019-10-23, 14:22:29</p>
+        <p><span>最后更新:</span>2019-10-23, 14:36:07</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/07/03/ES6/" title="Class语法">xiaoyucode.top/2019/07/03/ES6/</a>
-            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/07/03/ES6/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/10/23/git/" title="常用的git提交代码命令">xiaoyucode.top/2019/10/23/git/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/10/23/git/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -342,16 +336,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/07/07/prototype/">
-                    如何理解原型链中的prototype和__proto__？
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/06/19/promise/">
-                    Promise
+                <a href="/2019/10/06/v-for/">
+                    v-for
                 </a>
             </div>
         
@@ -363,7 +351,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#一、初始化本地仓库，提交代码，提交到远程git仓库"><span class="toc-number">1.</span> <span class="toc-text">一、初始化本地仓库，提交代码，提交到远程git仓库</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#二、创建分支，提交代码到分支"><span class="toc-number">2.</span> <span class="toc-text">二、创建分支，提交代码到分支</span></a></li></ol>
         
     </div>
     <style>
@@ -399,7 +387,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Class语法　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"常用的git提交代码命令　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -415,7 +403,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2019/07/03/ES6/" data-title="Class语法" data-url="xiaoyucode.top/2019/07/03/ES6/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2019/10/23/git/" data-title="常用的git提交代码命令" data-url="xiaoyucode.top/2019/10/23/git/"></div>
     <script>
         var duoshuoQuery = {short_name:""};
         var loadComment = function(){
@@ -438,15 +426,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/07/07/prototype/" title="上一篇: 如何理解原型链中的prototype和__proto__？">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/06/19/promise/" title="下一篇: Promise">
+            <a href="/2019/10/06/v-for/" title="下一篇: v-for">
                 <i class="fa fa-angle-right"></i>
             </a>
         
