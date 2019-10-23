@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>xiaoyucode.top/2019/10/23/git/</loc>
+    <lastmod>2019-10-23</lastmod>
+  </url>  <url>
+    <loc>xiaoyucode.top/2019/10/23/node/</loc>
+    <lastmod>2019-10-23</lastmod>
+  </url>  <url>
     <loc>xiaoyucode.top/2019/10/06/v-for/</loc>
     <lastmod>2019-10-23</lastmod>
   </url>  <url>
-    <loc>xiaoyucode.top/2019/10/23/git/</loc>
+    <loc>xiaoyucode.top/2019/07/09/command/</loc>
     <lastmod>2019-10-23</lastmod>
   </url>  <url>
     <loc>xiaoyucode.top/2019/09/30/book/</loc>
@@ -25,9 +31,6 @@
     <loc>xiaoyucode.top/2019/08/01/url/</loc>
     <lastmod>2019-08-01</lastmod>
   </url>  <url>
-    <loc>xiaoyucode.top/2019/08/01/plan/</loc>
-    <lastmod>2019-08-01</lastmod>
-  </url>  <url>
     <loc>xiaoyucode.top/2019/07/07/prototype/</loc>
     <lastmod>2019-07-10</lastmod>
   </url>  <url>
@@ -36,9 +39,6 @@
   </url>  <url>
     <loc>xiaoyucode.top/2019/07/03/ES6/</loc>
     <lastmod>2019-07-10</lastmod>
-  </url>  <url>
-    <loc>xiaoyucode.top/2019/07/09/command/</loc>
-    <lastmod>2019-07-08</lastmod>
   </url>  <url>
     <loc>xiaoyucode.top/2019/06/19/hello-world/</loc>
     <lastmod>2019-07-06</lastmod>

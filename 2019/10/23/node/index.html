@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="如何使用CSS画三角形？">
-<meta name="keywords" content="transparent、border">
+<meta name="description" content="Node版本的升级和降级">
+<meta name="keywords" content="node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何使用CSS画三角形">
-<meta property="og:url" content="xiaoyucode.top/2019/08/10/trangel/index.html">
+<meta property="og:title" content="nvm改变node版本">
+<meta property="og:url" content="xiaoyucode.top/2019/10/23/node/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="如何使用CSS画三角形？">
+<meta property="og:description" content="Node版本的升级和降级">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-10T05:13:02.776Z">
+<meta property="og:updated_time" content="2019-10-23T07:58:53.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何使用CSS画三角形">
-<meta name="twitter:description" content="如何使用CSS画三角形？">
+<meta name="twitter:title" content="nvm改变node版本">
+<meta name="twitter:description" content="Node版本的升级和降级">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -56,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>如何使用CSS画三角形 | 小鱼儿</title>
+<title>nvm改变node版本 | 小鱼儿</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +271,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-trangel" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-node" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/08/10/trangel/" class="article-date">
-      <time datetime="2019-08-10T01:52:38.000Z" itemprop="datePublished">2019-08-10</time>
+      <a href="/2019/10/23/node/" class="article-date">
+      <time datetime="2019-10-23T07:25:21.000Z" itemprop="datePublished">2019-10-23</time>
 </a>
 
 
@@ -290,7 +290,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      如何使用CSS画三角形
+      nvm改变node版本
     </h1>
   
 
@@ -301,7 +301,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transparent、border/">transparent、border</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -311,19 +311,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>   如何使用CSS画三角形？</p>
+        <p>Node版本的升级和降级</p>
 <a id="more"></a>
-<h3 id="三角形的画法"><a href="#三角形的画法" class="headerlink" title="三角形的画法"></a>三角形的画法</h3><p>一般经常使用三角形作为提示框、下拉菜单等功能。<br>1、HTML结构</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"item0"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"item1"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"item2"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"item3"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>2、将类名为item的块级元素的width、height设置为0</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.item0&#123;</span><br><span class="line">    width:0;</span><br><span class="line">    height:0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>3、将类名为item的元素的3个border的颜色设置为transparent，箭头指向的对面border设置颜色；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  .item0&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 50px solid transparent;</span><br><span class="line">	border-right: 50px solid transparent;</span><br><span class="line">	border-top: 50px solid transparent;</span><br><span class="line">	border-bottom: 80px solid blue;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面的为方向向上的三角形<br>4、依次类推可以画出方向向左、右、下的三角形</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">  .item1&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 50px solid transparent;</span><br><span class="line">	border-right: 50px solid transparent;</span><br><span class="line">	border-top: 80px solid green;</span><br><span class="line">	border-bottom: 50px solid transparent;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br><span class="line">.item2&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 50px solid transparent;</span><br><span class="line">	border-right: 80px solid violet;</span><br><span class="line">	border-top: 50px solid transparent;</span><br><span class="line">	border-bottom: 50px solid transparent;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br><span class="line">.item3&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 80px solid purple;</span><br><span class="line">	border-right: 50px solid transparent;</span><br><span class="line">	border-top: 50px solid transparent;</span><br><span class="line">	border-bottom: 50px solid transparent;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在开发的工程中，我们可能需要经常切换node版本来应对不同的开发环境，所以需要经常使用不同版本的node</p>
+<p>一、安装npm插件n ,通过n模块来管理node版本<br>1、全局安装n模块<br>    npm instlal -g n<br>2、安装当前稳定版本<br>    n stable或者sudo n stable<br>3、安装最新版本的<br>    n latest或者sudo n latest<br>4、安装指定版本的node<br>    n v8.16.0<br>5、卸载指定的node版本<br>    n rm v8.16.0<br>二、使用nvm管理node版本<br>1、安装nvm<br>    brew install nvm<br>2、使用nvm安装node版本<br>    安装最新版本<br>    nvm isntall node<br>    安装指定版本<br>    nvm install 8.16.0<br>3、查看所有版本<br>    nvm ls<br>4、切换node版本<br>    使用最新版本<br>    nvm use node<br>    使用指定版本<br>    nvm use 10.16.2</p>
+<pre><code>通常我会使用第二种方式
+例如：我在一个项目中使用的是node@6.13.2,新项目使用的是node@8.16.0,
+先要安装node@8.16.0，nvm install 8.16.0，
+然后，nvm use 8.16.0</code></pre>
       
     </div>
     
@@ -331,13 +326,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/08/10/trangel/">如何使用CSS画三角形</a></p>
+        <p><span>本文标题:</span><a href="/2019/10/23/node/">nvm改变node版本</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
-        <p><span>发布时间:</span>2019-08-10, 09:52:38</p>
-        <p><span>最后更新:</span>2019-08-10, 13:13:02</p>
+        <p><span>发布时间:</span>2019-10-23, 15:25:21</p>
+        <p><span>最后更新:</span>2019-10-23, 15:58:53</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/08/10/trangel/" title="如何使用CSS画三角形">xiaoyucode.top/2019/08/10/trangel/</a>
-            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/08/10/trangel/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/10/23/node/" title="nvm改变node版本">xiaoyucode.top/2019/10/23/node/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/10/23/node/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -349,16 +344,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/09/30/vue-project/">
-                    使用Vue-cli3.0搭建项目
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/08/09/fe/">
-                    用纯 JS 实现点击一个列表时，输出对应的索引号?
+                <a href="/2019/10/23/git/">
+                    常用的git提交代码命令
                 </a>
             </div>
         
@@ -370,7 +359,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#三角形的画法"><span class="toc-number">1.</span> <span class="toc-text">三角形的画法</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -406,7 +395,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"如何使用CSS画三角形　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"nvm改变node版本　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -422,7 +411,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2019/08/10/trangel/" data-title="如何使用CSS画三角形" data-url="xiaoyucode.top/2019/08/10/trangel/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2019/10/23/node/" data-title="nvm改变node版本" data-url="xiaoyucode.top/2019/10/23/node/"></div>
     <script>
         var duoshuoQuery = {short_name:""};
         var loadComment = function(){
@@ -445,15 +434,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/09/30/vue-project/" title="上一篇: 使用Vue-cli3.0搭建项目">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/08/09/fe/" title="下一篇: 用纯 JS 实现点击一个列表时，输出对应的索引号?">
+            <a href="/2019/10/23/git/" title="下一篇: 常用的git提交代码命令">
                 <i class="fa fa-angle-right"></i>
             </a>
         

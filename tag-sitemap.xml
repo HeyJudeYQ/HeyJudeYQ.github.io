@@ -3,8 +3,36 @@
 
 
     <url>
+        <loc>xiaoyucode.top/tags/git/</loc>
+        <lastmod>2019-10-23T07:59:10.188Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/tags/node/</loc>
+        <lastmod>2019-10-23T07:58:53.641Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/tags/vue/</loc>
+        <lastmod>2019-10-23T07:58:38.927Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/tags/Linux/</loc>
+        <lastmod>2019-10-23T07:58:02.642Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>xiaoyucode.top/tags/book/</loc>
-        <lastmod>2019-10-06T07:02:10.783Z</lastmod>
+        <lastmod>2019-10-16T12:58:35.287Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -25,14 +53,14 @@
 
     <url>
         <loc>xiaoyucode.top/tags/Vue%E3%80%81Vue-cli/</loc>
-        <lastmod>2019-09-30T11:46:22.448Z</lastmod>
+        <lastmod>2019-09-30T11:46:22.447Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>xiaoyucode.top/tags/transparent%E3%80%81border/</loc>
-        <lastmod>2019-08-10T05:13:02.777Z</lastmod>
+        <lastmod>2019-08-10T05:13:02.776Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -40,13 +68,6 @@
     <url>
         <loc>xiaoyucode.top/tags/url%E3%80%81tcp%E3%80%81http/</loc>
         <lastmod>2019-08-01T14:25:47.897Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/tags/plan%E3%80%812019/</loc>
-        <lastmod>2019-08-01T14:15:27.660Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -60,7 +81,7 @@
 
     <url>
         <loc>xiaoyucode.top/tags/Javascript%E3%80%81Promise/</loc>
-        <lastmod>2019-07-10T22:26:16.928Z</lastmod>
+        <lastmod>2019-07-10T22:26:16.927Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -73,15 +94,8 @@
     </url>
 
     <url>
-        <loc>xiaoyucode.top/tags/Linux/</loc>
-        <lastmod>2019-07-08T23:58:33.994Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>xiaoyucode.top/tags/hexo/</loc>
-        <lastmod>2019-07-06T18:08:41.361Z</lastmod>
+        <lastmod>2019-07-06T18:08:41.360Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

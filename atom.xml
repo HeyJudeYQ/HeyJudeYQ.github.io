@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2019-10-23T06:36:07.979Z</updated>
+  <updated>2019-10-23T07:58:53.641Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -17,11 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>nvm改变node版本</title>
+    <link href="xiaoyucode.top/2019/10/23/node/"/>
+    <id>xiaoyucode.top/2019/10/23/node/</id>
+    <published>2019-10-23T07:25:21.000Z</published>
+    <updated>2019-10-23T07:58:53.641Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Node版本的升级和降级&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="node" scheme="xiaoyucode.top/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
     <title>常用的git提交代码命令</title>
     <link href="xiaoyucode.top/2019/10/23/git/"/>
     <id>xiaoyucode.top/2019/10/23/git/</id>
     <published>2019-10-23T06:22:29.000Z</published>
-    <updated>2019-10-23T06:36:07.979Z</updated>
+    <updated>2019-10-23T07:59:10.188Z</updated>
     
     <summary type="html">
     
@@ -30,14 +48,16 @@
     </summary>
     
     
+      <category term="git" scheme="xiaoyucode.top/tags/git/"/>
+    
   </entry>
   
   <entry>
-    <title>v-for</title>
+    <title>v-for指令</title>
     <link href="xiaoyucode.top/2019/10/06/v-for/"/>
     <id>xiaoyucode.top/2019/10/06/v-for/</id>
     <published>2019-10-06T08:08:00.000Z</published>
-    <updated>2019-10-23T06:55:06.889Z</updated>
+    <updated>2019-10-23T07:58:38.927Z</updated>
     
     <summary type="html">
     
@@ -46,7 +66,7 @@
     </summary>
     
     
-      <category term="vue、v-for" scheme="xiaoyucode.top/tags/vue%E3%80%81v-for/"/>
+      <category term="vue" scheme="xiaoyucode.top/tags/vue/"/>
     
   </entry>
   
@@ -55,7 +75,7 @@
     <link href="xiaoyucode.top/2019/09/30/book/"/>
     <id>xiaoyucode.top/2019/09/30/book/</id>
     <published>2019-09-30T11:30:00.000Z</published>
-    <updated>2019-10-16T12:58:35.288Z</updated>
+    <updated>2019-10-16T12:58:35.287Z</updated>
     
     <summary type="html">
     
@@ -73,7 +93,7 @@
     <link href="xiaoyucode.top/2019/09/30/vue-project/"/>
     <id>xiaoyucode.top/2019/09/30/vue-project/</id>
     <published>2019-09-30T06:52:47.000Z</published>
-    <updated>2019-09-30T11:46:22.448Z</updated>
+    <updated>2019-09-30T11:46:22.447Z</updated>
     
     <summary type="html">
     
@@ -91,7 +111,7 @@
     <link href="xiaoyucode.top/2019/08/10/trangel/"/>
     <id>xiaoyucode.top/2019/08/10/trangel/</id>
     <published>2019-08-10T01:52:38.000Z</published>
-    <updated>2019-08-10T05:13:02.777Z</updated>
+    <updated>2019-08-10T05:13:02.776Z</updated>
     
     <summary type="html">
     
@@ -141,24 +161,6 @@
   </entry>
   
   <entry>
-    <title>2019年8月1日以后的计划</title>
-    <link href="xiaoyucode.top/2019/08/01/plan/"/>
-    <id>xiaoyucode.top/2019/08/01/plan/</id>
-    <published>2019-08-01T14:04:28.000Z</published>
-    <updated>2019-08-01T14:15:27.660Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;给自己制订一个计划，希望2019年结束后，完成下面的目标：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="plan、2019" scheme="xiaoyucode.top/tags/plan%E3%80%812019/"/>
-    
-  </entry>
-  
-  <entry>
     <title>防抖（debounce）和节流（throttle）</title>
     <link href="xiaoyucode.top/2019/07/09/debounce-throttling/"/>
     <id>xiaoyucode.top/2019/07/09/debounce-throttling/</id>
@@ -177,11 +179,11 @@
   </entry>
   
   <entry>
-    <title>几个常用的Linux命令</title>
+    <title>常用的Linux命令</title>
     <link href="xiaoyucode.top/2019/07/09/command/"/>
     <id>xiaoyucode.top/2019/07/09/command/</id>
     <published>2019-07-08T23:37:31.000Z</published>
-    <updated>2019-07-08T23:58:33.994Z</updated>
+    <updated>2019-10-23T07:58:02.642Z</updated>
     
     <summary type="html">
     
@@ -235,7 +237,7 @@
     <link href="xiaoyucode.top/2019/06/19/promise/"/>
     <id>xiaoyucode.top/2019/06/19/promise/</id>
     <published>2019-06-19T10:07:42.000Z</published>
-    <updated>2019-07-10T22:26:16.928Z</updated>
+    <updated>2019-07-10T22:26:16.927Z</updated>
     
     <summary type="html">
     
@@ -253,7 +255,7 @@
     <link href="xiaoyucode.top/2019/06/19/hello-world/"/>
     <id>xiaoyucode.top/2019/06/19/hello-world/</id>
     <published>2019-06-19T10:00:07.000Z</published>
-    <updated>2019-07-06T18:08:41.361Z</updated>
+    <updated>2019-07-06T18:08:41.360Z</updated>
     
     <summary type="html">
     
