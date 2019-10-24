@@ -316,16 +316,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>mongodb和redis的安装</p>
-<h6 id="一、mongodb的安装"><a href="#一、mongodb的安装" class="headerlink" title="一、mongodb的安装"></a>一、mongodb的安装</h6><p>1、安装brew<br>    /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>2、进入文件目录：cd /usr/local<br>3、下载指定版本的mongodb<br>4、环境的配置<br>    vi ~/.bash_profile</p>
-<pre><code>#user root
-export PATH=${PATH}:/usr/local/mysql/bin
-export NODE_PATH=/usr/local/lib/node_modules
-在编辑之后，可以把mongodb的路径贴在后面；
-export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
-退出编辑的方式为，esc  -&gt;  :wq -&gt; enter</code></pre><p>5、配置mongo.conf<br>    logpath=/usr/local/var/log/mongodb/mongo.log<br>    logappend=true<br>    dbpath=/usr/local/var/mongodb<br>    fork=true<br>    port=27017<br>    如果本机无法连接远程机器，在末尾添加bind_ip = 0.0.0.0,最后再启动mongo<br>6、启动方式<br>    mongod -f /usr/local/etc/mongod.conf</p>
-<h6 id="二、redis的安装"><a href="#二、redis的安装" class="headerlink" title="二、redis的安装"></a>二、redis的安装</h6><p>1、在已经安装好了brew的情况下,安装Redis<br>    brew install redis<br>2、启动redis<br>    redis-server</p>
-
+              <p>mongodb和redis的安装</p>
+          
       
     </div>
     
@@ -338,6 +330,10 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb、redis/">mongodb、redis</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/10/24/mongodb-redis/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
