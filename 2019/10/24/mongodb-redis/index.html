@@ -15,16 +15,18 @@
 
 
 
-<meta name="description" content="Javascript Vue CSS HTML">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小鱼儿">
-<meta property="og:url" content="xiaoyucode.top/archives/2019/index.html">
+<meta name="description" content="mongodb和redis的安装 一、mongodb的安装1、安装brew    /usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;2、进入文件目录：cd /usr/local3、下载指定版本的mongodb4、环境的配置    vi ~/.b">
+<meta name="keywords" content="mongodb、redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb-redis">
+<meta property="og:url" content="xiaoyucode.top/2019/10/24/mongodb-redis/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="Javascript Vue CSS HTML">
+<meta property="og:description" content="mongodb和redis的安装 一、mongodb的安装1、安装brew    /usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;2、进入文件目录：cd /usr/local3、下载指定版本的mongodb4、环境的配置    vi ~/.b">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-24T06:08:05.217Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小鱼儿">
-<meta name="twitter:description" content="Javascript Vue CSS HTML">
+<meta name="twitter:title" content="mongodb-redis">
+<meta name="twitter:description" content="mongodb和redis的安装 一、mongodb的安装1、安装brew    /usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;2、进入文件目录：cd /usr/local3、下载指定版本的mongodb4、环境的配置    vi ~/.b">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -54,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2019 | 小鱼儿</title>
+<title>mongodb-redis | 小鱼儿</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -64,8 +66,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -269,357 +271,191 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-mongodb-redis" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/10/24/mongodb-redis/" class="archive-article-date">
-      <time datetime="2019-10-23T16:04:05.000Z" itemprop="datePublished">10-24</time>
+    <div class="article-meta">
+      <a href="/2019/10/24/mongodb-redis/" class="article-date">
+      <time datetime="2019-10-23T16:04:05.000Z" itemprop="datePublished">2019-10-24</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mongodb-redis
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb、redis/">mongodb、redis</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>mongodb和redis的安装</p>
+<h6 id="一、mongodb的安装"><a href="#一、mongodb的安装" class="headerlink" title="一、mongodb的安装"></a>一、mongodb的安装</h6><p>1、安装brew<br>    /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>2、进入文件目录：cd /usr/local<br>3、下载指定版本的mongodb<br>4、环境的配置<br>    vi ~/.bash_profile</p>
+<pre><code>#user root
+export PATH=${PATH}:/usr/local/mysql/bin
+export NODE_PATH=/usr/local/lib/node_modules
+在编辑之后，可以把mongodb的路径贴在后面；
+export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
+退出编辑的方式为，esc  -&gt;  :wq -&gt; enter</code></pre><p>5、配置mongo.conf<br>    logpath=/usr/local/var/log/mongodb/mongo.log<br>    logappend=true<br>    dbpath=/usr/local/var/mongodb<br>    fork=true<br>    port=27017<br>    如果本机无法连接远程机器，在末尾添加bind_ip = 0.0.0.0,最后再启动mongo<br>6、启动方式<br>    mongod -f /usr/local/etc/mongod.conf</p>
+<h6 id="二、redis的安装"><a href="#二、redis的安装" class="headerlink" title="二、redis的安装"></a>二、redis的安装</h6><p>1、在已经安装好了brew的情况下,安装Redis<br>    brew install redis<br>2、启动redis<br>    redis-server</p>
+
+      
+    </div>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/10/23/node/" class="archive-article-date">
-      <time datetime="2019-10-23T07:25:21.000Z" itemprop="datePublished">10-23</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/23/node/">nvm改变node版本</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/10/24/mongodb-redis/">mongodb-redis</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
+        <p><span>发布时间:</span>2019-10-24, 00:04:05</p>
+        <p><span>最后更新:</span>2019-10-24, 14:08:05</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/10/24/mongodb-redis/" title="mongodb-redis">xiaoyucode.top/2019/10/24/mongodb-redis/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/10/24/mongodb-redis/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/10/23/git/" class="archive-article-date">
-      <time datetime="2019-10-23T06:22:29.000Z" itemprop="datePublished">10-23</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/23/git/">常用的git提交代码命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/10/06/v-for/" class="archive-article-date">
-      <time datetime="2019-10-06T08:08:00.000Z" itemprop="datePublished">10-06</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/06/v-for/">v-for指令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/09/30/book/" class="archive-article-date">
-      <time datetime="2019-09-30T11:30:00.000Z" itemprop="datePublished">09-30</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/30/book/">我的书单--持续更新。。。</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/book/">book</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/09/30/vue-project/" class="archive-article-date">
-      <time datetime="2019-09-30T06:52:47.000Z" itemprop="datePublished">09-30</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue、Vue-cli/">Vue、Vue-cli</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/08/10/trangel/" class="archive-article-date">
-      <time datetime="2019-08-10T01:52:38.000Z" itemprop="datePublished">08-10</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transparent、border/">transparent、border</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/08/09/fe/" class="archive-article-date">
-      <time datetime="2019-08-09T11:56:10.000Z" itemprop="datePublished">08-09</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纯JS、事件监听-委托、立即执行函数/">纯JS、事件监听/委托、立即执行函数</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/08/01/url/" class="archive-article-date">
-      <time datetime="2019-08-01T14:18:39.000Z" itemprop="datePublished">08-01</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/07/09/debounce-throttling/" class="archive-article-date">
-      <time datetime="2019-07-09T13:51:54.000Z" itemprop="datePublished">07-09</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/10/23/node/">
+                    nvm改变node版本
+                </a>
+            </div>
+        
     </nav>
-  
 
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#一、mongodb的安装"><span class="toc-number">1.</span> <span class="toc-text">一、mongodb的安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#二、redis的安装"><span class="toc-number">2.</span> <span class="toc-text">二、redis的安装</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"mongodb-redis　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2019/10/24/mongodb-redis/" data-title="mongodb-redis" data-url="xiaoyucode.top/2019/10/24/mongodb-redis/"></div>
+    <script>
+        var duoshuoQuery = {short_name:""};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/10/23/node/" title="下一篇: nvm改变node版本">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/mongodb-redis/">mongodb-redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/node/">nvm改变node版本</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/git/">常用的git提交代码命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/v-for/">v-for指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">如何使用CSS画三角形</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <span id="busuanzi_container_site_uv">

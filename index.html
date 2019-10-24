@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript、Promise/">Javascript、Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue、Vue-cli/">Vue、Vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/transparent、border/">transparent、border</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/纯JS、事件监听-委托、立即执行函数/">纯JS、事件监听/委托、立即执行函数</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript、Promise/">Javascript、Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue、Vue-cli/">Vue、Vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb、redis/">mongodb、redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/transparent、border/">transparent、border</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/纯JS、事件监听-委托、立即执行函数/">纯JS、事件监听/委托、立即执行函数</a></li></ul>
                     </div>
                 </section>
                 
@@ -275,6 +275,85 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-mongodb-redis" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/10/24/mongodb-redis/" class="article-date">
+      <time datetime="2019-10-23T16:04:05.000Z" itemprop="datePublished">2019-10-24</time>
+</a>
+
+ 
+    <a href="/2019/10/24/mongodb-redis/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2019/10/24/mongodb-redis/" ></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/10/24/mongodb-redis/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>mongodb和redis的安装</p>
+<h6 id="一、mongodb的安装"><a href="#一、mongodb的安装" class="headerlink" title="一、mongodb的安装"></a>一、mongodb的安装</h6><p>1、安装brew<br>    /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>2、进入文件目录：cd /usr/local<br>3、下载指定版本的mongodb<br>4、环境的配置<br>    vi ~/.bash_profile</p>
+<pre><code>#user root
+export PATH=${PATH}:/usr/local/mysql/bin
+export NODE_PATH=/usr/local/lib/node_modules
+在编辑之后，可以把mongodb的路径贴在后面；
+export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
+退出编辑的方式为，esc  -&gt;  :wq -&gt; enter</code></pre><p>5、配置mongo.conf<br>    logpath=/usr/local/var/log/mongodb/mongo.log<br>    logappend=true<br>    dbpath=/usr/local/var/mongodb<br>    fork=true<br>    port=27017<br>    如果本机无法连接远程机器，在末尾添加bind_ip = 0.0.0.0,最后再启动mongo<br>6、启动方式<br>    mongod -f /usr/local/etc/mongod.conf</p>
+<h6 id="二、redis的安装"><a href="#二、redis的安装" class="headerlink" title="二、redis的安装"></a>二、redis的安装</h6><p>1、在已经安装好了brew的情况下,安装Redis<br>    brew install redis<br>2、启动redis<br>    redis-server</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb、redis/">mongodb、redis</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-node" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -933,81 +1012,6 @@
       
         <p class="article-more-link">
           <a href="/2019/07/09/debounce-throttling/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-command" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/07/09/command/" class="article-date">
-      <time datetime="2019-07-08T23:37:31.000Z" itemprop="datePublished">2019-07-09</time>
-</a>
-
- 
-    <a href="/2019/07/09/command/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2019/07/09/command/" ></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/07/09/command/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/09/command/">常用的Linux命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>在开发过程中，一些常用的Linux命令：</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/07/09/command/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
