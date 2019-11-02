@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Vue路由传参：query和params传参的方式。</title>
+      <link href="/2019/11/02/detail/"/>
+      <url>/2019/11/02/detail/</url>
+      
+        <content type="html"><![CDATA[<p>Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});</p><a id="more"></a><h6 id="一、方法一：this-router-push-path-’’-query"><a href="#一、方法一：this-router-push-path-’’-query" class="headerlink" title="一、方法一：this.$router.push(path:’’,query:{})"></a>一、方法一：this.$router.push(path:’’,query:{})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    path:<span class="string">'/xxx'</span>,</span><br><span class="line">    query:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p><p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.query;</span><br><span class="line">this.id = res.id;</span><br></pre></td></tr></table></figure></p><h6 id="二、方法二、this-router-push-name-’”-params"><a href="#二、方法二、this-router-push-name-’”-params" class="headerlink" title="二、方法二、this.$router.push({name:’”,params:{}})"></a>二、方法二、this.$router.push({name:’”,params:{}})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    name:<span class="string">''</span>,</span><br><span class="line">    params:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p><p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.params;</span><br><span class="line">this.id = res.id</span><br></pre></td></tr></table></figure></p><h6 id="注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；"><a href="#注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；" class="headerlink" title="注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；"></a>注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；</h6><pre><code>二者区别：    直白的来说query相当于get请求，页面跳转，我们在地址栏可以看到请求参数，params相当于post请求，参数不会在地址栏显示出来。还有就是传参是this.$router.push(),而接收参数是this.$route.params,前者是$router,后者是$route.this.$router和this.$route的区别：1、$router为VueRouter实例，当我们想要进入不同的URL，可以使用$rouer.push()方法2、$route为当前router跳转对象，里面可以获取name、path、query、params</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mongodb-redis</title>
       <link href="/2019/10/24/mongodb-redis/"/>
       <url>/2019/10/24/mongodb-redis/</url>

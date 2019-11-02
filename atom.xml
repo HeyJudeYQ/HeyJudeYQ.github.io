@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2019-10-24T06:29:04.903Z</updated>
+  <updated>2019-11-02T09:46:34.257Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue路由传参：query和params传参的方式。</title>
+    <link href="xiaoyucode.top/2019/11/02/detail/"/>
+    <id>xiaoyucode.top/2019/11/02/detail/</id>
+    <published>2019-11-02T09:10:19.000Z</published>
+    <updated>2019-11-02T09:46:34.257Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>mongodb-redis</title>

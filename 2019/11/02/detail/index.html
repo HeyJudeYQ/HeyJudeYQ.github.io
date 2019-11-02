@@ -15,18 +15,17 @@
 
 
 
-<meta name="description" content="mongodb和redis的安装">
-<meta name="keywords" content="mongodb、redis">
+<meta name="description" content="Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mongodb-redis">
-<meta property="og:url" content="xiaoyucode.top/2019/10/24/mongodb-redis/index.html">
+<meta property="og:title" content="Vue路由传参：query和params传参的方式。">
+<meta property="og:url" content="xiaoyucode.top/2019/11/02/detail/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="mongodb和redis的安装">
+<meta property="og:description" content="Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T06:29:04.903Z">
+<meta property="og:updated_time" content="2019-11-02T09:46:34.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mongodb-redis">
-<meta name="twitter:description" content="mongodb和redis的安装">
+<meta name="twitter:title" content="Vue路由传参：query和params传参的方式。">
+<meta name="twitter:description" content="Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -56,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>mongodb-redis | 小鱼儿</title>
+<title>Vue路由传参：query和params传参的方式。 | 小鱼儿</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -271,11 +270,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-mongodb-redis" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-detail" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/10/24/mongodb-redis/" class="article-date">
-      <time datetime="2019-10-23T16:04:05.000Z" itemprop="datePublished">2019-10-24</time>
+      <a href="/2019/11/02/detail/" class="article-date">
+      <time datetime="2019-11-02T09:10:19.000Z" itemprop="datePublished">2019-11-02</time>
 </a>
 
 
@@ -290,7 +289,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mongodb-redis
+      Vue路由传参：query和params传参的方式。
     </h1>
   
 
@@ -300,10 +299,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb、redis/">mongodb、redis</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -311,17 +306,19 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>mongodb和redis的安装</p>
+        <p>Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});</p>
 <a id="more"></a>
-<h6 id="一、mongodb的安装"><a href="#一、mongodb的安装" class="headerlink" title="一、mongodb的安装"></a>一、mongodb的安装</h6><p>1、安装brew<br>    /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>2、进入文件目录：cd /usr/local<br>3、下载指定版本的mongodb<br>4、环境的配置<br>    vi ~/.bash_profile</p>
-<pre><code>#user root
-export PATH=${PATH}:/usr/local/mysql/bin
-export NODE_PATH=/usr/local/lib/node_modules
-在编辑之后，可以把mongodb的路径贴在后面；
-export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
-退出编辑的方式为，esc  -&gt;  :wq -&gt; enter</code></pre><p>5、配置mongo.conf<br>    logpath=/usr/local/var/log/mongodb/mongo.log<br>    logappend=true<br>    dbpath=/usr/local/var/mongodb<br>    fork=true<br>    port=27017<br>    如果本机无法连接远程机器，在末尾添加bind_ip = 0.0.0.0,最后再启动mongo<br>6、启动方式<br>    mongod -f /usr/local/etc/mongod.conf</p>
-<h6 id="二、redis的安装"><a href="#二、redis的安装" class="headerlink" title="二、redis的安装"></a>二、redis的安装</h6><p>1、在已经安装好了brew的情况下,安装Redis<br>    brew install redis<br>2、启动redis<br>    redis-server</p>
+<h6 id="一、方法一：this-router-push-path-’’-query"><a href="#一、方法一：this-router-push-path-’’-query" class="headerlink" title="一、方法一：this.$router.push(path:’’,query:{})"></a>一、方法一：this.$router.push(path:’’,query:{})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    path:<span class="string">'/xxx'</span>,</span><br><span class="line">    query:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.query;</span><br><span class="line">this.id = res.id;</span><br></pre></td></tr></table></figure></p>
+<h6 id="二、方法二、this-router-push-name-’”-params"><a href="#二、方法二、this-router-push-name-’”-params" class="headerlink" title="二、方法二、this.$router.push({name:’”,params:{}})"></a>二、方法二、this.$router.push({name:’”,params:{}})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    name:<span class="string">''</span>,</span><br><span class="line">    params:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.params;</span><br><span class="line">this.id = res.id</span><br></pre></td></tr></table></figure></p>
+<h6 id="注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；"><a href="#注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；" class="headerlink" title="注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；"></a>注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；</h6><pre><code>二者区别：
+    直白的来说query相当于get请求，页面跳转，我们在地址栏可以看到请求参数，params相当于post请求，参数不会在地址栏显示出来。
+还有就是传参是this.$router.push(),而接收参数是this.$route.params,前者是$router,后者是$route.
 
+this.$router和this.$route的区别：
+1、$router为VueRouter实例，当我们想要进入不同的URL，可以使用$rouer.push()方法
+2、$route为当前router跳转对象，里面可以获取name、path、query、params</code></pre>
       
     </div>
     
@@ -329,13 +326,13 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/10/24/mongodb-redis/">mongodb-redis</a></p>
+        <p><span>本文标题:</span><a href="/2019/11/02/detail/">Vue路由传参：query和params传参的方式。</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
-        <p><span>发布时间:</span>2019-10-24, 00:04:05</p>
-        <p><span>最后更新:</span>2019-10-24, 14:29:04</p>
+        <p><span>发布时间:</span>2019-11-02, 17:10:19</p>
+        <p><span>最后更新:</span>2019-11-02, 17:46:34</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/10/24/mongodb-redis/" title="mongodb-redis">xiaoyucode.top/2019/10/24/mongodb-redis/</a>
-            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/10/24/mongodb-redis/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/11/02/detail/" title="Vue路由传参：query和params传参的方式。">xiaoyucode.top/2019/11/02/detail/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/11/02/detail/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,16 +344,10 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/11/02/detail/">
-                    Vue路由传参：query和params传参的方式。
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/10/23/node/">
-                    nvm改变node版本
+                <a href="/2019/10/24/mongodb-redis/">
+                    mongodb-redis
                 </a>
             </div>
         
@@ -368,7 +359,7 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#一、mongodb的安装"><span class="toc-number">1.</span> <span class="toc-text">一、mongodb的安装</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#二、redis的安装"><span class="toc-number">2.</span> <span class="toc-text">二、redis的安装</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#一、方法一：this-router-push-path-’’-query"><span class="toc-number">1.</span> <span class="toc-text">一、方法一：this.$router.push(path:’’,query:{})</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#二、方法二、this-router-push-name-’”-params"><span class="toc-number">2.</span> <span class="toc-text">二、方法二、this.$router.push({name:’”,params:{}})</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；"><span class="toc-number">3.</span> <span class="toc-text">注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；</span></a></li></ol>
         
     </div>
     <style>
@@ -404,7 +395,7 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"mongodb-redis　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Vue路由传参：query和params传参的方式。　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -420,7 +411,7 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2019/10/24/mongodb-redis/" data-title="mongodb-redis" data-url="xiaoyucode.top/2019/10/24/mongodb-redis/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2019/11/02/detail/" data-title="Vue路由传参：query和params传参的方式。" data-url="xiaoyucode.top/2019/11/02/detail/"></div>
     <script>
         var duoshuoQuery = {short_name:""};
         var loadComment = function(){
@@ -443,15 +434,13 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/11/02/detail/" title="上一篇: Vue路由传参：query和params传参的方式。">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/10/23/node/" title="下一篇: nvm改变node版本">
+            <a href="/2019/10/24/mongodb-redis/" title="下一篇: mongodb-redis">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>xiaoyucode.top/2019/11/02/detail/</loc>
+        <lastmod>2019-11-02T09:46:34.257Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/2019/10/23/node/</loc>
+        <lastmod>2019-10-24T08:00:17.205Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>xiaoyucode.top/2019/10/24/mongodb-redis/</loc>
         <lastmod>2019-10-24T06:29:04.903Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -18,14 +34,6 @@
     <url>
         <loc>xiaoyucode.top/2019/10/23/git/</loc>
         <lastmod>2019-10-23T07:59:10.188Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/2019/10/23/node/</loc>
-        <lastmod>2019-10-23T07:58:53.641Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
