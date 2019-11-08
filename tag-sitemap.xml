@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>xiaoyucode.top/tags/Linux/</loc>
+        <lastmod>2019-11-08T08:52:03.869Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>xiaoyucode.top/tags/node/</loc>
         <lastmod>2019-10-24T08:00:17.205Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -26,13 +33,6 @@
     <url>
         <loc>xiaoyucode.top/tags/vue/</loc>
         <lastmod>2019-10-23T07:58:38.927Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/tags/Linux/</loc>
-        <lastmod>2019-10-23T07:58:02.642Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
