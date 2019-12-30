@@ -3,6 +3,27 @@
 
 
     <url>
+        <loc>xiaoyucode.top/tags/H5%E3%80%81barcode/</loc>
+        <lastmod>2019-12-30T06:46:15.258Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/tags/QRCode/</loc>
+        <lastmod>2019-12-30T06:30:03.549Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/tags/book/</loc>
+        <lastmod>2019-11-08T09:25:39.612Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>xiaoyucode.top/tags/Linux/</loc>
         <lastmod>2019-11-08T08:52:03.869Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,13 +54,6 @@
     <url>
         <loc>xiaoyucode.top/tags/vue/</loc>
         <lastmod>2019-10-23T07:58:38.927Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/tags/book/</loc>
-        <lastmod>2019-10-16T12:58:35.287Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
