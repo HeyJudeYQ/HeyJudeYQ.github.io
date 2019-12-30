@@ -197,7 +197,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript、Promise/">Javascript、Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue、Vue-cli/">Vue、Vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb、redis/">mongodb、redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/transparent、border/">transparent、border</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/纯JS、事件监听-委托、立即执行函数/">纯JS、事件监听/委托、立即执行函数</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5、barcode/">H5、barcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript、Promise/">Javascript、Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QRCode/">QRCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue、Vue-cli/">Vue、Vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb、redis/">mongodb、redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/transparent、border/">transparent、border</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/纯JS、事件监听-委托、立即执行函数/">纯JS、事件监听/委托、立即执行函数</a></li></ul>
                     </div>
                 </section>
                 
@@ -275,6 +275,152 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Barcode" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/30/Barcode/" class="article-date">
+      <time datetime="2019-12-30T06:20:57.000Z" itemprop="datePublished">2019-12-30</time>
+</a>
+
+ 
+    <a href="/2019/12/30/Barcode/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2019/12/30/Barcode/" ></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/12/30/Barcode/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/30/Barcode/">H5扫码功能</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>之前讲过前端生成二维码，那H5 APP如何实现扫码功能;</p>
+<h3 id="扫码功能的实现"><a href="#扫码功能的实现" class="headerlink" title="扫码功能的实现"></a>扫码功能的实现</h3><h6 id="（一）、使用H5-API-barcode实现扫码功能"><a href="#（一）、使用H5-API-barcode实现扫码功能" class="headerlink" title="（一）、使用H5 API barcode实现扫码功能"></a>（一）、使用H5 API barcode实现扫码功能</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 模板</span></span><br><span class="line">    &lt;template&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div class=<span class="string">"scan"</span>&gt;</span><br><span class="line">                &lt;div id=<span class="string">"bcid"</span>&gt;&lt;/div&gt;</span><br><span class="line">                &lt;footer&gt;</span><br><span class="line">                    &lt;button v-if=<span class="string">"Start"</span> @click=<span class="string">"startRecognize"</span>&gt;扫 码 加 油&lt;/button&gt;</span><br><span class="line">                &lt;/footer&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 扫描对象</span><br><span class="line">        var scan = null;</span><br><span class="line">        <span class="function"><span class="title">data</span></span>()&#123;</span><br><span class="line">            <span class="built_in">return</span> &#123;</span><br><span class="line">                Begin:<span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            <span class="function"><span class="title">startRecognize</span></span>()&#123;</span><br><span class="line">                const that = this;</span><br><span class="line">                this.Begin = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(!window.plus) <span class="built_in">return</span>;</span><br><span class="line">                scan = new plus.barcode.Barcode(<span class="string">'bcid'</span>);</span><br><span class="line">                // 开始扫描</span><br><span class="line">                scan.start();</span><br><span class="line">                // 扫码成功之后的回调函数 <span class="built_in">type</span>是类型 result 结果</span><br><span class="line">                scan.onmarked = <span class="keyword">function</span>(<span class="built_in">type</span>,result)&#123;</span><br><span class="line">                    const text = <span class="string">''</span>;</span><br><span class="line">                    switch(<span class="built_in">type</span>)&#123;</span><br><span class="line">                        <span class="keyword">case</span> plus.barcode.QR:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">'QR'</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> plus.barcode.EAN13:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">"EAN13"</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> plus.barcode.EAN8:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">"EAN8"</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                        default:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">"其它"</span> + <span class="built_in">type</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    result = result.replace(/\n/g,<span class="string">""</span>);</span><br><span class="line">                    const id = result.match(/\d+/)[0];</span><br><span class="line">                    const Token = localStorage.getItem(<span class="string">'token'</span>);</span><br><span class="line">                    that.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">                        name:<span class="string">'OrderDetail'</span>,</span><br><span class="line">                        params: &#123;</span><br><span class="line">                            id:id,</span><br><span class="line">                            token:token</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    scan.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 关闭扫码识别控件 </span><br><span class="line">            <span class="function"><span class="title">closeScan</span></span>()&#123;</span><br><span class="line">                <span class="keyword">if</span>(!window.plus) <span class="built_in">return</span>;</span><br><span class="line">                scan.close();</span><br><span class="line">                this.<span class="variable">$router</span>.push(<span class="string">'./qrcode'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style lang=<span class="string">"less"</span> scoped&gt;</span><br><span class="line">    .scan &#123;</span><br><span class="line">        height: 96vh;</span><br><span class="line">        background-color: <span class="comment">#EFEFEF;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#bcid &#123;</span></span><br><span class="line">            width: 100vw;</span><br><span class="line">            height: 96vh;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: <span class="comment">#fff;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        footer &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 8rem;</span><br><span class="line">            line-height: 2rem;</span><br><span class="line">            font-size: 14px;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 0;</span><br><span class="line">            bottom: 10rem;</span><br><span class="line">            z-index: 999;</span><br><span class="line"></span><br><span class="line">            button &#123;</span><br><span class="line">                width: 8rem;</span><br><span class="line">                height: 8rem;</span><br><span class="line">                border: 4px solid <span class="comment">#1f4ba5;</span></span><br><span class="line">                border-radius: 50%;</span><br><span class="line">                font-size: 16px;</span><br><span class="line">                font-family: PingFangSC-Medium;</span><br><span class="line">                background-color: <span class="comment">#fff;</span></span><br><span class="line">            &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/H5、barcode/">H5、barcode</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-QRCode" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/30/QRCode/" class="article-date">
+      <time datetime="2019-12-30T05:48:40.000Z" itemprop="datePublished">2019-12-30</time>
+</a>
+
+ 
+    <a href="/2019/12/30/QRCode/#comments" title="查看评论">
+        <i class="fa fa-comments-o" aria-hidden="true"></i>
+        <span class="count-comment"></span>
+        
+            <span class="ds-thread-count"  data-thread-key="2019/12/30/QRCode/" ></span>
+        
+        
+            <span class="disqus-comment-count" data-disqus-identifier="2019/12/30/QRCode/"></span>
+        
+    </a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>最近遇到的一个需求就是：在Vue项目中，前端生成站点二维码，使用APP扫码功能达到扫码加油的目的。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QRCode/">QRCode</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/12/30/QRCode/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-detail" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -854,156 +1000,6 @@
       
         <p class="article-more-link">
           <a href="/2019/08/10/trangel/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-fe" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/09/fe/" class="article-date">
-      <time datetime="2019-08-09T11:56:10.000Z" itemprop="datePublished">2019-08-09</time>
-</a>
-
- 
-    <a href="/2019/08/09/fe/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2019/08/09/fe/" ></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/08/09/fe/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>面试题目：用纯 JS 实现点击一个列表时，输出对应的索引号?(不能使用 jQuery)</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/纯JS、事件监听-委托、立即执行函数/">纯JS、事件监听/委托、立即执行函数</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/09/fe/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-url" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/08/01/url/" class="article-date">
-      <time datetime="2019-08-01T14:18:39.000Z" itemprop="datePublished">2019-08-01</time>
-</a>
-
- 
-    <a href="/2019/08/01/url/#comments" title="查看评论">
-        <i class="fa fa-comments-o" aria-hidden="true"></i>
-        <span class="count-comment"></span>
-        
-            <span class="ds-thread-count"  data-thread-key="2019/08/01/url/" ></span>
-        
-        
-            <span class="disqus-comment-count" data-disqus-identifier="2019/08/01/url/"></span>
-        
-    </a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>从浏览器中输入URL到页面的加载发生了什么？</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/08/01/url/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>

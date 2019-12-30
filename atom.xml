@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2019-11-08T08:59:24.791Z</updated>
+  <updated>2019-12-30T06:46:15.258Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>H5扫码功能</title>
+    <link href="xiaoyucode.top/2019/12/30/Barcode/"/>
+    <id>xiaoyucode.top/2019/12/30/Barcode/</id>
+    <published>2019-12-30T06:20:57.000Z</published>
+    <updated>2019-12-30T06:46:15.258Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;之前讲过前端生成二维码，那H5 APP如何实现扫码功能;&lt;/p&gt;
+&lt;h3 id=&quot;扫码功能的实现&quot;&gt;&lt;a href=&quot;#扫码功能的实现&quot; class=&quot;headerlink&quot; title=&quot;扫码功能的实现&quot;&gt;&lt;/a&gt;扫码功能的实现&lt;/h3&gt;&lt;h6 id=&quot;（一）、使用H5-
+      
+    
+    </summary>
+    
+    
+      <category term="H5、barcode" scheme="xiaoyucode.top/tags/H5%E3%80%81barcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用QRCode生成二维码？</title>
+    <link href="xiaoyucode.top/2019/12/30/QRCode/"/>
+    <id>xiaoyucode.top/2019/12/30/QRCode/</id>
+    <published>2019-12-30T05:48:40.000Z</published>
+    <updated>2019-12-30T06:30:03.549Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近遇到的一个需求就是：在Vue项目中，前端生成站点二维码，使用APP扫码功能达到扫码加油的目的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="QRCode" scheme="xiaoyucode.top/tags/QRCode/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue路由传参</title>
