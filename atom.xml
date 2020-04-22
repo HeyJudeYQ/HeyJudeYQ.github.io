@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2020-01-15T05:44:08.132Z</updated>
+  <updated>2020-04-22T08:02:30.394Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Virtualkey</title>
+    <link href="xiaoyucode.top/2020/04/22/Virtualkey/"/>
+    <id>xiaoyucode.top/2020/04/22/Virtualkey/</id>
+    <published>2020-04-22T08:02:30.000Z</published>
+    <updated>2020-04-22T08:02:30.394Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>H5扫码功能</title>
