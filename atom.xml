@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2020-04-22T08:02:30.394Z</updated>
+  <updated>2020-04-22T08:07:07.520Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -17,13 +17,15 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Virtualkey</title>
+    <title>使用Vue开发APP手机虚拟返回键点击退出应用解决办法</title>
     <link href="xiaoyucode.top/2020/04/22/Virtualkey/"/>
     <id>xiaoyucode.top/2020/04/22/Virtualkey/</id>
     <published>2020-04-22T08:02:30.000Z</published>
-    <updated>2020-04-22T08:02:30.394Z</updated>
+    <updated>2020-04-22T08:07:07.520Z</updated>
     
     <summary type="html">
+    
+      &lt;p&gt;如何解决安卓手机的点击虚拟返回键退出当前应用&lt;/p&gt;
     
     </summary>
     

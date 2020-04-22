@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="Javascript Vue CSS HTML">
+<meta name="description" content="如何解决安卓手机的点击虚拟返回键退出当前应用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Virtualkey">
+<meta property="og:title" content="使用Vue开发APP手机虚拟返回键点击退出应用解决办法">
 <meta property="og:url" content="xiaoyucode.top/2020/04/22/Virtualkey/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="Javascript Vue CSS HTML">
+<meta property="og:description" content="如何解决安卓手机的点击虚拟返回键退出当前应用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-22T08:02:30.394Z">
+<meta property="og:updated_time" content="2020-04-22T08:07:07.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Virtualkey">
-<meta name="twitter:description" content="Javascript Vue CSS HTML">
+<meta name="twitter:title" content="使用Vue开发APP手机虚拟返回键点击退出应用解决办法">
+<meta name="twitter:description" content="如何解决安卓手机的点击虚拟返回键退出当前应用">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -55,7 +55,7 @@
 <link href="https://cdn.qqxio.cn/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Virtualkey | 小鱼儿</title>
+<title>使用Vue开发APP手机虚拟返回键点击退出应用解决办法 | 小鱼儿</title>
 
 <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/clipboard.js/2.0.6/clipboard.min.js"></script>
@@ -289,7 +289,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Virtualkey
+      使用Vue开发APP手机虚拟返回键点击退出应用解决办法
     </h1>
   
 
@@ -306,7 +306,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <p>如何解决安卓手机的点击虚拟返回键退出当前应用</p>
+<a id="more"></a>
+<h3 id="一、问题描述："><a href="#一、问题描述：" class="headerlink" title="一、问题描述："></a>一、问题描述：</h3><p>最近的项目是使用Vue全家桶+HBuilder打包开发一个移动端APP。<br>在测试的时候发现，当安卓手机使用虚拟按钮的时候，点击虚拟按钮的返回键，APP会直接退出。<br>这是因为安卓手机自带back虚拟按键，如果不修改其默认事件，点一下app就退出了，<br>所以需要修改这个按键默认事件事件的代码。</p>
+<h3 id="二、解决办法："><a href="#二、解决办法：" class="headerlink" title="二、解决办法："></a>二、解决办法：</h3><p>在index.html中加入一个script，加上如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  document.addEventListener(<span class="string">'plusready'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      var first = null;</span><br><span class="line">      var webview = plus.webview.currentWebview();</span><br><span class="line">      plus.key.addEventListener(<span class="string">'backbutton'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">          webview.canBack(<span class="keyword">function</span> (e) &#123;</span><br><span class="line">              <span class="keyword">if</span> (e.canBack) &#123;</span><br><span class="line">                webview.back(); //这里不建议修改自己跳转的路径  </span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                //首次按键，提示‘再按一次退出应用’  </span><br><span class="line">                <span class="keyword">if</span> (!first) &#123;</span><br><span class="line">                  first = new Date().getTime(); //获取第一次点击的时间戳  </span><br><span class="line">                  plus.nativeUI.toast(<span class="string">"再按一次退出应用"</span>, &#123;</span><br><span class="line">                    duration: <span class="string">'short'</span></span><br><span class="line">                  &#125;); //通过H5+ API 调用Android 上的toast 提示框  </span><br><span class="line">                  setTimeout(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                    first = null;</span><br><span class="line">                  &#125;, 1000);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    // 获取第二次点击的时间戳, 两次之差 小于 1000ms 说明1s点击了两次, </span><br><span class="line">                  <span class="keyword">if</span> (new Date().getTime() - first &lt; 1000) &#123;  </span><br><span class="line">                    plus.runtime.quit(); //退出应用  </span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -314,12 +318,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2020/04/22/Virtualkey/">Virtualkey</a></p>
+        <p><span>本文标题:</span><a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
         <p><span>发布时间:</span>2020-04-22, 16:02:30</p>
-        <p><span>最后更新:</span>2020-04-22, 16:02:30</p>
+        <p><span>最后更新:</span>2020-04-22, 16:07:07</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2020/04/22/Virtualkey/" title="Virtualkey">xiaoyucode.top/2020/04/22/Virtualkey/</a>
+            <span>原始链接:</span><a class="post-url" href="/2020/04/22/Virtualkey/" title="使用Vue开发APP手机虚拟返回键点击退出应用解决办法">xiaoyucode.top/2020/04/22/Virtualkey/</a>
             <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2020/04/22/Virtualkey/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -347,7 +351,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、问题描述："><span class="toc-number">1.</span> <span class="toc-text">一、问题描述：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、解决办法："><span class="toc-number">2.</span> <span class="toc-text">二、解决办法：</span></a></li></ol>
         
     </div>
     <style>
@@ -383,7 +387,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Virtualkey　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"使用Vue开发APP手机虚拟返回键点击退出应用解决办法　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -399,7 +403,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2020/04/22/Virtualkey/" data-title="Virtualkey" data-url="xiaoyucode.top/2020/04/22/Virtualkey/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2020/04/22/Virtualkey/" data-title="使用Vue开发APP手机虚拟返回键点击退出应用解决办法" data-url="xiaoyucode.top/2020/04/22/Virtualkey/"></div>
     <script>
         var duoshuoQuery = {short_name:""};
         var loadComment = function(){
@@ -434,7 +438,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/Virtualkey/">Virtualkey</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Barcode/">H5扫码功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/detail/">Vue路由传参</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/mongodb-redis/">mongodb-redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/node/">nvm改变node版本</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/git/">常用的git提交代码命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/v-for/">v-for指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">如何使用CSS画三角形</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Barcode/">H5扫码功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/detail/">Vue路由传参</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/mongodb-redis/">mongodb-redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/node/">nvm改变node版本</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/git/">常用的git提交代码命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/v-for/">v-for指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">如何使用CSS画三角形</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
 
 
 
