@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>移动端页面自定义input唤起键盘return，换行改为搜索</title>
+      <link href="/2020/04/28/search/"/>
+      <url>/2020/04/28/search/</url>
+      
+        <content type="html"><![CDATA[<p>移动端页面自定义input唤起键盘return，换行键改为搜索。</p><a id="more"></a><p>在html5中，我们可以将input的type修改为search，这样修改之后，我们的安卓手机会变成搜索或者搜索符号、IOS则会变成换行。<br>1、安卓手机</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input  <span class="built_in">type</span>=<span class="string">"search"</span> placeholder=<span class="string">"请输入你要搜索的内容"</span> v-model=<span class="string">"value"</span>/&gt;</span><br></pre></td></tr></table></figure><p>2、苹果IOS手机<br>与安卓手机不同的是，我们需要在外层包裹一个form</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;from action=<span class="string">"javascript:return true"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"search"</span> placeholder=<span class="string">"请输入你要搜索的内容"</span> v-model=<span class="string">"value"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure><p>3、修改search的默认样式</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">input[<span class="built_in">type</span>=<span class="string">"search"</span>]&#123;</span><br><span class="line">    -webkit-appearance:none;</span><br><span class="line">&#125;</span><br><span class="line">input::-webkit-search-cancel-button&#123;</span><br><span class="line">    display:none; // 关闭按钮</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用Vue开发APP手机虚拟返回键点击退出应用解决办法</title>
       <link href="/2020/04/22/Virtualkey/"/>
       <url>/2020/04/22/Virtualkey/</url>

@@ -15,18 +15,17 @@
 
 
 
-<meta name="description" content="最近遇到的一个需求就是：在Vue项目中，前端生成站点二维码，使用APP扫码功能达到扫码加油的目的。">
-<meta name="keywords" content="QRCode">
+<meta name="description" content="移动端页面自定义input唤起键盘return，换行键改为搜索。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何使用QRCode生成二维码？">
-<meta property="og:url" content="xiaoyucode.top/2019/12/30/QRCode/index.html">
+<meta property="og:title" content="移动端页面自定义input唤起键盘return，换行改为搜索">
+<meta property="og:url" content="xiaoyucode.top/2020/04/28/search/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="最近遇到的一个需求就是：在Vue项目中，前端生成站点二维码，使用APP扫码功能达到扫码加油的目的。">
+<meta property="og:description" content="移动端页面自定义input唤起键盘return，换行键改为搜索。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-30T06:30:03.549Z">
+<meta property="og:updated_time" content="2020-04-28T01:17:36.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何使用QRCode生成二维码？">
-<meta name="twitter:description" content="最近遇到的一个需求就是：在Vue项目中，前端生成站点二维码，使用APP扫码功能达到扫码加油的目的。">
+<meta name="twitter:title" content="移动端页面自定义input唤起键盘return，换行改为搜索">
+<meta name="twitter:description" content="移动端页面自定义input唤起键盘return，换行键改为搜索。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -56,7 +55,7 @@
 <link href="https://cdn.qqxio.cn/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>如何使用QRCode生成二维码？ | 小鱼儿</title>
+<title>移动端页面自定义input唤起键盘return，换行改为搜索 | 小鱼儿</title>
 
 <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/clipboard.js/2.0.6/clipboard.min.js"></script>
@@ -271,11 +270,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-QRCode" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-search" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/12/30/QRCode/" class="article-date">
-      <time datetime="2019-12-30T05:48:40.000Z" itemprop="datePublished">2019-12-30</time>
+      <a href="/2020/04/28/search/" class="article-date">
+      <time datetime="2020-04-28T01:06:47.000Z" itemprop="datePublished">2020-04-28</time>
 </a>
 
 
@@ -290,7 +289,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      如何使用QRCode生成二维码？
+      移动端页面自定义input唤起键盘return，换行改为搜索
     </h1>
   
 
@@ -300,10 +299,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/QRCode/">QRCode</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -311,13 +306,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>最近遇到的一个需求就是：在Vue项目中，前端生成站点二维码，使用APP扫码功能达到扫码加油的目的。</p>
+        <p>移动端页面自定义input唤起键盘return，换行键改为搜索。</p>
 <a id="more"></a>
-<h3 id="一、如何在Vue在使用QRCode生成二维码？"><a href="#一、如何在Vue在使用QRCode生成二维码？" class="headerlink" title="一、如何在Vue在使用QRCode生成二维码？"></a>一、如何在Vue在使用QRCode生成二维码？</h3><h6 id="（一）、下载插件qrcode插件"><a href="#（一）、下载插件qrcode插件" class="headerlink" title="（一）、下载插件qrcode插件"></a>（一）、下载插件qrcode插件</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install qrcode --save</span><br></pre></td></tr></table></figure>
+<p>在html5中，我们可以将input的type修改为search，这样修改之后，我们的安卓手机会变成搜索或者搜索符号、IOS则会变成换行。<br>1、安卓手机</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input  <span class="built_in">type</span>=<span class="string">"search"</span> placeholder=<span class="string">"请输入你要搜索的内容"</span> v-model=<span class="string">"value"</span>/&gt;</span><br></pre></td></tr></table></figure>
 
-<h6 id="（二）、在main-js中引用"><a href="#（二）、在main-js中引用" class="headerlink" title="（二）、在main.js中引用"></a>（二）、在main.js中引用</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import QRCode from <span class="string">'qrcode'</span></span><br><span class="line">Vue.use(QRCode)</span><br></pre></td></tr></table></figure>
+<p>2、苹果IOS手机<br>与安卓手机不同的是，我们需要在外层包裹一个form</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;from action=<span class="string">"javascript:return true"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"search"</span> placeholder=<span class="string">"请输入你要搜索的内容"</span> v-model=<span class="string">"value"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
 
-<h6 id="三-、组件中引入QRCode"><a href="#三-、组件中引入QRCode" class="headerlink" title="(三)、组件中引入QRCode"></a>(三)、组件中引入QRCode</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">    <span class="comment"># 模板</span></span><br><span class="line">    &lt;template&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div id=<span class="string">"qrcode"</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      import QRCode from <span class="string">'qrcode'</span>;</span><br><span class="line">      <span class="function"><span class="title">mounted</span></span>()&#123;</span><br><span class="line">          this.CreateQrcode();</span><br><span class="line">      &#125;,</span><br><span class="line">      method:&#123;</span><br><span class="line">          setTimeout(() =&gt; &#123;</span><br><span class="line">              // 获取DOM节点</span><br><span class="line">              <span class="built_in">let</span> dom = document.getElementById(<span class="string">'qrcode);</span></span><br><span class="line"><span class="string">              // 路由传参 父组件传给子组件的站点id</span></span><br><span class="line"><span class="string">              const res = this.$route.params;</span></span><br><span class="line"><span class="string">              console.log(res); </span></span><br><span class="line"><span class="string">              const id = res.id;</span></span><br><span class="line"><span class="string">              // 二维码包含的URL 需要将URL和id做一下字符串的拼接</span></span><br><span class="line"><span class="string">              let url = '</span>http://*********<span class="string">';</span></span><br><span class="line"><span class="string">              let URL = url.concat(lbsid);</span></span><br><span class="line"><span class="string">              let qrCode = new QRCode(dom,&#123;</span></span><br><span class="line"><span class="string">                  width:260, // 图像宽度</span></span><br><span class="line"><span class="string">                  height:260,  // 图像高度</span></span><br><span class="line"><span class="string">                  colorDark:"#000000",  // 前景色</span></span><br><span class="line"><span class="string">                  colorLight:"#ffffff", // 背景色</span></span><br><span class="line"><span class="string">                  correctLevel: QRCode.CorrectLevel.H  // 容错等级</span></span><br><span class="line"><span class="string">              &#125;);</span></span><br><span class="line"><span class="string">              qrCode.clear();</span></span><br><span class="line"><span class="string">              qrCode.makeCode(URL);</span></span><br><span class="line"><span class="string">          &#125;,100)</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">    &lt;style lang="less" scoped&gt;</span></span><br><span class="line"><span class="string">        #qrcode &#123;</span></span><br><span class="line"><span class="string">            display: inline-block;</span></span><br><span class="line"><span class="string">            margin-top: 6rem;</span></span><br><span class="line"><span class="string">            img &#123;</span></span><br><span class="line"><span class="string">                width: 60%;</span></span><br><span class="line"><span class="string">                height: 60%;</span></span><br><span class="line"><span class="string">                background-color: #fff; //设置白色背景色</span></span><br><span class="line"><span class="string">                padding: 6px; // 利用padding的特性，挤出白边</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">    &lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<p>3、修改search的默认样式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">input[<span class="built_in">type</span>=<span class="string">"search"</span>]&#123;</span><br><span class="line">    -webkit-appearance:none;</span><br><span class="line">&#125;</span><br><span class="line">input::-webkit-search-cancel-button&#123;</span><br><span class="line">    display:none; // 关闭按钮</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -327,13 +325,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a></p>
+        <p><span>本文标题:</span><a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
-        <p><span>发布时间:</span>2019-12-30, 13:48:40</p>
-        <p><span>最后更新:</span>2019-12-30, 14:30:03</p>
+        <p><span>发布时间:</span>2020-04-28, 09:06:47</p>
+        <p><span>最后更新:</span>2020-04-28, 09:17:36</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/12/30/QRCode/" title="如何使用QRCode生成二维码？">xiaoyucode.top/2019/12/30/QRCode/</a>
-            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/12/30/QRCode/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/04/28/search/" title="移动端页面自定义input唤起键盘return，换行改为搜索">xiaoyucode.top/2020/04/28/search/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2020/04/28/search/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -345,16 +343,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/12/30/Barcode/">
-                    H5扫码功能
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/11/02/detail/">
-                    Vue路由传参
+                <a href="/2020/04/22/Virtualkey/">
+                    使用Vue开发APP手机虚拟返回键点击退出应用解决办法
                 </a>
             </div>
         
@@ -366,7 +358,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、如何在Vue在使用QRCode生成二维码？"><span class="toc-number">1.</span> <span class="toc-text">一、如何在Vue在使用QRCode生成二维码？</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#（一）、下载插件qrcode插件"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">（一）、下载插件qrcode插件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#（二）、在main-js中引用"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">（二）、在main.js中引用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#三-、组件中引入QRCode"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">(三)、组件中引入QRCode</span></a></li></ol></li></ol></li></ol></li></ol>
+            
         
     </div>
     <style>
@@ -402,7 +394,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"如何使用QRCode生成二维码？　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"移动端页面自定义input唤起键盘return，换行改为搜索　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -418,7 +410,7 @@
     
       <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2019/12/30/QRCode/" data-title="如何使用QRCode生成二维码？" data-url="xiaoyucode.top/2019/12/30/QRCode/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2020/04/28/search/" data-title="移动端页面自定义input唤起键盘return，换行改为搜索" data-url="xiaoyucode.top/2020/04/28/search/"></div>
     <script>
         var duoshuoQuery = {short_name:""};
         var loadComment = function(){
@@ -441,15 +433,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/12/30/Barcode/" title="上一篇: H5扫码功能">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/11/02/detail/" title="下一篇: Vue路由传参">
+            <a href="/2020/04/22/Virtualkey/" title="下一篇: 使用Vue开发APP手机虚拟返回键点击退出应用解决办法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
