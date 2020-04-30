@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>iTerm2快捷键</title>
+      <link href="/2020/04/30/iterm2/"/>
+      <url>/2020/04/30/iterm2/</url>
+      
+        <content type="html"><![CDATA[<p>工欲善其事必先利其器。如何更加方便的使用iTerm2？</p><a id="more"></a><p>一、标签快捷键</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">commond + t              // 新建标签页</span><br><span class="line">commond + w              // 关闭标签</span><br><span class="line">commond + enter          // 切换全屏(第一次切换至全屏，再commond + enter恢复到之前窗口) </span><br><span class="line">commond + 左右方向键       // 切换标签</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>移动端页面自定义input唤起键盘return，换行改为搜索</title>
       <link href="/2020/04/28/search/"/>
       <url>/2020/04/28/search/</url>

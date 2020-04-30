@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2020-04-28T01:17:36.115Z</updated>
+  <updated>2020-04-30T01:52:24.126Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -17,11 +17,27 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>iTerm2快捷键</title>
+    <link href="xiaoyucode.top/2020/04/30/iterm2/"/>
+    <id>xiaoyucode.top/2020/04/30/iterm2/</id>
+    <published>2020-04-30T01:44:17.000Z</published>
+    <updated>2020-04-30T01:52:24.126Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;工欲善其事必先利其器。如何更加方便的使用iTerm2？&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>移动端页面自定义input唤起键盘return，换行改为搜索</title>
     <link href="xiaoyucode.top/2020/04/28/search/"/>
     <id>xiaoyucode.top/2020/04/28/search/</id>
     <published>2020-04-28T01:06:47.000Z</published>
-    <updated>2020-04-28T01:17:36.115Z</updated>
+    <updated>2020-04-30T01:17:46.078Z</updated>
     
     <summary type="html">
     
@@ -349,24 +365,6 @@
     
     
       <category term="Javascript、Promise" scheme="xiaoyucode.top/tags/Javascript%E3%80%81Promise/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</title>
-    <link href="xiaoyucode.top/2019/06/19/hello-world/"/>
-    <id>xiaoyucode.top/2019/06/19/hello-world/</id>
-    <published>2019-06-19T10:00:07.000Z</published>
-    <updated>2019-07-06T18:08:41.361Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Hexo 常用命令&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="xiaoyucode.top/tags/hexo/"/>
     
   </entry>
   
