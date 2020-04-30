@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>xiaoyucode.top/2019/10/23/node/</loc>
+    <lastmod>2020-04-30</lastmod>
+  </url>  <url>
     <loc>xiaoyucode.top/2019/09/30/book/</loc>
     <lastmod>2020-04-30</lastmod>
   </url>  <url>
@@ -24,9 +27,6 @@
   </url>  <url>
     <loc>xiaoyucode.top/2019/07/09/command/</loc>
     <lastmod>2019-11-08</lastmod>
-  </url>  <url>
-    <loc>xiaoyucode.top/2019/10/23/node/</loc>
-    <lastmod>2019-10-24</lastmod>
   </url>  <url>
     <loc>xiaoyucode.top/2019/10/24/mongodb-redis/</loc>
     <lastmod>2019-10-24</lastmod>

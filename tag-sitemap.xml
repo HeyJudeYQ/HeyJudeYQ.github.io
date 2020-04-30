@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>xiaoyucode.top/tags/node/</loc>
+        <lastmod>2020-04-30T06:24:13.065Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/tags/book/</loc>
+        <lastmod>2020-04-30T02:30:13.007Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>xiaoyucode.top/tags/H5%E3%80%81barcode/</loc>
         <lastmod>2020-01-15T05:44:08.133Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,22 +31,8 @@
     </url>
 
     <url>
-        <loc>xiaoyucode.top/tags/book/</loc>
-        <lastmod>2019-11-08T09:25:39.612Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>xiaoyucode.top/tags/Linux/</loc>
         <lastmod>2019-11-08T08:52:03.870Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/tags/node/</loc>
-        <lastmod>2019-10-24T08:00:17.206Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
