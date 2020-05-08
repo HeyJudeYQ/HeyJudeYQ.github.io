@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="小鱼儿">
+
+
+
+<meta name="description" content="防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。">
+<meta name="keywords" content="debounce、throttle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="防抖（debounce）和节流（throttle）">
+<meta property="og:url" content="xiaoyucode.top/2019/07/09/debounce-throttling/index.html">
+<meta property="og:site_name" content="小鱼儿">
+<meta property="og:description" content="防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-05T05:21:33.654Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="防抖（debounce）和节流（throttle）">
+<meta name="twitter:description" content="防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+
+
+    <link rel="shortcut icon" href="/avatar.png">
+
+
+
+    <link href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="http://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/yellowgreen/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="https://cdn.qqxio.cn/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>防抖（debounce）和节流（throttle） | 小鱼儿</title>
+
+<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "http://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "https://cdn.bootcss.com/scrollReveal.js/4.0.0/scrollreveal.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "http://cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "http://cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">小鱼儿</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="Search..."  class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签</a></li>
+                        
+                            <li><a href="/about/">关于</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa 豆瓣" href="https://movie.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa SegmentFault" href="https://segmentfault.com" title="SegmentFault"></a>
+                            
+                                <a class="fa 网易云音乐" href="https://music.163.com" title="网易云音乐"></a>
+                            
+                                <a class="fa bilibili" href="https://www.bilibili.com" title="bilibili"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5、barcode/">H5、barcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript、Promise/">Javascript、Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QRCode/">QRCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue、Vue-cli/">Vue、Vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb、redis/">mongodb、redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/transparent、border/">transparent、border</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/纯JS、事件监听-委托、立即执行函数/">纯JS、事件监听/委托、立即执行函数</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个很菜的JavaScript搬运工！</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">小鱼儿</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">小鱼儿</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签</a></li>
+                
+                    <li><a href="/about/">关于</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa 新浪微博" target="_blank" href="/sina weibo" title="新浪微博"></a>
+                            
+                                <a class="fa 豆瓣" target="_blank" href="https://movie.douban.com/" title="豆瓣"></a>
+                            
+                                <a class="fa SegmentFault" target="_blank" href="https://segmentfault.com" title="SegmentFault"></a>
+                            
+                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com" title="网易云音乐"></a>
+                            
+                                <a class="fa bilibili" target="_blank" href="https://www.bilibili.com" title="bilibili"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-debounce-throttling" class="article article-type-post" itemscope
+  itemprop="blogPost">
+  
+  <div class="article-meta">
+    <a href="/2019/07/09/debounce-throttling/" class="article-date">
+      <time datetime="2019-07-09T13:51:54.000Z" itemprop="datePublished">2019-07-09</time>
+</a>
+
+
+  </div>
+  
+  <div class="article-inner">
+    
+  <input type="hidden" class="isFancy" />
+  
+  
+  <header class="article-header">
+    
+  
+    <h1 class="article-title" itemprop="name">
+      防抖（debounce）和节流（throttle）
+    </h1>
+  
+
+    
+  </header>
+  
+  <div class="article-info article-info-post">
+    
+
+    
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li></ul>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+  
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    <p>防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。</p>
+<a id="more"></a>
+<p>节流（throttle）：指定时间间隔内只会执行一次任务。<br>&emsp;防抖与节流的原理：使用setTimeout来存放将要执行的函数。其中函数节流就是利用标记符来控制本次执行完毕。函数防抖就是利用clearTimeout来清楚执行的函数。目的为了节约计算机资源，从而达到一个更好的运行效果。</p>
+<h3 id="一、防抖"><a href="#一、防抖" class="headerlink" title="一、防抖"></a>一、防抖</h3><p>&emsp;用户在输入框内容校验等操作时，如果事件处理函数的调用频率无限制，会加重浏览器的负担，导致用户体验会很不好，防抖和节流的方式减少调用频率，同时又不影响实际效果。</p>
+<p>下面是一个防抖的小案例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=<span class="string">"debounce"</span>&gt;点我防抖&lt;/button&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            //获取按钮并绑定事件</span><br><span class="line">            var myDebounce = document.getElementById(<span class="string">"debounce"</span>);</span><br><span class="line">            myDebounce.addEventListener(<span class="string">"click"</span>,debounce(sayDebounce));</span><br><span class="line">        &#125;;</span><br><span class="line">        //防抖功能函数，接受传参</span><br><span class="line">        <span class="keyword">function</span> debounce(fn)&#123;</span><br><span class="line">            //创建一个标记用来存放定时器的返回值</span><br><span class="line">            <span class="built_in">let</span> timeout = null;</span><br><span class="line">            <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                //每次当用户点击、输入的时候，把前一个定时器消除</span><br><span class="line">                clearTimeout(timeout);</span><br><span class="line">                //创建一个新的setTimeout，这样能保证点击按钮后的间隔内，</span><br><span class="line">                //如果用户还点击的话，就不会执行fn函数</span><br><span class="line">                timeout = setTimeout(() =&gt; &#123;</span><br><span class="line">                    fn.call(this,arguments);</span><br><span class="line">                &#125;,1000);</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">        //防抖事件的处理</span><br><span class="line">        <span class="keyword">function</span> <span class="function"><span class="title">sayDebounce</span></span>()&#123;</span><br><span class="line">            // ...有些需要防抖的工作，在这里进行</span><br><span class="line">            console.log(<span class="string">"防抖成功~"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在触发点击事件后，如果用户再次点击了，我们会清空之前的定时器，重新生成一个定时器。意思就是：这件事儿需要等待，如果你反复催促，就重新计时。<br>&emsp;总结一下就是：第一次触发事件，一段时间内没有再次触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，再一次触发了事件，就会重新开始延时。</p>
+<h3 id="二、节流"><a href="#二、节流" class="headerlink" title="二、节流"></a>二、节流</h3><p>&emsp;节流：指定时间间隔内只会执行一次任务。<br>节流的应用：<br>    1、懒加载监听滚动条的位置，使用节流按照一定的频率进行获取。<br>    2、点击提交按钮，只允许一定时间内点击一次。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=<span class="string">"throttle"</span>&gt;点我防抖&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        //获取按钮并绑定事件</span><br><span class="line">        var myThrottle = document.getElementById(<span class="string">"throttle"</span>);</span><br><span class="line">        myThrottle.addEventListener(<span class="string">"click"</span>,throttle(sayThrottle));</span><br><span class="line">    &#125;;</span><br><span class="line">    //节流函数</span><br><span class="line">    <span class="keyword">function</span> throttle(fn)&#123;</span><br><span class="line">        //通过闭包保存一个标记</span><br><span class="line">        <span class="built_in">let</span> canRun = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            //在函数开头判断标志是否为<span class="literal">true</span>，不为<span class="literal">true</span>则中断函数</span><br><span class="line">            <span class="keyword">if</span>(!canRun)&#123;</span><br><span class="line">                <span class="built_in">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            //将canRun设置为<span class="literal">false</span>，防止执行之前再被执行</span><br><span class="line">            canRun  = <span class="literal">false</span>;</span><br><span class="line">            //定时器</span><br><span class="line">            setTimeout(() =&gt; &#123;</span><br><span class="line">                fn.call(this,arguments);</span><br><span class="line">                //执行完事件(例如调用完接口)之后，重新将这个标志设置为<span class="literal">true</span></span><br><span class="line">                canRun  = <span class="literal">true</span>;</span><br><span class="line">            &#125;,1000);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    //需要节流的事件</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">sayThrottle</span></span>()&#123;</span><br><span class="line">        // ...有些需要防抖的工作，在这里进行</span><br><span class="line">        console.log(<span class="string">"节流成功~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+    
+  </div>
+  
+  </div>
+  
+  
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
+        <p><span>发布时间:</span>2019-07-09, 21:51:54</p>
+        <p><span>最后更新:</span>2019-10-05, 13:21:33</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/09/debounce-throttling/" title="防抖（debounce）和节流（throttle）">xiaoyucode.top/2019/07/09/debounce-throttling/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/07/09/debounce-throttling/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/08/01/url/">
+                    输入url到页面的加载完成发生了什么？
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/07/09/command/">
+                    常用的Linux命令
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、防抖"><span class="toc-text">一、防抖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、节流"><span class="toc-text">二、节流</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-6 i,
+        .toc-level-6 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"防抖（debounce）和节流（throttle）　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+
+<div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2019/07/09/debounce-throttling/" data-title="防抖（debounce）和节流（throttle）" data-url="xiaoyucode.top/2019/07/09/debounce-throttling/"></div>
+    <script>
+        var duoshuoQuery = {short_name:""};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/08/01/url/" title="上一篇: 输入url到页面的加载完成发生了什么？">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/07/09/command/" title="下一篇: 常用的Linux命令">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/07/vue-question/">vue项目中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/iterm2/">iTerm2快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Barcode/">H5扫码功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/detail/">Vue路由传参</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/mongodb-redis/">mongodb-redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/node/">node版本管理--升级和降级</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/git/">常用的git提交代码命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/v-for/">v-for指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">如何使用CSS画三角形</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
+
+
+
+
+<script>
+  < %
+  if (post.fancybox === false) {
+    % >
+    yiliaConfig.fancybox = false; <
+    %
+  } % >
+</script>
+</div>
+      <footer id="footer">
+    <span id="busuanzi_container_site_uv">
+        本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    </span>
+    <!-- <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2020 小鱼儿
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div> -->
+
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+    </div>
+    
+    <script src="/js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 10;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+             github: ".github-widget a", 
+            
+            
+            
+             categories: ".article-category a, a.tag-list-link", 
+             articleNav: "#article-nav a, #post-nav-button a", 
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
