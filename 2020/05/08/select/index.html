@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});">
+<meta name="description" content="下拉的选项是从后台获取的数据,如何获取选定项的值?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue路由传参">
-<meta property="og:url" content="xiaoyucode.top/2019/11/02/detail/index.html">
+<meta property="og:title" content="下拉框select的option">
+<meta property="og:url" content="xiaoyucode.top/2020/05/08/select/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});">
+<meta property="og:description" content="下拉的选项是从后台获取的数据,如何获取选定项的值?">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-08T08:59:24.791Z">
+<meta property="og:updated_time" content="2020-05-08T08:51:44.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue路由传参">
-<meta name="twitter:description" content="Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});">
+<meta name="twitter:title" content="下拉框select的option">
+<meta name="twitter:description" content="下拉的选项是从后台获取的数据,如何获取选定项的值?">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -55,7 +55,7 @@
 <link href="https://cdn.qqxio.cn/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Vue路由传参 | 小鱼儿</title>
+<title>下拉框select的option | 小鱼儿</title>
 
 <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/clipboard.js/2.0.6/clipboard.min.js"></script>
@@ -270,12 +270,12 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-detail" class="article article-type-post" itemscope
+      <div class="body-wrap"><article id="post-select" class="article article-type-post" itemscope
   itemprop="blogPost">
   
   <div class="article-meta">
-    <a href="/2019/11/02/detail/" class="article-date">
-      <time datetime="2019-11-02T09:10:19.000Z" itemprop="datePublished">2019-11-02</time>
+    <a href="/2020/05/08/select/" class="article-date">
+      <time datetime="2020-05-08T08:42:40.000Z" itemprop="datePublished">2020-05-08</time>
 </a>
 
 
@@ -290,7 +290,7 @@
     
   
     <h1 class="article-title" itemprop="name">
-      Vue路由传参
+      下拉框select的option
     </h1>
   
 
@@ -308,19 +308,14 @@
   <div class="article-entry" itemprop="articleBody">
     
     
-    <p>Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});</p>
+    <p>下拉的选项是从后台获取的数据,如何获取选定项的值?</p>
 <a id="more"></a>
-<h6 id="一、方法一：this-router-push-path-’’-query"><a href="#一、方法一：this-router-push-path-’’-query" class="headerlink" title="一、方法一：this.$router.push(path:’’,query:{})"></a>一、方法一：this.$router.push(path:’’,query:{})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    path:<span class="string">'/xxx'</span>,</span><br><span class="line">    query:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.query;</span><br><span class="line">this.id = res.id;</span><br></pre></td></tr></table></figure></p>
-<h6 id="二、方法二、this-router-push-name-’”-params"><a href="#二、方法二、this-router-push-name-’”-params" class="headerlink" title="二、方法二、this.$router.push({name:’”,params:{}})"></a>二、方法二、this.$router.push({name:’”,params:{}})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    name:<span class="string">''</span>,</span><br><span class="line">    params:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.params;</span><br><span class="line">this.id = res.id</span><br></pre></td></tr></table></figure></p>
-<h6 id="注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；"><a href="#注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；" class="headerlink" title="注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；"></a>注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；</h6><pre><code>二者区别：
-    直白的来说query相当于get请求，页面跳转，我们在地址栏可以看到请求参数，params相当于post请求，参数不会在地址栏显示出来。
-还有就是传参是this.$router.push(),而接收参数是this.$route.params,前者是$router,后者是$route.
 
-this.$router和this.$route的区别：
-1、$router为VueRouter实例，当我们想要进入不同的URL，可以使用$router.push()方法
-2、$route为当前router跳转对象，里面可以获取name、path、query、params</code></pre>
+<p>以选择银行卡为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;select v-model=<span class="string">"selected"</span> class=<span class="string">"selected"</span>&gt;</span><br><span class="line">    &lt;option disabled value v-show=<span class="string">"showTips"</span>&gt;请选择提现到账的银行卡&lt;/option&gt;</span><br><span class="line">    &lt;option</span><br><span class="line">        v-for=<span class="string">"item in CardList"</span></span><br><span class="line">        :key=<span class="string">"item.id"</span></span><br><span class="line">        v-bind:value=<span class="string">"item.id"</span></span><br><span class="line">    &gt;</span><br><span class="line">        &#123;&#123; item.card_type &#125;&#125; ( &#123;&#123; item.card_number ? item.card_number.replace(/^(\d&#123;4&#125;)\d+(\d&#123;4&#125;)$/,<span class="string">"<span class="variable">$1</span>****<span class="variable">$2</span>"</span>):<span class="string">""</span>&#125;&#125; )</span><br><span class="line">    &lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<p>正则表达式是让银行卡号显示为6217 **** 0000的格式。</p>
+
     
   </div>
   
@@ -328,13 +323,13 @@ this.$router和this.$route的区别：
   
   
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/11/02/detail/">Vue路由传参</a></p>
+        <p><span>本文标题:</span><a href="/2020/05/08/select/">下拉框select的option</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
-        <p><span>发布时间:</span>2019-11-02, 17:10:19</p>
-        <p><span>最后更新:</span>2019-11-08, 16:59:24</p>
+        <p><span>发布时间:</span>2020-05-08, 16:42:40</p>
+        <p><span>最后更新:</span>2020-05-08, 16:51:44</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/11/02/detail/" title="Vue路由传参">xiaoyucode.top/2019/11/02/detail/</a>
-            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/11/02/detail/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/05/08/select/" title="下拉框select的option">xiaoyucode.top/2020/05/08/select/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2020/05/08/select/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -347,15 +342,15 @@ this.$router和this.$route的区别：
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/12/30/QRCode/">
-                    如何使用QRCode生成二维码？
+                <a href="/2020/05/08/time/">
+                    解决vue项目启动和打包时间过长
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/10/24/mongodb-redis/">
-                    mongodb-redis
+                <a href="/2020/05/07/vue-question/">
+                    vue项目中遇到的问题
                 </a>
             </div>
         
@@ -367,7 +362,7 @@ this.$router和this.$route的区别：
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#一、方法一：this-router-push-path-’’-query"><span class="toc-text">一、方法一：this.$router.push(path:’’,query:{})</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#二、方法二、this-router-push-name-’”-params"><span class="toc-text">二、方法二、this.$router.push({name:’”,params:{}})</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；"><span class="toc-text">注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；</span></a></li></ol>
+            
         
     </div>
     <style>
@@ -403,7 +398,7 @@ this.$router和this.$route的区别：
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Vue路由传参　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"下拉框select的option　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -419,7 +414,7 @@ this.$router和this.$route的区别：
 
 <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2019/11/02/detail/" data-title="Vue路由传参" data-url="xiaoyucode.top/2019/11/02/detail/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2020/05/08/select/" data-title="下拉框select的option" data-url="xiaoyucode.top/2020/05/08/select/"></div>
     <script>
         var duoshuoQuery = {short_name:""};
         var loadComment = function(){
@@ -442,7 +437,7 @@ this.$router和this.$route的区别：
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/12/30/QRCode/" title="上一篇: 如何使用QRCode生成二维码？">
+            <a href="/2020/05/08/time/" title="上一篇: 解决vue项目启动和打包时间过长">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -450,7 +445,7 @@ this.$router和this.$route的区别：
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/10/24/mongodb-redis/" title="下一篇: mongodb-redis">
+            <a href="/2020/05/07/vue-question/" title="下一篇: vue项目中遇到的问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         

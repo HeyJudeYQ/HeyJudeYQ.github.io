@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="小鱼儿">
 <meta property="og:description" content="使用Vue开发时遇到的问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-07T07:06:21.645Z">
+<meta property="og:updated_time" content="2020-05-08T08:42:21.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue项目中遇到的问题">
 <meta name="twitter:description" content="使用Vue开发时遇到的问题">
@@ -327,7 +327,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">build:&#123;</span><br><span class="line">    productionGzip:<span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h5 id="六、不要在method中使用箭头函数"><a href="#六、不要在method中使用箭头函数" class="headerlink" title="六、不要在method中使用箭头函数"></a>六、不要在method中使用箭头函数</h5><p>Vue官网上有说明，问什么不应该在method中使用.<br>在methods不应该使用箭头函数来定义method函数，理由是箭头函数绑定了父级作用域上下文，所以this将不会按照我们的期望指向Vue实例<br>注意，不应该使用箭头函数来定义 method 函数 (例如 plus: () =&gt; this.a++)。理由是箭头函数绑定了父级作用域的上下文，所以 this 将不会按照期望指向 Vue 实例，this.a 将是 undefined。</p>
+<h5 id="七、控制天报错sock-js-9be2-1606"><a href="#七、控制天报错sock-js-9be2-1606" class="headerlink" title="七、控制天报错sock.js?9be2:1606"></a>七、控制天报错sock.js?9be2:1606</h5><p>控制的报错详情是这个样子的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sockjs.js?9be2:1606 GET http://192.168.10.14:8081/sockjs-node/info?t=1588898971642 net::ERR_CONNECTION_REFUSED</span><br></pre></td></tr></table></figure>
 
+<p>解决办法：<br>   1、找到/node_modules/sockjs-client/dist/sockjs.js;<br>   2、在1605行，注释掉self.xhr.send(payload);这一行，然后就可以解决了。</p>
+<h5 id="八、修饰符的使用"><a href="#八、修饰符的使用" class="headerlink" title="八、修饰符的使用"></a>八、修饰符的使用</h5><p>例如：我们有一个点击事件，我们只希望这个点击事件只执行一次，这时候我们可以使用.once修饰符</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click.once=<span class="string">"Submit"</span>&gt;提交&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">Submit:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(123); // 多次点击提交 只会在控制台打印一次</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     
   </div>
   
@@ -338,7 +343,7 @@
         <p><span>本文标题:</span><a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
         <p><span>发布时间:</span>2020-05-07, 14:05:01</p>
-        <p><span>最后更新:</span>2020-05-07, 15:06:21</p>
+        <p><span>最后更新:</span>2020-05-08, 16:42:21</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/05/07/vue-question/" title="vue项目中遇到的问题">xiaoyucode.top/2020/05/07/vue-question/</a>
             <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2020/05/07/vue-question/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -352,6 +357,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2020/05/08/select/">
+                    下拉框select的option
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -368,7 +379,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、跨域"><span class="toc-text">一、跨域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、项目打包产生很大的-map文件"><span class="toc-text">二、项目打包产生很大的.map文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、fastClick的300ms延迟"><span class="toc-text">三、fastClick的300ms延迟</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四、减少首屏加载速度–路由懒加载"><span class="toc-text">四、减少首屏加载速度–路由懒加载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#五、减少文件体积–开启gzip"><span class="toc-text">五、减少文件体积–开启gzip</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#六、不要在method中使用箭头函数"><span class="toc-text">六、不要在method中使用箭头函数</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、跨域"><span class="toc-text">一、跨域</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、项目打包产生很大的-map文件"><span class="toc-text">二、项目打包产生很大的.map文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三、fastClick的300ms延迟"><span class="toc-text">三、fastClick的300ms延迟</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#四、减少首屏加载速度–路由懒加载"><span class="toc-text">四、减少首屏加载速度–路由懒加载</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#五、减少文件体积–开启gzip"><span class="toc-text">五、减少文件体积–开启gzip</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#六、不要在method中使用箭头函数"><span class="toc-text">六、不要在method中使用箭头函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#七、控制天报错sock-js-9be2-1606"><span class="toc-text">七、控制天报错sock.js?9be2:1606</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#八、修饰符的使用"><span class="toc-text">八、修饰符的使用</span></a></li></ol>
         
     </div>
     <style>
@@ -443,7 +454,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2020/05/08/select/" title="上一篇: 下拉框select的option">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -455,7 +468,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/07/vue-question/">vue项目中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/iterm2/">iTerm2快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Barcode/">H5扫码功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/detail/">Vue路由传参</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/mongodb-redis/">mongodb-redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/node/">node版本管理--升级和降级</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/git/">常用的git提交代码命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/v-for/">v-for指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">如何使用CSS画三角形</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/08/time/">解决vue项目启动和打包时间过长</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/08/select/">下拉框select的option</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/07/vue-question/">vue项目中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/iterm2/">iTerm2快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Barcode/">H5扫码功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/detail/">Vue路由传参</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/mongodb-redis/">mongodb-redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/node/">node版本管理--升级和降级</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/git/">常用的git提交代码命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/v-for/">v-for指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">如何使用CSS画三角形</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
 
 
 
