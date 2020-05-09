@@ -15,18 +15,17 @@
 
 
 
-<meta name="description" content="Node版本的升级和降级">
-<meta name="keywords" content="node">
+<meta name="description" content="在项目目录下新建一个.eslintrc.js的文件。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node版本管理--升级和降级">
-<meta property="og:url" content="xiaoyucode.top/2019/10/23/node/index.html">
+<meta property="og:title" content=".eslintrc.js 的配置">
+<meta property="og:url" content="xiaoyucode.top/2020/05/09/eslint/index.html">
 <meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="Node版本的升级和降级">
+<meta property="og:description" content="在项目目录下新建一个.eslintrc.js的文件。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-30T06:24:13.065Z">
+<meta property="og:updated_time" content="2020-05-09T02:59:02.810Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node版本管理--升级和降级">
-<meta name="twitter:description" content="Node版本的升级和降级">
+<meta name="twitter:title" content=".eslintrc.js 的配置">
+<meta name="twitter:description" content="在项目目录下新建一个.eslintrc.js的文件。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -56,7 +55,7 @@
 <link href="https://cdn.qqxio.cn/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>node版本管理--升级和降级 | 小鱼儿</title>
+<title>.eslintrc.js 的配置 | 小鱼儿</title>
 
 <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/clipboard.js/2.0.6/clipboard.min.js"></script>
@@ -271,12 +270,12 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-node" class="article article-type-post" itemscope
+      <div class="body-wrap"><article id="post-eslint" class="article article-type-post" itemscope
   itemprop="blogPost">
   
   <div class="article-meta">
-    <a href="/2019/10/23/node/" class="article-date">
-      <time datetime="2019-10-23T07:25:21.000Z" itemprop="datePublished">2019-10-23</time>
+    <a href="/2020/05/09/eslint/" class="article-date">
+      <time datetime="2020-05-09T02:50:49.000Z" itemprop="datePublished">2020-05-09</time>
 </a>
 
 
@@ -291,7 +290,7 @@
     
   
     <h1 class="article-title" itemprop="name">
-      node版本管理--升级和降级
+      .eslintrc.js 的配置
     </h1>
   
 
@@ -302,10 +301,6 @@
     
 
     
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-    </div>
-
     <div class="clearfix"></div>
   </div>
   
@@ -313,12 +308,11 @@
   <div class="article-entry" itemprop="articleBody">
     
     
-    <p>Node版本的升级和降级</p>
+    <p>在项目目录下新建一个.eslintrc.js的文件。</p>
 <a id="more"></a>
-<p>在开发的工程中，我们可能需要经常切换node版本来应对不同的开发环境，所以需要经常使用不同版本的node</p>
-<p>一、安装npm插件n ,通过n模块来管理node版本<br>1、全局安装n模块<br>    npm instlal -g n<br>2、安装当前稳定版本<br>    n stable或者sudo n stable<br>3、安装最新版本的<br>    n latest或者sudo n latest<br>4、安装指定版本的node<br>    n v8.16.0<br>5、卸载指定的node版本<br>    n rm v8.16.0<br>二、使用nvm管理node版本<br>1、安装nvm<br>    brew install nvm<br>2、使用nvm安装node版本<br>    安装最新版本<br>    nvm isntall node<br>    安装指定版本<br>    nvm install 8.16.0<br>3、查看所有版本<br>    nvm ls<br>4、切换node版本<br>    使用最新版本<br>    nvm use node<br>    使用指定版本<br>    nvm use 10.16.2<br>    通常我会使用第二种方式<br>    例如：我在一个项目中使用的是<a href="mailto:node@6.13.2" target="_blank" rel="noopener">node@6.13.2</a>,新项目使用的是<a href="mailto:node@8.16.0" target="_blank" rel="noopener">node@8.16.0</a>,
-    先要安装<a href="mailto:node@8.16.0" target="_blank" rel="noopener">node@8.16.0</a>，nvm install 8.16.0，<br>    然后，nvm use 8.16.0</p>
 
+<h4 id="eslintrc-js-的配置"><a href="#eslintrc-js-的配置" class="headerlink" title=".eslintrc.js 的配置"></a>.eslintrc.js 的配置</h4><p>常用配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  root: true,</span><br><span class="line">  env: &#123;</span><br><span class="line">    node: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &apos;extends&apos;: [</span><br><span class="line">    &apos;plugin:vue/essential&apos;,</span><br><span class="line">    &apos;@vue/standard&apos;</span><br><span class="line">  ],</span><br><span class="line">  rules: &#123;</span><br><span class="line">    &apos;no-console&apos;: process.env.NODE_ENV === &apos;production&apos; ? &apos;error&apos; : &apos;off&apos;, // 生产环境 无console.log</span><br><span class="line">    &apos;no-debugger&apos;: process.env.NODE_ENV === &apos;production&apos; ? &apos;error&apos; : &apos;off&apos;, // 生产环境 无debugger</span><br><span class="line">    &apos;indent&apos;: &apos;off&apos;,</span><br><span class="line">    // 函数定义时括号前面要不要有空格</span><br><span class="line">    &apos;space-before-function-paren&apos;: &apos;off&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    parser: &apos;babel-eslint&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     
   </div>
   
@@ -326,13 +320,13 @@
   
   
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/10/23/node/">node版本管理--升级和降级</a></p>
+        <p><span>本文标题:</span><a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
-        <p><span>发布时间:</span>2019-10-23, 15:25:21</p>
-        <p><span>最后更新:</span>2020-04-30, 14:24:13</p>
+        <p><span>发布时间:</span>2020-05-09, 10:50:49</p>
+        <p><span>最后更新:</span>2020-05-09, 10:59:02</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/10/23/node/" title="node版本管理--升级和降级">xiaoyucode.top/2019/10/23/node/</a>
-            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/10/23/node/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/05/09/eslint/" title=".eslintrc.js 的配置">xiaoyucode.top/2020/05/09/eslint/</a>
+            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2020/05/09/eslint/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -344,16 +338,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/10/24/mongodb-redis/">
-                    mongodb-redis
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/10/23/git/">
-                    常用的git提交代码命令
+                <a href="/2020/05/08/time/">
+                    解决vue项目热更新、启动和打包时间过长的问题
                 </a>
             </div>
         
@@ -365,7 +353,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#eslintrc-js-的配置"><span class="toc-text">.eslintrc.js 的配置</span></a></li></ol>
         
     </div>
     <style>
@@ -401,7 +389,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"node版本管理--升级和降级　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":".eslintrc.js 的配置　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -417,7 +405,7 @@
 
 <div class="duoshuo" id="comments">
     <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2019/10/23/node/" data-title="node版本管理--升级和降级" data-url="xiaoyucode.top/2019/10/23/node/"></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2020/05/09/eslint/" data-title=".eslintrc.js 的配置" data-url="xiaoyucode.top/2020/05/09/eslint/"></div>
     <script>
         var duoshuoQuery = {short_name:""};
         var loadComment = function(){
@@ -440,15 +428,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/10/24/mongodb-redis/" title="上一篇: mongodb-redis">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/10/23/git/" title="下一篇: 常用的git提交代码命令">
+            <a href="/2020/05/08/time/" title="下一篇: 解决vue项目热更新、启动和打包时间过长的问题">
                 <i class="fa fa-angle-right"></i>
             </a>
         
