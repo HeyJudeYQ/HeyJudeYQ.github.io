@@ -36,7 +36,7 @@
     <!--<script type="text/javascript">
       if (document.images) {
         var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
+        avatar.src = '/imgs/avatar.png'
         var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
         var previewsPreLoad = []
         for(var i = 0; i < length; i++) {
@@ -60,6 +60,25 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="xiaoyucode.top" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -68,7 +87,7 @@
                     aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="xiaoyucode.top">
+            <a href="/">
                 
                 <style>
                     #gal-header .navbar-brand {
@@ -124,7 +143,19 @@
                         </li>
                         
                         <li>
+                            <a href="/tags/QRCode/">QRCode</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/book/">book</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/debounce、throttle/">debounce、throttle</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Linux/">Linux</a>
                         </li>
                         
                         
@@ -211,23 +242,11 @@
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140"
+            <img src="/imgs/avatar.png" width="140" height="140"
                  alt="个人头像" class="author-image">
             <p class="author-description"><p>Javascript Vue CSS HTML</p>
 </p>
         </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -322,13 +341,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
+                    <a href="/2020/05/08/select/">下拉框select的option</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
+                    <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
                 </span>
             </li>
             
@@ -340,43 +359,43 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/12/30/Barcode/">H5扫码功能</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
+                    <a href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/23/git/">常用的git提交代码命令</a>
+                    <a href="/2019/09/30/book/">我的书单--持续更新。。。</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
+                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a>
+                    <a href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/06/19/promise/">Promise</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a>
+                    <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
                 </span>
             </li>
             
@@ -405,39 +424,39 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 11.26171282419703px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 10.384704472882035px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/H5、barcode/" style="font-size: 16.599796359191558px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 12.529439016359147px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/book/" style="font-size: 19.82109380704203px;" class="tag-cloud-link">book</a>
+    <a href="/tags/QRCode/" style="font-size: 11.90393242817019px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/QRCode/" style="font-size: 17.3253075893789px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/book/" style="font-size: 10.375558489365485px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/Linux/" style="font-size: 15.455486322935357px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 8.3053244045979px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 19.50201566470107px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/Linux/" style="font-size: 13.112277642196187px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/git/" style="font-size: 12.52696955823902px;" class="tag-cloud-link">git</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 11.117233510163661px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 11.13261187573075px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/git/" style="font-size: 19.10921320654679px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/hexo/" style="font-size: 8.732121944389865px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 18.212094085378798px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 15.693760031708583px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 18.57890533443248px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/node/" style="font-size: 18.111127229705392px;" class="tag-cloud-link">node</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 10.612291450886648px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 11.623599950749565px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 11.68068595000743px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 12.348980858627073px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/node/" style="font-size: 9.366730678215436px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 12.040641620982178px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 16.39709648572422px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 9.874329191908714px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/transparent、border/" style="font-size: 16.06832705740959px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/vue/" style="font-size: 9.494173257270361px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 10.355579339959334px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 13.240713857645234px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 11.15001881506807px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 
@@ -446,15 +465,15 @@
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/HeyJudeYQ" target="_blank">Github</a>
     </li>
     
     <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        <a href="https://juejin.im/" target="_blank">掘金</a>
     </li>
     
     <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://www.zhihu.com" target="_blank">知乎</a>
     </li>
     
 </div>
@@ -527,6 +546,8 @@
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 

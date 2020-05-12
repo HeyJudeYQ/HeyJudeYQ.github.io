@@ -36,7 +36,7 @@
     <!--<script type="text/javascript">
       if (document.images) {
         var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
+        avatar.src = '/imgs/avatar.png'
         var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
         var previewsPreLoad = []
         for(var i = 0; i < length; i++) {
@@ -60,6 +60,25 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="xiaoyucode.top" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -68,7 +87,7 @@
                     aria-expanded="false">
                 <span class="fa fa-lg fa-reorder"></span>
             </button>
-            <a href="xiaoyucode.top">
+            <a href="/">
                 
                 <style>
                     #gal-header .navbar-brand {
@@ -124,7 +143,19 @@
                         </li>
                         
                         <li>
+                            <a href="/tags/QRCode/">QRCode</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/book/">book</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/debounce、throttle/">debounce、throttle</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Linux/">Linux</a>
                         </li>
                         
                         
@@ -158,7 +189,7 @@
 <article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="xiaoyucode.top">小鱼儿</a>
+        <a href="/">小鱼儿</a>
         >
         <span>如何理解原型链中的prototype和__proto__？</span>
     </div>
@@ -251,23 +282,11 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140"
+            <img src="/imgs/avatar.png" width="140" height="140"
                  alt="个人头像" class="author-image">
             <p class="author-description"><p>Javascript Vue CSS HTML</p>
 </p>
         </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
     </div>
 </aside>
     
@@ -362,37 +381,7 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/08/select/">下拉框select的option</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/12/30/Barcode/">H5扫码功能</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+                    <a href="/2019/11/02/detail/">Vue路由传参</a>
                 </span>
             </li>
             
@@ -404,19 +393,49 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/10/23/git/">常用的git提交代码命令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/06/v-for/">v-for指令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/30/book/">我的书单--持续更新。。。</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2019/07/09/command/">常用的Linux命令</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+                    <a href="/2019/06/19/promise/">Promise</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/06/19/promise/">Promise</a>
+                    <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a>
                 </span>
             </li>
             
@@ -445,39 +464,39 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 9.040668436374142px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 15.72415267209986px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/H5、barcode/" style="font-size: 14.366482290545441px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 18.30124220370313px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/book/" style="font-size: 12.76974579954015px;" class="tag-cloud-link">book</a>
+    <a href="/tags/QRCode/" style="font-size: 14.763165251756007px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/QRCode/" style="font-size: 11.374313243391px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/book/" style="font-size: 19.717997151587834px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/Linux/" style="font-size: 17.000861327458885px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 10.650749635384251px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 11.921710183270616px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/Linux/" style="font-size: 14.335738562193498px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/git/" style="font-size: 8.888442746301811px;" class="tag-cloud-link">git</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 19.474443510963777px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 17.571063093468453px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/git/" style="font-size: 10.315956938699639px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/hexo/" style="font-size: 8.178182066149493px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 8.67361005493969px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 19.72045911974324px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 12.806432064250863px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/node/" style="font-size: 14.824827712655637px;" class="tag-cloud-link">node</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 14.83677382366643px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 19.429016533381883px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 8.172140822183064px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 12.560942650589915px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/node/" style="font-size: 17.50782278104681px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 12.699737711363959px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 12.073612571963805px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 15.030342226081906px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/transparent、border/" style="font-size: 11.367413659276162px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/vue/" style="font-size: 15.589296009087992px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 14.116869110988368px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 13.798129512599699px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 15.791683564544005px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 
@@ -486,15 +505,15 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
                 <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
     
     <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+        <a href="https://github.com/HeyJudeYQ" target="_blank">Github</a>
     </li>
     
     <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+        <a href="https://juejin.im/" target="_blank">掘金</a>
     </li>
     
     <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+        <a href="https://www.zhihu.com" target="_blank">知乎</a>
     </li>
     
 </div>
@@ -567,6 +586,8 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 

@@ -12,7 +12,7 @@
     
     
     
-    <title>使用Vue开发APP手机虚拟返回键点击退出应用解决办法 | 小鱼儿</title>
+    <title>search | 小鱼儿</title>
     <link href="xiaoyucode.top" rel="prefetch">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -185,55 +185,215 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="/">小鱼儿</a>
-        >
-        <span>使用Vue开发APP手机虚拟返回键点击退出应用解决办法</span>
-    </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2020-04-22
-            </span>
-            
-        </div>
-    </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
-                </h4>
-            </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2020-04-22
-            </p>
-            <p>
-                
-                
-            </p>
-        </center>
-    </div>
-    <div class="content-article">
-        <p>如何解决安卓手机的点击虚拟返回键退出当前应用</p>
-<a id="more"></a>
-<h3 id="一、问题描述："><a href="#一、问题描述：" class="headerlink" title="一、问题描述："></a>一、问题描述：</h3><p>最近的项目是使用Vue全家桶+HBuilder打包开发一个移动端APP。<br>在测试的时候发现，当安卓手机使用虚拟按钮的时候，点击虚拟按钮的返回键，APP会直接退出。<br>这是因为安卓手机自带back虚拟按键，如果不修改其默认事件，点一下app就退出了，<br>所以需要修改这个按键默认事件事件的代码。</p>
-<h3 id="二、解决办法："><a href="#二、解决办法：" class="headerlink" title="二、解决办法："></a>二、解决办法：</h3><p>在index.html中加入一个script，加上如下代码：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  document.addEventListener(<span class="string">'plusready'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      var first = null;</span><br><span class="line">      var webview = plus.webview.currentWebview();</span><br><span class="line">      plus.key.addEventListener(<span class="string">'backbutton'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">          webview.canBack(<span class="keyword">function</span> (e) &#123;</span><br><span class="line">              <span class="keyword">if</span> (e.canBack) &#123;</span><br><span class="line">                webview.back(); //这里不建议修改自己跳转的路径  </span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                //首次按键，提示‘再按一次退出应用’  </span><br><span class="line">                <span class="keyword">if</span> (!first) &#123;</span><br><span class="line">                  first = new Date().getTime(); //获取第一次点击的时间戳  </span><br><span class="line">                  plus.nativeUI.toast(<span class="string">"再按一次退出应用"</span>, &#123;</span><br><span class="line">                    duration: <span class="string">'short'</span></span><br><span class="line">                  &#125;); //通过H5+ API 调用Android 上的toast 提示框  </span><br><span class="line">                  setTimeout(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                    first = null;</span><br><span class="line">                  &#125;, 1000);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    // 获取第二次点击的时间戳, 两次之差 小于 1000ms 说明1s点击了两次, </span><br><span class="line">                  <span class="keyword">if</span> (new Date().getTime() - first &lt; 1000) &#123;  </span><br><span class="line">                    plus.runtime.quit(); //退出应用  </span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-    </div>
-</article>
+                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
 
+<!-- search自定义页面 -->
+<script type="text/javascript">
+
+	var htmlEntityMap = {
+		'&': '&amp;',
+		'<': '&lt;',
+		'>': '&gt;',
+		'"': '&quot;',
+		'\'': '&#39;',
+		'/': '&#x2F;'
+	};
+
+	// 参照hexo过滤html的方法(事实上感觉静态也没什么可以过滤的)
+	function escapeKey(str) {
+		if (typeof str !== 'string') throw new TypeError('str must be a string!');
+
+		// http://stackoverflow.com/a/12034334
+		return str.replace(/[&<>"'\/]/g, function(a) {
+			return htmlEntityMap[a];
+		});
+	}
+
+	var query = decodeURIComponent(window.location.search).substring(1).split('&')
+    // 获取搜索关键词
+    var s = escapeKey(query[0].split('=')[1])
+    // 获取当前页数
+    var p = query.length > 1 ? query[1].split('=')[1] : 1
+    // 获取每页的页码数
+    var pageSize = '10'
+    var useLeancloud = ''
+    var useComment = ('false' === 'true')
+    $.getJSON('/content.json', function (json) {
+      $('#search-breadcrumb').append(`搜索'${s}'的结果`)
+      var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
+      if (result.length === 0 || result.length <= (p - 1) * pageSize) {
+      	// TODO 显示404页面
+      } else {
+        displaySearchResult(result.slice((p - 1) * pageSize, p * pageSize))
+        displayPagination(result)
+      }
+    })
+
+    function getArticles(val, type, json) {
+      return json[type].filter((e) => {
+        return e.title.indexOf(val) !== -1 || e.text.indexOf(val) !== -1
+      })
+    }
+
+    function displaySearchResult(result) {
+      var resultList = $('#article-list')
+      result.forEach(function (article) {
+      	var [month, day] = article.date.split('-')
+        ''
+        ''
+        var defaultPreview = '/imgs/preview/preview2.jpg'
+        var preview = article.preview ? article.preview : defaultPreview
+        var path = '/' + article.path
+        resultList.append(`<div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+                                <div class="data-article hidden-xs">
+                                    <span class="month">${month}月</span>
+                                    <span class="day">${day}</span>
+                                </div>
+                                <section class="hidden-xs">
+                                    <div class="title-article">
+                                        <h1>
+                                            <a href="${path}">
+                                                <span>${article.title}</span>
+                                            </a>
+                                        </h1>
+                                    </div>
+                                    <div class="tag-article">
+                                    ${ article.tags.length > 0 ? `<span class="label label-gal"><i class="fa fa-tags"></i>${
+                                    	article.tags.map(function (tag) {
+						                 return `<a href=${ tag.permalink }>${ tag.name }</a>`
+                                    	}).join(', ') }</span>` : '' }
+                                    ${ useLeancloud ? '<span class="label label-gal"><i class="fa fa-eye"></i></span>' : ''}
+                                    </div>
+                                    <div class="alert alert-gal article-body content-article">
+                                         <div class="item">
+                                            <a href="${path}">
+                                                <div class="img">
+                                                    <img src="${preview}" alt="${article.title}">
+                                                </div>
+                                                <div class="info">
+                                                    <p>${article.excerpt}</p>
+                                                </div>
+                                            </a>
+                                         </div>
+					                </div>
+					            </section>
+                           </div>`)
+      })
+      if (useLeancloud) {
+        var Counter = AV.Object.extend('Counter')
+        showPostsTime(Counter)
+      }
+      if (useComment) {
+      	showCommentCount()
+      }
+    }
+
+    function displayPagination(result) {
+      var pgContainer = $('#gal-pagination')
+      var pg = $(pgContainer.find('.pagination-gal')[0])
+      if(result.length > 0) {
+        pgContainer.css('display', 'block')
+      }
+      var num = Math.ceil(result.length / pageSize)
+      var root = '/search'
+      var link = root + `/index.html?s=${s}`
+      if(p > 1) {
+      	pg.append(`<li class="prev"><a href="${link}&page=${p-1}">«</a></li>`)
+      }
+      if(p > 7) {
+      	pg.append(`<li><a href="${link}">1</a></li>
+                   <li><span>...</span></li>`)
+        for(var i = p - 3; i < p; i++) {
+          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
+        }
+      } else {
+      	for(var j = 1; j < p; j++) {
+          pg.append(`<li><a href="${link}${j === 1 ? '' : `&page=${j}`}">${j}</a></li>`)
+        }
+      }
+      pg.append(`<li class="current"><span>${p}</span></li>`)
+      if(p + 7 < num) {
+      	for(var i = p + 1; i <= p + 3; i++) {
+          pg.append(`<li><a href="${link}&page=${i}">${i}</a></li>`)
+        }
+        pg.append(`<li><span>...</span></li>`)
+      } else {
+      	for(var j = p + 1; j <= num; j++) {
+          pg.append(`<li><a href="${link}&page=${j}">${j}</a></li>`)
+        }
+      }
+      if(p < num) {
+      	pg.append(`<li class="next"><a href="${link}&page=${p+1}">»</a></li>`)
+      }
+    }
+
+    function showPostsTime(Counter) {
+      var entries = []
+      var excerpts = $('.article-excerpt')
+      excerpts.each(function () {
+        entries.push($(this).find('.title-article').first().find('a').attr('href').trim())
+      })
+      var query = new AV.Query(Counter)
+      query.containedIn('url', entries)
+      query.find().then(function (result) {
+        excerpts.each(function () {
+          var href = $(this).find('.title-article').first().find('a').attr('href').trim()
+          var r = result.filter(function (e) {
+            return e.get('url') === href
+          })
+          if(r.length > 0) {
+            $(this).find('i.fa-eye').each(function () {
+              $(this).after(' ' + r[0].get('time') + ' ℃')
+            })
+          } else {
+            $(this).find('i.fa-eye').each(function () {
+              $(this).after(' 0 ℃')
+            })
+          }
+        })
+      }).then(function (error) {
+        console.log('Error:' + error.code + ' ' + error.message)
+      })
+    }
+
+    function showCommentCount() {
+      const excerpts = $('.article-excerpt')
+      const owner = window.commentConfig.owner
+      const repo = window.commentConfig.repo
+      $.ajax({
+        url: "https://api.github.com/repos/" + owner + '/' + repo + '/issues',
+        data: {
+          creator: owner
+        }
+      }).done(function(issues) {
+        excerpts.each(function () {
+          const that = $(this)
+          that.find('h1 > a > span').each(function () {
+            const title = $(this).text()
+            const tags = that.find('div.tag-article')
+            const issue = issues.filter(function (issue) {
+              return issue.title === title
+            })
+            const comments = issue.length > 0 ? issue[0].comments : 0
+            tags.each(function () {
+              $(this).append('<span class="label label-gal"><i class="fa fa-comments"></i><a> ' + comments + '</a></span>')
+            })
+          })
+        })
+      }).fail(function (error) {
+        console.log(error)
+      });
+    }
+
+</script>
+<div class="breadcrumb breadcrumb-gal" id="search-breadcrumb">
+    <i class="fa fa-home"></i>
+</div>
+<div id="article-list"></div>
+<div id="gal-pagination" class="clearfix" style="display: none;">
+    <ul class="pagination pagination-gal pull-right"></ul>
+</div>
+<!-- 404页面 -->
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -356,25 +516,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/08/select/">下拉框select的option</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/12/30/Barcode/">H5扫码功能</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a>
+                    <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
                 </span>
             </li>
             
@@ -386,7 +528,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
                 </span>
             </li>
             
@@ -398,7 +540,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a>
+                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/07/09/command/">常用的Linux命令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/07/03/ES6/">Class语法</a>
                 </span>
             </li>
             
@@ -425,13 +585,13 @@
 
                 
                 <li>
-                    <a href="/2020/04/22/Virtualkey/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/search/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2020/04/22/Virtualkey/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/search/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -439,39 +599,39 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 19.439655477365292px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 17.671433704240606px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/H5、barcode/" style="font-size: 11.707072562576961px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 14.875876694469966px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/QRCode/" style="font-size: 19.88957410042417px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/QRCode/" style="font-size: 10.917385829404585px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/book/" style="font-size: 18.943506879877713px;" class="tag-cloud-link">book</a>
+    <a href="/tags/book/" style="font-size: 19.388913001790982px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 10.212849262107728px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 16.064877475045623px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/Linux/" style="font-size: 15.346940396497047px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/Linux/" style="font-size: 16.772175277956475px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 18.73432429968213px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 19.64227286731435px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/git/" style="font-size: 12.8759249963983px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 17.015959559455723px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/hexo/" style="font-size: 14.18477627662321px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 11.65278453484543px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 18.791668807563212px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 14.951858036320324px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 10.786278529530597px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 16.655314743562325px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 18.499192403559256px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 14.152687259691106px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/node/" style="font-size: 17.121221714595247px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 17.002883843240355px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 15.52975286356872px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 9.234057368335288px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 17.097789586453672px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/transparent、border/" style="font-size: 18.011682751688205px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/vue/" style="font-size: 19.95063823521584px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 10.516521054918204px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 11.604187878395223px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 13.173991260598465px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 
