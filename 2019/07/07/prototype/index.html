@@ -1,319 +1,213 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html>
 <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="小鱼儿">
+    
+    <meta name="description" content="Javascript Vue CSS HTML">
+    
+    
+    
+    
+    
+    
+    <title>如何理解原型链中的prototype和__proto__？ | 小鱼儿</title>
+    <link href="xiaoyucode.top" rel="prefetch">
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<meta name="author" content="小鱼儿">
-
-
-
-<meta name="description" content="JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。">
-<meta name="keywords" content="原型链、prototype、__proto__">
-<meta property="og:type" content="article">
-<meta property="og:title" content="如何理解原型链中的prototype和__proto__？">
-<meta property="og:url" content="xiaoyucode.top/2019/07/07/prototype/index.html">
-<meta property="og:site_name" content="小鱼儿">
-<meta property="og:description" content="JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-10T22:26:29.235Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何理解原型链中的prototype和__proto__？">
-<meta name="twitter:description" content="JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。">
-
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-
-
-
-    <link rel="shortcut icon" href="/avatar.png">
-
-
-
-    <link href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
-
-
-
-    <link href="http://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
-
-
-
-    <script src="http://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-    <link href="//cdn.bootcss.com/pace/1.0.2/themes/yellowgreen/pace-theme-minimal.css" rel="stylesheet">
-
-
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
 <link rel="stylesheet" href="/css/style.css">
-
-
-
-<link href="https://cdn.qqxio.cn/font-awesome/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-
-<title>如何理解原型链中的prototype和__proto__？ | 小鱼儿</title>
-
-<script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/clipboard.js/2.0.6/clipboard.min.js"></script>
-
-<script>
-    var yiliaConfig = {
-        fancybox: true,
-        animate: true,
-        isHome: false,
-        isPost: true,
-        isArchive: false,
-        isTag: false,
-        isCategory: false,
-        fancybox_js: "http://cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
-        scrollreveal: "https://cdn.bootcss.com/scrollReveal.js/4.0.0/scrollreveal.js",
-        search: true
-    }
-</script>
-
-
-    <script>
-        yiliaConfig.jquery_ui = [true, "http://cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "http://cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
-    </script>
-
-
-
-    <script> yiliaConfig.rootUrl = "\/";</script>
-
-
-
-
-
-
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
 </head></html>
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-    <header id="header" class="inner">
-        <a href="/" class="profilepic">
-            <img src="/img/avatar.png" class="animated zoomIn">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">小鱼儿</a></h1>
-        </hgroup>
-
-        
-
-        
-            <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="Search..."  class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-            </form>
-            <div id="local-search-result"></div>
-            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
-        
-
-
-        
-            <div id="switch-btn" class="switch-btn">
-                <div class="icon">
-                    <div class="icon-ctn">
-                        <div class="icon-wrap icon-house" data-idx="0">
-                            <div class="birdhouse"></div>
-                            <div class="birdhouse_holes"></div>
-                        </div>
-                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
-                            <div class="ribbon"></div>
-                        </div>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="xiaoyucode.top">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">小鱼儿</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
                         
-                        <div class="icon-wrap icon-link hide" data-idx="2">
-                            <div class="loopback_l"></div>
-                            <div class="loopback_r"></div>
-                        </div>
+                        
+                        <li>
+                            <a href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/H5、barcode/">H5、barcode</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/book/">book</a>
+                        </li>
                         
                         
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
                         
-                    </div>
-                    
-                </div>
-                <div class="tips-box hide">
-                    <div class="tips-arrow"></div>
-                    <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
-                        
-                        <li>友情链接</li>
-                        
-                        
-                        <li>关于我</li>
                         
                     </ul>
-                </div>
-            </div>
-        
-
-        <div id="switch-area" class="switch-area">
-            <div class="switch-wrap">
-                <section class="switch-part switch-part1">
-                    <nav class="header-menu">
-                        <ul>
-                        
-                            <li><a href="/">主页</a></li>
-                        
-                            <li><a href="/archives/">所有文章</a></li>
-                        
-                            <li><a href="/tags/">标签</a></li>
-                        
-                            <li><a href="/about/">关于</a></li>
-                        
-                        </ul>
-                    </nav>
-                    <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa 新浪微博" href="/sina weibo" title="新浪微博"></a>
-                            
-                                <a class="fa 豆瓣" href="https://movie.douban.com/" title="豆瓣"></a>
-                            
-                                <a class="fa SegmentFault" href="https://segmentfault.com" title="SegmentFault"></a>
-                            
-                                <a class="fa 网易云音乐" href="https://music.163.com" title="网易云音乐"></a>
-                            
-                                <a class="fa bilibili" href="https://www.bilibili.com" title="bilibili"></a>
-                            
-                        </ul>
-                    </nav>
-                </section>
-                
-                
-                <section class="switch-part switch-part2">
-                    <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5、barcode/">H5、barcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript、Promise/">Javascript、Promise</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/QRCode/">QRCode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue、Vue-cli/">Vue、Vue-cli</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/book/">book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce、throttle/">debounce、throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb、redis/">mongodb、redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/transparent、border/">transparent、border</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/url、tcp、http/">url、tcp、http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/纯JS、事件监听-委托、立即执行函数/">纯JS、事件监听/委托、立即执行函数</a></li></ul>
-                    </div>
-                </section>
+                </li>
                 
                 
                 
-                <section class="switch-part switch-part3">
-                    <div id="js-friends">
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                    </div>
-                </section>
                 
-
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
                 
                 
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">一个很菜的JavaScript搬运工！</div>
-                </section>
-                
-            </div>
+            </ul>
         </div>
-    </header>                
-</div>
     </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-      <div class="overlay">
-          <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">小鱼儿</a></h1>
-      </div>
-    <div class="intrude-less">
-        <header id="header" class="inner">
-            <a href="/" class="profilepic">
-                <img src="/img/avatar.png" class="animated zoomIn">
-            </a>
-            <hgroup>
-              <h1 class="header-author"><a href="/" title="回到主页">小鱼儿</a></h1>
-            </hgroup>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="xiaoyucode.top">小鱼儿</a>
+        >
+        <span>如何理解原型链中的prototype和__proto__？</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+            </h1>
+        </div>
+        <div class="tag-article">
             
-            <nav class="header-menu">
-                <ul>
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
                 
-                    <li><a href="/">主页</a></li>
+                <a href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a>
                 
-                    <li><a href="/archives/">所有文章</a></li>
-                
-                    <li><a href="/tags/">标签</a></li>
-                
-                    <li><a href="/about/">关于</a></li>
-                
-                <div class="clearfix"></div>
-                </ul>
-            </nav>
-            <nav class="header-nav">
-                        <ul class="social">
-                            
-                                <a class="fa 新浪微博" target="_blank" href="/sina weibo" title="新浪微博"></a>
-                            
-                                <a class="fa 豆瓣" target="_blank" href="https://movie.douban.com/" title="豆瓣"></a>
-                            
-                                <a class="fa SegmentFault" target="_blank" href="https://segmentfault.com" title="SegmentFault"></a>
-                            
-                                <a class="fa 网易云音乐" target="_blank" href="https://music.163.com" title="网易云音乐"></a>
-                            
-                                <a class="fa bilibili" target="_blank" href="https://www.bilibili.com" title="bilibili"></a>
-                            
-                        </ul>
-            </nav>
-        </header>                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-07-07
+            </span>
+            
+        </div>
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
-</nav>
-      <div class="body-wrap"><article id="post-prototype" class="article article-type-post" itemscope
-  itemprop="blogPost">
-  
-  <div class="article-meta">
-    <a href="/2019/07/07/prototype/" class="article-date">
-      <time datetime="2019-07-07T08:53:05.000Z" itemprop="datePublished">2019-07-07</time>
-</a>
-
-
-  </div>
-  
-  <div class="article-inner">
-    
-  <input type="hidden" class="isFancy" />
-  
-  
-  <header class="article-header">
-    
-  
-    <h1 class="article-title" itemprop="name">
-      如何理解原型链中的prototype和__proto__？
-    </h1>
-  
-
-    
-  </header>
-  
-  <div class="article-info article-info-post">
-    
-
-    
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a></li></ul>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-07-07
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a>
+                
+                
+                
+            </p>
+        </center>
     </div>
-
-    <div class="clearfix"></div>
-  </div>
-  
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    
-    <p>JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。</p>
+    <div class="content-article">
+        <p>JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。</p>
 <a id="more"></a>
 <h3 id="一、什么是原型链？"><a href="#一、什么是原型链？" class="headerlink" title="一、什么是原型链？"></a>一、什么是原型链？</h3><p>&emsp;&emsp;谈到继承时，JavaScript只有一种结构：<strong>对象</strong>。 
 MDN文档上是这样说的：每个实例对象（object）都有一个私有属性（称之为<code>__proto__</code>）指向它的构造函数的原型对象（prototype）。该原型对象也有一个自己的原型对象（<code>__proto__</code>）,层层向上直到一个对象的原型对象为null。根据定义，null没有原型，并作为这个原型链中的最后一个环节。</p>
@@ -331,265 +225,349 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
 <p>4、<code>NO1.__proto__ == null</code>,我们把prototype叫做原型，好比Object的原型是神，同时<strong>proto</strong>叫做原型链，有了这个<strong>proto</strong>，Object、NO1、JS之间才有联系，此时，<code>Object.prototype.__proto__ == null</code>，</p>
 <p>5、有几条公式：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object.__proto__ === Function.prototype;</span><br><span class="line">Function.prototype.__proto__ === Object.prototype;</span><br><span class="line">Object.prototype.__proto__ === null;</span><br></pre></td></tr></table></figure>
-    
-  </div>
-  
-  </div>
-  
-  
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">小鱼儿</a></p>
-        <p><span>发布时间:</span>2019-07-07, 16:53:05</p>
-        <p><span>最后更新:</span>2019-07-11, 06:26:29</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/07/07/prototype/" title="如何理解原型链中的prototype和__proto__？">xiaoyucode.top/2019/07/07/prototype/</a>
-            <span class="copy-path" data-clipboard-text="原文: xiaoyucode.top/2019/07/07/prototype/　　作者: 小鱼儿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
     </div>
-
-
-
-    <nav id="article-nav">
-        
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/07/09/command/">
-                    常用的Linux命令
-                </a>
-            </div>
-        
-        
-            <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/07/03/ES6/">
-                    Class语法
-                </a>
-            </div>
-        
-    </nav>
-
-  
 </article>
 
-    <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
-        
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、什么是原型链？"><span class="toc-text">一、什么是原型链？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、换种方式理解原型链？"><span class="toc-text">二、换种方式理解原型链？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、为什么需要原型和原型链？"><span class="toc-text">三、为什么需要原型和原型链？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、prototype是什么玩意儿呢？"><span class="toc-text">四、prototype是什么玩意儿呢？</span></a></li></ol>
-        
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
     </div>
-    <style>
-        .left-col .switch-btn,
-        .left-col .switch-area {
-            display: none;
-        }
-        .toc-level-6 i,
-        .toc-level-6 ol {
-            display: none !important;
-        }
-    </style>
-
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-    <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
-    </script>
-
-
-
-
-<div class="share">
-    
-        <div class="bdsharebuttonbox">
-            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
-            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
-            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
-            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
-            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
-            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            小鱼儿
+            <i class="fa fa-quote-right"></i>
         </div>
-        <script>
-            window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"如何理解原型链中的prototype和__proto__？　| 小鱼儿　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-        </script>
-    
-
-    
-</div>
-
-
-
-
-
-
-
-
-<div class="duoshuo" id="comments">
-    <div id="comment-box" ></div>
-    <div class="ds-thread" id="ds-thread" data-thread-key="2019/07/07/prototype/" data-title="如何理解原型链中的prototype和__proto__？" data-url="xiaoyucode.top/2019/07/07/prototype/"></div>
-    <script>
-        var duoshuoQuery = {short_name:""};
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            s.async = true; s.charset = 'UTF-8';
-            (d.head || d.body).appendChild(s);
-        }
-
-        
-    </script>
-    
-    <script> loadComment(); </script>
-
-</div>
-
-
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2019/07/09/command/" title="上一篇: 常用的Linux命令">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2019/07/03/ES6/" title="下一篇: Class语法">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>Javascript Vue CSS HTML</p>
+</p>
+        </div>
     </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/08/select/">下拉框select的option</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/30/Barcode/">H5扫码功能</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/02/detail/">Vue路由传参</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/08/select/">下拉框select的option</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/30/Barcode/">H5扫码功能</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/07/09/command/">常用的Linux命令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/19/promise/">Promise</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/05/09/eslint/">.eslintrc.js 的配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/08/select/">下拉框select的option</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/05/07/vue-question/">vue项目中遇到的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/30/iterm2/">iTerm2快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/Barcode/">H5扫码功能</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/02/detail/">Vue路由传参</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/24/mongodb-redis/">mongodb-redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/node/">node版本管理--升级和降级</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/23/git/">常用的git提交代码命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/v-for/">v-for指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/book/">我的书单--持续更新。。。</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/10/trangel/">如何使用CSS画三角形</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/09/command/">常用的Linux命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6/">Class语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/promise/">Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a></li></ul>
-
-
-
-
-<script>
-  < %
-  if (post.fancybox === false) {
-    % >
-    yiliaConfig.fancybox = false; <
-    %
-  } % >
-</script>
+                
+                <li>
+                    <a href="/2019/07/07/prototype/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2019/07/07/prototype/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 9.040668436374142px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    
+    <a href="/tags/H5、barcode/" style="font-size: 14.366482290545441px;" class="tag-cloud-link">H5、barcode</a>
+    
+    <a href="/tags/book/" style="font-size: 12.76974579954015px;" class="tag-cloud-link">book</a>
+    
+    <a href="/tags/QRCode/" style="font-size: 11.374313243391px;" class="tag-cloud-link">QRCode</a>
+    
+    <a href="/tags/Linux/" style="font-size: 17.000861327458885px;" class="tag-cloud-link">Linux</a>
+    
+    <a href="/tags/debounce、throttle/" style="font-size: 11.921710183270616px;" class="tag-cloud-link">debounce、throttle</a>
+    
+    <a href="/tags/git/" style="font-size: 8.888442746301811px;" class="tag-cloud-link">git</a>
+    
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 17.571063093468453px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    
+    <a href="/tags/hexo/" style="font-size: 8.178182066149493px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/mongodb、redis/" style="font-size: 19.72045911974324px;" class="tag-cloud-link">mongodb、redis</a>
+    
+    <a href="/tags/node/" style="font-size: 14.824827712655637px;" class="tag-cloud-link">node</a>
+    
+    <a href="/tags/Javascript、Promise/" style="font-size: 19.429016533381883px;" class="tag-cloud-link">Javascript、Promise</a>
+    
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 12.560942650589915px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    
+    <a href="/tags/transparent、border/" style="font-size: 12.699737711363959px;" class="tag-cloud-link">transparent、border</a>
+    
+    <a href="/tags/url、tcp、http/" style="font-size: 15.030342226081906px;" class="tag-cloud-link">url、tcp、http</a>
+    
+    <a href="/tags/vue/" style="font-size: 15.589296009087992px;" class="tag-cloud-link">vue</a>
+    
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 13.798129512599699px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    
 </div>
-      <footer id="footer">
-    <span id="busuanzi_container_site_uv">
-        本站访客数<span id="busuanzi_value_site_uv"></span>人次
-    </span>
-    <!-- <div class="outer">
-        <div id="footer-info">
-            <div class="footer-left">
-                <i class="fa fa-copyright"></i> 
-                2018-2020 小鱼儿
-            </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
             </div>
         </div>
-        
-            <div class="visit">
-                
-                    <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
-                        </span>
-                    </span>
-                
-                
-                    <span>| </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
-                        </span>
-                    </span>
-                
+    </aside>
+    
+</aside>
             </div>
-        
-    </div> -->
-
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 小鱼儿 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
 </footer>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-    </div>
-    
-    <script src="/js/GithubRepoWidget.js"></script>
 
-<script data-main="/js/main.js" src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var iPad = window.navigator.userAgent.indexOf('iPad');
-            if (iPad > -1 || $(".left-col").css("display") === "none") {
-                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
-                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
-                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
-            }
-            else {
-                var backgroundnum = 10;
-                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
-                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
-            }
-        })
-    </script>
-
-
-
-
-
-<div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
 </div>
-<script>
-    // Open in New Window
-    
-        var oOpenInNew = {
-             github: ".github-widget a", 
-            
-            
-            
-             categories: ".article-category a, a.tag-list-link", 
-             articleNav: "#article-nav a, #post-nav-button a", 
-             archives: ".archive-article-title", 
-             miniArchives: "a.post-list-link", 
-            
-             friends: "#js-friends a", 
-             socail: ".social a" 
-        }
-        for (var x in oOpenInNew) {
-            $(oOpenInNew[x]).attr("target", "_blank");
-        }
-    
-</script>
-
-    <script>
-        var originTitle = document.title;
-        var titleTime;
-        document.addEventListener("visibilitychange", function() {
-            if (document.hidden) {
-                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
-                clearTimeout(titleTime);
-            }
-            else {
-                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
-                titleTime = setTimeout(function() {
-                    document.title = originTitle;
-                }, 2000);
-            }
-        })
-    </script>
-
-<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-</script>
-  </div>
 </body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
 </html>
