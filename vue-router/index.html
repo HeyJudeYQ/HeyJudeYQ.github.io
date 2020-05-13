@@ -12,7 +12,7 @@
     
     
     
-    <title>常用的git提交代码命令 | 小鱼儿</title>
+    <title>关于vue-router路由守卫 | 小鱼儿</title>
     <link href="xiaoyucode.top" rel="prefetch">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -185,34 +185,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
+                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+
+
 <article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="/">小鱼儿</a>
-        >
-        <span>常用的git提交代码命令</span>
-    </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/10/23/git/">常用的git提交代码命令</a>
+                <a href="/vue-router/index.html">关于vue-router路由守卫</a>
             </h1>
         </div>
         <div class="tag-article">
-            
             <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/git/">git</a>
-                
+                <i class="fa fa-calendar"></i> 2020-05-13
             </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-10-23
-            </span>
-            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -220,31 +207,40 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/10/23/git/">常用的git提交代码命令</a>
+                    <a href="/vue-router/index.html">关于vue-router路由守卫</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-10-23
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/git/">git</a>
-                
-                
-                
+                <i class="fa fa-calendar"></i> 2020-05-13
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p>日常开发使用的git提交代码的方法</p>
+        <p>使用vue-router，我们需要做的是，将组件（components）映射到路由(routes),然后告诉vue-router在哪里渲染他们。</p>
 <a id="more"></a>
-<h6 id="一、初始化本地仓库，提交代码，提交到远程git仓库"><a href="#一、初始化本地仓库，提交代码，提交到远程git仓库" class="headerlink" title="一、初始化本地仓库，提交代码，提交到远程git仓库"></a>一、初始化本地仓库，提交代码，提交到远程git仓库</h6><p>1、初始化代码仓库<br>    git init<br>2、将当前目录下的所有文件放到暂存区<br>    git add .<br>3、查看文件状态<br>    git status<br>4、添加提交的描述信息<br>    git commit -m “提交的描述信息”<br>5、远程仓库地址<br>    git remote add origin “远程仓库地址”<br>6、推送到远程仓库<br>    git push -u origin master</p>
-<h6 id="二、创建分支，提交代码到分支"><a href="#二、创建分支，提交代码到分支" class="headerlink" title="二、创建分支，提交代码到分支"></a>二、创建分支，提交代码到分支</h6><p>1、创建切换分支<br>    git checkout -b dev  dev为分支名称<br>    git add .<br>    git commit -m ‘描述’<br>    git push –set-upstream origin dev1   将分支推送到远程仓库<br>    切换到主分支<br>    git checkout master<br>    git merge dev  将dev合并到主分支<br>    git push origin master  推送到远程仓库</p>
+<h4 id="一、路由守卫"><a href="#一、路由守卫" class="headerlink" title="一、路由守卫"></a>一、路由守卫</h4><p>路由守卫就像其名字一样，vue-router提供导航守卫主要用来通过跳转或取消的方式守卫导航。<br>1、全局前置守卫</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;...&#125;)</span><br><span class="line">router.beforeEach((to,from,next) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+<pre><code>当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫resolve完之前一直出入等待中。
+参数说明：
+to:   Route 即将要进入的目标路由对象；
+from: Route 当前导航正要离开的路由；
+next: Route 一定要调用该方法来resolve这个钩子。
+
+确保要调用next方法，否则钩子就不会被resolved。</code></pre><p>2、路由独享的守卫<br>在路由配置上直接定义beforeEnter守卫</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/foo&apos;,</span><br><span class="line">      component: Foo,</span><br><span class="line">      beforeEnter: (to, from, next) =&gt; &#123;</span><br><span class="line">        // ... </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这些守卫与全局前置守卫的方法参数是一样的</p>
+<h4 id="二、解决路由跳转NavigationDuplicated报错的方式"><a href="#二、解决路由跳转NavigationDuplicated报错的方式" class="headerlink" title="二、解决路由跳转NavigationDuplicated报错的方式"></a>二、解决路由跳转NavigationDuplicated报错的方式</h4><p>vue-router版本3.1之后，$router.push()方法改为了promise，如果没有回调函数，错误信息就会交给全局的路由错误处理，就会报错！<br>解决方法：<br>    1、简单粗暴的方法：将vue-router的版本固定在vue-router 3.0.7一下<br>    2、在router.js中加入下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 解决跳转出错问题 NavigationDuplicated</span><br><span class="line">const originalPush = Router.prototype.push</span><br><span class="line">Router.prototype.push = function push(location) &#123;</span><br><span class="line">  return originalPush.call(this, location).catch(err =&gt; err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>3、给每个router.push增加回调函数。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.push(&apos;/index&apos;).catch(err =&gt; (err))</span><br></pre></td></tr></table></figure>
+
+<pre><code>第3种解决方法成本较高，我一般使用第二种方法。</code></pre><h4 id="三、限制通过URL进入一些用户的个人信息的页面"><a href="#三、限制通过URL进入一些用户的个人信息的页面" class="headerlink" title="三、限制通过URL进入一些用户的个人信息的页面"></a>三、限制通过URL进入一些用户的个人信息的页面</h4><p>例如：逛天猫的时候，你不登录的时候也可以进入商品详情页等页面，但是由于未登录，进入不了我的购物车、个人信息等需要用户token的页面。所以需要判断是否包含登录token。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 导航守卫 进入注册页面不需要是否包含token</span><br><span class="line">router.beforeEach(function (to, from, next) &#123;</span><br><span class="line">  if (to.path === &apos;/register&apos;) &#123;</span><br><span class="line">    return next();</span><br><span class="line">  &#125;</span><br><span class="line">  next()</span><br><span class="line">  // 第一种身份的token1 未登录状态，直接跳转到主页，即使输入准确的的URL地址也无法访问。</span><br><span class="line">  if (!localStorage.getItem(&apos;token1&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!localStorage.getItem(&apos;token2&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!localStorage.getItem(&apos;token3&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
     </div>
 </article>
+
 
 
                 </div>
@@ -368,12 +364,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2020/05/08/select/">下拉框select的option</a>
                 </span>
             </li>
@@ -392,13 +382,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/30/Barcode/">H5扫码功能</a>
+                    <a href="/2019/11/02/detail/">Vue路由传参</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
                 </span>
             </li>
             
@@ -416,13 +406,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a>
+                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/07/03/ES6/">Class语法</a>
+                    <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a>
                 </span>
             </li>
             
@@ -437,13 +433,13 @@
 
                 
                 <li>
-                    <a href="/2019/10/23/git/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/vue-router/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2019/10/23/git/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/vue-router/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -451,39 +447,39 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 19.928469677121804px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 18.77099553873103px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/QRCode/" style="font-size: 17.954504679306226px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/QRCode/" style="font-size: 12.656693899829179px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/H5、barcode/" style="font-size: 10.322401219613244px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 10.268711178076627px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 19.822752656925502px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 18.335790249436965px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/Linux/" style="font-size: 15.838344782678826px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/Linux/" style="font-size: 16.375575995105173px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/git/" style="font-size: 16.422698370914794px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 12.168330937237716px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/book/" style="font-size: 18.52516526207441px;" class="tag-cloud-link">book</a>
+    <a href="/tags/book/" style="font-size: 11.844723923357051px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 12.360528800874441px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 13.267669016068787px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/hexo/" style="font-size: 16.632778811033482px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 12.689267739747066px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 16.73853770336293px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 9.259925972618941px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 11.357470736282961px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 9.357285622307364px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 19.65825714716901px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 16.40680991059768px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 9.18123560307593px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/transparent、border/" style="font-size: 8.684233825745874px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 9.963222365334824px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 12.9214856483149px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 13.136076058908735px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 18.609560603974046px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
-    <a href="/tags/node/" style="font-size: 14.919326535352738px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 13.595966364713568px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/vue/" style="font-size: 18.876107553493px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 17.0293883092723px;" class="tag-cloud-link">vue</a>
     
 </div>
                 
