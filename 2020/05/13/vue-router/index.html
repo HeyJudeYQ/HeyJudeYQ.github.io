@@ -12,7 +12,7 @@
     
     
     
-    <title>tags: transparent、border | 小鱼儿</title>
+    <title>关于vue-router路由守卫 | 小鱼儿</title>
     <link href="xiaoyucode.top" rel="prefetch">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -185,19 +185,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="xiaoyucode.top">小鱼儿</a>
+        <a href="/">小鱼儿</a>
         >
-        <span>标签</span>
+        <span>关于vue-router路由守卫</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/transparent、border/index.html">transparent、border</a>
+                <a href="/2020/05/13/vue-router/">关于vue-router路由守卫</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-05-13
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -205,21 +213,45 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/transparent、border/index.html">transparent、border</a>
+                    <a href="/2020/05/13/vue-router/">关于vue-router路由守卫</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-05-13
+            </p>
+            <p>
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p>使用vue-router，我们需要做的是，将组件（components）映射到路由(routes),然后告诉vue-router在哪里渲染他们。</p>
+<a id="more"></a>
+<h4 id="一、路由守卫"><a href="#一、路由守卫" class="headerlink" title="一、路由守卫"></a>一、路由守卫</h4><p>路由守卫就像其名字一样，vue-router提供导航守卫主要用来通过跳转或取消的方式守卫导航。<br>1、全局前置守卫</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;...&#125;)</span><br><span class="line">router.beforeEach((to,from,next) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<pre><code>当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫resolve完之前一直出入等待中。
+参数说明：
+to:   Route 即将要进入的目标路由对象；
+from: Route 当前导航正要离开的路由；
+next: Route 一定要调用该方法来resolve这个钩子。
+
+确保要调用next方法，否则钩子就不会被resolved。</code></pre><p>2、路由独享的守卫<br>在路由配置上直接定义beforeEnter守卫</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/foo&apos;,</span><br><span class="line">      component: Foo,</span><br><span class="line">      beforeEnter: (to, from, next) =&gt; &#123;</span><br><span class="line">        // ... </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这些守卫与全局前置守卫的方法参数是一样的</p>
+<h4 id="二、解决路由跳转NavigationDuplicated报错的方式"><a href="#二、解决路由跳转NavigationDuplicated报错的方式" class="headerlink" title="二、解决路由跳转NavigationDuplicated报错的方式"></a>二、解决路由跳转NavigationDuplicated报错的方式</h4><p>vue-router版本3.1之后，$router.push()方法改为了promise，如果没有回调函数，错误信息就会交给全局的路由错误处理，就会报错！<br>解决方法：<br>    1、简单粗暴的方法：将vue-router的版本固定在vue-router 3.0.7一下<br>    2、在router.js中加入下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 解决跳转出错问题 NavigationDuplicated</span><br><span class="line">const originalPush = Router.prototype.push</span><br><span class="line">Router.prototype.push = function push(location) &#123;</span><br><span class="line">  return originalPush.call(this, location).catch(err =&gt; err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>3、给每个router.push增加回调函数。</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.push(&apos;/index&apos;).catch(err =&gt; (err))</span><br></pre></td></tr></table></figure>
+
+<pre><code>第3种解决方法成本较高，我一般使用第二种方法。</code></pre><h4 id="三、限制通过URL进入一些用户的个人信息的页面"><a href="#三、限制通过URL进入一些用户的个人信息的页面" class="headerlink" title="三、限制通过URL进入一些用户的个人信息的页面"></a>三、限制通过URL进入一些用户的个人信息的页面</h4><p>例如：逛天猫的时候，你不登录的时候也可以进入商品详情页等页面，但是由于未登录，进入不了我的购物车、个人信息等需要用户token的页面。所以需要判断是否包含登录token。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">// 导航守卫 进入注册页面不需要是否包含token</span><br><span class="line">router.beforeEach(function (to, from, next) &#123;</span><br><span class="line">  if (to.path === &apos;/register&apos;) &#123;</span><br><span class="line">    return next();</span><br><span class="line">  &#125;</span><br><span class="line">  next()</span><br><span class="line">  // 第一种身份的token1 未登录状态，直接跳转到主页，即使输入准确的的URL地址也无法访问。</span><br><span class="line">  if (!localStorage.getItem(&apos;token1&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!localStorage.getItem(&apos;token2&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!localStorage.getItem(&apos;token3&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -341,19 +373,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/13/vue-router/">关于vue-router路由守卫</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
+                    <a href="/2020/05/08/select/">下拉框select的option</a>
                 </span>
             </li>
             
@@ -365,19 +385,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/23/git/">常用的git提交代码命令</a>
+                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/06/v-for/">v-for指令</a>
                 </span>
             </li>
             
@@ -389,13 +409,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+                    <a href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/07/03/ES6/">Class语法</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a>
                 </span>
             </li>
             
@@ -410,13 +442,13 @@
 
                 
                 <li>
-                    <a href="/tags/transparent、border/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2020/05/13/vue-router/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/tags/transparent、border/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2020/05/13/vue-router/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -424,39 +456,39 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/H5、barcode/" style="font-size: 14.315614914244964px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 14.689081480104516px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/QRCode/" style="font-size: 12.472057306616328px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/QRCode/" style="font-size: 12.583057304391584px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 19.712515998883248px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 9.248718350307906px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 12.163812982379858px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 8.723189222243105px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/book/" style="font-size: 13.285131859308608px;" class="tag-cloud-link">book</a>
+    <a href="/tags/book/" style="font-size: 16.519357050649703px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/Linux/" style="font-size: 12.855511183702774px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/Linux/" style="font-size: 16.60170386586707px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/git/" style="font-size: 14.724579940007498px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 14.907323828208273px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 19.198382417272562px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 10.9102058655256px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/hexo/" style="font-size: 11.924874156897964px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 8.589832950641743px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/node/" style="font-size: 18.834279775127563px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 8.546134605559542px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 18.39527266060373px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 13.681119701372449px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 17.718287895659785px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 19.428582863201115px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 9.066901020697255px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 16.51853239300513px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 17.9222786707261px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/transparent、border/" style="font-size: 18.578333212511033px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 9.255692043388372px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 10.32711597631387px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/vue/" style="font-size: 14.105341032889328px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 8.52481925255658px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 8.647477171932408px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 12.704477997795735px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 

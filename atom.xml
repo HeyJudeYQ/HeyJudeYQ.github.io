@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2020-05-09T02:59:02.809Z</updated>
+  <updated>2020-05-13T03:11:00.444Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于vue-router路由守卫</title>
+    <link href="xiaoyucode.top/2020/05/13/vue-router/"/>
+    <id>xiaoyucode.top/2020/05/13/vue-router/</id>
+    <published>2020-05-13T02:36:02.000Z</published>
+    <updated>2020-05-13T03:11:00.444Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;使用vue-router，我们需要做的是，将组件（components）映射到路由(routes),然后告诉vue-router在哪里渲染他们。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>.eslintrc.js 的配置</title>
@@ -339,24 +355,6 @@
     
     
       <category term="url、tcp、http" scheme="xiaoyucode.top/tags/url%E3%80%81tcp%E3%80%81http/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>防抖（debounce）和节流（throttle）</title>
-    <link href="xiaoyucode.top/2019/07/09/debounce-throttling/"/>
-    <id>xiaoyucode.top/2019/07/09/debounce-throttling/</id>
-    <published>2019-07-09T13:51:54.000Z</published>
-    <updated>2019-10-05T05:21:33.654Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="debounce、throttle" scheme="xiaoyucode.top/tags/debounce%E3%80%81throttle/"/>
     
   </entry>
   
