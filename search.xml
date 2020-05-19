@@ -1,6 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Class语法</title>
+    <url>/2019/07/03/ES6/</url>
+    <content><![CDATA[<p>一、Class语法：<br>    Class在语法上更加贴合面向对象的写法；Class实现继承更易读、易理解；本质是语法糖，使用了prototype。</p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ class Mathhandle&#123;</span><br><span class="line">    constructor(x,y)&#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">        this.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">add</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> this.x + this.y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  const mm = new Mathhandle(1,2);</span><br><span class="line">  console.log(mm.add());</span><br><span class="line"></span><br><span class="line">  typeof Mathhandle    //<span class="keyword">function</span></span><br><span class="line">  console.log(Mathhandle === Mathhandle.prototype.constructor); // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>二、Class继承</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Animal&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">eat</span></span>()&#123;</span><br><span class="line">        console.log(this.name + <span class="string">'eat'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dog extend Animal&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        super(name)</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">say</span></span>()&#123;</span><br><span class="line">        console.log(`<span class="variable">$&#123;this.name&#125;</span> eat`)</span><br><span class="line">    &#125;</span><br><span class="line">    const dog = new Dog(<span class="string">'hashiqi'</span>);</span><br><span class="line">    dog.say();</span><br><span class="line">    dog.eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>ES6、JavaScript、Class</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>H5扫码功能</title>
+    <url>/2019/12/30/Barcode/</url>
+    <content><![CDATA[<p>之前讲过前端生成二维码，那H5 APP如何实现扫码功能;</p>
+<a id="more"></a>
+<h3 id="扫码功能的实现"><a href="#扫码功能的实现" class="headerlink" title="扫码功能的实现"></a>扫码功能的实现</h3><h6 id="（一）、使用H5-API-barcode实现扫码功能"><a href="#（一）、使用H5-API-barcode实现扫码功能" class="headerlink" title="（一）、使用H5 API barcode实现扫码功能"></a>（一）、使用H5 API barcode实现扫码功能</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 模板</span></span><br><span class="line">    &lt;template&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div class=<span class="string">"scan"</span>&gt;</span><br><span class="line">                &lt;div id=<span class="string">"bcid"</span>&gt;&lt;/div&gt;</span><br><span class="line">                &lt;footer&gt;</span><br><span class="line">                    &lt;button v-if=<span class="string">"Start"</span> @click=<span class="string">"startRecognize"</span>&gt;扫 码 加 油&lt;/button&gt;</span><br><span class="line">                &lt;/footer&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 扫描对象</span><br><span class="line">        var scan = null;</span><br><span class="line">        <span class="function"><span class="title">data</span></span>()&#123;</span><br><span class="line">            <span class="built_in">return</span> &#123;</span><br><span class="line">                Begin:<span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            <span class="function"><span class="title">startRecognize</span></span>()&#123;</span><br><span class="line">                const that = this;</span><br><span class="line">                this.Begin = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(!window.plus) <span class="built_in">return</span>;</span><br><span class="line">                scan = new plus.barcode.Barcode(<span class="string">'bcid'</span>);</span><br><span class="line">                // 开始扫描</span><br><span class="line">                scan.start();</span><br><span class="line">                // 扫码成功之后的回调函数 <span class="built_in">type</span>是类型 result 结果</span><br><span class="line">                scan.onmarked = <span class="keyword">function</span>(<span class="built_in">type</span>,result)&#123;</span><br><span class="line">                    const text = <span class="string">''</span>;</span><br><span class="line">                    switch(<span class="built_in">type</span>)&#123;</span><br><span class="line">                        <span class="keyword">case</span> plus.barcode.QR:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">'QR'</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> plus.barcode.EAN13:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">"EAN13"</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> plus.barcode.EAN8:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">"EAN8"</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                        default:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">"其它"</span> + <span class="built_in">type</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    result = result.replace(/\n/g,<span class="string">""</span>);</span><br><span class="line">                    const id = result.match(/\d+/)[0];</span><br><span class="line">                    const Token = localStorage.getItem(<span class="string">'token'</span>);</span><br><span class="line">                    that.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">                        name:<span class="string">'OrderDetail'</span>,</span><br><span class="line">                        params: &#123;</span><br><span class="line">                            id:id,</span><br><span class="line">                            token:token</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    scan.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 关闭扫码识别控件 </span><br><span class="line">            <span class="function"><span class="title">closeScan</span></span>()&#123;</span><br><span class="line">                <span class="keyword">if</span>(!window.plus) <span class="built_in">return</span>;</span><br><span class="line">                scan.close();</span><br><span class="line">                this.<span class="variable">$router</span>.push(<span class="string">'./qrcode'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style lang=<span class="string">"less"</span> scoped&gt;</span><br><span class="line">    .scan &#123;</span><br><span class="line">        height: 96vh;</span><br><span class="line">        background-color: <span class="comment">#EFEFEF;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#bcid &#123;</span></span><br><span class="line">            width: 100vw;</span><br><span class="line">            height: 96vh;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: <span class="comment">#fff;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        footer &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 8rem;</span><br><span class="line">            line-height: 2rem;</span><br><span class="line">            font-size: 14px;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 0;</span><br><span class="line">            bottom: 10rem;</span><br><span class="line">            z-index: 999;</span><br><span class="line"></span><br><span class="line">            button &#123;</span><br><span class="line">                width: 8rem;</span><br><span class="line">                height: 8rem;</span><br><span class="line">                border: 4px solid <span class="comment">#1f4ba5;</span></span><br><span class="line">                border-radius: 50%;</span><br><span class="line">                font-size: 16px;</span><br><span class="line">                font-family: PingFangSC-Medium;</span><br><span class="line">                background-color: <span class="comment">#fff;</span></span><br><span class="line">            &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>H5、barcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何使用QRCode生成二维码？</title>
+    <url>/2019/12/30/QRCode/</url>
+    <content><![CDATA[<p>最近遇到的一个需求就是：在Vue项目中，前端生成站点二维码，使用APP扫码功能达到扫码加油的目的。</p>
+<a id="more"></a>
+<h3 id="一、如何在Vue在使用QRCode生成二维码？"><a href="#一、如何在Vue在使用QRCode生成二维码？" class="headerlink" title="一、如何在Vue在使用QRCode生成二维码？"></a>一、如何在Vue在使用QRCode生成二维码？</h3><h6 id="（一）、下载插件qrcode插件"><a href="#（一）、下载插件qrcode插件" class="headerlink" title="（一）、下载插件qrcode插件"></a>（一）、下载插件qrcode插件</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install qrcode --save</span><br></pre></td></tr></table></figure>
+
+<h6 id="（二）、在main-js中引用"><a href="#（二）、在main-js中引用" class="headerlink" title="（二）、在main.js中引用"></a>（二）、在main.js中引用</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import QRCode from <span class="string">'qrcode'</span></span><br><span class="line">Vue.use(QRCode)</span><br></pre></td></tr></table></figure>
+
+<h6 id="三-、组件中引入QRCode"><a href="#三-、组件中引入QRCode" class="headerlink" title="(三)、组件中引入QRCode"></a>(三)、组件中引入QRCode</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">  </span><br><span class="line">    <span class="comment"># 模板</span></span><br><span class="line">    &lt;template&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div id=<span class="string">"qrcode"</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      import QRCode from <span class="string">'qrcode'</span>;</span><br><span class="line">      <span class="function"><span class="title">mounted</span></span>()&#123;</span><br><span class="line">          this.CreateQrcode();</span><br><span class="line">      &#125;,</span><br><span class="line">      method:&#123;</span><br><span class="line">          setTimeout(() =&gt; &#123;</span><br><span class="line">              // 获取DOM节点</span><br><span class="line">              <span class="built_in">let</span> dom = document.getElementById(<span class="string">'qrcode);</span></span><br><span class="line"><span class="string">              // 路由传参 父组件传给子组件的站点id</span></span><br><span class="line"><span class="string">              const res = this.$route.params;</span></span><br><span class="line"><span class="string">              console.log(res); </span></span><br><span class="line"><span class="string">              const id = res.id;</span></span><br><span class="line"><span class="string">              // 二维码包含的URL 需要将URL和id做一下字符串的拼接</span></span><br><span class="line"><span class="string">              let url = '</span>http://*********<span class="string">';</span></span><br><span class="line"><span class="string">              let URL = url.concat(lbsid);</span></span><br><span class="line"><span class="string">              let qrCode = new QRCode(dom,&#123;</span></span><br><span class="line"><span class="string">                  width:260, // 图像宽度</span></span><br><span class="line"><span class="string">                  height:260,  // 图像高度</span></span><br><span class="line"><span class="string">                  colorDark:"#000000",  // 前景色</span></span><br><span class="line"><span class="string">                  colorLight:"#ffffff", // 背景色</span></span><br><span class="line"><span class="string">                  correctLevel: QRCode.CorrectLevel.H  // 容错等级</span></span><br><span class="line"><span class="string">              &#125;);</span></span><br><span class="line"><span class="string">              qrCode.clear();</span></span><br><span class="line"><span class="string">              qrCode.makeCode(URL);</span></span><br><span class="line"><span class="string">          &#125;,100)</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">    &lt;style lang="less" scoped&gt;</span></span><br><span class="line"><span class="string">        #qrcode &#123;</span></span><br><span class="line"><span class="string">            display: inline-block;</span></span><br><span class="line"><span class="string">            margin-top: 6rem;</span></span><br><span class="line"><span class="string">            img &#123;</span></span><br><span class="line"><span class="string">                width: 60%;</span></span><br><span class="line"><span class="string">                height: 60%;</span></span><br><span class="line"><span class="string">                background-color: #fff; //设置白色背景色</span></span><br><span class="line"><span class="string">                padding: 6px; // 利用padding的特性，挤出白边</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">    &lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>QRCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用的Linux命令</title>
+    <url>/2019/07/09/command/</url>
+    <content><![CDATA[<p>在开发过程中，一些常用的Linux命令：</p>
+<a id="more"></a>
+<h3 id="常用的Linux命令"><a href="#常用的Linux命令" class="headerlink" title="常用的Linux命令"></a>常用的Linux命令</h3><p>1、vim test.html   创建新的文件<br>  &emsp;  vim + 文件名.后缀<br>2、ls     查看当前文件夹下的文件<br>&emsp;   ls -a  列出所有文件，包括隐藏文件<br>&emsp;   ls -1  每行列出一个文件，以单列形式列出<br>3、cat test.html  将该文件内容打印显示出来<br>&emsp;   cat test1.html<br>&emsp;   cat test2.html<br>&emsp;   cat test1.html     test2.html&gt;test3.html<br>&emsp;   cat test3.html   将多个文件合并到目标文件中。</p>
+<p>&emsp;   cat test1.html<br>&emsp;   cat test2.html<br>&emsp;   cat test1.html test2.html&gt;&gt;test4.html  将几个文件附加到目录文件中<br>4、mv   移动或重命名文件和目录<br>&emsp;   mv file1.txt file2.txt   将file1文件命名为file2<br>&emsp;   用法：<br>&emsp;   cat 1.txt<br>&emsp;   mv 1.txt 2.txt<br>&emsp;   mv file1.txt file2  将file1文本移动到file2目录<br>5、touch  file   命令用于修改文件或者目录的时间属性，包括存取时间和更改时间。若文件不存在，系统会建立一个新的空白文件。<br>&emsp;   touch newfile<br>6、mkdir file    创建文件夹<br>7、cd ../  返回当前文件夹的上一层<br>&emsp;   cd /    返回到根目录下<br>8、rm -rf folder  删除文件夹</p>
+]]></content>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>防抖（debounce）和节流（throttle）</title>
+    <url>/2019/07/09/debounce-throttling/</url>
+    <content><![CDATA[<p>防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。</p>
+<a id="more"></a>
+<p>节流（throttle）：指定时间间隔内只会执行一次任务。<br>&emsp;防抖与节流的原理：使用setTimeout来存放将要执行的函数。其中函数节流就是利用标记符来控制本次执行完毕。函数防抖就是利用clearTimeout来清楚执行的函数。目的为了节约计算机资源，从而达到一个更好的运行效果。</p>
+<h3 id="一、防抖"><a href="#一、防抖" class="headerlink" title="一、防抖"></a>一、防抖</h3><p>&emsp;用户在输入框内容校验等操作时，如果事件处理函数的调用频率无限制，会加重浏览器的负担，导致用户体验会很不好，防抖和节流的方式减少调用频率，同时又不影响实际效果。</p>
+<p>下面是一个防抖的小案例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;button id=<span class="string">"debounce"</span>&gt;点我防抖&lt;/button&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            //获取按钮并绑定事件</span><br><span class="line">            var myDebounce = document.getElementById(<span class="string">"debounce"</span>);</span><br><span class="line">            myDebounce.addEventListener(<span class="string">"click"</span>,debounce(sayDebounce));</span><br><span class="line">        &#125;;</span><br><span class="line">        //防抖功能函数，接受传参</span><br><span class="line">        <span class="keyword">function</span> debounce(fn)&#123;</span><br><span class="line">            //创建一个标记用来存放定时器的返回值</span><br><span class="line">            <span class="built_in">let</span> timeout = null;</span><br><span class="line">            <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                //每次当用户点击、输入的时候，把前一个定时器消除</span><br><span class="line">                clearTimeout(timeout);</span><br><span class="line">                //创建一个新的setTimeout，这样能保证点击按钮后的间隔内，</span><br><span class="line">                //如果用户还点击的话，就不会执行fn函数</span><br><span class="line">                timeout = setTimeout(() =&gt; &#123;</span><br><span class="line">                    fn.call(this,arguments);</span><br><span class="line">                &#125;,1000);</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">        //防抖事件的处理</span><br><span class="line">        <span class="keyword">function</span> <span class="function"><span class="title">sayDebounce</span></span>()&#123;</span><br><span class="line">            // ...有些需要防抖的工作，在这里进行</span><br><span class="line">            console.log(<span class="string">"防抖成功~"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在触发点击事件后，如果用户再次点击了，我们会清空之前的定时器，重新生成一个定时器。意思就是：这件事儿需要等待，如果你反复催促，就重新计时。<br>&emsp;总结一下就是：第一次触发事件，一段时间内没有再次触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，再一次触发了事件，就会重新开始延时。</p>
+<h3 id="二、节流"><a href="#二、节流" class="headerlink" title="二、节流"></a>二、节流</h3><p>&emsp;节流：指定时间间隔内只会执行一次任务。<br>节流的应用：<br>    1、懒加载监听滚动条的位置，使用节流按照一定的频率进行获取。<br>    2、点击提交按钮，只允许一定时间内点击一次。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;button id=<span class="string">"throttle"</span>&gt;点我防抖&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        //获取按钮并绑定事件</span><br><span class="line">        var myThrottle = document.getElementById(<span class="string">"throttle"</span>);</span><br><span class="line">        myThrottle.addEventListener(<span class="string">"click"</span>,throttle(sayThrottle));</span><br><span class="line">    &#125;;</span><br><span class="line">    //节流函数</span><br><span class="line">    <span class="keyword">function</span> throttle(fn)&#123;</span><br><span class="line">        //通过闭包保存一个标记</span><br><span class="line">        <span class="built_in">let</span> canRun = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            //在函数开头判断标志是否为<span class="literal">true</span>，不为<span class="literal">true</span>则中断函数</span><br><span class="line">            <span class="keyword">if</span>(!canRun)&#123;</span><br><span class="line">                <span class="built_in">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            //将canRun设置为<span class="literal">false</span>，防止执行之前再被执行</span><br><span class="line">            canRun  = <span class="literal">false</span>;</span><br><span class="line">            //定时器</span><br><span class="line">            setTimeout(() =&gt; &#123;</span><br><span class="line">                fn.call(this,arguments);</span><br><span class="line">                //执行完事件(例如调用完接口)之后，重新将这个标志设置为<span class="literal">true</span></span><br><span class="line">                canRun  = <span class="literal">true</span>;</span><br><span class="line">            &#125;,1000);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    //需要节流的事件</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">sayThrottle</span></span>()&#123;</span><br><span class="line">        // ...有些需要防抖的工作，在这里进行</span><br><span class="line">        console.log(<span class="string">"节流成功~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>debounce、throttle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Vue开发APP手机虚拟返回键点击退出应用解决办法</title>
+    <url>/2020/04/22/Virtualkey/</url>
+    <content><![CDATA[<p>如何解决安卓手机的点击虚拟返回键退出当前应用</p>
+<a id="more"></a>
+<h3 id="一、问题描述："><a href="#一、问题描述：" class="headerlink" title="一、问题描述："></a>一、问题描述：</h3><p>最近的项目是使用Vue全家桶+HBuilder打包开发一个移动端APP。<br>在测试的时候发现，当安卓手机使用虚拟按钮的时候，点击虚拟按钮的返回键，APP会直接退出。<br>这是因为安卓手机自带back虚拟按键，如果不修改其默认事件，点一下app就退出了，<br>所以需要修改这个按键默认事件事件的代码。</p>
+<h3 id="二、解决办法："><a href="#二、解决办法：" class="headerlink" title="二、解决办法："></a>二、解决办法：</h3><p>在index.html中加入一个script，加上如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  document.addEventListener(<span class="string">'plusready'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      var first = null;</span><br><span class="line">      var webview = plus.webview.currentWebview();</span><br><span class="line">      plus.key.addEventListener(<span class="string">'backbutton'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">          webview.canBack(<span class="keyword">function</span> (e) &#123;</span><br><span class="line">              <span class="keyword">if</span> (e.canBack) &#123;</span><br><span class="line">                webview.back(); //这里不建议修改自己跳转的路径  </span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                //首次按键，提示‘再按一次退出应用’  </span><br><span class="line">                <span class="keyword">if</span> (!first) &#123;</span><br><span class="line">                  first = new Date().getTime(); //获取第一次点击的时间戳  </span><br><span class="line">                  plus.nativeUI.toast(<span class="string">"再按一次退出应用"</span>, &#123;</span><br><span class="line">                    duration: <span class="string">'short'</span></span><br><span class="line">                  &#125;); //通过H5+ API 调用Android 上的toast 提示框  </span><br><span class="line">                  setTimeout(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                    first = null;</span><br><span class="line">                  &#125;, 1000);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    // 获取第二次点击的时间戳, 两次之差 小于 1000ms 说明1s点击了两次, </span><br><span class="line">                  <span class="keyword">if</span> (new Date().getTime() - first &lt; 1000) &#123;  </span><br><span class="line">                    plus.runtime.quit(); //退出应用  </span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>我的书单--持续更新。。。</title>
+    <url>/2019/09/30/book/</url>
+    <content><![CDATA[<p>如果累了，就停下来看看书，冷静一下。</p>
+<a id="more"></a>
+
+<h3 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h3><h6 id="（一）、最难迈出的是第一步"><a href="#（一）、最难迈出的是第一步" class="headerlink" title="（一）、最难迈出的是第一步"></a>（一）、最难迈出的是第一步</h6><p>人生有很多第一次，<br>比如，<br>第一次背着书包去学校，<br>第一次踏入这个复杂的社会，<br>第一次谈恋爱等等。。。</p>
+<p>我们面对第一次时的心情往往是复杂的，<br>我们会有一种喜悦感，<br>同时还伴有一丝紧张焦虑和害怕。<br>之所以会有一种喜悦感，<br>是因为我们知道，<br>每往前踏出一步，<br>便意味着我们又成长了，<br>对这个社会了解更深入了一层。</p>
+<p>是啊，<br>人生最难的事情便是迈出第一步了，<br>如果你连第一步都不愿意往外迈，<br>或者都不敢迈的话，<br>那么成功只会深深地藏在你的心里，<br>它永远不会实现。</p>
+<p>“嗯嗯，希望你以后能闯出一片属于你自己的天地！我们一起加油！”</p>
+<h6 id="二-、2019年10月1日-国庆节"><a href="#二-、2019年10月1日-国庆节" class="headerlink" title="(二)、2019年10月1日  国庆节"></a>(二)、2019年10月1日  国庆节</h6><p>时间：1949.10.1 –  2019.10.1<br>今天是祖国70周年生日，<br>祝伟大的祖国繁荣昌盛，<br>国富民强，<br>前人栽树后人乘凉，<br>永远缅怀革命先烈的流血牺牲。</p>
+<p>70年弹指一挥间，<br>现在的祖国山河无恙国富民强，<br>我们足以告慰先烈，<br>这盛世如先辈所愿。</p>
+<h6 id="三-、2019年10月6日"><a href="#三-、2019年10月6日" class="headerlink" title="(三)、2019年10月6日"></a>(三)、2019年10月6日</h6><p>曾经，<br>你认为离你很远的30岁，<br>其实，<br>已经就在你的面前。</p>
+<h6 id="（四）、2019年11月8号"><a href="#（四）、2019年11月8号" class="headerlink" title="（四）、2019年11月8号"></a>（四）、2019年11月8号</h6><p>最伤感的一句话：<br>    目之所及，皆是回忆！</p>
+<h6 id="五-、2020年4月30日"><a href="#五-、2020年4月30日" class="headerlink" title="(五)、2020年4月30日"></a>(五)、2020年4月30日</h6><p>过去 – 是经历，是回忆；<br>现在 – 整理过去，计划未来；<br>将来 – 一定要相信，将来是美好的，是值得憧憬的。</p>
+]]></content>
+      <tags>
+        <tag>book</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>用纯 JS 实现点击一个列表时，输出对应的索引号?</title>
+    <url>/2019/08/09/fe/</url>
+    <content><![CDATA[<p>面试题目：用纯 JS 实现点击一个列表时，输出对应的索引号?(不能使用 jQuery)</p>
+<a id="more"></a>
+
+<h3 id="如何使用原生-Javascript-实现点击一个列表时，输出对应的索引号？"><a href="#如何使用原生-Javascript-实现点击一个列表时，输出对应的索引号？" class="headerlink" title="如何使用原生 Javascript 实现点击一个列表时，输出对应的索引号？"></a>如何使用原生 Javascript 实现点击一个列表时，输出对应的索引号？</h3><p>看到这个题目，我就知道了，面试官可能会考察一下对闭包的掌握。经验不足的小伙伴们可能会这样去实现：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;4&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;5&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;6&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var dom = document.querySelectorAll(<span class="string">'ul li'</span>);</span><br><span class="line">    <span class="keyword">for</span>(var i=0,len=dom.length;i&lt;len;i++)&#123;</span><br><span class="line">        dom[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            console.log(i);</span><br><span class="line">        &#125;,<span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>当我们点击列表的时候，弹出的都是 6，这是怎么回事呢？<br>这是因为我们在使用了 var 声明的变量，是全局作用域，不是块级作用域。也就是说，for 循环 6 次，每次改变的都是同一个 i，所以它的值会从 0 一直加到 6。<br>还有一个问题就是闭包导致的，闭包保存的是外部变量的引用，而不是值。因此可以循环 6 次监听器创建 6 个闭包，它里面的 i 引用的是同一个，全部指向了 6。</p>
+<h3 id="方法一：使用ES6中的-let替代var"><a href="#方法一：使用ES6中的-let替代var" class="headerlink" title="方法一：使用ES6中的 let替代var"></a>方法一：使用ES6中的 let替代var</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var dom = document.querySelectorAll(<span class="string">'ul li'</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">let</span> i=0,len=dom.length;i&lt;len;i++)&#123;</span><br><span class="line">        dom[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            console.log(i);</span><br><span class="line">        &#125;,<span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>let声明的变量支持的是块级作用域。</p>
+<h3 id="方法二：使用立即执行函数来判断闭包对外部变量i的引用"><a href="#方法二：使用立即执行函数来判断闭包对外部变量i的引用" class="headerlink" title="方法二：使用立即执行函数来判断闭包对外部变量i的引用"></a>方法二：使用立即执行函数来判断闭包对外部变量i的引用</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var dom = document.querySelectorAll(<span class="string">'ul li'</span>);</span><br><span class="line">    <span class="keyword">for</span>(var i=1,len = dom.length;i&lt;len;i++)&#123;</span><br><span class="line">        (<span class="keyword">function</span>(i)&#123;</span><br><span class="line">            dom[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                console.log(i);</span><br><span class="line">            &#125;,<span class="literal">false</span>)</span><br><span class="line">        &#125;)(i)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法三：事件委托的方法"><a href="#方法三：事件委托的方法" class="headerlink" title="方法三：事件委托的方法"></a>方法三：事件委托的方法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var ul = document.querySelector(<span class="string">'ul'</span>);</span><br><span class="line">var dom = document.querySelectorAll(<span class="string">"ul li"</span>);</span><br><span class="line">ul.addEventListener(<span class="string">'click'</span>,<span class="keyword">function</span>(e)&#123;</span><br><span class="line">    var target = e.target;</span><br><span class="line">    <span class="keyword">if</span>(target.nodeName.toLowerCase() === <span class="string">'li'</span>)&#123;</span><br><span class="line">        console.log([].indexOf.call(dom,target));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这个方法使用了事件监听，减少了监听器的绑定。</p>
+]]></content>
+      <tags>
+        <tag>纯JS、事件监听/委托、立即执行函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue路由传参</title>
+    <url>/2019/11/02/detail/</url>
+    <content><![CDATA[<p>Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});</p>
+<a id="more"></a>
+<h6 id="一、方法一：this-router-push-path-’’-query"><a href="#一、方法一：this-router-push-path-’’-query" class="headerlink" title="一、方法一：this.$router.push(path:’’,query:{})"></a>一、方法一：this.$router.push(path:’’,query:{})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    path:<span class="string">'/xxx'</span>,</span><br><span class="line">    query:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.query;</span><br><span class="line">this.id = res.id;</span><br></pre></td></tr></table></figure></p>
+<h6 id="二、方法二、this-router-push-name-’”-params"><a href="#二、方法二、this-router-push-name-’”-params" class="headerlink" title="二、方法二、this.$router.push({name:’”,params:{}})"></a>二、方法二、this.$router.push({name:’”,params:{}})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    name:<span class="string">''</span>,</span><br><span class="line">    params:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.params;</span><br><span class="line">this.id = res.id</span><br></pre></td></tr></table></figure></p>
+<h6 id="注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；"><a href="#注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；" class="headerlink" title="注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；"></a>注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；</h6><pre><code>二者区别：
+    直白的来说query相当于get请求，页面跳转，我们在地址栏可以看到请求参数，params相当于post请求，参数不会在地址栏显示出来。
+还有就是传参是this.$router.push(),而接收参数是this.$route.params,前者是$router,后者是$route.
+
+this.$router和this.$route的区别：
+1、$router为VueRouter实例，当我们想要进入不同的URL，可以使用$router.push()方法
+2、$route为当前router跳转对象，里面可以获取name、path、query、params</code></pre>]]></content>
+  </entry>
+  <entry>
+    <title>.eslintrc.js 的配置</title>
+    <url>/2020/05/09/eslint/</url>
+    <content><![CDATA[<p>在项目目录下新建一个.eslintrc.js的文件。</p>
+<a id="more"></a>
+
+<h4 id="eslintrc-js-的配置"><a href="#eslintrc-js-的配置" class="headerlink" title=".eslintrc.js 的配置"></a>.eslintrc.js 的配置</h4><p>常用配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  root: true,</span><br><span class="line">  env: &#123;</span><br><span class="line">    node: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &apos;extends&apos;: [</span><br><span class="line">    &apos;plugin:vue/essential&apos;,</span><br><span class="line">    &apos;@vue/standard&apos;</span><br><span class="line">  ],</span><br><span class="line">  rules: &#123;</span><br><span class="line">    &apos;no-console&apos;: process.env.NODE_ENV === &apos;production&apos; ? &apos;error&apos; : &apos;off&apos;, // 生产环境 无console.log</span><br><span class="line">    &apos;no-debugger&apos;: process.env.NODE_ENV === &apos;production&apos; ? &apos;error&apos; : &apos;off&apos;, // 生产环境 无debugger</span><br><span class="line">    &apos;indent&apos;: &apos;off&apos;,</span><br><span class="line">    // 函数定义时括号前面要不要有空格</span><br><span class="line">    &apos;space-before-function-paren&apos;: &apos;off&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    parser: &apos;babel-eslint&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>常用的git提交代码命令</title>
+    <url>/2019/10/23/git/</url>
+    <content><![CDATA[<p>日常开发使用的git提交代码的方法</p>
+<a id="more"></a>
+<h6 id="一、初始化本地仓库，提交代码，提交到远程git仓库"><a href="#一、初始化本地仓库，提交代码，提交到远程git仓库" class="headerlink" title="一、初始化本地仓库，提交代码，提交到远程git仓库"></a>一、初始化本地仓库，提交代码，提交到远程git仓库</h6><p>1、初始化代码仓库<br>    git init<br>2、将当前目录下的所有文件放到暂存区<br>    git add .<br>3、查看文件状态<br>    git status<br>4、添加提交的描述信息<br>    git commit -m “提交的描述信息”<br>5、远程仓库地址<br>    git remote add origin “远程仓库地址”<br>6、推送到远程仓库<br>    git push -u origin master</p>
+<h6 id="二、创建分支，提交代码到分支"><a href="#二、创建分支，提交代码到分支" class="headerlink" title="二、创建分支，提交代码到分支"></a>二、创建分支，提交代码到分支</h6><p>1、创建切换分支<br>    git checkout -b dev  dev为分支名称<br>    git add .<br>    git commit -m ‘描述’<br>    git push –set-upstream origin dev1   将分支推送到远程仓库<br>    切换到主分支<br>    git checkout master<br>    git merge dev  将dev合并到主分支<br>    git push origin master  推送到远程仓库</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</title>
+    <url>/2019/06/19/hello-world/</url>
+    <content><![CDATA[<p>Hexo 常用命令</p>
+<a id="more"></a>
+
+<h3 id="一、Create-a-new-post-–创建新文章"><a href="#一、Create-a-new-post-–创建新文章" class="headerlink" title="一、Create a new post –创建新文章"></a>一、Create a new post –创建新文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="二、Create-a-new-page-–创建新页面"><a href="#二、Create-a-new-page-–创建新页面" class="headerlink" title="二、Create a new page –创建新页面"></a>二、Create a new page –创建新页面</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page <span class="string">"pageName"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="三、Run-server-–启动服务器"><a href="#三、Run-server-–启动服务器" class="headerlink" title="三、Run server –启动服务器"></a>三、Run server –启动服务器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server  简写：hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、Generate-static-files-–生成静态文件"><a href="#四、Generate-static-files-–生成静态文件" class="headerlink" title="四、Generate static files –生成静态文件"></a>四、Generate static files –生成静态文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate --生成静态文件   简写： hexo g</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、Deploy-to-remote-sites-–部署到远程站点"><a href="#五、Deploy-to-remote-sites-–部署到远程站点" class="headerlink" title="五、Deploy to remote sites –部署到远程站点"></a>五、Deploy to remote sites –部署到远程站点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy --部署文章   简写：hexo d</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、hexo常用命令"><a href="#六、hexo常用命令" class="headerlink" title="六、hexo常用命令"></a>六、hexo常用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page <span class="string">"pageName"</span>  <span class="comment">#新建页面</span></span><br><span class="line">$ hexo new <span class="string">"postName"</span>   <span class="comment">#新建页面</span></span><br><span class="line">$ hexo generate  <span class="comment">#生成静态页面至public目录  简写：hexo g</span></span><br><span class="line">$ hexo server  <span class="comment">#开始预览访问端口（默认端口4000，Ctrl + C终止server） 简写：hexo s</span></span><br><span class="line">$ hexo deploy  <span class="comment">#部署到GitHub 简写：hexo d</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="七、Github根目录下创建CNAME文件（无后缀）"><a href="#七、Github根目录下创建CNAME文件（无后缀）" class="headerlink" title="七、Github根目录下创建CNAME文件（无后缀）"></a>七、Github根目录下创建CNAME文件（无后缀）</h3><p>在CNAME文件里面填写我的域名（加不加www看自己的喜好），下面是我的Github根目录下创建的CANAME文件。<br>阿里云域名解析过程不详细赘述……</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ xiaoyucode.top</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iTerm2快捷键</title>
+    <url>/2020/04/30/iterm2/</url>
+    <content><![CDATA[<p>工欲善其事必先利其器。如何更加方便的使用iTerm2？</p>
+<a id="more"></a>
+<p>一、标签快捷键</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">commond + t              // 新建标签页</span><br><span class="line">commond + w              // 关闭标签</span><br><span class="line">commond + enter          // 切换全屏(第一次切换至全屏，再commond + enter恢复到之前窗口) </span><br><span class="line">commond + 左右方向键       // 切换标签</span><br><span class="line">commond + +              // 窗口和字体变大</span><br><span class="line">commond + -              // 窗口和字体变小</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>nrm切换npm源</title>
     <url>/2020/05/19/nrm/</url>
     <content><![CDATA[<p>因为在使用npm下载插件的过程中速度太慢了（npm源在国外），所以找到一个切换源的方法：nrm。</p>
@@ -36,39 +228,139 @@
 ]]></content>
   </entry>
   <entry>
-    <title>关于vue-router路由守卫</title>
-    <url>/2020/05/13/vue-router/</url>
-    <content><![CDATA[<p>使用vue-router，我们需要做的是，将组件（components）映射到路由(routes),然后告诉vue-router在哪里渲染他们。</p>
+    <title>mongodb-redis</title>
+    <url>/2019/10/24/mongodb-redis/</url>
+    <content><![CDATA[<p>mongodb和redis的安装</p>
 <a id="more"></a>
-<h4 id="一、路由守卫"><a href="#一、路由守卫" class="headerlink" title="一、路由守卫"></a>一、路由守卫</h4><p>路由守卫就像其名字一样，vue-router提供导航守卫主要用来通过跳转或取消的方式守卫导航。<br>1、全局前置守卫</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const router = new VueRouter(&#123;...&#125;)</span><br><span class="line">router.beforeEach((to,from,next) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<pre><code>当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫resolve完之前一直出入等待中。
-参数说明：
-to:   Route 即将要进入的目标路由对象；
-from: Route 当前导航正要离开的路由；
-next: Route 一定要调用该方法来resolve这个钩子。
-
-确保要调用next方法，否则钩子就不会被resolved。</code></pre><p>2、路由独享的守卫<br>在路由配置上直接定义beforeEnter守卫</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/foo&apos;,</span><br><span class="line">      component: Foo,</span><br><span class="line">      beforeEnter: (to, from, next) =&gt; &#123;</span><br><span class="line">        // ... </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>这些守卫与全局前置守卫的方法参数是一样的</p>
-<h4 id="二、解决路由跳转NavigationDuplicated报错的方式"><a href="#二、解决路由跳转NavigationDuplicated报错的方式" class="headerlink" title="二、解决路由跳转NavigationDuplicated报错的方式"></a>二、解决路由跳转NavigationDuplicated报错的方式</h4><p>vue-router版本3.1之后，$router.push()方法改为了promise，如果没有回调函数，错误信息就会交给全局的路由错误处理，就会报错！<br>解决方法：<br>    1、简单粗暴的方法：将vue-router的版本固定在vue-router 3.0.7一下<br>    2、在router.js中加入下面的代码</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 解决跳转出错问题 NavigationDuplicated</span><br><span class="line">const originalPush = Router.prototype.push</span><br><span class="line">Router.prototype.push = function push(location) &#123;</span><br><span class="line">  return originalPush.call(this, location).catch(err =&gt; err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<pre><code>3、给每个router.push增加回调函数。</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">router.push(&apos;/index&apos;).catch(err =&gt; (err))</span><br></pre></td></tr></table></figure>
-
-<pre><code>第3种解决方法成本较高，我一般使用第二种方法。</code></pre><h4 id="三、限制通过URL进入一些用户的个人信息的页面"><a href="#三、限制通过URL进入一些用户的个人信息的页面" class="headerlink" title="三、限制通过URL进入一些用户的个人信息的页面"></a>三、限制通过URL进入一些用户的个人信息的页面</h4><p>例如：逛天猫的时候，你不登录的时候也可以进入商品详情页等页面，但是由于未登录，进入不了我的购物车、个人信息等需要用户token的页面。所以需要判断是否包含登录token。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 导航守卫 进入注册页面不需要是否包含token</span><br><span class="line">router.beforeEach(function (to, from, next) &#123;</span><br><span class="line">  if (to.path === &apos;/register&apos;) &#123;</span><br><span class="line">    return next();</span><br><span class="line">  &#125;</span><br><span class="line">  next()</span><br><span class="line">  // 第一种身份的token1 未登录状态，直接跳转到主页，即使输入准确的的URL地址也无法访问。</span><br><span class="line">  if (!localStorage.getItem(&apos;token1&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!localStorage.getItem(&apos;token2&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!localStorage.getItem(&apos;token3&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
+<h6 id="一、mongodb的安装"><a href="#一、mongodb的安装" class="headerlink" title="一、mongodb的安装"></a>一、mongodb的安装</h6><p>1、安装brew<br>    /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>2、进入文件目录：cd /usr/local<br>3、下载指定版本的mongodb<br>4、环境的配置<br>    vi ~/.bash_profile</p>
+<pre><code>#user root
+export PATH=${PATH}:/usr/local/mysql/bin
+export NODE_PATH=/usr/local/lib/node_modules
+在编辑之后，可以把mongodb的路径贴在后面；
+export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
+退出编辑的方式为，esc  -&gt;  :wq -&gt; enter</code></pre><p>5、配置mongo.conf<br>    logpath=/usr/local/var/log/mongodb/mongo.log<br>    logappend=true<br>    dbpath=/usr/local/var/mongodb<br>    fork=true<br>    port=27017<br>    如果本机无法连接远程机器，在末尾添加bind_ip = 0.0.0.0,最后再启动mongo<br>6、启动方式<br>    mongod -f /usr/local/etc/mongod.conf</p>
+<h6 id="二、redis的安装"><a href="#二、redis的安装" class="headerlink" title="二、redis的安装"></a>二、redis的安装</h6><p>1、在已经安装好了brew的情况下,安装Redis<br>    brew install redis<br>2、启动redis<br>    redis-server</p>
+]]></content>
+      <tags>
+        <tag>mongodb、redis</tag>
+      </tags>
   </entry>
   <entry>
-    <title>.eslintrc.js 的配置</title>
-    <url>/2020/05/09/eslint/</url>
-    <content><![CDATA[<p>在项目目录下新建一个.eslintrc.js的文件。</p>
+    <title>node版本管理--升级和降级</title>
+    <url>/2019/10/23/node/</url>
+    <content><![CDATA[<p>Node版本的升级和降级</p>
+<a id="more"></a>
+<p>在开发的工程中，我们可能需要经常切换node版本来应对不同的开发环境，所以需要经常使用不同版本的node</p>
+<p>一、安装npm插件n ,通过n模块来管理node版本<br>1、全局安装n模块<br>    npm instlal -g n<br>2、安装当前稳定版本<br>    n stable或者sudo n stable<br>3、安装最新版本的<br>    n latest或者sudo n latest<br>4、安装指定版本的node<br>    n v8.16.0<br>5、卸载指定的node版本<br>    n rm v8.16.0<br>二、使用nvm管理node版本<br>1、安装nvm<br>    brew install nvm<br>2、使用nvm安装node版本<br>    安装最新版本<br>    nvm isntall node<br>    安装指定版本<br>    nvm install 8.16.0<br>3、查看所有版本<br>    nvm ls<br>4、切换node版本<br>    使用最新版本<br>    nvm use node<br>    使用指定版本<br>    nvm use 10.16.2<br>    通常我会使用第二种方式<br>    例如：我在一个项目中使用的是<a href="mailto:node@6.13.2" target="_blank" rel="noopener">node@6.13.2</a>,新项目使用的是<a href="mailto:node@8.16.0" target="_blank" rel="noopener">node@8.16.0</a>,
+    先要安装<a href="mailto:node@8.16.0" target="_blank" rel="noopener">node@8.16.0</a>，nvm install 8.16.0，<br>    然后，nvm use 8.16.0</p>
+]]></content>
+      <tags>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Promise</title>
+    <url>/2019/06/19/promise/</url>
+    <content><![CDATA[<p>Promise是异步编程的一种解决方案，简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。</p>
+<a id="more"></a>
+<!-- <Excerpt in index | 首页摘要>  -->
+<p>语法上讲，Promise是一个对象，从它可以获取异步操作的消息。<br>Promise的两个特点：<br>    （1）对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。<br>    （2）一旦状态改变，就不会改变，任何时候都可以得到这个结果。Promise对象的状态改变，只有两种可能：从pending变为fulfilled和从pending变为rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这时就称为 resolved（已定型）。<br>一、Promise基本用法：<br>    1、Promise实例：<br>        Promise构造函数接受一个函数作为参数，该函数的两个函数分别是resolve和reject</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ const promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">      // ... some code </span><br><span class="line">      <span class="keyword">if</span>(/*异步操作成功*/)&#123;</span><br><span class="line">        resolve(value);</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        reject(error);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Promise实例生成后，可以用 then方法分别指定resolved状态和rejected状态的回调函数。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ promise.then(<span class="keyword">function</span>(value)&#123;</span><br><span class="line">    //success</span><br><span class="line">    &#125;,<span class="keyword">function</span>(error)&#123;</span><br><span class="line">    //failure</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>二、使用Promise分别获取图片的宽高<br>  new Promise实例，而且要return，new Promise时要传入函数，函数有resolve reject两个参数，成功时执行resolve（）、失败时执行reject（）、<br>then监听结果  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="keyword">function</span> <span class="function"><span class="title">loadImg</span></span>()&#123;</span><br><span class="line">    const promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">      var img = document.createElement(<span class="string">'img'</span>)</span><br><span class="line">      img.onload = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        resolve(img)</span><br><span class="line">      &#125;</span><br><span class="line">      img.<span class="function"><span class="title">onerror</span></span>()&#123;</span><br><span class="line">        reject()</span><br><span class="line">      &#125;</span><br><span class="line">      img.src = src</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="built_in">return</span> promise</span><br><span class="line">&#125;</span><br><span class="line">var src = <span class="string">'https://www.imooc.com/static/img/index/logo.png'</span></span><br><span class="line">var result = loadImg(src)</span><br><span class="line">//获取图片的宽度</span><br><span class="line">result.then(<span class="keyword">function</span>(img)&#123;</span><br><span class="line">  console.log(img.width)</span><br><span class="line">&#125;,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  console.log(<span class="string">'failed'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">//获取图片的高度</span><br><span class="line">result.then(<span class="keyword">function</span>(img)&#123;</span><br><span class="line">  console.log(img.height)</span><br><span class="line">&#125;,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  console.log(<span class="string">'failed'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>Javascript、Promise</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何理解原型链中的prototype和__proto__？</title>
+    <url>/2019/07/07/prototype/</url>
+    <content><![CDATA[<p>JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。</p>
+<a id="more"></a>
+<h3 id="一、什么是原型链？"><a href="#一、什么是原型链？" class="headerlink" title="一、什么是原型链？"></a>一、什么是原型链？</h3><p>&emsp;&emsp;谈到继承时，JavaScript只有一种结构：<strong>对象</strong>。 
+MDN文档上是这样说的：每个实例对象（object）都有一个私有属性（称之为<code>__proto__</code>）指向它的构造函数的原型对象（prototype）。该原型对象也有一个自己的原型对象（<code>__proto__</code>）,层层向上直到一个对象的原型对象为null。根据定义，null没有原型，并作为这个原型链中的最后一个环节。</p>
+<h3 id="二、换种方式理解原型链？"><a href="#二、换种方式理解原型链？" class="headerlink" title="二、换种方式理解原型链？"></a>二、换种方式理解原型链？</h3><p>&emsp;&emsp;之前在慕课网上，听过一个讲师举了一个很有趣的例子来介绍什么是prototype（当时偷偷的用手机截了图^o^）:<br>&emsp;&emsp;简单粗暴一点，我们把prototype理解成一个“备胎”,手艺还是祖传的。有一个姑娘不会修电脑，自己也不想学，就去找prototype说你学学吧，学好了帮我把修电脑这活儿做好,<br>prototype学会了修电脑之后,这个姑娘电脑有问题就会去找prototype,其他的姑娘再想修电脑时候，prototype这修电脑的技术也能直接拿出来用。<br>后来，又有姑娘请prototype帮忙诊个脉,prototype没有地方学,就往祖上一辈辈的问去，后来了解到他爷爷会诊脉，后来再有人找他诊脉，prototype就把病人带着找它爷爷。<br>再后来，又有一个姑娘让prototype给她造个机器人，prototype问遍了祖上，没人会这门技术，只能告诉这姑娘null了。</p>
+<h3 id="三、为什么需要原型和原型链？"><a href="#三、为什么需要原型和原型链？" class="headerlink" title="三、为什么需要原型和原型链？"></a>三、为什么需要原型和原型链？</h3><p>&emsp;&emsp;看一个小例子：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name,age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age  = age;</span><br><span class="line">    this.eat  = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(age + <span class="string">"岁的"</span> + name + <span class="string">"在吃饭"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> p1 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line"><span class="built_in">let</span> p2 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line">console.log(p1.eat === p2.eat);  //<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;我们发现上面的例子,对于同一个函数,我们可以通过new生成出来的实例,p1和p2的eat是不同的。我们想个办法，建立一个类似于共享库的对象，这样就可以在需要的时候，调用一个类似共享库的对象，让实例能够沿着某个“线索”去找到自己的归处。<br>这个“线索”就是我们的原型链 prototype。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">//通过构造函数的Person的prototype属性找到Person的原型对象</span><br><span class="line">Person.prototype.eat = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">"吃饭"</span>)；</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> p1 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line"><span class="built_in">let</span> p2 = new Person(<span class="string">"于齐"</span>,27)</span><br><span class="line"></span><br><span class="line">console.log(p1.eat === p2.eat);//<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;通过分享的形式，这两个实例对象指向相同的位置了，也就是我们想要创建的共享库的对象。</p>
+<h3 id="四、prototype是什么玩意儿呢？"><a href="#四、prototype是什么玩意儿呢？" class="headerlink" title="四、prototype是什么玩意儿呢？"></a>四、prototype是什么玩意儿呢？</h3><p>知乎上有一篇文章（<a href="https://zhuanlan.zhihu.com/p/22989691）" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22989691）</a> 写的很好，总结一下就是：<br>1、JavaScript本源是空的，即：null,这个就是JavaScript的“始祖”；</p>
+<p>2、null通过<code>__proto__</code>产生了NO1,即：<code>NO1.__proto__ == null</code>;  </p>
+<p>3、NO1根据自己的原型prototype创建了对象Object，即：<code>Object.prototype == NO1</code>;</p>
+<p>4、<code>NO1.__proto__ == null</code>,我们把prototype叫做原型，好比Object的原型是神，同时<strong>proto</strong>叫做原型链，有了这个<strong>proto</strong>，Object、NO1、JS之间才有联系，此时，<code>Object.prototype.__proto__ == null</code>，</p>
+<p>5、有几条公式：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Object.__proto__ === Function.prototype;</span><br><span class="line">Function.prototype.__proto__ === Object.prototype;</span><br><span class="line">Object.prototype.__proto__ === null;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>原型链、prototype、__proto__</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>下拉框select的option</title>
+    <url>/2020/05/08/select/</url>
+    <content><![CDATA[<p>下拉的选项是从后台获取的数据,如何获取选定项的值?</p>
 <a id="more"></a>
 
-<h4 id="eslintrc-js-的配置"><a href="#eslintrc-js-的配置" class="headerlink" title=".eslintrc.js 的配置"></a>.eslintrc.js 的配置</h4><p>常用配置：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  root: true,</span><br><span class="line">  env: &#123;</span><br><span class="line">    node: true</span><br><span class="line">  &#125;,</span><br><span class="line">  &apos;extends&apos;: [</span><br><span class="line">    &apos;plugin:vue/essential&apos;,</span><br><span class="line">    &apos;@vue/standard&apos;</span><br><span class="line">  ],</span><br><span class="line">  rules: &#123;</span><br><span class="line">    &apos;no-console&apos;: process.env.NODE_ENV === &apos;production&apos; ? &apos;error&apos; : &apos;off&apos;, // 生产环境 无console.log</span><br><span class="line">    &apos;no-debugger&apos;: process.env.NODE_ENV === &apos;production&apos; ? &apos;error&apos; : &apos;off&apos;, // 生产环境 无debugger</span><br><span class="line">    &apos;indent&apos;: &apos;off&apos;,</span><br><span class="line">    // 函数定义时括号前面要不要有空格</span><br><span class="line">    &apos;space-before-function-paren&apos;: &apos;off&apos;</span><br><span class="line">  &#125;,</span><br><span class="line">  parserOptions: &#123;</span><br><span class="line">    parser: &apos;babel-eslint&apos;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<p>以选择银行卡为例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;select v-model=<span class="string">"selected"</span> class=<span class="string">"selected"</span>&gt;</span><br><span class="line">    &lt;option disabled value v-show=<span class="string">"showTips"</span>&gt;请选择提现到账的银行卡&lt;/option&gt;</span><br><span class="line">    &lt;option</span><br><span class="line">        v-for=<span class="string">"item in CardList"</span></span><br><span class="line">        :key=<span class="string">"item.id"</span></span><br><span class="line">        v-bind:value=<span class="string">"item.id"</span></span><br><span class="line">    &gt;</span><br><span class="line">        &#123;&#123; item.card_type &#125;&#125; ( &#123;&#123; item.card_number ? item.card_number.replace(/^(\d&#123;4&#125;)\d+(\d&#123;4&#125;)$/,<span class="string">"<span class="variable">$1</span>****<span class="variable">$2</span>"</span>):<span class="string">""</span>&#125;&#125; )</span><br><span class="line">    &lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+
+<p>正则表达式是让银行卡号显示为6217 **** 0000的格式。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>如何使用CSS画三角形</title>
+    <url>/2019/08/10/trangel/</url>
+    <content><![CDATA[<p>   如何使用CSS画三角形？</p>
+<a id="more"></a>
+<h3 id="三角形的画法"><a href="#三角形的画法" class="headerlink" title="三角形的画法"></a>三角形的画法</h3><p>一般经常使用三角形作为提示框、下拉菜单等功能。<br>1、HTML结构</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;div class=<span class="string">"item0"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"item1"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"item2"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"item3"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2、将类名为item的块级元素的width、height设置为0</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.item0&#123;</span><br><span class="line">    width:0;</span><br><span class="line">    height:0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、将类名为item的元素的3个border的颜色设置为transparent，箭头指向的对面border设置颜色；</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">  .item0&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 50px solid transparent;</span><br><span class="line">	border-right: 50px solid transparent;</span><br><span class="line">	border-top: 50px solid transparent;</span><br><span class="line">	border-bottom: 80px solid blue;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的为方向向上的三角形<br>4、依次类推可以画出方向向左、右、下的三角形</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">  .item1&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 50px solid transparent;</span><br><span class="line">	border-right: 50px solid transparent;</span><br><span class="line">	border-top: 80px solid green;</span><br><span class="line">	border-bottom: 50px solid transparent;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br><span class="line">.item2&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 50px solid transparent;</span><br><span class="line">	border-right: 80px solid violet;</span><br><span class="line">	border-top: 50px solid transparent;</span><br><span class="line">	border-bottom: 50px solid transparent;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br><span class="line">.item3&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 80px solid purple;</span><br><span class="line">	border-right: 50px solid transparent;</span><br><span class="line">	border-top: 50px solid transparent;</span><br><span class="line">	border-bottom: 50px solid transparent;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>transparent、border</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>输入url到页面的加载完成发生了什么？</title>
+    <url>/2019/08/01/url/</url>
+    <content><![CDATA[<p>从浏览器中输入URL到页面的加载发生了什么？</p>
+<a id="more"></a>
+<p>一、过程<br>    1、DNS解析：<br>    2、TCP的三次握手<br>    3、发送HTTP请求<br>    4、服务器处理请求并返回报文<br>    5、浏览器解析渲染页面<br>    6、连接结束</p>
+]]></content>
+      <tags>
+        <tag>url、tcp、http</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端页面自定义input唤起键盘return，换行改为搜索</title>
+    <url>/2020/04/28/search/</url>
+    <content><![CDATA[<p>移动端页面自定义input唤起键盘return，换行键改为搜索。</p>
+<a id="more"></a>
+<p>在html5中，我们可以将input的type修改为search，这样修改之后，我们的安卓手机会变成搜索或者搜索符号、IOS则会变成换行。<br>1、安卓手机</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;input  <span class="built_in">type</span>=<span class="string">"search"</span> placeholder=<span class="string">"请输入你要搜索的内容"</span> v-model=<span class="string">"value"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2、苹果IOS手机<br>与安卓手机不同的是，我们需要在外层包裹一个form</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;from action=<span class="string">"javascript:return true"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"search"</span> placeholder=<span class="string">"请输入你要搜索的内容"</span> v-model=<span class="string">"value"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3、修改search的默认样式</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">input[<span class="built_in">type</span>=<span class="string">"search"</span>]&#123;</span><br><span class="line">    -webkit-appearance:none;</span><br><span class="line">&#125;</span><br><span class="line">input::-webkit-search-cancel-button&#123;</span><br><span class="line">    display:none; // 关闭按钮</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
   </entry>
   <entry>
     <title>解决vue项目热更新、启动和打包时间过长的问题</title>
@@ -82,18 +374,6 @@ next: Route 一定要调用该方法来resolve这个钩子。
 <h6 id="3、multihtmlCache-true-解决多页热部署的关键"><a href="#3、multihtmlCache-true-解决多页热部署的关键" class="headerlink" title="3、multihtmlCache:true  解决多页热部署的关键"></a>3、multihtmlCache:true  解决多页热部署的关键</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">    <span class="keyword">for</span> (var pathname <span class="keyword">in</span> pages) &#123;</span><br><span class="line">  // 配置生成的html文件，定义路径等</span><br><span class="line">  var conf = &#123;</span><br><span class="line">    filename: pathname + <span class="string">'.html'</span>,</span><br><span class="line">    template: pages[pathname],   // 模板路径</span><br><span class="line">    inject: <span class="literal">true</span>,              // js插入位置</span><br><span class="line">    multihtmlCache: <span class="literal">true</span>,    // 解决多页热部署的关键 这里这里这里这里这里很重要！！！</span><br><span class="line">    // necessary to consistently work with multiple chunks via CommonsChunkPlugin</span><br><span class="line">    chunksSortMode: <span class="string">'dependency'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (pathname <span class="keyword">in</span> devWebpackConfig.entry) &#123;</span><br><span class="line">    conf.chunks = [<span class="string">'manifest'</span>,<span class="string">'vendor'</span>, pathname];</span><br><span class="line">    conf.hash = <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  devWebpackConfig.plugins.push(new HtmlWebpackPlugin(conf));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这时候再启动项目，热更新、编译和打包的速度会大大提升。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>下拉框select的option</title>
-    <url>/2020/05/08/select/</url>
-    <content><![CDATA[<p>下拉的选项是从后台获取的数据,如何获取选定项的值?</p>
-<a id="more"></a>
-
-<p>以选择银行卡为例：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;select v-model=<span class="string">"selected"</span> class=<span class="string">"selected"</span>&gt;</span><br><span class="line">    &lt;option disabled value v-show=<span class="string">"showTips"</span>&gt;请选择提现到账的银行卡&lt;/option&gt;</span><br><span class="line">    &lt;option</span><br><span class="line">        v-for=<span class="string">"item in CardList"</span></span><br><span class="line">        :key=<span class="string">"item.id"</span></span><br><span class="line">        v-bind:value=<span class="string">"item.id"</span></span><br><span class="line">    &gt;</span><br><span class="line">        &#123;&#123; item.card_type &#125;&#125; ( &#123;&#123; item.card_number ? item.card_number.replace(/^(\d&#123;4&#125;)\d+(\d&#123;4&#125;)$/,<span class="string">"<span class="variable">$1</span>****<span class="variable">$2</span>"</span>):<span class="string">""</span>&#125;&#125; )</span><br><span class="line">    &lt;/option&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
-
-<p>正则表达式是让银行卡号显示为6217 **** 0000的格式。</p>
 ]]></content>
   </entry>
   <entry>
@@ -126,125 +406,6 @@ next: Route 一定要调用该方法来resolve这个钩子。
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;button @click.once=<span class="string">"Submit"</span>&gt;提交&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">Submit:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(123); // 多次点击提交 只会在控制台打印一次</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
-    <title>iTerm2快捷键</title>
-    <url>/2020/04/30/iterm2/</url>
-    <content><![CDATA[<p>工欲善其事必先利其器。如何更加方便的使用iTerm2？</p>
-<a id="more"></a>
-<p>一、标签快捷键</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">commond + t              // 新建标签页</span><br><span class="line">commond + w              // 关闭标签</span><br><span class="line">commond + enter          // 切换全屏(第一次切换至全屏，再commond + enter恢复到之前窗口) </span><br><span class="line">commond + 左右方向键       // 切换标签</span><br><span class="line">commond + +              // 窗口和字体变大</span><br><span class="line">commond + -              // 窗口和字体变小</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>移动端页面自定义input唤起键盘return，换行改为搜索</title>
-    <url>/2020/04/28/search/</url>
-    <content><![CDATA[<p>移动端页面自定义input唤起键盘return，换行键改为搜索。</p>
-<a id="more"></a>
-<p>在html5中，我们可以将input的type修改为search，这样修改之后，我们的安卓手机会变成搜索或者搜索符号、IOS则会变成换行。<br>1、安卓手机</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;input  <span class="built_in">type</span>=<span class="string">"search"</span> placeholder=<span class="string">"请输入你要搜索的内容"</span> v-model=<span class="string">"value"</span>/&gt;</span><br></pre></td></tr></table></figure>
-
-<p>2、苹果IOS手机<br>与安卓手机不同的是，我们需要在外层包裹一个form</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;from action=<span class="string">"javascript:return true"</span>&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"search"</span> placeholder=<span class="string">"请输入你要搜索的内容"</span> v-model=<span class="string">"value"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<p>3、修改search的默认样式</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">input[<span class="built_in">type</span>=<span class="string">"search"</span>]&#123;</span><br><span class="line">    -webkit-appearance:none;</span><br><span class="line">&#125;</span><br><span class="line">input::-webkit-search-cancel-button&#123;</span><br><span class="line">    display:none; // 关闭按钮</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>使用Vue开发APP手机虚拟返回键点击退出应用解决办法</title>
-    <url>/2020/04/22/Virtualkey/</url>
-    <content><![CDATA[<p>如何解决安卓手机的点击虚拟返回键退出当前应用</p>
-<a id="more"></a>
-<h3 id="一、问题描述："><a href="#一、问题描述：" class="headerlink" title="一、问题描述："></a>一、问题描述：</h3><p>最近的项目是使用Vue全家桶+HBuilder打包开发一个移动端APP。<br>在测试的时候发现，当安卓手机使用虚拟按钮的时候，点击虚拟按钮的返回键，APP会直接退出。<br>这是因为安卓手机自带back虚拟按键，如果不修改其默认事件，点一下app就退出了，<br>所以需要修改这个按键默认事件事件的代码。</p>
-<h3 id="二、解决办法："><a href="#二、解决办法：" class="headerlink" title="二、解决办法："></a>二、解决办法：</h3><p>在index.html中加入一个script，加上如下代码：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  document.addEventListener(<span class="string">'plusready'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      var first = null;</span><br><span class="line">      var webview = plus.webview.currentWebview();</span><br><span class="line">      plus.key.addEventListener(<span class="string">'backbutton'</span>, <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">          webview.canBack(<span class="keyword">function</span> (e) &#123;</span><br><span class="line">              <span class="keyword">if</span> (e.canBack) &#123;</span><br><span class="line">                webview.back(); //这里不建议修改自己跳转的路径  </span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                //首次按键，提示‘再按一次退出应用’  </span><br><span class="line">                <span class="keyword">if</span> (!first) &#123;</span><br><span class="line">                  first = new Date().getTime(); //获取第一次点击的时间戳  </span><br><span class="line">                  plus.nativeUI.toast(<span class="string">"再按一次退出应用"</span>, &#123;</span><br><span class="line">                    duration: <span class="string">'short'</span></span><br><span class="line">                  &#125;); //通过H5+ API 调用Android 上的toast 提示框  </span><br><span class="line">                  setTimeout(<span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">                    first = null;</span><br><span class="line">                  &#125;, 1000);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    // 获取第二次点击的时间戳, 两次之差 小于 1000ms 说明1s点击了两次, </span><br><span class="line">                  <span class="keyword">if</span> (new Date().getTime() - first &lt; 1000) &#123;  </span><br><span class="line">                    plus.runtime.quit(); //退出应用  </span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>H5扫码功能</title>
-    <url>/2019/12/30/Barcode/</url>
-    <content><![CDATA[<p>之前讲过前端生成二维码，那H5 APP如何实现扫码功能;</p>
-<a id="more"></a>
-<h3 id="扫码功能的实现"><a href="#扫码功能的实现" class="headerlink" title="扫码功能的实现"></a>扫码功能的实现</h3><h6 id="（一）、使用H5-API-barcode实现扫码功能"><a href="#（一）、使用H5-API-barcode实现扫码功能" class="headerlink" title="（一）、使用H5 API barcode实现扫码功能"></a>（一）、使用H5 API barcode实现扫码功能</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 模板</span></span><br><span class="line">    &lt;template&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div class=<span class="string">"scan"</span>&gt;</span><br><span class="line">                &lt;div id=<span class="string">"bcid"</span>&gt;&lt;/div&gt;</span><br><span class="line">                &lt;footer&gt;</span><br><span class="line">                    &lt;button v-if=<span class="string">"Start"</span> @click=<span class="string">"startRecognize"</span>&gt;扫 码 加 油&lt;/button&gt;</span><br><span class="line">                &lt;/footer&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        // 扫描对象</span><br><span class="line">        var scan = null;</span><br><span class="line">        <span class="function"><span class="title">data</span></span>()&#123;</span><br><span class="line">            <span class="built_in">return</span> &#123;</span><br><span class="line">                Begin:<span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line">            <span class="function"><span class="title">startRecognize</span></span>()&#123;</span><br><span class="line">                const that = this;</span><br><span class="line">                this.Begin = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span>(!window.plus) <span class="built_in">return</span>;</span><br><span class="line">                scan = new plus.barcode.Barcode(<span class="string">'bcid'</span>);</span><br><span class="line">                // 开始扫描</span><br><span class="line">                scan.start();</span><br><span class="line">                // 扫码成功之后的回调函数 <span class="built_in">type</span>是类型 result 结果</span><br><span class="line">                scan.onmarked = <span class="keyword">function</span>(<span class="built_in">type</span>,result)&#123;</span><br><span class="line">                    const text = <span class="string">''</span>;</span><br><span class="line">                    switch(<span class="built_in">type</span>)&#123;</span><br><span class="line">                        <span class="keyword">case</span> plus.barcode.QR:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">'QR'</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> plus.barcode.EAN13:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">"EAN13"</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> plus.barcode.EAN8:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">"EAN8"</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                        default:</span><br><span class="line">                            <span class="built_in">type</span> = <span class="string">"其它"</span> + <span class="built_in">type</span>;</span><br><span class="line">                            <span class="built_in">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    result = result.replace(/\n/g,<span class="string">""</span>);</span><br><span class="line">                    const id = result.match(/\d+/)[0];</span><br><span class="line">                    const Token = localStorage.getItem(<span class="string">'token'</span>);</span><br><span class="line">                    that.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">                        name:<span class="string">'OrderDetail'</span>,</span><br><span class="line">                        params: &#123;</span><br><span class="line">                            id:id,</span><br><span class="line">                            token:token</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    scan.close();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            // 关闭扫码识别控件 </span><br><span class="line">            <span class="function"><span class="title">closeScan</span></span>()&#123;</span><br><span class="line">                <span class="keyword">if</span>(!window.plus) <span class="built_in">return</span>;</span><br><span class="line">                scan.close();</span><br><span class="line">                this.<span class="variable">$router</span>.push(<span class="string">'./qrcode'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style lang=<span class="string">"less"</span> scoped&gt;</span><br><span class="line">    .scan &#123;</span><br><span class="line">        height: 96vh;</span><br><span class="line">        background-color: <span class="comment">#EFEFEF;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#bcid &#123;</span></span><br><span class="line">            width: 100vw;</span><br><span class="line">            height: 96vh;</span><br><span class="line">            text-align: center;</span><br><span class="line">            color: <span class="comment">#fff;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        footer &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 8rem;</span><br><span class="line">            line-height: 2rem;</span><br><span class="line">            font-size: 14px;</span><br><span class="line">            position: absolute;</span><br><span class="line">            left: 0;</span><br><span class="line">            bottom: 10rem;</span><br><span class="line">            z-index: 999;</span><br><span class="line"></span><br><span class="line">            button &#123;</span><br><span class="line">                width: 8rem;</span><br><span class="line">                height: 8rem;</span><br><span class="line">                border: 4px solid <span class="comment">#1f4ba5;</span></span><br><span class="line">                border-radius: 50%;</span><br><span class="line">                font-size: 16px;</span><br><span class="line">                font-family: PingFangSC-Medium;</span><br><span class="line">                background-color: <span class="comment">#fff;</span></span><br><span class="line">            &#125;   </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    &lt;/style&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>H5、barcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何使用QRCode生成二维码？</title>
-    <url>/2019/12/30/QRCode/</url>
-    <content><![CDATA[<p>最近遇到的一个需求就是：在Vue项目中，前端生成站点二维码，使用APP扫码功能达到扫码加油的目的。</p>
-<a id="more"></a>
-<h3 id="一、如何在Vue在使用QRCode生成二维码？"><a href="#一、如何在Vue在使用QRCode生成二维码？" class="headerlink" title="一、如何在Vue在使用QRCode生成二维码？"></a>一、如何在Vue在使用QRCode生成二维码？</h3><h6 id="（一）、下载插件qrcode插件"><a href="#（一）、下载插件qrcode插件" class="headerlink" title="（一）、下载插件qrcode插件"></a>（一）、下载插件qrcode插件</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install qrcode --save</span><br></pre></td></tr></table></figure>
-
-<h6 id="（二）、在main-js中引用"><a href="#（二）、在main-js中引用" class="headerlink" title="（二）、在main.js中引用"></a>（二）、在main.js中引用</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import QRCode from <span class="string">'qrcode'</span></span><br><span class="line">Vue.use(QRCode)</span><br></pre></td></tr></table></figure>
-
-<h6 id="三-、组件中引入QRCode"><a href="#三-、组件中引入QRCode" class="headerlink" title="(三)、组件中引入QRCode"></a>(三)、组件中引入QRCode</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">  </span><br><span class="line">    <span class="comment"># 模板</span></span><br><span class="line">    &lt;template&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;div id=<span class="string">"qrcode"</span>&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/template&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      import QRCode from <span class="string">'qrcode'</span>;</span><br><span class="line">      <span class="function"><span class="title">mounted</span></span>()&#123;</span><br><span class="line">          this.CreateQrcode();</span><br><span class="line">      &#125;,</span><br><span class="line">      method:&#123;</span><br><span class="line">          setTimeout(() =&gt; &#123;</span><br><span class="line">              // 获取DOM节点</span><br><span class="line">              <span class="built_in">let</span> dom = document.getElementById(<span class="string">'qrcode);</span></span><br><span class="line"><span class="string">              // 路由传参 父组件传给子组件的站点id</span></span><br><span class="line"><span class="string">              const res = this.$route.params;</span></span><br><span class="line"><span class="string">              console.log(res); </span></span><br><span class="line"><span class="string">              const id = res.id;</span></span><br><span class="line"><span class="string">              // 二维码包含的URL 需要将URL和id做一下字符串的拼接</span></span><br><span class="line"><span class="string">              let url = '</span>http://*********<span class="string">';</span></span><br><span class="line"><span class="string">              let URL = url.concat(lbsid);</span></span><br><span class="line"><span class="string">              let qrCode = new QRCode(dom,&#123;</span></span><br><span class="line"><span class="string">                  width:260, // 图像宽度</span></span><br><span class="line"><span class="string">                  height:260,  // 图像高度</span></span><br><span class="line"><span class="string">                  colorDark:"#000000",  // 前景色</span></span><br><span class="line"><span class="string">                  colorLight:"#ffffff", // 背景色</span></span><br><span class="line"><span class="string">                  correctLevel: QRCode.CorrectLevel.H  // 容错等级</span></span><br><span class="line"><span class="string">              &#125;);</span></span><br><span class="line"><span class="string">              qrCode.clear();</span></span><br><span class="line"><span class="string">              qrCode.makeCode(URL);</span></span><br><span class="line"><span class="string">          &#125;,100)</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">    &lt;style lang="less" scoped&gt;</span></span><br><span class="line"><span class="string">        #qrcode &#123;</span></span><br><span class="line"><span class="string">            display: inline-block;</span></span><br><span class="line"><span class="string">            margin-top: 6rem;</span></span><br><span class="line"><span class="string">            img &#123;</span></span><br><span class="line"><span class="string">                width: 60%;</span></span><br><span class="line"><span class="string">                height: 60%;</span></span><br><span class="line"><span class="string">                background-color: #fff; //设置白色背景色</span></span><br><span class="line"><span class="string">                padding: 6px; // 利用padding的特性，挤出白边</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">    &lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>QRCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vue路由传参</title>
-    <url>/2019/11/02/detail/</url>
-    <content><![CDATA[<p>Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});</p>
-<a id="more"></a>
-<h6 id="一、方法一：this-router-push-path-’’-query"><a href="#一、方法一：this-router-push-path-’’-query" class="headerlink" title="一、方法一：this.$router.push(path:’’,query:{})"></a>一、方法一：this.$router.push(path:’’,query:{})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    path:<span class="string">'/xxx'</span>,</span><br><span class="line">    query:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.query;</span><br><span class="line">this.id = res.id;</span><br></pre></td></tr></table></figure></p>
-<h6 id="二、方法二、this-router-push-name-’”-params"><a href="#二、方法二、this-router-push-name-’”-params" class="headerlink" title="二、方法二、this.$router.push({name:’”,params:{}})"></a>二、方法二、this.$router.push({name:’”,params:{}})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    name:<span class="string">''</span>,</span><br><span class="line">    params:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.params;</span><br><span class="line">this.id = res.id</span><br></pre></td></tr></table></figure></p>
-<h6 id="注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；"><a href="#注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；" class="headerlink" title="注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；"></a>注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；</h6><pre><code>二者区别：
-    直白的来说query相当于get请求，页面跳转，我们在地址栏可以看到请求参数，params相当于post请求，参数不会在地址栏显示出来。
-还有就是传参是this.$router.push(),而接收参数是this.$route.params,前者是$router,后者是$route.
-
-this.$router和this.$route的区别：
-1、$router为VueRouter实例，当我们想要进入不同的URL，可以使用$router.push()方法
-2、$route为当前router跳转对象，里面可以获取name、path、query、params</code></pre>]]></content>
-  </entry>
-  <entry>
-    <title>mongodb-redis</title>
-    <url>/2019/10/24/mongodb-redis/</url>
-    <content><![CDATA[<p>mongodb和redis的安装</p>
-<a id="more"></a>
-<h6 id="一、mongodb的安装"><a href="#一、mongodb的安装" class="headerlink" title="一、mongodb的安装"></a>一、mongodb的安装</h6><p>1、安装brew<br>    /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</a><br>2、进入文件目录：cd /usr/local<br>3、下载指定版本的mongodb<br>4、环境的配置<br>    vi ~/.bash_profile</p>
-<pre><code>#user root
-export PATH=${PATH}:/usr/local/mysql/bin
-export NODE_PATH=/usr/local/lib/node_modules
-在编辑之后，可以把mongodb的路径贴在后面；
-export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
-退出编辑的方式为，esc  -&gt;  :wq -&gt; enter</code></pre><p>5、配置mongo.conf<br>    logpath=/usr/local/var/log/mongodb/mongo.log<br>    logappend=true<br>    dbpath=/usr/local/var/mongodb<br>    fork=true<br>    port=27017<br>    如果本机无法连接远程机器，在末尾添加bind_ip = 0.0.0.0,最后再启动mongo<br>6、启动方式<br>    mongod -f /usr/local/etc/mongod.conf</p>
-<h6 id="二、redis的安装"><a href="#二、redis的安装" class="headerlink" title="二、redis的安装"></a>二、redis的安装</h6><p>1、在已经安装好了brew的情况下,安装Redis<br>    brew install redis<br>2、启动redis<br>    redis-server</p>
-]]></content>
-      <tags>
-        <tag>mongodb、redis</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>node版本管理--升级和降级</title>
-    <url>/2019/10/23/node/</url>
-    <content><![CDATA[<p>Node版本的升级和降级</p>
-<a id="more"></a>
-<p>在开发的工程中，我们可能需要经常切换node版本来应对不同的开发环境，所以需要经常使用不同版本的node</p>
-<p>一、安装npm插件n ,通过n模块来管理node版本<br>1、全局安装n模块<br>    npm instlal -g n<br>2、安装当前稳定版本<br>    n stable或者sudo n stable<br>3、安装最新版本的<br>    n latest或者sudo n latest<br>4、安装指定版本的node<br>    n v8.16.0<br>5、卸载指定的node版本<br>    n rm v8.16.0<br>二、使用nvm管理node版本<br>1、安装nvm<br>    brew install nvm<br>2、使用nvm安装node版本<br>    安装最新版本<br>    nvm isntall node<br>    安装指定版本<br>    nvm install 8.16.0<br>3、查看所有版本<br>    nvm ls<br>4、切换node版本<br>    使用最新版本<br>    nvm use node<br>    使用指定版本<br>    nvm use 10.16.2<br>    通常我会使用第二种方式<br>    例如：我在一个项目中使用的是<a href="mailto:node@6.13.2" target="_blank" rel="noopener">node@6.13.2</a>,新项目使用的是<a href="mailto:node@8.16.0" target="_blank" rel="noopener">node@8.16.0</a>,
-    先要安装<a href="mailto:node@8.16.0" target="_blank" rel="noopener">node@8.16.0</a>，nvm install 8.16.0，<br>    然后，nvm use 8.16.0</p>
-]]></content>
-      <tags>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用的git提交代码命令</title>
-    <url>/2019/10/23/git/</url>
-    <content><![CDATA[<p>日常开发使用的git提交代码的方法</p>
-<a id="more"></a>
-<h6 id="一、初始化本地仓库，提交代码，提交到远程git仓库"><a href="#一、初始化本地仓库，提交代码，提交到远程git仓库" class="headerlink" title="一、初始化本地仓库，提交代码，提交到远程git仓库"></a>一、初始化本地仓库，提交代码，提交到远程git仓库</h6><p>1、初始化代码仓库<br>    git init<br>2、将当前目录下的所有文件放到暂存区<br>    git add .<br>3、查看文件状态<br>    git status<br>4、添加提交的描述信息<br>    git commit -m “提交的描述信息”<br>5、远程仓库地址<br>    git remote add origin “远程仓库地址”<br>6、推送到远程仓库<br>    git push -u origin master</p>
-<h6 id="二、创建分支，提交代码到分支"><a href="#二、创建分支，提交代码到分支" class="headerlink" title="二、创建分支，提交代码到分支"></a>二、创建分支，提交代码到分支</h6><p>1、创建切换分支<br>    git checkout -b dev  dev为分支名称<br>    git add .<br>    git commit -m ‘描述’<br>    git push –set-upstream origin dev1   将分支推送到远程仓库<br>    切换到主分支<br>    git checkout master<br>    git merge dev  将dev合并到主分支<br>    git push origin master  推送到远程仓库</p>
-]]></content>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>v-for指令</title>
     <url>/2019/10/06/v-for/</url>
     <content><![CDATA[<p>v-for是比较常用的Vue指令,常用来渲染数据列表。</p>
@@ -273,24 +434,30 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
       </tags>
   </entry>
   <entry>
-    <title>我的书单--持续更新。。。</title>
-    <url>/2019/09/30/book/</url>
-    <content><![CDATA[<p>如果累了，就停下来看看书，冷静一下。</p>
+    <title>关于vue-router路由守卫</title>
+    <url>/2020/05/13/vue-router/</url>
+    <content><![CDATA[<p>使用vue-router，我们需要做的是，将组件（components）映射到路由(routes),然后告诉vue-router在哪里渲染他们。</p>
 <a id="more"></a>
+<h4 id="一、路由守卫"><a href="#一、路由守卫" class="headerlink" title="一、路由守卫"></a>一、路由守卫</h4><p>路由守卫就像其名字一样，vue-router提供导航守卫主要用来通过跳转或取消的方式守卫导航。<br>1、全局前置守卫</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const router = new VueRouter(&#123;...&#125;)</span><br><span class="line">router.beforeEach((to,from,next) =&gt; &#123;</span><br><span class="line">    // ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h3><h6 id="（一）、最难迈出的是第一步"><a href="#（一）、最难迈出的是第一步" class="headerlink" title="（一）、最难迈出的是第一步"></a>（一）、最难迈出的是第一步</h6><p>人生有很多第一次，<br>比如，<br>第一次背着书包去学校，<br>第一次踏入这个复杂的社会，<br>第一次谈恋爱等等。。。</p>
-<p>我们面对第一次时的心情往往是复杂的，<br>我们会有一种喜悦感，<br>同时还伴有一丝紧张焦虑和害怕。<br>之所以会有一种喜悦感，<br>是因为我们知道，<br>每往前踏出一步，<br>便意味着我们又成长了，<br>对这个社会了解更深入了一层。</p>
-<p>是啊，<br>人生最难的事情便是迈出第一步了，<br>如果你连第一步都不愿意往外迈，<br>或者都不敢迈的话，<br>那么成功只会深深地藏在你的心里，<br>它永远不会实现。</p>
-<p>“嗯嗯，希望你以后能闯出一片属于你自己的天地！我们一起加油！”</p>
-<h6 id="二-、2019年10月1日-国庆节"><a href="#二-、2019年10月1日-国庆节" class="headerlink" title="(二)、2019年10月1日  国庆节"></a>(二)、2019年10月1日  国庆节</h6><p>时间：1949.10.1 –  2019.10.1<br>今天是祖国70周年生日，<br>祝伟大的祖国繁荣昌盛，<br>国富民强，<br>前人栽树后人乘凉，<br>永远缅怀革命先烈的流血牺牲。</p>
-<p>70年弹指一挥间，<br>现在的祖国山河无恙国富民强，<br>我们足以告慰先烈，<br>这盛世如先辈所愿。</p>
-<h6 id="三-、2019年10月6日"><a href="#三-、2019年10月6日" class="headerlink" title="(三)、2019年10月6日"></a>(三)、2019年10月6日</h6><p>曾经，<br>你认为离你很远的30岁，<br>其实，<br>已经就在你的面前。</p>
-<h6 id="（四）、2019年11月8号"><a href="#（四）、2019年11月8号" class="headerlink" title="（四）、2019年11月8号"></a>（四）、2019年11月8号</h6><p>最伤感的一句话：<br>    目之所及，皆是回忆！</p>
-<h6 id="五-、2020年4月30日"><a href="#五-、2020年4月30日" class="headerlink" title="(五)、2020年4月30日"></a>(五)、2020年4月30日</h6><p>过去 – 是经历，是回忆；<br>现在 – 整理过去，计划未来；<br>将来 – 一定要相信，将来是美好的，是值得憧憬的。</p>
-]]></content>
-      <tags>
-        <tag>book</tag>
-      </tags>
+<pre><code>当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫resolve完之前一直出入等待中。
+参数说明：
+to:   Route 即将要进入的目标路由对象；
+from: Route 当前导航正要离开的路由；
+next: Route 一定要调用该方法来resolve这个钩子。
+
+确保要调用next方法，否则钩子就不会被resolved。</code></pre><p>2、路由独享的守卫<br>在路由配置上直接定义beforeEnter守卫</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/foo&apos;,</span><br><span class="line">      component: Foo,</span><br><span class="line">      beforeEnter: (to, from, next) =&gt; &#123;</span><br><span class="line">        // ... </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这些守卫与全局前置守卫的方法参数是一样的</p>
+<h4 id="二、解决路由跳转NavigationDuplicated报错的方式"><a href="#二、解决路由跳转NavigationDuplicated报错的方式" class="headerlink" title="二、解决路由跳转NavigationDuplicated报错的方式"></a>二、解决路由跳转NavigationDuplicated报错的方式</h4><p>vue-router版本3.1之后，$router.push()方法改为了promise，如果没有回调函数，错误信息就会交给全局的路由错误处理，就会报错！<br>解决方法：<br>    1、简单粗暴的方法：将vue-router的版本固定在vue-router 3.0.7一下<br>    2、在router.js中加入下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 解决跳转出错问题 NavigationDuplicated</span><br><span class="line">const originalPush = Router.prototype.push</span><br><span class="line">Router.prototype.push = function push(location) &#123;</span><br><span class="line">  return originalPush.call(this, location).catch(err =&gt; err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>3、给每个router.push增加回调函数。</code></pre><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">router.push(&apos;/index&apos;).catch(err =&gt; (err))</span><br></pre></td></tr></table></figure>
+
+<pre><code>第3种解决方法成本较高，我一般使用第二种方法。</code></pre><h4 id="三、限制通过URL进入一些用户的个人信息的页面"><a href="#三、限制通过URL进入一些用户的个人信息的页面" class="headerlink" title="三、限制通过URL进入一些用户的个人信息的页面"></a>三、限制通过URL进入一些用户的个人信息的页面</h4><p>例如：逛天猫的时候，你不登录的时候也可以进入商品详情页等页面，但是由于未登录，进入不了我的购物车、个人信息等需要用户token的页面。所以需要判断是否包含登录token。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 导航守卫 进入注册页面不需要是否包含token</span><br><span class="line">router.beforeEach(function (to, from, next) &#123;</span><br><span class="line">  if (to.path === &apos;/register&apos;) &#123;</span><br><span class="line">    return next();</span><br><span class="line">  &#125;</span><br><span class="line">  next()</span><br><span class="line">  // 第一种身份的token1 未登录状态，直接跳转到主页，即使输入准确的的URL地址也无法访问。</span><br><span class="line">  if (!localStorage.getItem(&apos;token1&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!localStorage.getItem(&apos;token2&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  if (!localStorage.getItem(&apos;token3&apos;)) &#123;</span><br><span class="line">    if (to.path !== &apos;/&apos;) &#123;</span><br><span class="line">      return next(&apos;/&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>使用Vue-cli3.0搭建项目</title>
@@ -313,173 +480,6 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g @vue/cli-init</span><br><span class="line">npm init webpack my-project</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>Vue、Vue-cli</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何使用CSS画三角形</title>
-    <url>/2019/08/10/trangel/</url>
-    <content><![CDATA[<p>   如何使用CSS画三角形？</p>
-<a id="more"></a>
-<h3 id="三角形的画法"><a href="#三角形的画法" class="headerlink" title="三角形的画法"></a>三角形的画法</h3><p>一般经常使用三角形作为提示框、下拉菜单等功能。<br>1、HTML结构</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;div class=<span class="string">"item0"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"item1"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"item2"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div class=<span class="string">"item3"</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>2、将类名为item的块级元素的width、height设置为0</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">.item0&#123;</span><br><span class="line">    width:0;</span><br><span class="line">    height:0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>3、将类名为item的元素的3个border的颜色设置为transparent，箭头指向的对面border设置颜色；</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">  .item0&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 50px solid transparent;</span><br><span class="line">	border-right: 50px solid transparent;</span><br><span class="line">	border-top: 50px solid transparent;</span><br><span class="line">	border-bottom: 80px solid blue;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面的为方向向上的三角形<br>4、依次类推可以画出方向向左、右、下的三角形</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">  .item1&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 50px solid transparent;</span><br><span class="line">	border-right: 50px solid transparent;</span><br><span class="line">	border-top: 80px solid green;</span><br><span class="line">	border-bottom: 50px solid transparent;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br><span class="line">.item2&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 50px solid transparent;</span><br><span class="line">	border-right: 80px solid violet;</span><br><span class="line">	border-top: 50px solid transparent;</span><br><span class="line">	border-bottom: 50px solid transparent;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br><span class="line">.item3&#123;</span><br><span class="line">	width: 0px;</span><br><span class="line">	height: 0px;</span><br><span class="line">	border-left: 80px solid purple;</span><br><span class="line">	border-right: 50px solid transparent;</span><br><span class="line">	border-top: 50px solid transparent;</span><br><span class="line">	border-bottom: 50px solid transparent;</span><br><span class="line">	background: white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>transparent、border</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>用纯 JS 实现点击一个列表时，输出对应的索引号?</title>
-    <url>/2019/08/09/fe/</url>
-    <content><![CDATA[<p>面试题目：用纯 JS 实现点击一个列表时，输出对应的索引号?(不能使用 jQuery)</p>
-<a id="more"></a>
-
-<h3 id="如何使用原生-Javascript-实现点击一个列表时，输出对应的索引号？"><a href="#如何使用原生-Javascript-实现点击一个列表时，输出对应的索引号？" class="headerlink" title="如何使用原生 Javascript 实现点击一个列表时，输出对应的索引号？"></a>如何使用原生 Javascript 实现点击一个列表时，输出对应的索引号？</h3><p>看到这个题目，我就知道了，面试官可能会考察一下对闭包的掌握。经验不足的小伙伴们可能会这样去实现：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">        &lt;li&gt;1&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;2&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;3&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;4&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;5&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;6&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var dom = document.querySelectorAll(<span class="string">'ul li'</span>);</span><br><span class="line">    <span class="keyword">for</span>(var i=0,len=dom.length;i&lt;len;i++)&#123;</span><br><span class="line">        dom[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            console.log(i);</span><br><span class="line">        &#125;,<span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>当我们点击列表的时候，弹出的都是 6，这是怎么回事呢？<br>这是因为我们在使用了 var 声明的变量，是全局作用域，不是块级作用域。也就是说，for 循环 6 次，每次改变的都是同一个 i，所以它的值会从 0 一直加到 6。<br>还有一个问题就是闭包导致的，闭包保存的是外部变量的引用，而不是值。因此可以循环 6 次监听器创建 6 个闭包，它里面的 i 引用的是同一个，全部指向了 6。</p>
-<h3 id="方法一：使用ES6中的-let替代var"><a href="#方法一：使用ES6中的-let替代var" class="headerlink" title="方法一：使用ES6中的 let替代var"></a>方法一：使用ES6中的 let替代var</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var dom = document.querySelectorAll(<span class="string">'ul li'</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="built_in">let</span> i=0,len=dom.length;i&lt;len;i++)&#123;</span><br><span class="line">        dom[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            console.log(i);</span><br><span class="line">        &#125;,<span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>let声明的变量支持的是块级作用域。</p>
-<h3 id="方法二：使用立即执行函数来判断闭包对外部变量i的引用"><a href="#方法二：使用立即执行函数来判断闭包对外部变量i的引用" class="headerlink" title="方法二：使用立即执行函数来判断闭包对外部变量i的引用"></a>方法二：使用立即执行函数来判断闭包对外部变量i的引用</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    var dom = document.querySelectorAll(<span class="string">'ul li'</span>);</span><br><span class="line">    <span class="keyword">for</span>(var i=1,len = dom.length;i&lt;len;i++)&#123;</span><br><span class="line">        (<span class="keyword">function</span>(i)&#123;</span><br><span class="line">            dom[i].addEventListener(<span class="string">'click'</span>,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                console.log(i);</span><br><span class="line">            &#125;,<span class="literal">false</span>)</span><br><span class="line">        &#125;)(i)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="方法三：事件委托的方法"><a href="#方法三：事件委托的方法" class="headerlink" title="方法三：事件委托的方法"></a>方法三：事件委托的方法</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">var ul = document.querySelector(<span class="string">'ul'</span>);</span><br><span class="line">var dom = document.querySelectorAll(<span class="string">"ul li"</span>);</span><br><span class="line">ul.addEventListener(<span class="string">'click'</span>,<span class="keyword">function</span>(e)&#123;</span><br><span class="line">    var target = e.target;</span><br><span class="line">    <span class="keyword">if</span>(target.nodeName.toLowerCase() === <span class="string">'li'</span>)&#123;</span><br><span class="line">        console.log([].indexOf.call(dom,target));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
-
-<p>这个方法使用了事件监听，减少了监听器的绑定。</p>
-]]></content>
-      <tags>
-        <tag>纯JS、事件监听/委托、立即执行函数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>输入url到页面的加载完成发生了什么？</title>
-    <url>/2019/08/01/url/</url>
-    <content><![CDATA[<p>从浏览器中输入URL到页面的加载发生了什么？</p>
-<a id="more"></a>
-<p>一、过程<br>    1、DNS解析：<br>    2、TCP的三次握手<br>    3、发送HTTP请求<br>    4、服务器处理请求并返回报文<br>    5、浏览器解析渲染页面<br>    6、连接结束</p>
-]]></content>
-      <tags>
-        <tag>url、tcp、http</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>防抖（debounce）和节流（throttle）</title>
-    <url>/2019/07/09/debounce-throttling/</url>
-    <content><![CDATA[<p>防抖（debounce）：任务频繁触发情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。</p>
-<a id="more"></a>
-<p>节流（throttle）：指定时间间隔内只会执行一次任务。<br>&emsp;防抖与节流的原理：使用setTimeout来存放将要执行的函数。其中函数节流就是利用标记符来控制本次执行完毕。函数防抖就是利用clearTimeout来清楚执行的函数。目的为了节约计算机资源，从而达到一个更好的运行效果。</p>
-<h3 id="一、防抖"><a href="#一、防抖" class="headerlink" title="一、防抖"></a>一、防抖</h3><p>&emsp;用户在输入框内容校验等操作时，如果事件处理函数的调用频率无限制，会加重浏览器的负担，导致用户体验会很不好，防抖和节流的方式减少调用频率，同时又不影响实际效果。</p>
-<p>下面是一个防抖的小案例：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;button id=<span class="string">"debounce"</span>&gt;点我防抖&lt;/button&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">            //获取按钮并绑定事件</span><br><span class="line">            var myDebounce = document.getElementById(<span class="string">"debounce"</span>);</span><br><span class="line">            myDebounce.addEventListener(<span class="string">"click"</span>,debounce(sayDebounce));</span><br><span class="line">        &#125;;</span><br><span class="line">        //防抖功能函数，接受传参</span><br><span class="line">        <span class="keyword">function</span> debounce(fn)&#123;</span><br><span class="line">            //创建一个标记用来存放定时器的返回值</span><br><span class="line">            <span class="built_in">let</span> timeout = null;</span><br><span class="line">            <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">                //每次当用户点击、输入的时候，把前一个定时器消除</span><br><span class="line">                clearTimeout(timeout);</span><br><span class="line">                //创建一个新的setTimeout，这样能保证点击按钮后的间隔内，</span><br><span class="line">                //如果用户还点击的话，就不会执行fn函数</span><br><span class="line">                timeout = setTimeout(() =&gt; &#123;</span><br><span class="line">                    fn.call(this,arguments);</span><br><span class="line">                &#125;,1000);</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line">        //防抖事件的处理</span><br><span class="line">        <span class="keyword">function</span> <span class="function"><span class="title">sayDebounce</span></span>()&#123;</span><br><span class="line">            // ...有些需要防抖的工作，在这里进行</span><br><span class="line">            console.log(<span class="string">"防抖成功~"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在触发点击事件后，如果用户再次点击了，我们会清空之前的定时器，重新生成一个定时器。意思就是：这件事儿需要等待，如果你反复催促，就重新计时。<br>&emsp;总结一下就是：第一次触发事件，一段时间内没有再次触发事件，事件处理函数才会执行一次，如果设定的时间到来之前，再一次触发了事件，就会重新开始延时。</p>
-<h3 id="二、节流"><a href="#二、节流" class="headerlink" title="二、节流"></a>二、节流</h3><p>&emsp;节流：指定时间间隔内只会执行一次任务。<br>节流的应用：<br>    1、懒加载监听滚动条的位置，使用节流按照一定的频率进行获取。<br>    2、点击提交按钮，只允许一定时间内点击一次。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&lt;button id=<span class="string">"throttle"</span>&gt;点我防抖&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    window.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        //获取按钮并绑定事件</span><br><span class="line">        var myThrottle = document.getElementById(<span class="string">"throttle"</span>);</span><br><span class="line">        myThrottle.addEventListener(<span class="string">"click"</span>,throttle(sayThrottle));</span><br><span class="line">    &#125;;</span><br><span class="line">    //节流函数</span><br><span class="line">    <span class="keyword">function</span> throttle(fn)&#123;</span><br><span class="line">        //通过闭包保存一个标记</span><br><span class="line">        <span class="built_in">let</span> canRun = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">return</span> <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">            //在函数开头判断标志是否为<span class="literal">true</span>，不为<span class="literal">true</span>则中断函数</span><br><span class="line">            <span class="keyword">if</span>(!canRun)&#123;</span><br><span class="line">                <span class="built_in">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            //将canRun设置为<span class="literal">false</span>，防止执行之前再被执行</span><br><span class="line">            canRun  = <span class="literal">false</span>;</span><br><span class="line">            //定时器</span><br><span class="line">            setTimeout(() =&gt; &#123;</span><br><span class="line">                fn.call(this,arguments);</span><br><span class="line">                //执行完事件(例如调用完接口)之后，重新将这个标志设置为<span class="literal">true</span></span><br><span class="line">                canRun  = <span class="literal">true</span>;</span><br><span class="line">            &#125;,1000);</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line">    //需要节流的事件</span><br><span class="line">    <span class="keyword">function</span> <span class="function"><span class="title">sayThrottle</span></span>()&#123;</span><br><span class="line">        // ...有些需要防抖的工作，在这里进行</span><br><span class="line">        console.log(<span class="string">"节流成功~"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>debounce、throttle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用的Linux命令</title>
-    <url>/2019/07/09/command/</url>
-    <content><![CDATA[<p>在开发过程中，一些常用的Linux命令：</p>
-<a id="more"></a>
-<h3 id="常用的Linux命令"><a href="#常用的Linux命令" class="headerlink" title="常用的Linux命令"></a>常用的Linux命令</h3><p>1、vim test.html   创建新的文件<br>  &emsp;  vim + 文件名.后缀<br>2、ls     查看当前文件夹下的文件<br>&emsp;   ls -a  列出所有文件，包括隐藏文件<br>&emsp;   ls -1  每行列出一个文件，以单列形式列出<br>3、cat test.html  将该文件内容打印显示出来<br>&emsp;   cat test1.html<br>&emsp;   cat test2.html<br>&emsp;   cat test1.html     test2.html&gt;test3.html<br>&emsp;   cat test3.html   将多个文件合并到目标文件中。</p>
-<p>&emsp;   cat test1.html<br>&emsp;   cat test2.html<br>&emsp;   cat test1.html test2.html&gt;&gt;test4.html  将几个文件附加到目录文件中<br>4、mv   移动或重命名文件和目录<br>&emsp;   mv file1.txt file2.txt   将file1文件命名为file2<br>&emsp;   用法：<br>&emsp;   cat 1.txt<br>&emsp;   mv 1.txt 2.txt<br>&emsp;   mv file1.txt file2  将file1文本移动到file2目录<br>5、touch  file   命令用于修改文件或者目录的时间属性，包括存取时间和更改时间。若文件不存在，系统会建立一个新的空白文件。<br>&emsp;   touch newfile<br>6、mkdir file    创建文件夹<br>7、cd ../  返回当前文件夹的上一层<br>&emsp;   cd /    返回到根目录下<br>8、rm -rf folder  删除文件夹</p>
-]]></content>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何理解原型链中的prototype和__proto__？</title>
-    <url>/2019/07/07/prototype/</url>
-    <content><![CDATA[<p>JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。</p>
-<a id="more"></a>
-<h3 id="一、什么是原型链？"><a href="#一、什么是原型链？" class="headerlink" title="一、什么是原型链？"></a>一、什么是原型链？</h3><p>&emsp;&emsp;谈到继承时，JavaScript只有一种结构：<strong>对象</strong>。 
-MDN文档上是这样说的：每个实例对象（object）都有一个私有属性（称之为<code>__proto__</code>）指向它的构造函数的原型对象（prototype）。该原型对象也有一个自己的原型对象（<code>__proto__</code>）,层层向上直到一个对象的原型对象为null。根据定义，null没有原型，并作为这个原型链中的最后一个环节。</p>
-<h3 id="二、换种方式理解原型链？"><a href="#二、换种方式理解原型链？" class="headerlink" title="二、换种方式理解原型链？"></a>二、换种方式理解原型链？</h3><p>&emsp;&emsp;之前在慕课网上，听过一个讲师举了一个很有趣的例子来介绍什么是prototype（当时偷偷的用手机截了图^o^）:<br>&emsp;&emsp;简单粗暴一点，我们把prototype理解成一个“备胎”,手艺还是祖传的。有一个姑娘不会修电脑，自己也不想学，就去找prototype说你学学吧，学好了帮我把修电脑这活儿做好,<br>prototype学会了修电脑之后,这个姑娘电脑有问题就会去找prototype,其他的姑娘再想修电脑时候，prototype这修电脑的技术也能直接拿出来用。<br>后来，又有姑娘请prototype帮忙诊个脉,prototype没有地方学,就往祖上一辈辈的问去，后来了解到他爷爷会诊脉，后来再有人找他诊脉，prototype就把病人带着找它爷爷。<br>再后来，又有一个姑娘让prototype给她造个机器人，prototype问遍了祖上，没人会这门技术，只能告诉这姑娘null了。</p>
-<h3 id="三、为什么需要原型和原型链？"><a href="#三、为什么需要原型和原型链？" class="headerlink" title="三、为什么需要原型和原型链？"></a>三、为什么需要原型和原型链？</h3><p>&emsp;&emsp;看一个小例子：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name,age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age  = age;</span><br><span class="line">    this.eat  = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(age + <span class="string">"岁的"</span> + name + <span class="string">"在吃饭"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> p1 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line"><span class="built_in">let</span> p2 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line">console.log(p1.eat === p2.eat);  //<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;我们发现上面的例子,对于同一个函数,我们可以通过new生成出来的实例,p1和p2的eat是不同的。我们想个办法，建立一个类似于共享库的对象，这样就可以在需要的时候，调用一个类似共享库的对象，让实例能够沿着某个“线索”去找到自己的归处。<br>这个“线索”就是我们的原型链 prototype。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">//通过构造函数的Person的prototype属性找到Person的原型对象</span><br><span class="line">Person.prototype.eat = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">"吃饭"</span>)；</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> p1 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line"><span class="built_in">let</span> p2 = new Person(<span class="string">"于齐"</span>,27)</span><br><span class="line"></span><br><span class="line">console.log(p1.eat === p2.eat);//<span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>&emsp;通过分享的形式，这两个实例对象指向相同的位置了，也就是我们想要创建的共享库的对象。</p>
-<h3 id="四、prototype是什么玩意儿呢？"><a href="#四、prototype是什么玩意儿呢？" class="headerlink" title="四、prototype是什么玩意儿呢？"></a>四、prototype是什么玩意儿呢？</h3><p>知乎上有一篇文章（<a href="https://zhuanlan.zhihu.com/p/22989691）" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22989691）</a> 写的很好，总结一下就是：<br>1、JavaScript本源是空的，即：null,这个就是JavaScript的“始祖”；</p>
-<p>2、null通过<code>__proto__</code>产生了NO1,即：<code>NO1.__proto__ == null</code>;  </p>
-<p>3、NO1根据自己的原型prototype创建了对象Object，即：<code>Object.prototype == NO1</code>;</p>
-<p>4、<code>NO1.__proto__ == null</code>,我们把prototype叫做原型，好比Object的原型是神，同时<strong>proto</strong>叫做原型链，有了这个<strong>proto</strong>，Object、NO1、JS之间才有联系，此时，<code>Object.prototype.__proto__ == null</code>，</p>
-<p>5、有几条公式：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Object.__proto__ === Function.prototype;</span><br><span class="line">Function.prototype.__proto__ === Object.prototype;</span><br><span class="line">Object.prototype.__proto__ === null;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>原型链、prototype、__proto__</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Class语法</title>
-    <url>/2019/07/03/ES6/</url>
-    <content><![CDATA[<p>一、Class语法：<br>    Class在语法上更加贴合面向对象的写法；Class实现继承更易读、易理解；本质是语法糖，使用了prototype。</p>
-<a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ class Mathhandle&#123;</span><br><span class="line">    constructor(x,y)&#123;</span><br><span class="line">        this.x = x;</span><br><span class="line">        this.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">add</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> this.x + this.y</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">  const mm = new Mathhandle(1,2);</span><br><span class="line">  console.log(mm.add());</span><br><span class="line"></span><br><span class="line">  typeof Mathhandle    //<span class="keyword">function</span></span><br><span class="line">  console.log(Mathhandle === Mathhandle.prototype.constructor); // <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>二、Class继承</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">class Animal&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">eat</span></span>()&#123;</span><br><span class="line">        console.log(this.name + <span class="string">'eat'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Dog extend Animal&#123;</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        super(name)</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="title">say</span></span>()&#123;</span><br><span class="line">        console.log(`<span class="variable">$&#123;this.name&#125;</span> eat`)</span><br><span class="line">    &#125;</span><br><span class="line">    const dog = new Dog(<span class="string">'hashiqi'</span>);</span><br><span class="line">    dog.say();</span><br><span class="line">    dog.eat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>ES6、JavaScript、Class</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Promise</title>
-    <url>/2019/06/19/promise/</url>
-    <content><![CDATA[<p>Promise是异步编程的一种解决方案，简单来说就是一个容器，里面保存着某个未来才会结束的事件（通常是一个异步操作）的结果。</p>
-<a id="more"></a>
-<!-- <Excerpt in index | 首页摘要>  -->
-<p>语法上讲，Promise是一个对象，从它可以获取异步操作的消息。<br>Promise的两个特点：<br>    （1）对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。<br>    （2）一旦状态改变，就不会改变，任何时候都可以得到这个结果。Promise对象的状态改变，只有两种可能：从pending变为fulfilled和从pending变为rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这时就称为 resolved（已定型）。<br>一、Promise基本用法：<br>    1、Promise实例：<br>        Promise构造函数接受一个函数作为参数，该函数的两个函数分别是resolve和reject</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ const promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">      // ... some code </span><br><span class="line">      <span class="keyword">if</span>(/*异步操作成功*/)&#123;</span><br><span class="line">        resolve(value);</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        reject(error);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>Promise实例生成后，可以用 then方法分别指定resolved状态和rejected状态的回调函数。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ promise.then(<span class="keyword">function</span>(value)&#123;</span><br><span class="line">    //success</span><br><span class="line">    &#125;,<span class="keyword">function</span>(error)&#123;</span><br><span class="line">    //failure</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
-
-<p>二、使用Promise分别获取图片的宽高<br>  new Promise实例，而且要return，new Promise时要传入函数，函数有resolve reject两个参数，成功时执行resolve（）、失败时执行reject（）、<br>then监听结果  </p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="keyword">function</span> <span class="function"><span class="title">loadImg</span></span>()&#123;</span><br><span class="line">    const promise = new Promise(<span class="keyword">function</span>(resolve,reject)&#123;</span><br><span class="line">      var img = document.createElement(<span class="string">'img'</span>)</span><br><span class="line">      img.onload = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        resolve(img)</span><br><span class="line">      &#125;</span><br><span class="line">      img.<span class="function"><span class="title">onerror</span></span>()&#123;</span><br><span class="line">        reject()</span><br><span class="line">      &#125;</span><br><span class="line">      img.src = src</span><br><span class="line">    &#125;)</span><br><span class="line">  <span class="built_in">return</span> promise</span><br><span class="line">&#125;</span><br><span class="line">var src = <span class="string">'https://www.imooc.com/static/img/index/logo.png'</span></span><br><span class="line">var result = loadImg(src)</span><br><span class="line">//获取图片的宽度</span><br><span class="line">result.then(<span class="keyword">function</span>(img)&#123;</span><br><span class="line">  console.log(img.width)</span><br><span class="line">&#125;,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  console.log(<span class="string">'failed'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">//获取图片的高度</span><br><span class="line">result.then(<span class="keyword">function</span>(img)&#123;</span><br><span class="line">  console.log(img.height)</span><br><span class="line">&#125;,<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">  console.log(<span class="string">'failed'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>Javascript、Promise</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</title>
-    <url>/2019/06/19/hello-world/</url>
-    <content><![CDATA[<p>Hexo 常用命令</p>
-<a id="more"></a>
-
-<h3 id="一、Create-a-new-post-–创建新文章"><a href="#一、Create-a-new-post-–创建新文章" class="headerlink" title="一、Create a new post –创建新文章"></a>一、Create a new post –创建新文章</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="二、Create-a-new-page-–创建新页面"><a href="#二、Create-a-new-page-–创建新页面" class="headerlink" title="二、Create a new page –创建新页面"></a>二、Create a new page –创建新页面</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page <span class="string">"pageName"</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="三、Run-server-–启动服务器"><a href="#三、Run-server-–启动服务器" class="headerlink" title="三、Run server –启动服务器"></a>三、Run server –启动服务器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server  简写：hexo s</span><br></pre></td></tr></table></figure>
-
-<h3 id="四、Generate-static-files-–生成静态文件"><a href="#四、Generate-static-files-–生成静态文件" class="headerlink" title="四、Generate static files –生成静态文件"></a>四、Generate static files –生成静态文件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate --生成静态文件   简写： hexo g</span><br></pre></td></tr></table></figure>
-
-<h3 id="五、Deploy-to-remote-sites-–部署到远程站点"><a href="#五、Deploy-to-remote-sites-–部署到远程站点" class="headerlink" title="五、Deploy to remote sites –部署到远程站点"></a>五、Deploy to remote sites –部署到远程站点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy --部署文章   简写：hexo d</span><br></pre></td></tr></table></figure>
-
-<h3 id="六、hexo常用命令"><a href="#六、hexo常用命令" class="headerlink" title="六、hexo常用命令"></a>六、hexo常用命令</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new page <span class="string">"pageName"</span>  <span class="comment">#新建页面</span></span><br><span class="line">$ hexo new <span class="string">"postName"</span>   <span class="comment">#新建页面</span></span><br><span class="line">$ hexo generate  <span class="comment">#生成静态页面至public目录  简写：hexo g</span></span><br><span class="line">$ hexo server  <span class="comment">#开始预览访问端口（默认端口4000，Ctrl + C终止server） 简写：hexo s</span></span><br><span class="line">$ hexo deploy  <span class="comment">#部署到GitHub 简写：hexo d</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="七、Github根目录下创建CNAME文件（无后缀）"><a href="#七、Github根目录下创建CNAME文件（无后缀）" class="headerlink" title="七、Github根目录下创建CNAME文件（无后缀）"></a>七、Github根目录下创建CNAME文件（无后缀）</h3><p>在CNAME文件里面填写我的域名（加不加www看自己的喜好），下面是我的Github根目录下创建的CANAME文件。<br>阿里云域名解析过程不详细赘述……</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ xiaoyucode.top</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
 </search>
