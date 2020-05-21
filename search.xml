@@ -186,13 +186,13 @@ next: Route 一定要调用该方法来resolve这个钩子。
   </entry>
   <entry>
     <title>Vue路由传参</title>
-    <url>/2019/11/02/detail/</url>
+    <url>/2019/11/02/vue-router-param/</url>
     <content><![CDATA[<p>Vue路由传参的方式:this.$router.push({path：’’,query:{}})和this.$route.push({name:’’},params:{});</p>
 <a id="more"></a>
-<h6 id="一、方法一：this-router-push-path-’’-query"><a href="#一、方法一：this-router-push-path-’’-query" class="headerlink" title="一、方法一：this.$router.push(path:’’,query:{})"></a>一、方法一：this.$router.push(path:’’,query:{})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    path:<span class="string">'/xxx'</span>,</span><br><span class="line">    query:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.query;</span><br><span class="line">this.id = res.id;</span><br></pre></td></tr></table></figure></p>
-<h6 id="二、方法二、this-router-push-name-’”-params"><a href="#二、方法二、this-router-push-name-’”-params" class="headerlink" title="二、方法二、this.$router.push({name:’”,params:{}})"></a>二、方法二、this.$router.push({name:’”,params:{}})</h6><p>传参方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">this.<span class="variable">$router</span>.push(&#123;</span><br><span class="line">    name:<span class="string">''</span>,</span><br><span class="line">    params:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>接受参数的方式：<br>    <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">const res = this.<span class="variable">$route</span>.params;</span><br><span class="line">this.id = res.id</span><br></pre></td></tr></table></figure></p>
+<h6 id="一、方法一：this-router-push-path-’’-query"><a href="#一、方法一：this-router-push-path-’’-query" class="headerlink" title="一、方法一：this.$router.push(path:’’,query:{})"></a>一、方法一：this.$router.push(path:’’,query:{})</h6><p>传参方式：<br>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">this.$router.push(&#123;</span><br><span class="line">    path:&apos;/xxx&apos;,</span><br><span class="line">    query:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>接受参数的方式：<br>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const res = this.$route.query;</span><br><span class="line">this.id = res.id;</span><br></pre></td></tr></table></figure></p>
+<h6 id="二、方法二、this-router-push-name-’”-params"><a href="#二、方法二、this-router-push-name-’”-params" class="headerlink" title="二、方法二、this.$router.push({name:’”,params:{}})"></a>二、方法二、this.$router.push({name:’”,params:{}})</h6><p>传参方式：<br>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">this.$router.push(&#123;</span><br><span class="line">    name:&apos;&apos;,</span><br><span class="line">    params:&#123;</span><br><span class="line">        id:id</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>接受参数的方式：<br>    <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const res = this.$route.params;</span><br><span class="line">this.id = res.id</span><br></pre></td></tr></table></figure></p>
 <h6 id="注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；"><a href="#注意：params传参：push里面只能是name-’’-不是path-’-‘，这是因为params只能使用name来引入路由，如果写成path：’-‘，接受参数页面将会是undefined；" class="headerlink" title="注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；"></a>注意：params传参：push里面只能是name:’’,不是path:’/‘，这是因为params只能使用name来引入路由，如果写成path：’/‘，接受参数页面将会是undefined；</h6><pre><code>二者区别：
     直白的来说query相当于get请求，页面跳转，我们在地址栏可以看到请求参数，params相当于post请求，参数不会在地址栏显示出来。
 还有就是传参是this.$router.push(),而接收参数是this.$route.params,前者是$router,后者是$route.
@@ -273,12 +273,12 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
       </tags>
   </entry>
   <entry>
-    <title>我的书单--持续更新。。。</title>
+    <title>我的随笔--持续更新。。。</title>
     <url>/2019/09/30/book/</url>
     <content><![CDATA[<p>如果累了，就停下来看看书，冷静一下。</p>
 <a id="more"></a>
 
-<h3 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h3><h6 id="（一）、最难迈出的是第一步"><a href="#（一）、最难迈出的是第一步" class="headerlink" title="（一）、最难迈出的是第一步"></a>（一）、最难迈出的是第一步</h6><p>人生有很多第一次，<br>比如，<br>第一次背着书包去学校，<br>第一次踏入这个复杂的社会，<br>第一次谈恋爱等等。。。</p>
+<h3 id="随笔"><a href="#随笔" class="headerlink" title="随笔"></a>随笔</h3><h6 id="（一）、最难迈出的是第一步"><a href="#（一）、最难迈出的是第一步" class="headerlink" title="（一）、最难迈出的是第一步"></a>（一）、最难迈出的是第一步</h6><p>人生有很多第一次，<br>比如，<br>第一次背着书包去学校，<br>第一次踏入这个复杂的社会，<br>第一次一个人去一个陌生的城市，<br>。。。</p>
 <p>我们面对第一次时的心情往往是复杂的，<br>我们会有一种喜悦感，<br>同时还伴有一丝紧张焦虑和害怕。<br>之所以会有一种喜悦感，<br>是因为我们知道，<br>每往前踏出一步，<br>便意味着我们又成长了，<br>对这个社会了解更深入了一层。</p>
 <p>是啊，<br>人生最难的事情便是迈出第一步了，<br>如果你连第一步都不愿意往外迈，<br>或者都不敢迈的话，<br>那么成功只会深深地藏在你的心里，<br>它永远不会实现。</p>
 <p>“嗯嗯，希望你以后能闯出一片属于你自己的天地！我们一起加油！”</p>
@@ -287,6 +287,7 @@ export PATH=${PATH}:/usr/local/mysql/bin:/usr/local/mongodb/bin
 <h6 id="三-、2019年10月6日"><a href="#三-、2019年10月6日" class="headerlink" title="(三)、2019年10月6日"></a>(三)、2019年10月6日</h6><p>曾经，<br>你认为离你很远的30岁，<br>其实，<br>已经就在你的面前。</p>
 <h6 id="（四）、2019年11月8号"><a href="#（四）、2019年11月8号" class="headerlink" title="（四）、2019年11月8号"></a>（四）、2019年11月8号</h6><p>最伤感的一句话：<br>    目之所及，皆是回忆！</p>
 <h6 id="五-、2020年4月30日"><a href="#五-、2020年4月30日" class="headerlink" title="(五)、2020年4月30日"></a>(五)、2020年4月30日</h6><p>过去 – 是经历，是回忆；<br>现在 – 整理过去，计划未来；<br>将来 – 一定要相信，将来是美好的，是值得憧憬的。</p>
+<h6 id="六-、2020年5月21日"><a href="#六-、2020年5月21日" class="headerlink" title="(六)、2020年5月21日"></a>(六)、2020年5月21日</h6><p>你快乐过生活 我拼命去生存<br>几多人位于山之巅俯瞰我的疲倦<br>渴望被成全 努力做人谁怕气喘<br>但那终点 挂在那天边<br>你界定了生活 我侮辱了生存<br>只适宜滞于山之谷整理我的凌乱<br>渴望大团圆 脚下路程难以削短<br>未见终点 也未见恩典 我与你极远<br>愈望愈无望 未来没有我<br>在断崖下 尽头吧 乐园未有过<br>仿佛天一黑天一光挥发了一句再会<br>只见人下堕<br>快慰继续传播 你都不慰问我<br>区分到太清楚 太严苛<br>你快乐过生活 我拼命去生存<br>几多人位于山之巅俯瞰我的疲倦<br>渴望被成全 努力做人谁怕气喘<br>但那终点 挂在那天边<br>你界定了生活 我侮辱了生存<br>只适宜滞于山之谷整理我的凌乱<br>渴望大团圆 脚下路程难以削短<br>未见终点 也未见恩典 我与你极远<br>我却尚要生存<br>偷偷存活于山之谷等到某天魂断<br>你继续盘旋 我 继续埋藏我爱恋<br>没有终点 永没有终点<br>那永远极远</p>
 ]]></content>
       <tags>
         <tag>book</tag>

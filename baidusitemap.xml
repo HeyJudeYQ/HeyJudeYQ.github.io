@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>xiaoyucode.top/2019/09/30/book/</loc>
+    <lastmod>2020-05-21</lastmod>
+  </url>  <url>
+    <loc>xiaoyucode.top/2019/11/02/vue-router-param/</loc>
+    <lastmod>2020-05-21</lastmod>
+  </url>  <url>
     <loc>xiaoyucode.top/2020/05/19/nrm/</loc>
     <lastmod>2020-05-19</lastmod>
   </url>  <url>
     <loc>xiaoyucode.top/2020/05/13/vue-router/</loc>
     <lastmod>2020-05-13</lastmod>
-  </url>  <url>
-    <loc>xiaoyucode.top/2019/09/30/book/</loc>
-    <lastmod>2020-05-12</lastmod>
   </url>  <url>
     <loc>xiaoyucode.top/2020/05/08/time/</loc>
     <lastmod>2020-05-09</lastmod>
@@ -39,9 +42,6 @@
   </url>  <url>
     <loc>xiaoyucode.top/2019/12/30/QRCode/</loc>
     <lastmod>2019-12-30</lastmod>
-  </url>  <url>
-    <loc>xiaoyucode.top/2019/11/02/detail/</loc>
-    <lastmod>2019-11-08</lastmod>
   </url>  <url>
     <loc>xiaoyucode.top/2019/07/09/command/</loc>
     <lastmod>2019-11-08</lastmod>
