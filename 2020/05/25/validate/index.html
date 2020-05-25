@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="小鱼儿">
+    
+    <meta name="description" content="Javascript Vue CSS HTML">
+    
+    
+    
+    
+    
+    
+    <title>常用的校验-validate | 小鱼儿</title>
+    <link href="xiaoyucode.top" rel="prefetch">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.png'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+</head></html>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="/" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="/">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">小鱼儿</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/H5、barcode/">H5、barcode</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/QRCode/">QRCode</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/book/">book</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/git/">git</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Linux/">Linux</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="/">小鱼儿</a>
+        >
+        <span>常用的校验-validate</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/05/25/validate/">常用的校验-validate</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-05-25
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/05/25/validate/">常用的校验-validate</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-05-25
+            </p>
+            <p>
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>经常使用的校验正则</p>
+<a id="more"></a>
+<h3 id="一、判断是否为外链"><a href="#一、判断是否为外链" class="headerlink" title="一、判断是否为外链"></a>一、判断是否为外链</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export function isExternal(path)&#123;</span><br><span class="line">    return /^(https?:|mailto:|tel:)/.test(path);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、密码是否小于6位"><a href="#二、密码是否小于6位" class="headerlink" title="二、密码是否小于6位"></a>二、密码是否小于6位</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export function isPassword(str)&#123;</span><br><span class="line">    return str.length &gt;= 6;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、判断是否为数字"><a href="#三、判断是否为数字" class="headerlink" title="三、判断是否为数字"></a>三、判断是否为数字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isNumber(value)&#123;</span><br><span class="line">    const reg = /^[0-9]*$/;</span><br><span class="line">    return reg.test(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、判断是否是名称"><a href="#四、判断是否是名称" class="headerlink" title="四、判断是否是名称"></a>四、判断是否是名称</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isName(value)&#123;</span><br><span class="line">    const reg = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;</span><br><span class="line">    return reg.test(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、判断是否为IP"><a href="#五、判断是否为IP" class="headerlink" title="五、判断是否为IP"></a>五、判断是否为IP</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isIP(ip) &#123;</span><br><span class="line">  const reg = /^(\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5])\.(\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5])\.(\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5])\.(\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5])$/;</span><br><span class="line">  return reg.test(ip);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、判断是否为传统网站"><a href="#六、判断是否为传统网站" class="headerlink" title="六、判断是否为传统网站"></a>六、判断是否为传统网站</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isUrl(url) &#123;</span><br><span class="line">  const reg = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&amp;%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]&#123;2&#125;|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]&#123;2&#125;|[1-9]?[0-9]))&#123;3&#125;|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]&#123;2&#125;))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?&apos;\\+&amp;%$#=~_-]+))*$/;</span><br><span class="line">  return reg.test(url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="七、判断是否为小写字母"><a href="#七、判断是否为小写字母" class="headerlink" title="七、判断是否为小写字母"></a>七、判断是否为小写字母</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isLowerCase(str) &#123;</span><br><span class="line">  const reg = /^[a-z]+$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="八、判断是否为大写字母"><a href="#八、判断是否为大写字母" class="headerlink" title="八、判断是否为大写字母"></a>八、判断是否为大写字母</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isUpperCase(str) &#123;</span><br><span class="line">  const reg = /^[A-Z]+$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="九、判断是否是大写字母开头"><a href="#九、判断是否是大写字母开头" class="headerlink" title="九、判断是否是大写字母开头"></a>九、判断是否是大写字母开头</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isAlphabets(str) &#123;</span><br><span class="line">  const reg = /^[A-Za-z]+$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十、判断是否是字符串"><a href="#十、判断是否是字符串" class="headerlink" title="十、判断是否是字符串"></a>十、判断是否是字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export function isString(str) &#123;</span><br><span class="line">  return typeof str === &quot;string&quot; || str instanceof String;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十一、判断是否为数组"><a href="#十一、判断是否为数组" class="headerlink" title="十一、判断是否为数组"></a>十一、判断是否为数组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export function isArray(arg) &#123;</span><br><span class="line">  if (typeof Array.isArray === &quot;undefined&quot;) &#123;</span><br><span class="line">    return Object.prototype.toString.call(arg) === &quot;[object Array]&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  return Array.isArray(arg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十二、判断是否是端口号"><a href="#十二、判断是否是端口号" class="headerlink" title="十二、判断是否是端口号"></a>十二、判断是否是端口号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isPort(str) &#123;</span><br><span class="line">  const reg = /^([0-9]|[1-9]\d|[1-9]\d&#123;2&#125;|[1-9]\d&#123;3&#125;|[1-5]\d&#123;4&#125;|6[0-4]\d&#123;3&#125;|65[0-4]\d&#123;2&#125;|655[0-2]\d|6553[0-5])$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十三、判断是否是手机号码"><a href="#十三、判断是否是手机号码" class="headerlink" title="十三、判断是否是手机号码"></a>十三、判断是否是手机号码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isPhone(str) &#123;</span><br><span class="line">  const reg = /^1\d&#123;10&#125;$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十四、判断是否是身份证号（二代）"><a href="#十四、判断是否是身份证号（二代）" class="headerlink" title="十四、判断是否是身份证号（二代）"></a>十四、判断是否是身份证号（二代）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isIdCard(str) &#123;</span><br><span class="line">  const reg = /^[1-9]\d&#123;5&#125;(18|19|([23]\d))\d&#123;2&#125;((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d&#123;3&#125;[0-9Xx]$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十五、判断是否是邮箱"><a href="#十五、判断是否是邮箱" class="headerlink" title="十五、判断是否是邮箱"></a>十五、判断是否是邮箱</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isEmail(str) &#123;</span><br><span class="line">  const reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十六、判断是否为中文"><a href="#十六、判断是否为中文" class="headerlink" title="十六、判断是否为中文"></a>十六、判断是否为中文</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isChina(str) &#123;</span><br><span class="line">  const reg = /^[\u4E00-\u9FA5]&#123;2,4&#125;$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十七、判断是否为空"><a href="#十七、判断是否为空" class="headerlink" title="十七、判断是否为空"></a>十七、判断是否为空</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">export function isBlank(str) &#123;</span><br><span class="line">  return (</span><br><span class="line">    str == null ||</span><br><span class="line">    false ||</span><br><span class="line">    str === &quot;&quot; ||</span><br><span class="line">    str.trim() === &quot;&quot; ||</span><br><span class="line">    str.toLocaleLowerCase().trim() === &quot;null&quot;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十八、判断是否为固话"><a href="#十八、判断是否为固话" class="headerlink" title="十八、判断是否为固话"></a>十八、判断是否为固话</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isTel(str) &#123;</span><br><span class="line">  const reg = /^(400|800)([0-9\\-]&#123;7,10&#125;)|(([0-9]&#123;4&#125;|[0-9]&#123;3&#125;)(-| )?)?([0-9]&#123;7,8&#125;)((-| |转)*([0-9]&#123;1,4&#125;))?$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十九、判断是否为数字且最多两位小数"><a href="#十九、判断是否为数字且最多两位小数" class="headerlink" title="十九、判断是否为数字且最多两位小数"></a>十九、判断是否为数字且最多两位小数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export function isNum(str) &#123;</span><br><span class="line">  const reg = /^\d+(\.\d&#123;1,2&#125;)?$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二十、判断经度（-180-0-180-0-必须输入1到5位小数）、维度（整数部分为0-90，必须输入1到5位小数）"><a href="#二十、判断经度（-180-0-180-0-必须输入1到5位小数）、维度（整数部分为0-90，必须输入1到5位小数）" class="headerlink" title="二十、判断经度（-180.0 ~ +180.0,必须输入1到5位小数）、维度（整数部分为0~90，必须输入1到5位小数）"></a>二十、判断经度（-180.0 ~ +180.0,必须输入1到5位小数）、维度（整数部分为0~90，必须输入1到5位小数）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 经度</span><br><span class="line">export function isLongitude(str) &#123;</span><br><span class="line">  const reg = /^[-|+]?(0?\d&#123;1,2&#125;\.\d&#123;1,5&#125;|1[0-7]?\d&#123;1&#125;\.\d&#123;1,5&#125;|180\.0&#123;1,5&#125;)$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 维度</span><br><span class="line">export function isLatitude(str) &#123;</span><br><span class="line">  const reg = /^[-|+]?([0-8]?\d&#123;1&#125;\.\d&#123;1,5&#125;|90\.0&#123;1,5&#125;)$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            小鱼儿
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.png" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>Javascript Vue CSS HTML</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/25/validate/">常用的校验-validate</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/19/nrm/">nrm切换npm源</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/13/vue-router/">关于vue-router路由守卫</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/08/select/">下拉框select的option</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/19/nrm/">nrm切换npm源</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/30/Barcode/">H5扫码功能</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/06/v-for/">v-for指令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/30/book/">我的随笔--持续更新。。。</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/05/25/validate/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2020/05/25/validate/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/H5、barcode/" style="font-size: 10.636808489095728px;" class="tag-cloud-link">H5、barcode</a>
+    
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 14.837072480321154px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    
+    <a href="/tags/QRCode/" style="font-size: 12.74590463552165px;" class="tag-cloud-link">QRCode</a>
+    
+    <a href="/tags/book/" style="font-size: 18.295560147288956px;" class="tag-cloud-link">book</a>
+    
+    <a href="/tags/git/" style="font-size: 8.42493875074659px;" class="tag-cloud-link">git</a>
+    
+    <a href="/tags/Linux/" style="font-size: 10.848106763016945px;" class="tag-cloud-link">Linux</a>
+    
+    <a href="/tags/hexo/" style="font-size: 17.265637310988012px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 10.917693775179247px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    
+    <a href="/tags/mongodb、redis/" style="font-size: 18.785597489281564px;" class="tag-cloud-link">mongodb、redis</a>
+    
+    <a href="/tags/debounce、throttle/" style="font-size: 16.786492426014377px;" class="tag-cloud-link">debounce、throttle</a>
+    
+    <a href="/tags/node/" style="font-size: 13.132649690468895px;" class="tag-cloud-link">node</a>
+    
+    <a href="/tags/Javascript、Promise/" style="font-size: 10.342592581913928px;" class="tag-cloud-link">Javascript、Promise</a>
+    
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 12.08471972291465px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    
+    <a href="/tags/transparent、border/" style="font-size: 17.13843151272794px;" class="tag-cloud-link">transparent、border</a>
+    
+    <a href="/tags/url、tcp、http/" style="font-size: 19.877215493611857px;" class="tag-cloud-link">url、tcp、http</a>
+    
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 9.500314888998359px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    
+    <a href="/tags/vue/" style="font-size: 10.525427686993751px;" class="tag-cloud-link">vue</a>
+    
+</div>
+                
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/HeyJudeYQ" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://juejin.im/" target="_blank">掘金</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 小鱼儿 Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+</html>

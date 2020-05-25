@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>常用的校验-validate</title>
+    <url>/2020/05/25/validate/</url>
+    <content><![CDATA[<p>经常使用的校验正则</p>
+<a id="more"></a>
+<h3 id="一、判断是否为外链"><a href="#一、判断是否为外链" class="headerlink" title="一、判断是否为外链"></a>一、判断是否为外链</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isExternal(path)&#123;</span><br><span class="line">    return /^(https?:|mailto:|tel:)/.test(path);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、密码是否小于6位"><a href="#二、密码是否小于6位" class="headerlink" title="二、密码是否小于6位"></a>二、密码是否小于6位</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isPassword(str)&#123;</span><br><span class="line">    return str.length &gt;= 6;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、判断是否为数字"><a href="#三、判断是否为数字" class="headerlink" title="三、判断是否为数字"></a>三、判断是否为数字</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isNumber(value)&#123;</span><br><span class="line">    const reg = /^[0-9]*$/;</span><br><span class="line">    return reg.test(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="四、判断是否是名称"><a href="#四、判断是否是名称" class="headerlink" title="四、判断是否是名称"></a>四、判断是否是名称</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isName(value)&#123;</span><br><span class="line">    const reg = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;</span><br><span class="line">    return reg.test(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="五、判断是否为IP"><a href="#五、判断是否为IP" class="headerlink" title="五、判断是否为IP"></a>五、判断是否为IP</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isIP(ip) &#123;</span><br><span class="line">  const reg = /^(\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5])\.(\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5])\.(\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5])\.(\d&#123;1,2&#125;|1\d\d|2[0-4]\d|25[0-5])$/;</span><br><span class="line">  return reg.test(ip);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="六、判断是否为传统网站"><a href="#六、判断是否为传统网站" class="headerlink" title="六、判断是否为传统网站"></a>六、判断是否为传统网站</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isUrl(url) &#123;</span><br><span class="line">  const reg = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&amp;%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]&#123;2&#125;|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]&#123;2&#125;|[1-9]?[0-9]))&#123;3&#125;|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]&#123;2&#125;))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?&apos;\\+&amp;%$#=~_-]+))*$/;</span><br><span class="line">  return reg.test(url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="七、判断是否为小写字母"><a href="#七、判断是否为小写字母" class="headerlink" title="七、判断是否为小写字母"></a>七、判断是否为小写字母</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isLowerCase(str) &#123;</span><br><span class="line">  const reg = /^[a-z]+$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="八、判断是否为大写字母"><a href="#八、判断是否为大写字母" class="headerlink" title="八、判断是否为大写字母"></a>八、判断是否为大写字母</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isUpperCase(str) &#123;</span><br><span class="line">  const reg = /^[A-Z]+$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="九、判断是否是大写字母开头"><a href="#九、判断是否是大写字母开头" class="headerlink" title="九、判断是否是大写字母开头"></a>九、判断是否是大写字母开头</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isAlphabets(str) &#123;</span><br><span class="line">  const reg = /^[A-Za-z]+$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十、判断是否是字符串"><a href="#十、判断是否是字符串" class="headerlink" title="十、判断是否是字符串"></a>十、判断是否是字符串</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isString(str) &#123;</span><br><span class="line">  return typeof str === &quot;string&quot; || str instanceof String;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十一、判断是否为数组"><a href="#十一、判断是否为数组" class="headerlink" title="十一、判断是否为数组"></a>十一、判断是否为数组</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isArray(arg) &#123;</span><br><span class="line">  if (typeof Array.isArray === &quot;undefined&quot;) &#123;</span><br><span class="line">    return Object.prototype.toString.call(arg) === &quot;[object Array]&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  return Array.isArray(arg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十二、判断是否是端口号"><a href="#十二、判断是否是端口号" class="headerlink" title="十二、判断是否是端口号"></a>十二、判断是否是端口号</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isPort(str) &#123;</span><br><span class="line">  const reg = /^([0-9]|[1-9]\d|[1-9]\d&#123;2&#125;|[1-9]\d&#123;3&#125;|[1-5]\d&#123;4&#125;|6[0-4]\d&#123;3&#125;|65[0-4]\d&#123;2&#125;|655[0-2]\d|6553[0-5])$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十三、判断是否是手机号码"><a href="#十三、判断是否是手机号码" class="headerlink" title="十三、判断是否是手机号码"></a>十三、判断是否是手机号码</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isPhone(str) &#123;</span><br><span class="line">  const reg = /^1\d&#123;10&#125;$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十四、判断是否是身份证号（二代）"><a href="#十四、判断是否是身份证号（二代）" class="headerlink" title="十四、判断是否是身份证号（二代）"></a>十四、判断是否是身份证号（二代）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isIdCard(str) &#123;</span><br><span class="line">  const reg = /^[1-9]\d&#123;5&#125;(18|19|([23]\d))\d&#123;2&#125;((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d&#123;3&#125;[0-9Xx]$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十五、判断是否是邮箱"><a href="#十五、判断是否是邮箱" class="headerlink" title="十五、判断是否是邮箱"></a>十五、判断是否是邮箱</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isEmail(str) &#123;</span><br><span class="line">  const reg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十六、判断是否为中文"><a href="#十六、判断是否为中文" class="headerlink" title="十六、判断是否为中文"></a>十六、判断是否为中文</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isChina(str) &#123;</span><br><span class="line">  const reg = /^[\u4E00-\u9FA5]&#123;2,4&#125;$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十七、判断是否为空"><a href="#十七、判断是否为空" class="headerlink" title="十七、判断是否为空"></a>十七、判断是否为空</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isBlank(str) &#123;</span><br><span class="line">  return (</span><br><span class="line">    str == null ||</span><br><span class="line">    false ||</span><br><span class="line">    str === &quot;&quot; ||</span><br><span class="line">    str.trim() === &quot;&quot; ||</span><br><span class="line">    str.toLocaleLowerCase().trim() === &quot;null&quot;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十八、判断是否为固话"><a href="#十八、判断是否为固话" class="headerlink" title="十八、判断是否为固话"></a>十八、判断是否为固话</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isTel(str) &#123;</span><br><span class="line">  const reg = /^(400|800)([0-9\\-]&#123;7,10&#125;)|(([0-9]&#123;4&#125;|[0-9]&#123;3&#125;)(-| )?)?([0-9]&#123;7,8&#125;)((-| |转)*([0-9]&#123;1,4&#125;))?$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="十九、判断是否为数字且最多两位小数"><a href="#十九、判断是否为数字且最多两位小数" class="headerlink" title="十九、判断是否为数字且最多两位小数"></a>十九、判断是否为数字且最多两位小数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export function isNum(str) &#123;</span><br><span class="line">  const reg = /^\d+(\.\d&#123;1,2&#125;)?$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二十、判断经度（-180-0-180-0-必须输入1到5位小数）、维度（整数部分为0-90，必须输入1到5位小数）"><a href="#二十、判断经度（-180-0-180-0-必须输入1到5位小数）、维度（整数部分为0-90，必须输入1到5位小数）" class="headerlink" title="二十、判断经度（-180.0 ~ +180.0,必须输入1到5位小数）、维度（整数部分为0~90，必须输入1到5位小数）"></a>二十、判断经度（-180.0 ~ +180.0,必须输入1到5位小数）、维度（整数部分为0~90，必须输入1到5位小数）</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 经度</span><br><span class="line">export function isLongitude(str) &#123;</span><br><span class="line">  const reg = /^[-|+]?(0?\d&#123;1,2&#125;\.\d&#123;1,5&#125;|1[0-7]?\d&#123;1&#125;\.\d&#123;1,5&#125;|180\.0&#123;1,5&#125;)$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 维度</span><br><span class="line">export function isLatitude(str) &#123;</span><br><span class="line">  const reg = /^[-|+]?([0-8]?\d&#123;1&#125;\.\d&#123;1,5&#125;|90\.0&#123;1,5&#125;)$/;</span><br><span class="line">  return reg.test(str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>nrm切换npm源</title>
     <url>/2020/05/19/nrm/</url>
     <content><![CDATA[<p>因为在使用npm下载插件的过程中速度太慢了（npm源在国外），所以找到一个切换源的方法：nrm。</p>
