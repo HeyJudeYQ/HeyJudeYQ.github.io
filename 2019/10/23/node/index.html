@@ -135,6 +135,10 @@
                         
                         
                         <li>
+                            <a href="/tags/QRCode/">QRCode</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/H5、barcode/">H5、barcode</a>
                         </li>
                         
@@ -143,7 +147,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/QRCode/">QRCode</a>
+                            <a href="/tags/Linux/">Linux</a>
                         </li>
                         
                         <li>
@@ -151,11 +155,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/git/">git</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/Linux/">Linux</a>
+                            <a href="/tags/debounce、throttle/">debounce、throttle</a>
                         </li>
                         
                         
@@ -241,8 +241,43 @@
         <p>Node版本的升级和降级</p>
 <a id="more"></a>
 <p>在开发的工程中，我们可能需要经常切换node版本来应对不同的开发环境，所以需要经常使用不同版本的node</p>
-<p>一、安装npm插件n ,通过n模块来管理node版本<br>1、全局安装n模块<br>    npm instlal -g n<br>2、安装当前稳定版本<br>    n stable或者sudo n stable<br>3、安装最新版本的<br>    n latest或者sudo n latest<br>4、安装指定版本的node<br>    n v8.16.0<br>5、卸载指定的node版本<br>    n rm v8.16.0<br>二、使用nvm管理node版本<br>1、安装nvm<br>    brew install nvm<br>2、使用nvm安装node版本<br>    安装最新版本<br>    nvm isntall node<br>    安装指定版本<br>    nvm install 8.16.0<br>3、查看所有版本<br>    nvm ls<br>4、切换node版本<br>    使用最新版本<br>    nvm use node<br>    使用指定版本<br>    nvm use 10.16.2<br>    通常我会使用第二种方式<br>    例如：我在一个项目中使用的是<a href="mailto:node@6.13.2" target="_blank" rel="noopener">node@6.13.2</a>,新项目使用的是<a href="mailto:node@8.16.0" target="_blank" rel="noopener">node@8.16.0</a>,
-    先要安装<a href="mailto:node@8.16.0" target="_blank" rel="noopener">node@8.16.0</a>，nvm install 8.16.0，<br>    然后，nvm use 8.16.0</p>
+<p>一、安装npm插件n ,通过n模块来管理node版本<br>1、全局安装n模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm instlal -g n</span><br></pre></td></tr></table></figure>
+
+<p>2、安装当前稳定版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n stable或者sudo n stable</span><br></pre></td></tr></table></figure>
+
+<p>3、安装最新版本的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n latest或者sudo n latest</span><br></pre></td></tr></table></figure>
+
+<p>4、安装指定版本的node</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n v8.16.0</span><br></pre></td></tr></table></figure>
+
+<p>5、卸载指定的node版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n rm v8.16.0</span><br></pre></td></tr></table></figure>
+
+<p>二、使用nvm管理node版本<br>1、安装nvm </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install nvm</span><br></pre></td></tr></table></figure>
+
+<p>2、使用nvm安装node版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 安装最新版本</span><br><span class="line">nvm isntall node</span><br><span class="line">// 安装指定版本</span><br><span class="line">nvm install 8.16.0</span><br></pre></td></tr></table></figure>
+
+<p>3、查看所有版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm ls</span><br></pre></td></tr></table></figure>
+
+<p>4、切换node版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 使用最新版本</span><br><span class="line">nvm use node       </span><br><span class="line">// 使用指定版本</span><br><span class="line">nvm use 8.16.0</span><br></pre></td></tr></table></figure>
+
+<pre><code>通常我会使用第二种方式
+例如：我在一个项目中使用的是node@6.13.2,新项目使用的是node@8.16.0,
+先要安装node@8.16.0，nvm install 8.16.0，
+然后，nvm use 8.16.0</code></pre><p>5、卸载指定版本的node</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm uninstall  v6.13.2</span><br></pre></td></tr></table></figure>
+
+<p>6、设置系统默认的node版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm alias default v8.16.0</span><br></pre></td></tr></table></figure>
+
+<p>这样使用的node的默认版本为8.16.0</p>
 
     </div>
 </article>
@@ -369,13 +404,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/19/nrm/">nrm切换npm源</a>
+                    <a href="/2020/05/25/validate/">常用的校验-validate</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/13/vue-router/">关于vue-router路由守卫</a>
+                    <a href="/2020/05/08/select/">下拉框select的option</a>
                 </span>
             </li>
             
@@ -393,25 +428,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/02/vue-router-param/">Vue路由传参</a>
+                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a>
+                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
                 </span>
             </li>
             
@@ -424,6 +447,18 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/19/promise/">Promise</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Yelee主题 + 阿里云域名搭建个人博客</a>
                 </span>
             </li>
             
@@ -452,39 +487,39 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/H5、barcode/" style="font-size: 18.304722128426935px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/QRCode/" style="font-size: 8.247036649657275px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 11.562919670537973px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/H5、barcode/" style="font-size: 17.25825391336631px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/QRCode/" style="font-size: 9.801331082697708px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 9.742708610243302px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/book/" style="font-size: 8.397372317048802px;" class="tag-cloud-link">book</a>
+    <a href="/tags/Linux/" style="font-size: 16.682362671998547px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/git/" style="font-size: 15.264464435711126px;" class="tag-cloud-link">git</a>
+    <a href="/tags/book/" style="font-size: 15.462812456078842px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/Linux/" style="font-size: 17.249441637574453px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 13.573304767314806px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/hexo/" style="font-size: 11.586751568241766px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 16.096109634105883px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 15.48967039996731px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/node/" style="font-size: 17.14513621215393px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 17.866460807145376px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/git/" style="font-size: 12.92228749693625px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 15.693065995245638px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 11.794472751393558px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/node/" style="font-size: 9.58847476265655px;" class="tag-cloud-link">node</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 8.128835255755185px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 15.697874257932181px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 17.151172093806252px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 17.706487119871444px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 9.164056107894128px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 16.61368159713164px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/transparent、border/" style="font-size: 11.810533515673551px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 10.973719043429117px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 10.920238956989763px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 10.21404073873903px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/vue/" style="font-size: 10.643841579136605px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/vue/" style="font-size: 9.225041447651787px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 12.765162725997062px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 

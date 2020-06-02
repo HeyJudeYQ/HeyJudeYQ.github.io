@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>xiaoyucode.top/2019/12/30/QRCode/</loc>
+    <lastmod>2020-06-02</lastmod>
+  </url>  <url>
+    <loc>xiaoyucode.top/2019/12/30/Barcode/</loc>
+    <lastmod>2020-06-02</lastmod>
+  </url>  <url>
+    <loc>xiaoyucode.top/2019/10/23/git/</loc>
+    <lastmod>2020-06-02</lastmod>
+  </url>  <url>
+    <loc>xiaoyucode.top/2019/10/23/node/</loc>
+    <lastmod>2020-06-02</lastmod>
+  </url>  <url>
     <loc>xiaoyucode.top/2020/05/25/validate/</loc>
     <lastmod>2020-05-25</lastmod>
   </url>  <url>
@@ -28,9 +40,6 @@
     <loc>xiaoyucode.top/2020/05/07/vue-question/</loc>
     <lastmod>2020-05-08</lastmod>
   </url>  <url>
-    <loc>xiaoyucode.top/2019/10/23/node/</loc>
-    <lastmod>2020-04-30</lastmod>
-  </url>  <url>
     <loc>xiaoyucode.top/2020/04/30/iterm2/</loc>
     <lastmod>2020-04-30</lastmod>
   </url>  <url>
@@ -40,20 +49,11 @@
     <loc>xiaoyucode.top/2020/04/22/Virtualkey/</loc>
     <lastmod>2020-04-22</lastmod>
   </url>  <url>
-    <loc>xiaoyucode.top/2019/12/30/Barcode/</loc>
-    <lastmod>2020-01-15</lastmod>
-  </url>  <url>
-    <loc>xiaoyucode.top/2019/12/30/QRCode/</loc>
-    <lastmod>2019-12-30</lastmod>
-  </url>  <url>
     <loc>xiaoyucode.top/2019/07/09/command/</loc>
     <lastmod>2019-11-08</lastmod>
   </url>  <url>
     <loc>xiaoyucode.top/2019/10/24/mongodb-redis/</loc>
     <lastmod>2019-10-24</lastmod>
-  </url>  <url>
-    <loc>xiaoyucode.top/2019/10/23/git/</loc>
-    <lastmod>2019-10-23</lastmod>
   </url>  <url>
     <loc>xiaoyucode.top/2019/10/06/v-for/</loc>
     <lastmod>2019-10-23</lastmod>

@@ -135,6 +135,10 @@
                         
                         
                         <li>
+                            <a href="/tags/QRCode/">QRCode</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/H5、barcode/">H5、barcode</a>
                         </li>
                         
@@ -143,7 +147,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/QRCode/">QRCode</a>
+                            <a href="/tags/Linux/">Linux</a>
                         </li>
                         
                         <li>
@@ -151,11 +155,7 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/git/">git</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/Linux/">Linux</a>
+                            <a href="/tags/debounce、throttle/">debounce、throttle</a>
                         </li>
                         
                         
@@ -242,6 +242,8 @@
 <a id="more"></a>
 <h6 id="一、初始化本地仓库，提交代码，提交到远程git仓库"><a href="#一、初始化本地仓库，提交代码，提交到远程git仓库" class="headerlink" title="一、初始化本地仓库，提交代码，提交到远程git仓库"></a>一、初始化本地仓库，提交代码，提交到远程git仓库</h6><p>1、初始化代码仓库<br>    git init<br>2、将当前目录下的所有文件放到暂存区<br>    git add .<br>3、查看文件状态<br>    git status<br>4、添加提交的描述信息<br>    git commit -m “提交的描述信息”<br>5、远程仓库地址<br>    git remote add origin “远程仓库地址”<br>6、推送到远程仓库<br>    git push -u origin master</p>
 <h6 id="二、创建分支，提交代码到分支"><a href="#二、创建分支，提交代码到分支" class="headerlink" title="二、创建分支，提交代码到分支"></a>二、创建分支，提交代码到分支</h6><p>1、创建切换分支<br>    git checkout -b dev  dev为分支名称<br>    git add .<br>    git commit -m ‘描述’<br>    git push –set-upstream origin dev1   将分支推送到远程仓库<br>    切换到主分支<br>    git checkout master<br>    git merge dev  将dev合并到主分支<br>    git push origin master  推送到远程仓库</p>
+<h6 id="三、克隆指定分支"><a href="#三、克隆指定分支" class="headerlink" title="三、克隆指定分支"></a>三、克隆指定分支</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone -b master git@gitee.com:username/projectname.git</span><br><span class="line">git clone -b admin git@gitee.com:username/projectname.git</span><br></pre></td></tr></table></figure>
+
 
     </div>
 </article>
@@ -368,31 +370,43 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2020/05/25/validate/">常用的校验-validate</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
+                    <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/23/git/">常用的git提交代码命令</a>
+                    <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/09/30/book/">我的随笔--持续更新。。。</a>
+                    <a href="/2019/11/02/vue-router-param/">Vue路由传参</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
+                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
                 </span>
             </li>
             
@@ -404,19 +418,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/07/03/ES6/">Class语法</a>
+                    <a href="/2019/07/09/command/">常用的Linux命令</a>
                 </span>
             </li>
             
@@ -451,39 +453,39 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/H5、barcode/" style="font-size: 14.47751309376256px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/QRCode/" style="font-size: 19.249070230863076px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 18.417073136080838px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/H5、barcode/" style="font-size: 14.891399175808651px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/QRCode/" style="font-size: 10.935699105471816px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 16.09662774934315px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/book/" style="font-size: 19.4692474541123px;" class="tag-cloud-link">book</a>
+    <a href="/tags/Linux/" style="font-size: 14.45886004462789px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/git/" style="font-size: 9.511980412340398px;" class="tag-cloud-link">git</a>
+    <a href="/tags/book/" style="font-size: 16.440317869099626px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/Linux/" style="font-size: 10.213021255209563px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 19.707660063383248px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/hexo/" style="font-size: 9.507201459146966px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 15.397986778127041px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 16.449976537379882px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/node/" style="font-size: 12.152613589249164px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 18.529201684438462px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/git/" style="font-size: 17.367161078367662px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 8.356245029314898px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 14.707306568449546px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/node/" style="font-size: 17.458218835779654px;" class="tag-cloud-link">node</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 10.794572006026048px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 11.796229295285755px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 8.29670539770866px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 12.51916595543043px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 9.434872625492385px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 8.87293977688303px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/transparent、border/" style="font-size: 18.352041057126346px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 19.161449355559675px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 8.810326332365602px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 11.36470136382608px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/vue/" style="font-size: 10.402415293275872px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/vue/" style="font-size: 11.621558513117076px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 12.539041897526046px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 
