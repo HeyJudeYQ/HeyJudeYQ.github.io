@@ -8,6 +8,54 @@
     </url>
 
     <url>
+        <loc>xiaoyucode.top/2020/06/03/fastclick/</loc>
+        <lastmod>2020-06-03T09:07:15.207Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/2019/12/30/QRCode/</loc>
+        <lastmod>2020-06-02T01:56:18.289Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/2019/12/30/Barcode/</loc>
+        <lastmod>2020-06-02T01:45:58.293Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/2019/10/23/git/</loc>
+        <lastmod>2020-06-02T01:44:13.479Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/2019/10/23/node/</loc>
+        <lastmod>2020-06-02T01:40:41.531Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>xiaoyucode.top/2020/05/25/validate/</loc>
+        <lastmod>2020-05-25T01:34:04.510Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>xiaoyucode.top/2019/09/30/book/</loc>
         <lastmod>2020-05-21T02:54:00.825Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,7 +65,7 @@
 
     <url>
         <loc>xiaoyucode.top/2019/11/02/vue-router-param/</loc>
-        <lastmod>2020-05-21T02:49:38.211Z</lastmod>
+        <lastmod>2020-05-21T02:49:38.212Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -25,7 +73,7 @@
 
     <url>
         <loc>xiaoyucode.top/2020/05/19/nrm/</loc>
-        <lastmod>2020-05-19T03:17:49.028Z</lastmod>
+        <lastmod>2020-05-19T03:17:49.029Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -41,7 +89,7 @@
 
     <url>
         <loc>xiaoyucode.top/2020/05/08/time/</loc>
-        <lastmod>2020-05-09T03:00:13.091Z</lastmod>
+        <lastmod>2020-05-09T03:00:13.092Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -49,7 +97,7 @@
 
     <url>
         <loc>xiaoyucode.top/2020/05/09/eslint/</loc>
-        <lastmod>2020-05-09T02:59:02.809Z</lastmod>
+        <lastmod>2020-05-09T02:59:02.810Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -72,16 +120,8 @@
     </url>
 
     <url>
-        <loc>xiaoyucode.top/2019/10/23/node/</loc>
-        <lastmod>2020-04-30T06:24:13.065Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>xiaoyucode.top/2020/04/30/iterm2/</loc>
-        <lastmod>2020-04-30T02:15:13.426Z</lastmod>
+        <lastmod>2020-04-30T02:15:13.427Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -89,7 +129,7 @@
 
     <url>
         <loc>xiaoyucode.top/2020/04/28/search/</loc>
-        <lastmod>2020-04-30T01:17:46.077Z</lastmod>
+        <lastmod>2020-04-30T01:17:46.078Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -97,23 +137,7 @@
 
     <url>
         <loc>xiaoyucode.top/2020/04/22/Virtualkey/</loc>
-        <lastmod>2020-04-22T08:07:07.520Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/2019/12/30/Barcode/</loc>
-        <lastmod>2020-01-15T05:44:08.132Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/2019/12/30/QRCode/</loc>
-        <lastmod>2019-12-30T06:30:03.549Z</lastmod>
+        <lastmod>2020-04-22T08:07:07.521Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -121,7 +145,7 @@
 
     <url>
         <loc>xiaoyucode.top/2019/07/09/command/</loc>
-        <lastmod>2019-11-08T08:52:03.869Z</lastmod>
+        <lastmod>2019-11-08T08:52:03.870Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -130,14 +154,6 @@
     <url>
         <loc>xiaoyucode.top/2019/10/24/mongodb-redis/</loc>
         <lastmod>2019-10-24T06:29:04.903Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/2019/10/23/git/</loc>
-        <lastmod>2019-10-23T07:59:10.188Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -169,7 +185,7 @@
 
     <url>
         <loc>xiaoyucode.top/2019/09/30/vue-project/</loc>
-        <lastmod>2019-09-30T11:46:22.447Z</lastmod>
+        <lastmod>2019-09-30T11:46:22.448Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -177,7 +193,7 @@
 
     <url>
         <loc>xiaoyucode.top/2019/08/10/trangel/</loc>
-        <lastmod>2019-08-10T05:13:02.776Z</lastmod>
+        <lastmod>2019-08-10T05:13:02.777Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -201,7 +217,7 @@
 
     <url>
         <loc>xiaoyucode.top/2019/06/19/promise/</loc>
-        <lastmod>2019-07-10T22:26:16.927Z</lastmod>
+        <lastmod>2019-07-10T22:26:16.928Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -217,7 +233,7 @@
 
     <url>
         <loc>xiaoyucode.top/2019/06/19/hello-world/</loc>
-        <lastmod>2019-07-06T18:08:41.360Z</lastmod>
+        <lastmod>2019-07-06T18:08:41.361Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

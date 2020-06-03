@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiaoyucode.top/"/>
-  <updated>2020-05-25T01:34:04.510Z</updated>
+  <updated>2020-06-03T09:07:15.207Z</updated>
   <id>xiaoyucode.top/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue移动端项目300ms延迟在IOS11系统中的bug</title>
+    <link href="xiaoyucode.top/2020/06/03/fastclick/"/>
+    <id>xiaoyucode.top/2020/06/03/fastclick/</id>
+    <published>2020-06-03T08:39:37.000Z</published>
+    <updated>2020-06-03T09:07:15.207Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在移动端点击一个元素触发事件的顺序为：&lt;br&gt;touchstart –&amp;gt; touchmove –&amp;gt; touchend –&amp;gt; click&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>常用的校验-validate</title>
@@ -333,24 +349,6 @@
     
     
       <category term="Vue、Vue-cli" scheme="xiaoyucode.top/tags/Vue%E3%80%81Vue-cli/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用CSS画三角形</title>
-    <link href="xiaoyucode.top/2019/08/10/trangel/"/>
-    <id>xiaoyucode.top/2019/08/10/trangel/</id>
-    <published>2019-08-10T01:52:38.000Z</published>
-    <updated>2019-08-10T05:13:02.777Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;   如何使用CSS画三角形？&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="transparent、border" scheme="xiaoyucode.top/tags/transparent%E3%80%81border/"/>
     
   </entry>
   
