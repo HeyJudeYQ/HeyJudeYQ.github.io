@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="xiaoyucode.top/"/>
+  <link href="issummer.cn/"/>
   <updated>2020-06-04T00:57:14.750Z</updated>
-  <id>xiaoyucode.top/</id>
+  <id>issummer.cn/</id>
   
   <author>
     <name>小鱼儿</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>vue移动端项目300ms延迟在IOS11系统中的bug</title>
-    <link href="xiaoyucode.top/2020/06/03/fastclick/"/>
-    <id>xiaoyucode.top/2020/06/03/fastclick/</id>
+    <link href="issummer.cn/2020/06/03/fastclick/"/>
+    <id>issummer.cn/2020/06/03/fastclick/</id>
     <published>2020-06-03T08:39:37.000Z</published>
     <updated>2020-06-04T00:57:14.750Z</updated>
     
@@ -34,8 +34,8 @@
   
   <entry>
     <title>常用的校验-validate</title>
-    <link href="xiaoyucode.top/2020/05/25/validate/"/>
-    <id>xiaoyucode.top/2020/05/25/validate/</id>
+    <link href="issummer.cn/2020/05/25/validate/"/>
+    <id>issummer.cn/2020/05/25/validate/</id>
     <published>2020-05-25T01:10:24.000Z</published>
     <updated>2020-05-25T01:34:04.510Z</updated>
     
@@ -50,8 +50,8 @@
   
   <entry>
     <title>nrm切换npm源</title>
-    <link href="xiaoyucode.top/2020/05/19/nrm/"/>
-    <id>xiaoyucode.top/2020/05/19/nrm/</id>
+    <link href="issummer.cn/2020/05/19/nrm/"/>
+    <id>issummer.cn/2020/05/19/nrm/</id>
     <published>2020-05-19T03:02:50.000Z</published>
     <updated>2020-05-19T03:17:49.029Z</updated>
     
@@ -66,8 +66,8 @@
   
   <entry>
     <title>关于vue-router路由守卫</title>
-    <link href="xiaoyucode.top/2020/05/13/vue-router/"/>
-    <id>xiaoyucode.top/2020/05/13/vue-router/</id>
+    <link href="issummer.cn/2020/05/13/vue-router/"/>
+    <id>issummer.cn/2020/05/13/vue-router/</id>
     <published>2020-05-13T02:36:02.000Z</published>
     <updated>2020-05-13T03:11:00.444Z</updated>
     
@@ -82,8 +82,8 @@
   
   <entry>
     <title>.eslintrc.js 的配置</title>
-    <link href="xiaoyucode.top/2020/05/09/eslint/"/>
-    <id>xiaoyucode.top/2020/05/09/eslint/</id>
+    <link href="issummer.cn/2020/05/09/eslint/"/>
+    <id>issummer.cn/2020/05/09/eslint/</id>
     <published>2020-05-09T02:50:49.000Z</published>
     <updated>2020-05-09T02:59:02.810Z</updated>
     
@@ -98,8 +98,8 @@
   
   <entry>
     <title>解决vue项目热更新、启动和打包时间过长的问题</title>
-    <link href="xiaoyucode.top/2020/05/08/time/"/>
-    <id>xiaoyucode.top/2020/05/08/time/</id>
+    <link href="issummer.cn/2020/05/08/time/"/>
+    <id>issummer.cn/2020/05/08/time/</id>
     <published>2020-05-08T08:54:34.000Z</published>
     <updated>2020-05-09T03:00:13.092Z</updated>
     
@@ -114,8 +114,8 @@
   
   <entry>
     <title>下拉框select的option</title>
-    <link href="xiaoyucode.top/2020/05/08/select/"/>
-    <id>xiaoyucode.top/2020/05/08/select/</id>
+    <link href="issummer.cn/2020/05/08/select/"/>
+    <id>issummer.cn/2020/05/08/select/</id>
     <published>2020-05-08T08:42:40.000Z</published>
     <updated>2020-05-08T08:51:44.122Z</updated>
     
@@ -130,8 +130,8 @@
   
   <entry>
     <title>vue项目中遇到的问题</title>
-    <link href="xiaoyucode.top/2020/05/07/vue-question/"/>
-    <id>xiaoyucode.top/2020/05/07/vue-question/</id>
+    <link href="issummer.cn/2020/05/07/vue-question/"/>
+    <id>issummer.cn/2020/05/07/vue-question/</id>
     <published>2020-05-07T06:05:01.000Z</published>
     <updated>2020-05-08T08:42:21.568Z</updated>
     
@@ -146,8 +146,8 @@
   
   <entry>
     <title>iTerm2快捷键</title>
-    <link href="xiaoyucode.top/2020/04/30/iterm2/"/>
-    <id>xiaoyucode.top/2020/04/30/iterm2/</id>
+    <link href="issummer.cn/2020/04/30/iterm2/"/>
+    <id>issummer.cn/2020/04/30/iterm2/</id>
     <published>2020-04-30T01:44:17.000Z</published>
     <updated>2020-04-30T02:15:13.427Z</updated>
     
@@ -162,8 +162,8 @@
   
   <entry>
     <title>移动端页面自定义input唤起键盘return，换行改为搜索</title>
-    <link href="xiaoyucode.top/2020/04/28/search/"/>
-    <id>xiaoyucode.top/2020/04/28/search/</id>
+    <link href="issummer.cn/2020/04/28/search/"/>
+    <id>issummer.cn/2020/04/28/search/</id>
     <published>2020-04-28T01:06:47.000Z</published>
     <updated>2020-04-30T01:17:46.078Z</updated>
     
@@ -178,8 +178,8 @@
   
   <entry>
     <title>使用Vue开发APP手机虚拟返回键点击退出应用解决办法</title>
-    <link href="xiaoyucode.top/2020/04/22/Virtualkey/"/>
-    <id>xiaoyucode.top/2020/04/22/Virtualkey/</id>
+    <link href="issummer.cn/2020/04/22/Virtualkey/"/>
+    <id>issummer.cn/2020/04/22/Virtualkey/</id>
     <published>2020-04-22T08:02:30.000Z</published>
     <updated>2020-04-22T08:07:07.521Z</updated>
     
@@ -194,8 +194,8 @@
   
   <entry>
     <title>H5扫码功能</title>
-    <link href="xiaoyucode.top/2019/12/30/Barcode/"/>
-    <id>xiaoyucode.top/2019/12/30/Barcode/</id>
+    <link href="issummer.cn/2019/12/30/Barcode/"/>
+    <id>issummer.cn/2019/12/30/Barcode/</id>
     <published>2019-12-30T06:20:57.000Z</published>
     <updated>2020-06-02T01:45:58.293Z</updated>
     
@@ -206,14 +206,14 @@
     </summary>
     
     
-      <category term="H5、barcode" scheme="xiaoyucode.top/tags/H5%E3%80%81barcode/"/>
+      <category term="H5、barcode" scheme="issummer.cn/tags/H5%E3%80%81barcode/"/>
     
   </entry>
   
   <entry>
     <title>如何使用QRCode生成二维码？</title>
-    <link href="xiaoyucode.top/2019/12/30/QRCode/"/>
-    <id>xiaoyucode.top/2019/12/30/QRCode/</id>
+    <link href="issummer.cn/2019/12/30/QRCode/"/>
+    <id>issummer.cn/2019/12/30/QRCode/</id>
     <published>2019-12-30T05:48:40.000Z</published>
     <updated>2020-06-02T01:56:18.289Z</updated>
     
@@ -224,14 +224,14 @@
     </summary>
     
     
-      <category term="QRCode" scheme="xiaoyucode.top/tags/QRCode/"/>
+      <category term="QRCode" scheme="issummer.cn/tags/QRCode/"/>
     
   </entry>
   
   <entry>
     <title>Vue路由传参</title>
-    <link href="xiaoyucode.top/2019/11/02/vue-router-param/"/>
-    <id>xiaoyucode.top/2019/11/02/vue-router-param/</id>
+    <link href="issummer.cn/2019/11/02/vue-router-param/"/>
+    <id>issummer.cn/2019/11/02/vue-router-param/</id>
     <published>2019-11-02T09:10:19.000Z</published>
     <updated>2020-05-21T02:49:38.212Z</updated>
     
@@ -246,8 +246,8 @@
   
   <entry>
     <title>mongodb-redis</title>
-    <link href="xiaoyucode.top/2019/10/24/mongodb-redis/"/>
-    <id>xiaoyucode.top/2019/10/24/mongodb-redis/</id>
+    <link href="issummer.cn/2019/10/24/mongodb-redis/"/>
+    <id>issummer.cn/2019/10/24/mongodb-redis/</id>
     <published>2019-10-23T16:04:05.000Z</published>
     <updated>2019-10-24T06:29:04.903Z</updated>
     
@@ -258,14 +258,14 @@
     </summary>
     
     
-      <category term="mongodb、redis" scheme="xiaoyucode.top/tags/mongodb%E3%80%81redis/"/>
+      <category term="mongodb、redis" scheme="issummer.cn/tags/mongodb%E3%80%81redis/"/>
     
   </entry>
   
   <entry>
     <title>node版本管理--升级和降级</title>
-    <link href="xiaoyucode.top/2019/10/23/node/"/>
-    <id>xiaoyucode.top/2019/10/23/node/</id>
+    <link href="issummer.cn/2019/10/23/node/"/>
+    <id>issummer.cn/2019/10/23/node/</id>
     <published>2019-10-23T07:25:21.000Z</published>
     <updated>2020-06-02T01:40:41.531Z</updated>
     
@@ -276,14 +276,14 @@
     </summary>
     
     
-      <category term="node" scheme="xiaoyucode.top/tags/node/"/>
+      <category term="node" scheme="issummer.cn/tags/node/"/>
     
   </entry>
   
   <entry>
     <title>常用的git提交代码命令</title>
-    <link href="xiaoyucode.top/2019/10/23/git/"/>
-    <id>xiaoyucode.top/2019/10/23/git/</id>
+    <link href="issummer.cn/2019/10/23/git/"/>
+    <id>issummer.cn/2019/10/23/git/</id>
     <published>2019-10-23T06:22:29.000Z</published>
     <updated>2020-06-02T01:44:13.479Z</updated>
     
@@ -294,14 +294,14 @@
     </summary>
     
     
-      <category term="git" scheme="xiaoyucode.top/tags/git/"/>
+      <category term="git" scheme="issummer.cn/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>v-for指令</title>
-    <link href="xiaoyucode.top/2019/10/06/v-for/"/>
-    <id>xiaoyucode.top/2019/10/06/v-for/</id>
+    <link href="issummer.cn/2019/10/06/v-for/"/>
+    <id>issummer.cn/2019/10/06/v-for/</id>
     <published>2019-10-06T08:08:00.000Z</published>
     <updated>2019-10-23T07:58:38.927Z</updated>
     
@@ -312,14 +312,14 @@
     </summary>
     
     
-      <category term="vue" scheme="xiaoyucode.top/tags/vue/"/>
+      <category term="vue" scheme="issummer.cn/tags/vue/"/>
     
   </entry>
   
   <entry>
     <title>我的随笔--持续更新。。。</title>
-    <link href="xiaoyucode.top/2019/09/30/book/"/>
-    <id>xiaoyucode.top/2019/09/30/book/</id>
+    <link href="issummer.cn/2019/09/30/book/"/>
+    <id>issummer.cn/2019/09/30/book/</id>
     <published>2019-09-30T11:30:00.000Z</published>
     <updated>2020-05-21T02:54:00.825Z</updated>
     
@@ -330,14 +330,14 @@
     </summary>
     
     
-      <category term="book" scheme="xiaoyucode.top/tags/book/"/>
+      <category term="book" scheme="issummer.cn/tags/book/"/>
     
   </entry>
   
   <entry>
     <title>使用Vue-cli3.0搭建项目</title>
-    <link href="xiaoyucode.top/2019/09/30/vue-project/"/>
-    <id>xiaoyucode.top/2019/09/30/vue-project/</id>
+    <link href="issummer.cn/2019/09/30/vue-project/"/>
+    <id>issummer.cn/2019/09/30/vue-project/</id>
     <published>2019-09-30T06:52:47.000Z</published>
     <updated>2019-09-30T11:46:22.448Z</updated>
     
@@ -348,7 +348,7 @@
     </summary>
     
     
-      <category term="Vue、Vue-cli" scheme="xiaoyucode.top/tags/Vue%E3%80%81Vue-cli/"/>
+      <category term="Vue、Vue-cli" scheme="issummer.cn/tags/Vue%E3%80%81Vue-cli/"/>
     
   </entry>
   
