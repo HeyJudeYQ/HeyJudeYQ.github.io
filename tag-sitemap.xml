@@ -3,6 +3,13 @@
 
 
     <url>
+        <loc>xiaoyucode.top/tags/hexo/</loc>
+        <lastmod>2020-06-04T06:19:28.392Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>xiaoyucode.top/tags/QRCode/</loc>
         <lastmod>2020-06-02T01:56:18.289Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -110,13 +117,6 @@
     <url>
         <loc>xiaoyucode.top/tags/ES6%E3%80%81JavaScript%E3%80%81Class/</loc>
         <lastmod>2019-07-10T22:26:06.094Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/tags/hexo/</loc>
-        <lastmod>2019-07-06T18:08:41.361Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

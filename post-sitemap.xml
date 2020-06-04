@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>xiaoyucode.top/2019/06/19/hello-world/</loc>
+        <lastmod>2020-06-04T06:19:28.392Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>xiaoyucode.top/2020/06/03/fastclick/</loc>
         <lastmod>2020-06-04T00:57:14.750Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -226,14 +234,6 @@
     <url>
         <loc>xiaoyucode.top/2019/07/03/ES6/</loc>
         <lastmod>2019-07-10T22:26:06.094Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>xiaoyucode.top/2019/06/19/hello-world/</loc>
-        <lastmod>2019-07-06T18:08:41.361Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
