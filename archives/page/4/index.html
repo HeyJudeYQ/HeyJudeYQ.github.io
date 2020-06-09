@@ -12,7 +12,7 @@
     
     
     
-    <title>v-for指令 | 小鱼儿</title>
+    <title>archive_a | 小鱼儿</title>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -71,7 +71,7 @@
             <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
 
             
-            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            <a href="/page/3" class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
             
         </div>
         <audio id="audio" src="/imgs/oni.mp3"></audio>
@@ -115,7 +115,7 @@
                 
                 
                 
-                <li class="">
+                <li class="current">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -184,34 +184,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
+                    <article class="article well article-body" id="article-archive">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="/">小鱼儿</a>
+        <a href="issummer.cn">小鱼儿</a>
         >
-        <span>v-for指令</span>
+        <span>归档</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/10/06/v-for/">v-for指令</a>
+                <a href="/archives">归档</a>
             </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/vue/">vue</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-10-06
-            </span>
-            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -219,49 +204,152 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/10/06/v-for/">v-for指令</a>
+                    <a href="/archives">归档</a>
                 </h4>
             </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2019-10-06
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/vue/">vue</a>
-                
-                
-                
-            </p>
         </center>
     </div>
-    <div class="content-article">
-        <p>v-for是比较常用的Vue指令,常用来渲染数据列表。</p>
-<a id="more"></a>
-
-<p>1、v-for指令需要使用item in List形式的语法，其中List是源数据数组，item是被迭代的数组元素的别名。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;li v-for=<span class="string">"item in List"</span>&gt;&#123;&#123;item.message&#125;&#125;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var example = new Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        List:[</span><br><span class="line">            &#123;message:<span class="string">'Jack'</span>&#125;,</span><br><span class="line">            &#123;message:<span class="string">'Rose'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>结果为：<br>    Jack<br>    Rose</p>
-<p>2、在v-for块中，我们可以访问所有的父作用域的属性，v-for还支持可选的第二个参数，即当前项的索引</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;li v-for=<span class="string">"（item,index) in List"</span>&gt;</span><br><span class="line">        &#123;&#123;parenMessage&#125;&#125; -  &#123;&#123; index &#125;&#125; - &#123;&#123;item.message&#125;&#125;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var example = new Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data:&#123;</span><br><span class="line">        parentMessage:<span class="string">'parent'</span>, </span><br><span class="line">        List:[</span><br><span class="line">            &#123;message:<span class="string">'Jack'</span>&#125;,</span><br><span class="line">            &#123;message:<span class="string">'Rose'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>结果为：<br>    parent-0-Jack<br>    parent-1-Rose</p>
-<p>我们可以使用of 替代 in 作为分隔符，因为它更接近JavaScript迭代器的语法</p>
-<div v-for="item of List"></div>
-
-
-<p>待续。。。。</p>
-
+    <div class="content-article" style="margin-top: 30px;">
+        
+        
+            <h1 style="font-size: 24px; margin-top: 40px;">2020年</h1>
+            
+        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+            
+             
+             
+                        <a href="/2020/06/09/popstate/">微信公众号网页禁止当前页面的返回-popstate</a>
+                        <br>
+            
+             
+                        <a href="/2020/06/05/rem/">移动设备rem和lib-flexible</a>
+                        <br>
+            
+             
+                        <a href="/2020/06/03/fastclick/">vue移动端项目300ms延迟在IOS11系统中的bug</a>
+                        <br>
+            
+             
+                        <a href="/2020/05/25/validate/">常用的校验-validate</a>
+                        <br>
+            
+             
+                        <a href="/2020/05/19/nrm/">nrm切换npm源</a>
+                        <br>
+            
+             
+                        <a href="/2020/05/13/vue-router/">关于vue-router路由守卫</a>
+                        <br>
+            
+             
+                        <a href="/2020/05/09/eslint/">.eslintrc.js 的配置</a>
+                        <br>
+            
+             
+                        <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
+                        <br>
+            
+             
+                        <a href="/2020/05/08/select/">下拉框select的option</a>
+                        <br>
+            
+             
+                        <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
+                        <br>
+            
+             
+                        <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
+                        <br>
+            
+             
+                        <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
+                        <br>
+            
+             
+                        <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
+                        <br>
+            
+             
+                        </div>
+                    <h1 style="font-size: 24px; margin-top: 40px;">2019年</h1>
+                    <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
+                 
+             
+                        <a href="/2019/12/30/Barcode/">H5扫码功能</a>
+                        <br>
+            
+             
+                        <a href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a>
+                        <br>
+            
+             
+                        <a href="/2019/11/02/vue-router-param/">Vue路由传参</a>
+                        <br>
+            
+             
+                        <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+                        <br>
+            
+             
+                        <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
+                        <br>
+            
+             
+                        <a href="/2019/10/23/git/">常用的git提交代码命令</a>
+                        <br>
+            
+             
+                        <a href="/2019/10/06/v-for/">v-for指令</a>
+                        <br>
+            
+             
+                        <a href="/2019/09/30/book/">我的随笔--持续更新。。。</a>
+                        <br>
+            
+             
+                        <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
+                        <br>
+            
+             
+                        <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
+                        <br>
+            
+             
+                        <a href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a>
+                        <br>
+            
+             
+                        <a href="/2019/08/01/url/">输入url到页面的加载完成发生了什么？</a>
+                        <br>
+            
+             
+                        <a href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a>
+                        <br>
+            
+             
+                        <a href="/2019/07/09/command/">常用的Linux命令</a>
+                        <br>
+            
+             
+                        <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+                        <br>
+            
+             
+                        <a href="/2019/07/03/ES6/">Class语法</a>
+                        <br>
+            
+             
+                        <a href="/2019/06/19/promise/">Promise</a>
+                        <br>
+            
+             
+                        <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Gal主题 + 阿里云域名搭建个人博客</a>
+                        <br>
+            
+                    </div>
+        
     </div>
 </article>
-
-
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -389,25 +477,31 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2020/05/19/nrm/">nrm切换npm源</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/13/vue-router/">关于vue-router路由守卫</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/11/02/vue-router-param/">Vue路由传参</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
                 </span>
             </li>
             
@@ -420,12 +514,6 @@
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/09/30/book/">我的随笔--持续更新。。。</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/08/09/fe/">用纯 JS 实现点击一个列表时，输出对应的索引号?</a>
                 </span>
             </li>
             
@@ -452,13 +540,13 @@
 
                 
                 <li>
-                    <a href="/2019/10/06/v-for/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/archives/page/4/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2019/10/06/v-for/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/archives/page/4/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -466,39 +554,39 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 10.6777676015211px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 11.191497840265752px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/H5、barcode/" style="font-size: 13.056539909342685px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 14.322205714015741px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/QRCode/" style="font-size: 16.287405699699075px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/QRCode/" style="font-size: 19.517677815690362px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/book/" style="font-size: 11.929061344279713px;" class="tag-cloud-link">book</a>
+    <a href="/tags/book/" style="font-size: 8.604346237423428px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/Linux/" style="font-size: 10.98602335318034px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/Linux/" style="font-size: 12.77514001988275px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 15.796692072954539px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 10.717285000771302px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 8.22863237964948px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 19.98025728022114px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/git/" style="font-size: 8.80458588927089px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 13.909629295281603px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/hexo/" style="font-size: 19.83685009545644px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 17.914140771111292px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 15.909089486092778px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 15.354828606630445px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/node/" style="font-size: 9.51378650720668px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 19.568489600357758px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 18.996804153407147px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 12.853808327344197px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 13.150576774446233px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 9.06814632576399px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 16.532720291886818px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/transparent、border/" style="font-size: 16.9980347266242px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 10.035197496972987px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 15.858991141129575px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/vue/" style="font-size: 10.281429461743011px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 14.134372381045932px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 19.710122650658242px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 12.232794029787392px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 

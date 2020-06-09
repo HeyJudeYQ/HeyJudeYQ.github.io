@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="issummer.cn/"/>
-  <updated>2020-06-04T00:57:14.750Z</updated>
+  <updated>2020-06-09T06:35:59.423Z</updated>
   <id>issummer.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信公众号网页禁止当前页面的返回-popstate</title>
+    <link href="issummer.cn/2020/06/09/popstate/"/>
+    <id>issummer.cn/2020/06/09/popstate/</id>
+    <published>2020-06-09T06:16:08.000Z</published>
+    <updated>2020-06-09T06:35:59.423Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在移动端禁止微信浏览器键返回键。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>移动设备rem和lib-flexible</title>
+    <link href="issummer.cn/2020/06/05/rem/"/>
+    <id>issummer.cn/2020/06/05/rem/</id>
+    <published>2020-06-05T01:16:20.000Z</published>
+    <updated>2020-06-05T01:30:13.269Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;移动端适配的目的：不同尺寸的移动设备，显示同样的 web 界面，相对性达到合理的展示。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>vue移动端项目300ms延迟在IOS11系统中的bug</title>
@@ -313,42 +345,6 @@
     
     
       <category term="vue" scheme="issummer.cn/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我的随笔--持续更新。。。</title>
-    <link href="issummer.cn/2019/09/30/book/"/>
-    <id>issummer.cn/2019/09/30/book/</id>
-    <published>2019-09-30T11:30:00.000Z</published>
-    <updated>2020-05-21T02:54:00.825Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如果累了，就停下来看看书，冷静一下。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="book" scheme="issummer.cn/tags/book/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Vue-cli3.0搭建项目</title>
-    <link href="issummer.cn/2019/09/30/vue-project/"/>
-    <id>issummer.cn/2019/09/30/vue-project/</id>
-    <published>2019-09-30T06:52:47.000Z</published>
-    <updated>2019-09-30T11:46:22.448Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;使用Vue-cli3.0搭建项目的流程：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Vue、Vue-cli" scheme="issummer.cn/tags/Vue%E3%80%81Vue-cli/"/>
     
   </entry>
   
