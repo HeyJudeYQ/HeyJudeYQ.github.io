@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="issummer.cn/"/>
-  <updated>2020-06-09T06:35:59.423Z</updated>
+  <updated>2020-06-10T08:06:52.241Z</updated>
   <id>issummer.cn/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javascript运行机制：event loop</title>
+    <link href="issummer.cn/2020/06/10/event-loop/"/>
+    <id>issummer.cn/2020/06/10/event-loop/</id>
+    <published>2020-06-10T07:31:37.000Z</published>
+    <updated>2020-06-10T08:06:52.241Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为什么JavaScript是单线程的呢？&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>微信公众号网页禁止当前页面的返回-popstate</title>
@@ -327,24 +343,6 @@
     
     
       <category term="git" scheme="issummer.cn/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>v-for指令</title>
-    <link href="issummer.cn/2019/10/06/v-for/"/>
-    <id>issummer.cn/2019/10/06/v-for/</id>
-    <published>2019-10-06T08:08:00.000Z</published>
-    <updated>2019-10-23T07:58:38.927Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;v-for是比较常用的Vue指令,常用来渲染数据列表。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="vue" scheme="issummer.cn/tags/vue/"/>
     
   </entry>
   

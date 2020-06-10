@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>issummer.cn/2020/06/10/event-loop/</loc>
+        <lastmod>2020-06-10T08:06:52.241Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>issummer.cn/2020/06/09/popstate/</loc>
         <lastmod>2020-06-09T06:35:59.423Z</lastmod>
         <changefreq>weekly</changefreq>

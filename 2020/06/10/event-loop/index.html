@@ -12,7 +12,7 @@
     
     
     
-    <title>tags: mongodb、redis | 小鱼儿</title>
+    <title>javascript运行机制：event loop | 小鱼儿</title>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -184,19 +184,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="issummer.cn">小鱼儿</a>
+        <a href="/">小鱼儿</a>
         >
-        <span>标签</span>
+        <span>javascript运行机制：event loop</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/tags/mongodb、redis/index.html">mongodb、redis</a>
+                <a href="/2020/06/10/event-loop/">javascript运行机制：event loop</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-06-10
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -204,21 +212,31 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/tags/mongodb、redis/index.html">mongodb、redis</a>
+                    <a href="/2020/06/10/event-loop/">javascript运行机制：event loop</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-06-10
+            </p>
+            <p>
+                
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <p>为什么JavaScript是单线程的呢？</p>
+<a id="more"></a>
+<h3 id="一、JavaScript是单线程"><a href="#一、JavaScript是单线程" class="headerlink" title="一、JavaScript是单线程"></a>一、JavaScript是单线程</h3><pre><code>什么是单线程呢？
+其实就是，同一个时间只能做一件事情。
+
+为什么JavaScript不能是多线程？多线程可以提高效率啊。
+答案是跟JavaScript的用途有关，JavaScript作为浏览器脚本语言，主要用途是与用户互动及操作DOM。这也决定了JavaScript只能是单线程，否则会带来复杂的同步问题。
+例如：假设JavaScript有两个线程，一个线程在某个DOM节点添加内容，一个线程删除了这个节点，这个时候浏览器应该以哪个线程为准呢？</code></pre><h3 id="二、任务队列"><a href="#二、任务队列" class="headerlink" title="二、任务队列"></a>二、任务队列</h3>
     </div>
 </article>
+
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -340,7 +358,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a>
+                    <a href="/2019/09/30/book/">我的随笔--持续更新。。。</a>
                 </span>
             </li>
             
@@ -352,31 +370,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
+                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
                     <a href="/2020/06/03/fastclick/">vue移动端项目300ms延迟在IOS11系统中的bug</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/19/nrm/">nrm切换npm源</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/06/19/promise/">Promise</a>
+                    <a href="/2020/06/05/rem/">移动设备rem和lib-flexible</a>
                 </span>
             </li>
             
@@ -388,13 +394,25 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/06/v-for/">v-for指令</a>
+                    <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2020/05/25/validate/">常用的校验-validate</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
                 </span>
             </li>
             
@@ -409,13 +427,13 @@
 
                 
                 <li>
-                    <a href="/tags/mongodb、redis/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2020/06/10/event-loop/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/tags/mongodb、redis/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2020/06/10/event-loop/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -423,39 +441,39 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/H5、barcode/" style="font-size: 14.634197390845442px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 9.93422859120508px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/QRCode/" style="font-size: 16.27475330334375px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/QRCode/" style="font-size: 9.60146524517451px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/book/" style="font-size: 14.146928389850556px;" class="tag-cloud-link">book</a>
+    <a href="/tags/book/" style="font-size: 13.911440912362554px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 14.225426164795625px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 17.58730154744902px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/Linux/" style="font-size: 16.153460958103143px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/Linux/" style="font-size: 16.06346039732551px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 12.95348180803841px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 8.913274693660906px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 15.754082925958496px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 17.79901990378513px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/git/" style="font-size: 18.786367730790484px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 9.665688211652288px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 15.010349098431771px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 14.254377510946235px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/hexo/" style="font-size: 10.714978487903242px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 19.75515594205284px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/node/" style="font-size: 13.114096807848743px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 11.938585939313155px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 8.375820031815534px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 17.485363145225882px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 10.20206564510291px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 15.290569408612892px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 10.310190177874464px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 10.07849365294916px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 16.193929253730797px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/transparent、border/" style="font-size: 12.646706207548421px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/vue/" style="font-size: 11.102642452723202px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 10.382172114895495px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 18.077029562231953px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 19.001359776662213px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 
