@@ -134,6 +134,10 @@
                         
                         
                         <li>
+                            <a href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/H5、barcode/">H5、barcode</a>
                         </li>
                         
@@ -142,15 +146,11 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/book/">book</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/ES6、JavaScript、Class/">ES6、JavaScript、Class</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/Linux/">Linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/book/">book</a>
                         </li>
                         
                         <li>
@@ -232,7 +232,25 @@
 
 为什么JavaScript不能是多线程？多线程可以提高效率啊。
 答案是跟JavaScript的用途有关，JavaScript作为浏览器脚本语言，主要用途是与用户互动及操作DOM。这也决定了JavaScript只能是单线程，否则会带来复杂的同步问题。
-例如：假设JavaScript有两个线程，一个线程在某个DOM节点添加内容，一个线程删除了这个节点，这个时候浏览器应该以哪个线程为准呢？</code></pre><h3 id="二、任务队列"><a href="#二、任务队列" class="headerlink" title="二、任务队列"></a>二、任务队列</h3>
+例如：假设JavaScript有两个线程，一个线程在某个DOM节点添加内容，一个线程删除了这个节点，这个时候浏览器应该以哪个线程为准呢？</code></pre><h3 id="二、任务队列"><a href="#二、任务队列" class="headerlink" title="二、任务队列"></a>二、任务队列</h3><pre><code>所有任务可以分成两种，一种是同步任务（synchronous），另一种是异步任务（asynchronous）。
+
+同步任务指的是，在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务；
+异步任务指的是，不进入主线程、而进入&quot;任务队列&quot;（task queue）的任务，只有&quot;任务队列&quot;通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。
+
+异步执行的运行机制如下：（同步执行可以看做是没有异步任务的异步执行）
+
+1、所有的同步任务都会在主线程上执行，形成一个执行栈；
+2、主线程外还有一个任务队列，只要异步任务有了运行结果，就在任务队列放置一个事件；
+3、一旦&quot;执行栈&quot;中的所有同步任务执行完毕，系统就会读取&quot;任务队列&quot;，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行;
+4、主线程不断重复上面的第三步。
+
+只要主线程空了，就会去读取&quot;任务队列&quot;，这就是JavaScript的运行机制。这个过程会不断重复。</code></pre><h3 id="三、event-loop"><a href="#三、event-loop" class="headerlink" title="三、event loop"></a>三、event loop</h3><pre><code>只要主线程空了，就会去读取&quot;任务队列&quot;，这就是JavaScript的运行机制。这个过程会不断重复。
+
+http://www.ruanyifeng.com/blogimg/asset/2014/bg2014100802.png
+
+主线程在运行时产生了堆、栈，栈中的代码调用外部API，它们在任务队列中加入各种事件。
+只要栈中的代码执行完毕，主线程就会去读取&quot;任务队列&quot;，依次执行那些事件所对应的回调函数。
+执行栈中的代码（同步任务），总是在读取&quot;任务队列&quot;（异步任务）之前执行。</code></pre>
     </div>
 </article>
 
@@ -358,25 +376,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/09/30/book/">我的随笔--持续更新。。。</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/04/22/Virtualkey/">使用Vue开发APP手机虚拟返回键点击退出应用解决办法</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/06/03/fastclick/">vue移动端项目300ms延迟在IOS11系统中的bug</a>
+                    <a href="/2020/06/09/popstate/">微信公众号网页禁止当前页面的返回-popstate</a>
                 </span>
             </li>
             
@@ -388,31 +388,49 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/25/validate/">常用的校验-validate</a>
+                    <a href="/2020/05/08/select/">下拉框select的option</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/09/30/book/">我的随笔--持续更新。。。</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/07/09/command/">常用的Linux命令</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Gal主题 + 阿里云域名搭建个人博客</a>
                 </span>
             </li>
             
@@ -441,39 +459,39 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/H5、barcode/" style="font-size: 9.93422859120508px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 9.154378479816916px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/QRCode/" style="font-size: 9.60146524517451px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 10.240034987512805px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/book/" style="font-size: 13.911440912362554px;" class="tag-cloud-link">book</a>
+    <a href="/tags/QRCode/" style="font-size: 10.840064099196347px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 17.58730154744902px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/Linux/" style="font-size: 16.338001296036673px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/Linux/" style="font-size: 16.06346039732551px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/book/" style="font-size: 11.939645224817895px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 8.913274693660906px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 16.82353090163747px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 17.79901990378513px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 19.943923154793662px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/git/" style="font-size: 9.665688211652288px;" class="tag-cloud-link">git</a>
+    <a href="/tags/hexo/" style="font-size: 14.072536597317159px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 14.254377510946235px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/git/" style="font-size: 14.549347862213825px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/hexo/" style="font-size: 19.75515594205284px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 9.026268754082063px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/node/" style="font-size: 11.938585939313155px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 10.588330377488955px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 17.485363145225882px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 12.82372928362334px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 15.290569408612892px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 18.645022689528787px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 10.07849365294916px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/transparent、border/" style="font-size: 9.12013361953374px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 12.646706207548421px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 15.132130235037126px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/vue/" style="font-size: 10.382172114895495px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 15.575154962511736px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 19.001359776662213px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 10.09635173698326px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 
