@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="issummer.cn/"/>
-  <updated>2020-06-11T01:17:33.030Z</updated>
+  <updated>2020-06-16T08:32:35.456Z</updated>
   <id>issummer.cn/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>localforage离线存储</title>
+    <link href="issummer.cn/2020/06/15/localforage/"/>
+    <id>issummer.cn/2020/06/15/localforage/</id>
+    <published>2020-06-15T07:53:12.000Z</published>
+    <updated>2020-06-16T08:32:35.456Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;localForage 是一个 JavaScript 库，通过简单类似 localStorage API 的异步存储来改进你的 Web 应用程序的离线体验。&lt;br&gt;它能存储多种类型的数据，而不仅仅是字符串。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="localforage、indexedDB" scheme="issummer.cn/tags/localforage%E3%80%81indexedDB/"/>
+    
+  </entry>
   
   <entry>
     <title>javascript运行机制：event loop</title>
@@ -325,24 +343,6 @@
     
     
       <category term="node" scheme="issummer.cn/tags/node/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用的git提交代码命令</title>
-    <link href="issummer.cn/2019/10/23/git/"/>
-    <id>issummer.cn/2019/10/23/git/</id>
-    <published>2019-10-23T06:22:29.000Z</published>
-    <updated>2020-06-02T01:44:13.479Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;日常开发使用的git提交代码的方法&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="issummer.cn/tags/git/"/>
     
   </entry>
   

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>issummer.cn/2020/06/15/localforage/</loc>
+    <lastmod>2020-06-16</lastmod>
+  </url>  <url>
+    <loc>issummer.cn/2019/09/30/book/</loc>
+    <lastmod>2020-06-15</lastmod>
+  </url>  <url>
     <loc>issummer.cn/2020/06/10/event-loop/</loc>
     <lastmod>2020-06-11</lastmod>
   </url>  <url>
@@ -30,9 +36,6 @@
   </url>  <url>
     <loc>issummer.cn/2020/05/25/validate/</loc>
     <lastmod>2020-05-25</lastmod>
-  </url>  <url>
-    <loc>issummer.cn/2019/09/30/book/</loc>
-    <lastmod>2020-05-21</lastmod>
   </url>  <url>
     <loc>issummer.cn/2019/11/02/vue-router-param/</loc>
     <lastmod>2020-05-21</lastmod>

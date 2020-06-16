@@ -12,7 +12,7 @@
     
     
     
-    <title>如何理解原型链中的prototype和__proto__？ | 小鱼儿</title>
+    <title>localforage离线存储 | 小鱼儿</title>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -190,13 +190,13 @@
         <i class="fa fa-home"></i>
         <a href="/">小鱼儿</a>
         >
-        <span>如何理解原型链中的prototype和__proto__？</span>
+        <span>localforage离线存储</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+                <a href="/2020/06/15/localforage/">localforage离线存储</a>
             </h1>
         </div>
         <div class="tag-article">
@@ -204,12 +204,12 @@
             <span class="label label-gal">
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a>
+                <a href="/tags/localforage、indexedDB/">localforage、indexedDB</a>
                 
             </span>
             
             <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-07-07
+                <i class="fa fa-calendar"></i> 2020-06-15
             </span>
             
         </div>
@@ -219,17 +219,17 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+                    <a href="/2020/06/15/localforage/">localforage离线存储</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-07-07
+                <i class="fa fa-calendar"></i> 2020-06-15
             </p>
             <p>
                 
                 <i class="fa fa-tags"></i>
                 
-                <a href="/tags/原型链、prototype、-proto/">原型链、prototype、__proto__</a>
+                <a href="/tags/localforage、indexedDB/">localforage、indexedDB</a>
                 
                 
                 
@@ -237,24 +237,43 @@
         </center>
     </div>
     <div class="content-article">
-        <p>JavaScript是动态的，本身不提供一个class实现。在ES2015/ES6中引入了class关键字，但那只是语法糖，JavaScript仍然是基于原型的。</p>
+        <p>localForage 是一个 JavaScript 库，通过简单类似 localStorage API 的异步存储来改进你的 Web 应用程序的离线体验。<br>它能存储多种类型的数据，而不仅仅是字符串。</p>
 <a id="more"></a>
-<h3 id="一、什么是原型链？"><a href="#一、什么是原型链？" class="headerlink" title="一、什么是原型链？"></a>一、什么是原型链？</h3><p>&emsp;&emsp;谈到继承时，JavaScript只有一种结构：<strong>对象</strong>。 
-MDN文档上是这样说的：每个实例对象（object）都有一个私有属性（称之为<code>__proto__</code>）指向它的构造函数的原型对象（prototype）。该原型对象也有一个自己的原型对象（<code>__proto__</code>）,层层向上直到一个对象的原型对象为null。根据定义，null没有原型，并作为这个原型链中的最后一个环节。</p>
-<h3 id="二、换种方式理解原型链？"><a href="#二、换种方式理解原型链？" class="headerlink" title="二、换种方式理解原型链？"></a>二、换种方式理解原型链？</h3><p>&emsp;&emsp;之前在慕课网上，听过一个讲师举了一个很有趣的例子来介绍什么是prototype（当时偷偷的用手机截了图^o^）:<br>&emsp;&emsp;简单粗暴一点，我们把prototype理解成一个“备胎”,手艺还是祖传的。有一个姑娘不会修电脑，自己也不想学，就去找prototype说你学学吧，学好了帮我把修电脑这活儿做好,<br>prototype学会了修电脑之后,这个姑娘电脑有问题就会去找prototype,其他的姑娘再想修电脑时候，prototype这修电脑的技术也能直接拿出来用。<br>后来，又有姑娘请prototype帮忙诊个脉,prototype没有地方学,就往祖上一辈辈的问去，后来了解到他爷爷会诊脉，后来再有人找他诊脉，prototype就把病人带着找它爷爷。<br>再后来，又有一个姑娘让prototype给她造个机器人，prototype问遍了祖上，没人会这门技术，只能告诉这姑娘null了。</p>
-<h3 id="三、为什么需要原型和原型链？"><a href="#三、为什么需要原型和原型链？" class="headerlink" title="三、为什么需要原型和原型链？"></a>三、为什么需要原型和原型链？</h3><p>&emsp;&emsp;看一个小例子：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name,age)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">    this.age  = age;</span><br><span class="line">    this.eat  = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        console.log(age + <span class="string">"岁的"</span> + name + <span class="string">"在吃饭"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> p1 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line"><span class="built_in">let</span> p2 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line">console.log(p1.eat === p2.eat);  //<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>localForage 有一个优雅降级策略，若浏览器不支持 IndexedDB 或 WebSQL，则使用 localStorage。在所有主流浏览器中都可用：Chrome，Firefox，IE 和 Safari（包括 Safari Mobile）。</p>
+<p>localForage 提供回调 API 同时也支持 ES6 Promises API。</p>
+<h3 id="一、localforage的安装"><a href="#一、localforage的安装" class="headerlink" title="一、localforage的安装"></a>一、localforage的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 使用npm安装</span><br><span class="line">npm install localforage</span><br><span class="line">// 引入localforage</span><br><span class="line">&lt;script src=&quot;localforage.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">// cdn引入</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/localforage/1.7.4/localforage.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;我们发现上面的例子,对于同一个函数,我们可以通过new生成出来的实例,p1和p2的eat是不同的。我们想个办法，建立一个类似于共享库的对象，这样就可以在需要的时候，调用一个类似共享库的对象，让实例能够沿着某个“线索”去找到自己的归处。<br>这个“线索”就是我们的原型链 prototype。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> Person(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">//通过构造函数的Person的prototype属性找到Person的原型对象</span><br><span class="line">Person.prototype.eat = <span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">    console.log(<span class="string">"吃饭"</span>)；</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">let</span> p1 = new Person(<span class="string">"YQ"</span>,27);</span><br><span class="line"><span class="built_in">let</span> p2 = new Person(<span class="string">"于齐"</span>,27)</span><br><span class="line"></span><br><span class="line">console.log(p1.eat === p2.eat);//<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="二、数据API"><a href="#二、数据API" class="headerlink" title="二、数据API"></a>二、数据API</h3><p>与localStorage有很多相似的用法。</p>
+<p>1、getItem</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 获取离线存储</span><br><span class="line">localforage.getItem(&quot;somekey&quot;).then(function(value)&#123;</span><br><span class="line">    // 当离线仓库中的值被载入时，此处运行</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    // 出错时</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 回调版本的写法</span><br><span class="line">localforage.getItem(&quot;somekey&quot;,function(err,value)&#123;</span><br><span class="line">    // 当离线仓库中的值被载入时，运行</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;通过分享的形式，这两个实例对象指向相同的位置了，也就是我们想要创建的共享库的对象。</p>
-<h3 id="四、prototype是什么玩意儿呢？"><a href="#四、prototype是什么玩意儿呢？" class="headerlink" title="四、prototype是什么玩意儿呢？"></a>四、prototype是什么玩意儿呢？</h3><p>知乎上有一篇文章（<a href="https://zhuanlan.zhihu.com/p/22989691）" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22989691）</a> 写的很好，总结一下就是：<br>1、JavaScript本源是空的，即：null,这个就是JavaScript的“始祖”；</p>
-<p>2、null通过<code>__proto__</code>产生了NO1,即：<code>NO1.__proto__ == null</code>;  </p>
-<p>3、NO1根据自己的原型prototype创建了对象Object，即：<code>Object.prototype == NO1</code>;</p>
-<p>4、<code>NO1.__proto__ == null</code>,我们把prototype叫做原型，好比Object的原型是神，同时<strong>proto</strong>叫做原型链，有了这个<strong>proto</strong>，Object、NO1、JS之间才有联系，此时，<code>Object.prototype.__proto__ == null</code>，</p>
-<p>5、有几条公式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object.__proto__ === Function.prototype;</span><br><span class="line">Function.prototype.__proto__ === Object.prototype;</span><br><span class="line">Object.prototype.__proto__ === null;</span><br></pre></td></tr></table></figure>
+<p>从仓库中获取key对应的值并将结果提交给回调函数。如果key不存在，getItem()将返回null;</p>
+<p>当存储undefined时，getItem()也会返回null。由于localStorage限制，同时出于兼容性的原因localforage无法存储undefined。</p>
+<p>2、setItem</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// 设置存储</span><br><span class="line">localforage.setItem(&quot;somekey&quot;,&quot;some value&quot;).then(function(value)&#123;</span><br><span class="line">    // 当值被存储后，可执行其他操作</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    // 出错了</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 可以存储非字符串类型  这点不同于localStorage</span><br><span class="line">localforage.setItem(&quot;my array&quot;,[1,2,&quot;three&quot;]).then(function(value)&#123;</span><br><span class="line">    console.log(value[0])  // 打印结果为1</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 存储ajax  响应返回的二进制数据</span><br><span class="line">req = new XMLHttpRequest();</span><br><span class="line">req.open(&quot;GET&quot;,&apos;./photo.jpg&apos;,true);</span><br><span class="line">req.responseType = &quot;arraybuffer&quot;;</span><br><span class="line"></span><br><span class="line">req.addEventListen(&quot;readystatechange&quot;,function()&#123;</span><br><span class="line">    if(req.readyState ===4)&#123;</span><br><span class="line">        localforage.setItem(&quot;photo&quot;,req.response).then(function(image)&#123;</span><br><span class="line">            // 合法的img标签blob</span><br><span class="line">            var blob = new Blob(image);</span><br><span class="line">            var imageURI = window.URL.createObjectURL(blob);</span><br><span class="line">        &#125;).catch(function(err)&#123;</span><br><span class="line">            console.log(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>将数据库保存到离线仓库，可以存储的对象有：</p>
+<p>Array / ArrayBuffer / Blob / Float32Array / Float32Array<br>Float64Array / Int8Array / Int16Array / Int32Array<br>/ Number / Object / Uint8Array / Uint8ClampedArray<br>/ Uint16Array / Uint32Array / String</p>
+<p>3、removeItem<br>在离线仓库中删除对应的key值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">localforage.removeItem(&quot;somekey&quot;).then(function()&#123;</span><br><span class="line">    console.log(&quot;somekey is cleared&quot;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>4、clear<br>从数据库删除所有的key，重置数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">localforage.clear().then(function()&#123;</span><br><span class="line">    // 当数据库被全部删除后，此处代码运行</span><br><span class="line">    console.log(&quot;Database is now empty&quot;);</span><br><span class="line">&#125;).catch(function(err) &#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>localforage.clear()将会删除离线仓库里的所有值。谨慎使用！！！</p>
+<p>5、length<br>离线仓库的key的数量，数据仓库的长度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">localforage.length().then(function(numberOfKeys)&#123;</span><br><span class="line">    // 输出数据库的大小</span><br><span class="line">    console.log(numberOfKeys);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>6、key<br>实例：  根据key的索引获取其名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">localforage.key(2).then(function(keyName)&#123;</span><br><span class="line">    console.log(keyName);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>7、keys<br>实例：  获取数据仓库中所有的 key。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">localforage.keys().then(function(keys)&#123;</span><br><span class="line">    console.log(keys);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>8、iterate<br>迭代数据仓库中的所有value/key键值对。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">localforage.iterate(function(value,key,iterationNumber)&#123;</span><br><span class="line">    // 将对所有的key/value键值对运行</span><br><span class="line">    console.log([key,value]);</span><br><span class="line">&#125;).then(function()&#123;</span><br><span class="line">    console.log(&quot;Iteration has completed&quot;);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 1、value为值 2、key为键名 3、iterationNumber为迭代索引-数字</span><br><span class="line"></span><br><span class="line">localforage.iterate(function(value,key,iterationNumber)&#123;</span><br><span class="line">    if(iterationNumber &lt; 3&gt;)&#123;</span><br><span class="line">        console.log([key,value]);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return [key,value]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(function(result)&#123;</span><br><span class="line">    console.log(&quot;Iteration has completed,last iterated pair;&quot;);</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
     </div>
 </article>
 
@@ -380,7 +399,7 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/10/event-loop/">javascript运行机制：event loop</a>
+                    <a href="/2020/06/15/localforage/">localforage离线存储</a>
                 </span>
             </li>
             
@@ -392,49 +411,49 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/13/vue-router/">关于vue-router路由守卫</a>
+                    <a href="/2020/05/19/nrm/">nrm切换npm源</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/30/Barcode/">H5扫码功能</a>
+                    <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+                    <a href="/2020/05/08/select/">下拉框select的option</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/06/v-for/">v-for指令</a>
+                    <a href="/2020/05/07/vue-question/">vue项目中遇到的问题</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
+                    <a href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/07/09/debounce-throttling/">防抖（debounce）和节流（throttle）</a>
+                    <a href="/2019/09/30/book/">我的随笔--持续更新。。。</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/07/09/command/">常用的Linux命令</a>
+                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Gal主题 + 阿里云域名搭建个人博客</a>
+                    <a href="/2019/07/03/ES6/">Class语法</a>
                 </span>
             </li>
             
@@ -449,13 +468,13 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
 
                 
                 <li>
-                    <a href="/2019/07/07/prototype/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2020/06/15/localforage/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2019/07/07/prototype/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2020/06/15/localforage/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -463,41 +482,41 @@ MDN文档上是这样说的：每个实例对象（object）都有一个私有�
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 9.59360556357404px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 15.308895540178401px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/QRCode/" style="font-size: 16.938808321742897px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/QRCode/" style="font-size: 8.515442280848358px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/book/" style="font-size: 13.530285460289718px;" class="tag-cloud-link">book</a>
+    <a href="/tags/book/" style="font-size: 18.886733898920895px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/H5、barcode/" style="font-size: 14.591515542460204px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 16.034748337288683px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 14.585971213529499px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 15.899022390491565px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/Linux/" style="font-size: 15.862362470169824px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/Linux/" style="font-size: 17.635095349686548px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 16.60082910840535px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 8.477844012785383px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/hexo/" style="font-size: 10.977419994034046px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 17.611457205993236px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 11.257315758033938px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 18.213876097816303px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/localforage、indexedDB/" style="font-size: 19.74498695972212px;" class="tag-cloud-link">localforage、indexedDB</a>
+    <a href="/tags/localforage、indexedDB/" style="font-size: 13.79624552357351px;" class="tag-cloud-link">localforage、indexedDB</a>
     
-    <a href="/tags/git/" style="font-size: 11.404826678680186px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 15.044775536260541px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 10.770785492503661px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 9.600460224652906px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 15.705870380465022px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 17.728147098471258px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/node/" style="font-size: 13.507860698001949px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 18.768950687947545px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 10.165733740084773px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/transparent、border/" style="font-size: 9.123699657594948px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 9.133922275898398px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 14.150693735201017px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/vue/" style="font-size: 9.661957994992433px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 18.81021575683565px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 11.618135093274214px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 9.000772312684463px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 
