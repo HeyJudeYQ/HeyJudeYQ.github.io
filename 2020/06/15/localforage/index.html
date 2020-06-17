@@ -142,19 +142,19 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/book/">book</a>
-                        </li>
-                        
-                        <li>
                             <a href="/tags/H5、barcode/">H5、barcode</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/debounce、throttle/">debounce、throttle</a>
+                            <a href="/tags/book/">book</a>
                         </li>
                         
                         <li>
                             <a href="/tags/Linux/">Linux</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/debounce、throttle/">debounce、throttle</a>
                         </li>
                         
                         
@@ -241,10 +241,10 @@
 <a id="more"></a>
 <p>localForage 有一个优雅降级策略，若浏览器不支持 IndexedDB 或 WebSQL，则使用 localStorage。在所有主流浏览器中都可用：Chrome，Firefox，IE 和 Safari（包括 Safari Mobile）。</p>
 <p>localForage 提供回调 API 同时也支持 ES6 Promises API。</p>
-<h3 id="一、localforage的安装"><a href="#一、localforage的安装" class="headerlink" title="一、localforage的安装"></a>一、localforage的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 使用npm安装</span><br><span class="line">npm install localforage</span><br><span class="line">// 引入localforage</span><br><span class="line">&lt;script src=&quot;localforage.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">// cdn引入</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/localforage/1.7.4/localforage.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="一、localforage的安装"><a href="#一、localforage的安装" class="headerlink" title="一、localforage的安装"></a>一、localforage的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 使用npm安装</span><br><span class="line">npm install localforage</span><br><span class="line"></span><br><span class="line">// 引入localforage</span><br><span class="line">&lt;script src=&quot;localforage.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">// cdn引入</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/localforage/1.7.4/localforage.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="二、数据API"><a href="#二、数据API" class="headerlink" title="二、数据API"></a>二、数据API</h3><p>与localStorage有很多相似的用法。</p>
-<p>1、getItem</p>
+<p>1、getItem  获取离线存储</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 获取离线存储</span><br><span class="line">localforage.getItem(&quot;somekey&quot;).then(function(value)&#123;</span><br><span class="line">    // 当离线仓库中的值被载入时，此处运行</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    // 出错时</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 回调版本的写法</span><br><span class="line">localforage.getItem(&quot;somekey&quot;,function(err,value)&#123;</span><br><span class="line">    // 当离线仓库中的值被载入时，运行</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>从仓库中获取key对应的值并将结果提交给回调函数。如果key不存在，getItem()将返回null;</p>
@@ -273,6 +273,13 @@
 <p>8、iterate<br>迭代数据仓库中的所有value/key键值对。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">localforage.iterate(function(value,key,iterationNumber)&#123;</span><br><span class="line">    // 将对所有的key/value键值对运行</span><br><span class="line">    console.log([key,value]);</span><br><span class="line">&#125;).then(function()&#123;</span><br><span class="line">    console.log(&quot;Iteration has completed&quot;);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 1、value为值 2、key为键名 3、iterationNumber为迭代索引-数字</span><br><span class="line"></span><br><span class="line">localforage.iterate(function(value,key,iterationNumber)&#123;</span><br><span class="line">    if(iterationNumber &lt; 3&gt;)&#123;</span><br><span class="line">        console.log([key,value]);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return [key,value]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).then(function(result)&#123;</span><br><span class="line">    console.log(&quot;Iteration has completed,last iterated pair;&quot;);</span><br><span class="line">    console.log(result);</span><br><span class="line">&#125;).catch(function(err)&#123;</span><br><span class="line">    console.log(err);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+<h3 id="三、设置API"><a href="#三、设置API" class="headerlink" title="三、设置API"></a>三、设置API</h3><p>1、setDriver 设置特定的驱动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 强制设定localStorage为后端驱动</span><br><span class="line">localforage.setDriver(localforage.LOCALSTORAGE);</span><br><span class="line"></span><br><span class="line">// 列出可选的驱动，以优先级排序</span><br><span class="line">localforage.setDriver([localforage.WEBSQL,localforage.INDEXEDDB])</span><br></pre></td></tr></table></figure>
+
+<p>2、config  重命名数据库、设定驱动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 将数据库从 “localforage” 重命名为 “Hipster PDA App”</span><br><span class="line">localforage.config(&#123;</span><br><span class="line">    name: &apos;Hipster PDA App&apos;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 将强制使用 localStorage 作为存储驱动，即使其他驱动可用。</span><br><span class="line">// 可用配置代替 `setDriver()`。</span><br><span class="line">localforage.config(&#123;</span><br><span class="line">    driver: localforage.LOCALSTORAGE,</span><br><span class="line">    name: &apos;I-heart-localStorage&apos;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 配置不同的驱动优先级</span><br><span class="line">localforage.config(&#123;</span><br><span class="line">    driver: [localforage.WEBSQL,</span><br><span class="line">             localforage.INDEXEDDB,</span><br><span class="line">             localforage.LOCALSTORAGE],</span><br><span class="line">    name: &apos;WebSQL-Rox&apos;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>设置 localforage 选项。在调用 localforage 前必先调用它，但可以在 localforage 被加载后调用。使用此方法设置的任何配置值都将保留，即使在驱动更改后，所以你也可以先调用 config() 再次调用 setDriver()</p>
 
     </div>
 </article>
@@ -411,12 +418,6 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/19/nrm/">nrm切换npm源</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
                 </span>
             </li>
@@ -435,7 +436,7 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/30/QRCode/">如何使用QRCode生成二维码？</a>
+                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
                 </span>
             </li>
             
@@ -447,13 +448,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/09/30/vue-project/">使用Vue-cli3.0搭建项目</a>
+                    <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
                     <a href="/2019/07/03/ES6/">Class语法</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/06/19/promise/">Promise</a>
                 </span>
             </li>
             
@@ -482,41 +489,41 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 15.308895540178401px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 9.70940607692732px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/QRCode/" style="font-size: 8.515442280848358px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/QRCode/" style="font-size: 12.913511822265537px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/book/" style="font-size: 18.886733898920895px;" class="tag-cloud-link">book</a>
+    <a href="/tags/H5、barcode/" style="font-size: 11.666887357219842px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/H5、barcode/" style="font-size: 16.034748337288683px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/book/" style="font-size: 11.828719847400802px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 15.899022390491565px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/Linux/" style="font-size: 16.81556658220173px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/Linux/" style="font-size: 17.635095349686548px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 14.666942145171426px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 8.477844012785383px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/hexo/" style="font-size: 10.115978786123044px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/hexo/" style="font-size: 17.611457205993236px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 19.235725735251194px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 18.213876097816303px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/git/" style="font-size: 14.14607847689189px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/localforage、indexedDB/" style="font-size: 13.79624552357351px;" class="tag-cloud-link">localforage、indexedDB</a>
+    <a href="/tags/localforage、indexedDB/" style="font-size: 17.67836677366637px;" class="tag-cloud-link">localforage、indexedDB</a>
     
-    <a href="/tags/git/" style="font-size: 15.044775536260541px;" class="tag-cloud-link">git</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 8.217111113881451px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 9.600460224652906px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 11.101500399236315px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 17.728147098471258px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 15.76313773673726px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/node/" style="font-size: 18.768950687947545px;" class="tag-cloud-link">node</a>
+    <a href="/tags/transparent、border/" style="font-size: 10.5687407827048px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 9.123699657594948px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 9.685448036347317px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 14.150693735201017px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/node/" style="font-size: 13.721431096740258px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/vue/" style="font-size: 18.81021575683565px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 10.302546504919956px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 9.000772312684463px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/vue/" style="font-size: 18.87301558925924px;" class="tag-cloud-link">vue</a>
     
 </div>
                 
