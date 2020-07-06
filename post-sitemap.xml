@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>issummer.cn/2020/07/06/DOMContentLoaded/</loc>
+        <lastmod>2020-07-06T07:30:59.024Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>issummer.cn/2020/06/24/vue-template/</loc>
+        <lastmod>2020-06-24T01:47:31.320Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>issummer.cn/2020/06/15/localforage/</loc>
-        <lastmod>2020-06-16T08:32:35.456Z</lastmod>
+        <lastmod>2020-06-17T01:54:14.979Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
