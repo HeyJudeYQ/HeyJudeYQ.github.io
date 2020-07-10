@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="issummer.cn/"/>
-  <updated>2020-07-10T06:26:34.539Z</updated>
+  <updated>2020-07-10T06:27:59.688Z</updated>
   <id>issummer.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>es6-letzan暂时性死区</title>
+    <title>es6-let暂时性死区</title>
     <link href="issummer.cn/2020/07/10/let/"/>
     <id>issummer.cn/2020/07/10/let/</id>
     <published>2020-07-10T06:05:07.000Z</published>
-    <updated>2020-07-10T06:26:34.539Z</updated>
+    <updated>2020-07-10T06:27:59.688Z</updated>
     
     <summary type="html">
     
