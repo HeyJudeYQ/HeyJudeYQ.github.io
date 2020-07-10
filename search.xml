@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>es6-letzan暂时性死区</title>
+    <url>/2020/07/10/let/</url>
+    <content><![CDATA[<p>ES6声明变量的方法是let name = “Jude”。</p>
+<a id="more"></a>
+<h3 id="一、声明变量"><a href="#一、声明变量" class="headerlink" title="一、声明变量"></a>一、声明变量</h3><p>let声明变量的方法类似于var，并且可以替代var声明变量，let声明的变量只在代码块内生效。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 声明变量</span><br><span class="line">let name = &quot;Jude&quot;;</span><br><span class="line">// 和var的区别</span><br><span class="line">&#123;</span><br><span class="line">    let a = &quot;Hello ES6&quot;;</span><br><span class="line">    var b = &quot;Hello ES5&quot;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a);// ReferenceError: a is not defined</span><br><span class="line">console.log(b);// Hello ES5</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、暂时性死区"><a href="#二、暂时性死区" class="headerlink" title="二、暂时性死区"></a>二、暂时性死区</h3><p>在变量声明前，使用这个变量就会报错。<br>在代码块内，使用 let 命令声明变量之前，该变量都是不可用的。这在语法上，称为 “暂时性死区”（temporal dead zone，简称 TDZ）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    console.log(a); // ReferenceError:a is not defined</span><br><span class="line">    let a = &quot;Jude&quot;;</span><br><span class="line">    console.log(a);// Jude</span><br><span class="line">&#125;</span><br><span class="line">// 这里我们使用typeof也会出现错误</span><br><span class="line">&#123;</span><br><span class="line">    console.log(typeof a); //Uncaught ReferenceError: Cannot access &apos;name&apos; before initialization</span><br><span class="line">    let a = &quot;Jude&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>DOMContentLoaded</title>
     <url>/2020/07/06/DOMContentLoaded/</url>
     <content><![CDATA[<p>DOMContentLoaded顾名思义就是DOM内容加载完毕。</p>

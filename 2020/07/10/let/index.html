@@ -12,7 +12,7 @@
     
     
     
-    <title>Hexo + Github Pages + Gal主题 + 阿里云域名搭建个人博客 | 小鱼儿</title>
+    <title>es6-letzan暂时性死区 | 小鱼儿</title>
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
@@ -190,26 +190,19 @@
         <i class="fa fa-home"></i>
         <a href="/">小鱼儿</a>
         >
-        <span>Hexo + Github Pages + Gal主题 + 阿里云域名搭建个人博客</span>
+        <span>es6-letzan暂时性死区</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Gal主题 + 阿里云域名搭建个人博客</a>
+                <a href="/2020/07/10/let/">es6-letzan暂时性死区</a>
             </h1>
         </div>
         <div class="tag-article">
             
             <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/hexo/">hexo</a>
-                
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-06-19
+                <i class="fa fa-calendar"></i> 2020-07-10
             </span>
             
         </div>
@@ -219,41 +212,26 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/06/19/hello-world/">Hexo + Github Pages + Gal主题 + 阿里云域名搭建个人博客</a>
+                    <a href="/2020/07/10/let/">es6-letzan暂时性死区</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-06-19
+                <i class="fa fa-calendar"></i> 2020-07-10
             </p>
             <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/hexo/">hexo</a>
-                
                 
                 
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p>Hexo 常用命令</p>
+        <p>ES6声明变量的方法是let name = “Jude”。</p>
 <a id="more"></a>
+<h3 id="一、声明变量"><a href="#一、声明变量" class="headerlink" title="一、声明变量"></a>一、声明变量</h3><p>let声明变量的方法类似于var，并且可以替代var声明变量，let声明的变量只在代码块内生效。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 声明变量</span><br><span class="line">let name = &quot;Jude&quot;;</span><br><span class="line">// 和var的区别</span><br><span class="line">&#123;</span><br><span class="line">    let a = &quot;Hello ES6&quot;;</span><br><span class="line">    var b = &quot;Hello ES5&quot;;</span><br><span class="line">&#125;</span><br><span class="line">console.log(a);// ReferenceError: a is not defined</span><br><span class="line">console.log(b);// Hello ES5</span><br></pre></td></tr></table></figure>
 
-<h3 id="一、Create-a-new-post-–创建新文章"><a href="#一、Create-a-new-post-–创建新文章" class="headerlink" title="一、Create a new post –创建新文章"></a>一、Create a new post –创建新文章</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="二、Create-a-new-page-–创建新页面"><a href="#二、Create-a-new-page-–创建新页面" class="headerlink" title="二、Create a new page –创建新页面"></a>二、Create a new page –创建新页面</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page <span class="string">"pageName"</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="三、Run-server-–启动服务器"><a href="#三、Run-server-–启动服务器" class="headerlink" title="三、Run server –启动服务器"></a>三、Run server –启动服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server  简写：hexo s</span><br></pre></td></tr></table></figure>
-
-<h3 id="四、Generate-static-files-–生成静态文件"><a href="#四、Generate-static-files-–生成静态文件" class="headerlink" title="四、Generate static files –生成静态文件"></a>四、Generate static files –生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate --生成静态文件   简写： hexo g</span><br></pre></td></tr></table></figure>
-
-<h3 id="五、Deploy-to-remote-sites-–部署到远程站点"><a href="#五、Deploy-to-remote-sites-–部署到远程站点" class="headerlink" title="五、Deploy to remote sites –部署到远程站点"></a>五、Deploy to remote sites –部署到远程站点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy --部署文章   简写：hexo d</span><br></pre></td></tr></table></figure>
-
-<h3 id="六、hexo常用命令"><a href="#六、hexo常用命令" class="headerlink" title="六、hexo常用命令"></a>六、hexo常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new page <span class="string">"pageName"</span>  <span class="comment">#新建页面</span></span><br><span class="line">$ hexo new <span class="string">"postName"</span>   <span class="comment">#新建页面</span></span><br><span class="line">$ hexo generate  <span class="comment">#生成静态页面至public目录  简写：hexo g</span></span><br><span class="line">$ hexo server  <span class="comment">#开始预览访问端口（默认端口4000，Ctrl + C终止server） 简写：hexo s</span></span><br><span class="line">$ hexo deploy  <span class="comment">#部署到GitHub 简写：hexo d</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="七、Github根目录下创建CNAME文件（无后缀）"><a href="#七、Github根目录下创建CNAME文件（无后缀）" class="headerlink" title="七、Github根目录下创建CNAME文件（无后缀）"></a>七、Github根目录下创建CNAME文件（无后缀）</h3><p>在CNAME文件里面填写我的域名（加不加www看自己的喜好），下面是我的Github根目录下创建的CANAME文件。<br>阿里云域名解析过程不详细赘述……</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ issummer.cn</span><br></pre></td></tr></table></figure>
+<h3 id="二、暂时性死区"><a href="#二、暂时性死区" class="headerlink" title="二、暂时性死区"></a>二、暂时性死区</h3><p>在变量声明前，使用这个变量就会报错。<br>在代码块内，使用 let 命令声明变量之前，该变量都是不可用的。这在语法上，称为 “暂时性死区”（temporal dead zone，简称 TDZ）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    console.log(a); // ReferenceError:a is not defined</span><br><span class="line">    let a = &quot;Jude&quot;;</span><br><span class="line">    console.log(a);// Jude</span><br><span class="line">&#125;</span><br><span class="line">// 这里我们使用typeof也会出现错误</span><br><span class="line">&#123;</span><br><span class="line">    console.log(typeof a); //Uncaught ReferenceError: Cannot access &apos;name&apos; before initialization</span><br><span class="line">    let a = &quot;Jude&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -387,55 +365,55 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/10/event-loop/">javascript运行机制：event loop</a>
+                    <a href="/2020/06/15/localforage/">localforage离线存储</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/04/30/iterm2/">iTerm2快捷键</a>
+                    <a href="/2020/06/09/popstate/">微信公众号网页禁止当前页面的返回-popstate</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/04/28/search/">移动端页面自定义input唤起键盘return，换行改为搜索</a>
+                    <a href="/2020/06/05/rem/">移动设备rem和lib-flexible</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/24/mongodb-redis/">mongodb-redis</a>
+                    <a href="/2020/06/03/fastclick/">vue移动端项目300ms延迟在IOS11系统中的bug</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/23/node/">node版本管理--升级和降级</a>
+                    <a href="/2020/05/13/vue-router/">关于vue-router路由守卫</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/10/23/git/">常用的git提交代码命令</a>
+                    <a href="/2020/05/08/time/">解决vue项目热更新、启动和打包时间过长的问题</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/08/10/trangel/">如何使用CSS画三角形</a>
+                    <a href="/2020/05/08/select/">下拉框select的option</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/07/07/prototype/">如何理解原型链中的prototype和__proto__？</a>
+                    <a href="/2019/11/02/vue-router-param/">Vue路由传参</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/06/19/promise/">Promise</a>
+                    <a href="/2019/07/09/command/">常用的Linux命令</a>
                 </span>
             </li>
             
@@ -450,13 +428,13 @@
 
                 
                 <li>
-                    <a href="/2019/06/19/hello-world/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/2020/07/10/let/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 
                 <li>
-                    <a href="/2019/06/19/hello-world/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/2020/07/10/let/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -464,41 +442,41 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/QRCode/" style="font-size: 10.822459294223457px;" class="tag-cloud-link">QRCode</a>
+    <a href="/tags/QRCode/" style="font-size: 19.51476938332747px;" class="tag-cloud-link">QRCode</a>
     
-    <a href="/tags/H5、barcode/" style="font-size: 11.178744035416745px;" class="tag-cloud-link">H5、barcode</a>
+    <a href="/tags/H5、barcode/" style="font-size: 15.169188471901613px;" class="tag-cloud-link">H5、barcode</a>
     
-    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 16.859145055528096px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
+    <a href="/tags/ES6、JavaScript、Class/" style="font-size: 19.349157064106187px;" class="tag-cloud-link">ES6、JavaScript、Class</a>
     
-    <a href="/tags/Linux/" style="font-size: 11.991908309011388px;" class="tag-cloud-link">Linux</a>
+    <a href="/tags/Linux/" style="font-size: 10.132368744969956px;" class="tag-cloud-link">Linux</a>
     
-    <a href="/tags/book/" style="font-size: 10.328515889323414px;" class="tag-cloud-link">book</a>
+    <a href="/tags/book/" style="font-size: 12.249022688437734px;" class="tag-cloud-link">book</a>
     
-    <a href="/tags/debounce、throttle/" style="font-size: 17.117297789058338px;" class="tag-cloud-link">debounce、throttle</a>
+    <a href="/tags/debounce、throttle/" style="font-size: 15.268230432401761px;" class="tag-cloud-link">debounce、throttle</a>
     
-    <a href="/tags/hexo/" style="font-size: 8.162946080301964px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/hexo/" style="font-size: 15.19901274807589px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 13.274869187025311px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
+    <a href="/tags/纯JS、事件监听-委托、立即执行函数/" style="font-size: 12.767064214419815px;" class="tag-cloud-link">纯JS、事件监听/委托、立即执行函数</a>
     
-    <a href="/tags/mongodb、redis/" style="font-size: 8.725870699896674px;" class="tag-cloud-link">mongodb、redis</a>
+    <a href="/tags/mongodb、redis/" style="font-size: 12.922675583739446px;" class="tag-cloud-link">mongodb、redis</a>
     
-    <a href="/tags/localforage、indexedDB/" style="font-size: 18.127392207297184px;" class="tag-cloud-link">localforage、indexedDB</a>
+    <a href="/tags/localforage、indexedDB/" style="font-size: 17.542205741658087px;" class="tag-cloud-link">localforage、indexedDB</a>
     
-    <a href="/tags/git/" style="font-size: 11.611351292111129px;" class="tag-cloud-link">git</a>
+    <a href="/tags/git/" style="font-size: 8.84324741325928px;" class="tag-cloud-link">git</a>
     
-    <a href="/tags/node/" style="font-size: 13.236649102128728px;" class="tag-cloud-link">node</a>
+    <a href="/tags/node/" style="font-size: 12.768255398777221px;" class="tag-cloud-link">node</a>
     
-    <a href="/tags/Javascript、Promise/" style="font-size: 9.825142545751818px;" class="tag-cloud-link">Javascript、Promise</a>
+    <a href="/tags/Javascript、Promise/" style="font-size: 19.31915754908894px;" class="tag-cloud-link">Javascript、Promise</a>
     
-    <a href="/tags/原型链、prototype、-proto/" style="font-size: 10.102162360315681px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
+    <a href="/tags/原型链、prototype、-proto/" style="font-size: 8.803732131653156px;" class="tag-cloud-link">原型链、prototype、__proto__</a>
     
-    <a href="/tags/url、tcp、http/" style="font-size: 19.275868609983615px;" class="tag-cloud-link">url、tcp、http</a>
+    <a href="/tags/url、tcp、http/" style="font-size: 13.900802084041722px;" class="tag-cloud-link">url、tcp、http</a>
     
-    <a href="/tags/transparent、border/" style="font-size: 10.042068666757395px;" class="tag-cloud-link">transparent、border</a>
+    <a href="/tags/transparent、border/" style="font-size: 17.73144430168142px;" class="tag-cloud-link">transparent、border</a>
     
-    <a href="/tags/vue/" style="font-size: 10.957721278286352px;" class="tag-cloud-link">vue</a>
+    <a href="/tags/vue/" style="font-size: 19.307388735551328px;" class="tag-cloud-link">vue</a>
     
-    <a href="/tags/Vue、Vue-cli/" style="font-size: 13.029383879307574px;" class="tag-cloud-link">Vue、Vue-cli</a>
+    <a href="/tags/Vue、Vue-cli/" style="font-size: 19.432906869202856px;" class="tag-cloud-link">Vue、Vue-cli</a>
     
 </div>
                 
