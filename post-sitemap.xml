@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>issummer.cn/2020/08/26/requirejs/</loc>
+        <lastmod>2020-08-26T02:28:34.900Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>issummer.cn/2019/12/30/Barcode/</loc>
+        <lastmod>2020-07-16T05:46:38.621Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>issummer.cn/2019/07/03/Class/</loc>
+        <lastmod>2020-07-10T06:29:58.744Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>issummer.cn/2020/07/10/let/</loc>
         <lastmod>2020-07-10T06:27:59.688Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -90,14 +114,6 @@
     <url>
         <loc>issummer.cn/2019/12/30/QRCode/</loc>
         <lastmod>2020-06-02T01:56:18.289Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>issummer.cn/2019/12/30/Barcode/</loc>
-        <lastmod>2020-06-02T01:45:58.293Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -282,14 +298,6 @@
     <url>
         <loc>issummer.cn/2019/06/19/promise/</loc>
         <lastmod>2019-07-10T22:26:16.928Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>issummer.cn/2019/07/03/ES6/</loc>
-        <lastmod>2019-07-10T22:26:06.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

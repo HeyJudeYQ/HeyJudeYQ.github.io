@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="issummer.cn/"/>
-  <updated>2020-07-10T06:27:59.688Z</updated>
+  <updated>2020-08-26T02:28:34.900Z</updated>
   <id>issummer.cn/</id>
   
   <author>
@@ -15,6 +15,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>requirejs.md</title>
+    <link href="issummer.cn/2020/08/26/requirejs/"/>
+    <id>issummer.cn/2020/08/26/requirejs/</id>
+    <published>2020-08-26T02:10:53.000Z</published>
+    <updated>2020-08-26T02:28:34.900Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;项目使用的requirejs，线上部署后存在缓存问题，仍是上一个版本。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>es6-let暂时性死区</title>
@@ -311,7 +327,7 @@
     <link href="issummer.cn/2019/12/30/Barcode/"/>
     <id>issummer.cn/2019/12/30/Barcode/</id>
     <published>2019-12-30T06:20:57.000Z</published>
-    <updated>2020-06-02T01:45:58.293Z</updated>
+    <updated>2020-07-16T05:46:38.621Z</updated>
     
     <summary type="html">
     
@@ -321,24 +337,6 @@
     
     
       <category term="H5、barcode" scheme="issummer.cn/tags/H5%E3%80%81barcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何使用QRCode生成二维码？</title>
-    <link href="issummer.cn/2019/12/30/QRCode/"/>
-    <id>issummer.cn/2019/12/30/QRCode/</id>
-    <published>2019-12-30T05:48:40.000Z</published>
-    <updated>2020-06-02T01:56:18.289Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在Vue项目中，前端生成站点二维码，使用APP扫码功能达到扫码加油的目的。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="QRCode" scheme="issummer.cn/tags/QRCode/"/>
     
   </entry>
   
